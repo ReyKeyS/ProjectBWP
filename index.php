@@ -4,14 +4,10 @@
     if (isset($_SESSION['data'])){
         $logged = true;
     }
-
-
-
     if (isset($_POST["logout"])){
         unset($_SESSION['data']);
         header("Location: index.php");
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -25,18 +21,45 @@
 </head>
 <body>
     <form action="#" method="POST">
-        <?php
+        <nav class="h-14 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex">
+            <div class="w-10 h-10 my-auto ml-12 rounded-full bg-red-500">
+                <img src="assets/Logo LTJ Minimalis apik with tulisan bawah.jpg" alt="" class="rounded-full">
+            </div>
+            <div class="my-auto ml-5 text-white font-bold text-2xl">
+                <?php
+                    if(isset($_SESSION['data'])){
+                        echo $_SESSION['data']['nama'];
+                    }
+                    else{
+                        echo "Glorindo Komputer";
+                    }
+                ?>
+            </div>
+            <div class="my-auto ml-80 w-1/3 flex">
+                <input type="text" name="search" placeholder="Cari Disini" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none">
+                <button name="btnsearch" class="border-l-2">
+                    <img src="assets/search.png" alt="" class=" bg-white w-10 h-10 p-1 rounded-r-xl">
+                </button>
+            </div>
+            <button type="submit" name="rakit" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-purple-300 text-white font-semibold ml-20 my-auto rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to bg-purple-500">Rakit</button>
+            <button type="submit" name="cart" class="flex my-auto ml-10 rounded-2xl bg-slate-600 font-semibold text-white hover:bg-slate-900">
+                <img src="assets/shopping-cart.png" alt="" class="w-10 h-10 p-1">
+                <span class="my-auto">Cart</span>
+            </button>
+            <?php
             if($logged){
-        ?>
-                <button submit="submit" name="logout" class="px-3 py-2 border bg-red-500">Logout</button>
-        <?php
-            }else{
-        ?>
-                <button submit="submit" formaction="login.php" class="px-3 py-2 border">Login</button>
-                <button submit="submit" formaction="register.php" class="px-3 py-2 border">Register</button>
-        <?php
-            }
-        ?>
+            ?>
+                <button submit="submit" name="logout" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold ml-10 my-auto rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Logout</button>
+            <?php
+                }else{
+            ?>
+                <button submit="submit" formaction="login.php" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold ml-10 my-auto rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Login</button>
+                <button submit="submit" formaction="register.php" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold ml-10 my-auto rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
+            <?php
+                }
+            ?>
+        </nav>
+        
     </form>
 </body>
 </html>

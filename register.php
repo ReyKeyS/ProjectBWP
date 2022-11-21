@@ -70,7 +70,6 @@
             <div class="text-center text-xl my-3">Sudah Punya account? &nbsp;<a href="login.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Login Sekarang!</a></div>
             <div class="flex">
                 <button type="submit" name="register" class="my-5 text-lg font-semibold px-7 py-3 ml-auto text-white rounded-full bg-sky-400 hover:bg-sky-500 active:bg-sky-600 focus:ring-4 focus:ring-sky-200">REGISTER</button>
-
             </div>
         </div>
     </form>
