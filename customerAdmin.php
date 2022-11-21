@@ -39,7 +39,7 @@
     <form action="" method="POST">
         <div class="flex h-screen">
             <div class="flex-auto w-1/3 bg-red-500 flex flex-col text-center">
-                <h2 class="text-5xl px-5 pt-5 pb-5 mb-5 border">Home Admin</h2>
+                <h2 class="text-5xl px-5 pt-5 pb-5 mb-5">Home Admin</h2>
                 <div class="w-48 h-48 bg-gray-800 rounded-full mx-auto bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
                 <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="homeAdmin.php">
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
