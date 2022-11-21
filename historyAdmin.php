@@ -49,17 +49,17 @@
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
                     <div class=" my-auto ml-3">Products</div>
                 </button>
-                <button class="flex flex-row px-7 py-4 w-3/4 mx-auto text-2xl bg-slate-700 text-white rounded-full hover:bg-slate-500 focus:ring-4 active:ring-green-200 focus:outline-none p-5 my-4" formaction="#">
+                <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="categoriesAdmin.php">
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                    <div class=" my-auto ml-3 font-bold">Categories</div>
+                    <div class=" my-auto ml-3">Categories</div>
                 </button>
                 <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="customerAdmin.php">
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
                     <div class=" my-auto ml-3">Customers</div>
                 </button>
-                <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="historyAdmin.php">
+                <button class="flex flex-row px-7 py-4 w-3/4 mx-auto text-2xl bg-slate-700 text-white rounded-full hover:bg-slate-500 focus:ring-4 active:ring-green-200 focus:outline-none p-5 my-4" formaction="#">
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                    <div class=" my-auto ml-3">History</div>
+                    <div class=" my-auto ml-3 font-bold">History</div>
                 </button>
                 <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" name="btnLogout">
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
