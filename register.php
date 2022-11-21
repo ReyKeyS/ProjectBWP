@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <form action="" method="POST">
+        <div class="container box-border py-10 px-20 mx-auto my-20 flex-col top-52 left-52 border rounded-xl place-content-center hover:shadow-lg hover:shadow-cyan-300">
+            <h1 class="text-center font-bold text-6xl bg-gradient-to-br from-blue-500 to-red-700 bg-clip-text text-transparent animate-pulse">REGISTER</h1>
+            <span class="text-xl">Name</span>
+            <input type="text" placeholder="Masukkan Nama" name="name" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+            <span class="text-xl">Email</span>
+            <label for="email" id="email">
+                <input type="email" placeholder="Masukkan Email" class="px-3 py-2 border shadow rounded w-full h-14 text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none invalid:text-purple-600 invalid:focus:ring-purple-600 peer">
+                <p class="text-sm text-purple-600 invisible peer-invalid:visible">Email tidak valid</p>
+            </label>
+            <span class="text-xl">Nomor Telepon</span>
+            <input type="number" placeholder="Masukkan Nomor Telepon" name="telp" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+            <span class="text-xl">Alamat</span>
+            <input type="text" placeholder="Masukkan Alamat" name="alamat" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+            <span class="text-xl">Password</span>
+            <input type="password" placeholder="Masukkan Password" name="pass" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+            <span class="text-xl">Confirm Password</span>
+            <input type="password" placeholder="Masukkan Confirm Password" name="conf" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+            <div class="text-center text-xl my-3">Sudah Punya account? &nbsp;<a href="login.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Login Sekarang!</a></div>
+            <div class="flex">
+                <button type="submit" name="register" class="my-5 text-lg font-semibold px-7 py-3 ml-auto text-white rounded-full bg-sky-400 hover:bg-sky-500 active:bg-sky-600 focus:ring-4 focus:ring-sky-200">REGISTER</button>
+
+            </div>
+        </div>
+    </form>
+</body>
+</html>
