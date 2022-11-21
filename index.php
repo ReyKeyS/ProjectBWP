@@ -23,7 +23,7 @@
     <form action="#" method="POST">
         <nav class="h-14 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex">
             <div class="w-10 h-10 my-auto ml-12 rounded-full bg-red-500">
-                <img src="assets/Logo LTJ Minimalis apik with tulisan bawah.jpg" alt="" class="rounded-full">
+                <img src="assets/Logo.jpg" alt="" class="rounded-full">
             </div>
             <div class="my-auto ml-5 text-white font-bold text-2xl">
                 <?php
@@ -59,7 +59,11 @@
                 }
             ?>
         </nav>
-        
+        <div class="flex flex-col">
+            <div class="w-full h-[600px] bg-red-500 overflow-hidden bg-center">
+                <img src="assets/setup.jpg" alt="" class="object-center">
+            </div>
+        </div>
     </form>
 </body>
 </html>
