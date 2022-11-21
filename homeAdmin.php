@@ -26,7 +26,7 @@
           theme: {
             extend: {
               animation:{
-                'gerak':'goyang 1s ease-in-out infinite'
+                'gerak':'goyang 3s ease-in-out infinite'
               },
               keyframes : {
                 goyang:{
