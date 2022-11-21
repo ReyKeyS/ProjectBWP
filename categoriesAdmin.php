@@ -10,13 +10,12 @@
     }
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Admin</title>
+    <title>Document</title>
     <style>
         .tmbl{
             width: 360px;
@@ -64,29 +63,29 @@
       </script>
 </head>
 <body>
-    <form action="" method="POST">
+<form action="" method="POST">
         <div class="flex h-screen">
             <div class="flex-auto w-1/3 bg-red-500 flex flex-col text-center">
                 <h2 class="text-5xl px-5 pt-5 pb-5 mb-5 border">Home Admin</h2>
                 <div class="w-48 h-48 bg-gray-800 rounded-full mx-auto bg-[url('https://source.unsplash.com/600x400')] bg-center">
                 </div>
-                <button class="flex flex-row tmbl p-5 mt-10" formaction="#">
+                <button class="flex flex-row bkntmbl p-5 mt-10" formaction="homeAdmin.php">
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                    <div class=" my-auto ml-3 font-bold">Home</div>
+                    <div class=" my-auto ml-3">Home</div>
                 </button>
-                <button class="flex flex-row bkntmbl p-5" formaction="productsAdmin.php">
+                <button class="flex flex-row bkntmbl p-5" formaction="#">
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
                     <div class=" my-auto ml-3">Products</div>
                 </button>
-                <button class="flex flex-row bkntmbl p-5" formaction="categoriesAdmin.php">
+                <button class="flex flex-row tmbl p-5" formaction="categoriesAdmin">
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                    <div class=" my-auto ml-3">Categories</div>
+                    <div class=" my-auto ml-3 font-bold">Categories</div>
                 </button>
-                <button class="flex flex-row bkntmbl p-5" formaction="customersAdmin.php">
+                <button class="flex flex-row bkntmbl p-5" formaction="customersAdmin">
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
                     <div class=" my-auto ml-3">Customers</div>
                 </button>
-                <button class="flex flex-row bkntmbl p-5" formaction="historyAdmin.php">
+                <button class="flex flex-row bkntmbl p-5" formaction="historyAdmin">
                     <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
                     <div class=" my-auto ml-3">History</div>
                 </button>
