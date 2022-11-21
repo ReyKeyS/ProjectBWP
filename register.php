@@ -1,3 +1,44 @@
+<?php
+    require_once("connection.php");
+    $result=mysqli_query($conn,"SELECT * from users");
+    if(isset($_POST['register'])){
+        $name=$_POST['name'];
+        $email=$_POST['email'];
+        $pass=$_POST['pass'];
+        $conf=$_POST['conf'];
+        $telp=$_POST['telp'];
+        $alamat=$_POST['alamat'];
+        $ketemu=false;
+        while($row=mysqli_fetch_array($result)){
+            if($name==$row['nama'] || $email==$row['email']){
+                $ketemu=true;
+            }
+        }
+        if(!$ketemu){
+            if($name!="" && $email!="" && $pass!="" && $conf!="" && $telp!="" && $alamat!=""){
+                if($pass!=$conf){
+                    echo "<script>alert('Password dan Confirm Password harus sama')</script>";
+                }
+                else{
+                    // GenerateID
+                    $newID = "US";
+                    $max = mysqli_query($conn, "SELECT max(substr(id_users,3)) from users");
+                    $maxUrut = mysqli_fetch_row($max)[0] + 1;
+                    $newID .= str_pad($maxUrut, 4, "0", STR_PAD_LEFT);
+                    
+                    mysqli_query($conn,"INSERT into users values('$newID', '$name', '$email', '$telp', '$alamat', '$pass', '1')");
+                    header("Location: login.php");
+                }
+            }
+            else{
+                echo "<script>alert('Field masih ada yang kosong')</script>";
+            }
+        }
+        else{
+            echo "<script>alert('Name/Email sudah digunakan')</script>";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +56,7 @@
             <input type="text" placeholder="Masukkan Nama" name="name" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             <span class="text-xl">Email</span>
             <label for="email" id="email">
-                <input type="email" placeholder="Masukkan Email" class="px-3 py-2 border shadow rounded w-full h-14 text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none invalid:text-purple-600 invalid:focus:ring-purple-600 peer">
+                <input type="email" placeholder="Masukkan Email" name="email" class="px-3 py-2 border shadow rounded w-full h-14 text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none invalid:text-purple-600 invalid:focus:ring-purple-600 peer">
                 <p class="text-sm text-purple-600 invisible peer-invalid:visible">Email tidak valid</p>
             </label>
             <span class="text-xl">Nomor Telepon</span>
