@@ -2,14 +2,14 @@
     require_once('connection.php');
     $result=mysqli_query($conn,"SELECT * from users where status=true");
     if(isset($_POST['login'])){
-        $email=$_POST['email'];
+        $nama=$_POST['nama'];
         $pass=$_POST['pass'];
         $ketemu=false;
-        $ketemu=false;
+        $ketemu2=false;
         while($row=mysqli_fetch_array($result)){
-            if($email==$row['email']){
+            if($nama==$row['email'] || $nama==$row['nama']){
                 $ketemu2=true;
-                if($pass==$row['pass']){
+                if($pass==$row['password']){
                     $ketemu=true;
                     $nama=$row['nama'];
                     $telp=$row['telp'];
@@ -21,14 +21,20 @@
                     $baru['alamat']=$alamat;
                     $baru['pass']=$pass;
                     $_SESSION['data']=$baru;
+                    header("Location:index.php");
                 }
             }
         }
-        if($ketemu){
-            
+        if($ketemu2){
+            echo "<script>alert('Password salah')</script>";
         }
         else{
-
+            if($nama == "admin" && $pass == "admin"){
+                $_SESSION['data']= "admin";
+                header("Location: homeAdmin.php");
+            }else{
+                echo "<script>alert('Password salah')</script>";
+            }
         }
     }
 ?>
@@ -43,16 +49,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <form action="">
+    <form action="" method="POST">
         <div class="container py-10 px-20 mx-auto flex-col fixed top-52 left-52 border rounded-xl place-content-center">
             <h1 class="animate-pulse text-center font-bold text-6xl bg-gradient-to-r from-blue-500 to-red-700 bg-clip-text text-transparent">LOGIN</h1>
-            <!-- <div class="text-xl">Name</div>
-            <input type="text" name="nama" placeholder="Masukkan Nama" class="px-3 py-2 border shadow rounded-lg w-full h-14 text-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"> -->
-            <div class="text-xl">Email</div>
-            <label for="email" id="email">
+            <div class="text-xl">Name/Email</div>
+            <input type="text" name="nama" placeholder="Masukkan Nama/Email" class="mb-3 px-3 py-2 border shadow rounded-lg w-full h-14 text-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            <!-- <div class="text-xl">Email</div> -->
+            <!-- <label for="email" id="email">
                 <input type="email" placeholder="Masukkan Email" class="px-3 py-2 border shadow rounded-xl w-full h-14 text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none invalid:text-purple-600 invalid:focus:ring-purple-600 peer">
                 <p class="text-sm text-purple-600 invisible peer-invalid:visible">Email tidak valid</p>
-            </label>
+            </label> -->
             <div class="text-xl">Password</div>
             <input type="password" name="pass" placeholder="Masukkan Password" class="px-3 py-2 border rounded-xl w-full h-14 text-xl shadow focus:ring-2 focus:ring-blue-500 focus:outline-none">
             <div class="text-xl text-center">Belum punya account? &nbsp;<a href="register.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Register Sekarang!</a></div>
