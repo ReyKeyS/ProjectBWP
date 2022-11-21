@@ -59,7 +59,7 @@
                 <input type="email" placeholder="Masukkan Email" class="px-3 py-2 border shadow rounded-xl w-full h-14 text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none invalid:text-purple-600 invalid:focus:ring-purple-600 peer">
                 <p class="text-sm text-purple-600 invisible peer-invalid:visible">Email tidak valid</p>
             </label> -->
-            <div class="text-xl">Password1</div>
+            <div class="text-xl">Password</div>
             <input type="password" name="pass" placeholder="Masukkan Password" class="px-3 py-2 border rounded-xl w-full h-14 text-xl shadow focus:ring-2 focus:ring-blue-500 focus:outline-none">
             <div class="text-xl text-center">Belum punya account? &nbsp;<a href="register.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Register Sekarang!</a></div>
             <div class="flex">
