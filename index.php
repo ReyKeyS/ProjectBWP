@@ -71,7 +71,7 @@
                 <div class="w-2/3"></div>
             </div>
             <div class="w-full relative">
-                <div class="w-64 h-72 bg-slate-600 rounded-md flex flex-col fixed bottom-0 left-0 translate-y-3/4 hover:translate-y-0 duration-500">
+                <div class="w-64 h-72 bg-slate-600 rounded-md flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
                     <div class="text-white font-semibold text-2xl text-center">Filter</div>
                     <div class="my-1 text-white font-medium">Category</div>
                     <div class="my-1 text-white font-medium">Price</div>
