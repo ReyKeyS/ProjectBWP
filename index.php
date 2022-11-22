@@ -21,9 +21,9 @@
 </head>
 <body>
     <form action="#" method="POST">
-        <div class="h-14 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex">
-            <a class="w-32 my-auto">
-                <img src="assets/gonadi.jpg" alt="" class="w-10 h-10 mx-auto rounded-full">
+        <div class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex">
+            <a class="w-32 my-auto ml-3">
+                <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
             <a class="my-auto w-80 text-white font-bold text-2xl">
                 <?php
@@ -37,8 +37,8 @@
             </a>
             <div class="my-auto w-1/2 flex">
                 <input type="text" name="search" placeholder="Cari Disini" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none">
-                <button name="btnsearch" class="border-l-2">
-                    <img src="assets/search.png" alt="" class=" bg-white w-10 h-10 p-1 rounded-r-xl">
+                <button name="btnsearch" class="border-l-2 bg-white rounded-r-xl w-12 pl-1">
+                    <img src="assets/search.png" alt="" class="w-8 h-8 p-1">
                 </button>
             </div>
             <div class="w-32 my-auto">
