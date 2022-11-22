@@ -68,43 +68,51 @@
                     </button>
                 </div>
             </div>
-            <div class="flex-auto flex flex-col w-full bg-blue-600">
-                    <div class="flex bg-green-500 p-5 mb-5">
-                        <div class="w-20  h-20 rounded-full bg-slate-700 text-white text-center bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                        <div class="tulis pt-1 pl-7 ml-5 block">
-                            <div class="text-lg my-auto ml-3 pl-28 font-bold">Admin Glorindo Komputer</div>
-                            <div class="text-2xl my-auto ml-3 font-bold">Welcome Back Admin ! Let's Build a Future Together</div>
+            <div class="flex-auto flex flex-col w-full bg-neutral-100">
+                    <div class="flex bg-gradient-to-r from-purple-900 to-fuchsia-600 p-5 mb-5 shadow-xl">
+                        <div class="w-20 h-20 ml-8 mr-2 rounded-full bg-slate-700 text-white text-center bg-[url('assets/Logo.jpg')] bg-cover"></div>
+                        <div class="tulis pt-1 pl-7 ml-44 block text-center text-white">
+                            <div class="text-xl my-auto font-bold">Admin Glorindo Komputer</div>
+                            <div class="text-3xl my-auto font-bold">Welcome Back Admin! &nbsp; Let's Build a Future Together</div>
                         </div>
                     </div>
-                <div class="overflow-y-scroll h-screen">
-                    <div class="mx-auto px-6 bg-purple-600 columns-4">
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                1000 Customer
+                <div class="overflow-y-scroll h-screen -mt-5">
+                    <div class="my-6 text-center font-bold text-5xl bg-gradient-to-r from-purple-900 to-fuchsia-600 bg-clip-text text-transparent">Dashboard</div>
+                    <div class="mx-auto px-6 columns-4 mt-8">
+                        <div class="rounded-xl border border-gray-400 shadow-lg overflow-hidden pt-8 px-8 bg-white">
+                            <img src="assets/customer.png" alt="" class="w-[75px] ml-5">
+                            <div class="my-3 font-bold text-gray-500 text-3xl ml-3">Customers</div>
+                            <div class="w-full h-2 rounded-full bg-gradient-to-r from-purple-900 to-fuchsia-600"></div>
+                            <div class="text-center py-4 font-bold text-5xl">
+                                1000
                             </div>
                         </div>
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                2000 Products
+                        <div class="rounded-xl border border-gray-400 shadow-lg overflow-hidden pt-8 px-8 bg-white">
+                            <img src="assets/productsabu.png" alt="" class="w-[80px] ml-5">
+                            <div class="my-3 font-bold text-gray-500 text-3xl ml-3">Products</div>
+                            <div class="w-full h-2 rounded-full bg-gradient-to-r from-purple-900 to-fuchsia-600"></div>
+                            <div class="text-center py-4 font-bold text-5xl">
+                                2000
                             </div>
-                        </div>
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                10 Category
+                        </div><div class="rounded-xl border border-gray-400 shadow-lg overflow-hidden pt-8 px-8 bg-white">
+                            <img src="assets/cateogoryabu.png" alt="" class="w-[75px] ml-5">
+                            <div class="my-3 font-bold text-gray-500 text-3xl ml-3">Categories</div>
+                            <div class="w-full h-2 rounded-full bg-gradient-to-r from-purple-900 to-fuchsia-600"></div>
+                            <div class="text-center py-4 font-bold text-5xl">
+                                10
                             </div>
-                        </div>
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                3000 Transaction
+                        </div><div class="rounded-xl border border-gray-400 shadow-lg overflow-hidden pt-8 px-8 bg-white">
+                            <img src="assets/transactionabu.png" alt="" class="w-[75px] ml-5">
+                            <div class="my-3 font-bold text-gray-500 text-3xl ml-3">Transactions</div>
+                            <div class="w-full h-2 rounded-full bg-gradient-to-r from-purple-900 to-fuchsia-600"></div>
+                            <div class="text-center py-4 font-bold text-5xl">
+                                3000
                             </div>
                         </div>
                     </div>
-                    <div class="mt-20">
-                        <img src="https://source.unsplash.com/600x400" alt="" class="mx-auto animate-gerak">
+                    <div class="my-7 text-center font-bold text-5xl bg-gradient-to-r from-purple-900 to-fuchsia-600 bg-clip-text text-transparent">Promo Deals</div>
+                    <div class="mb-14 mt-10">
+                        <img src="assets/ElectronicDeals.png" alt="" class="mx-auto animate-gerak">
                     </div>
                 </div>
             </div>
