@@ -23,7 +23,7 @@
     <form action="#" method="POST">
         <div class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex">
             <a class="w-32 my-auto ml-3">
-                <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
+                <img src="assets/gonadi.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
             <a class="my-auto w-80 text-white font-bold text-2xl">
                 <?php
@@ -37,7 +37,7 @@
             </a>
             <div class="my-auto w-1/2 flex">
                 <input type="text" name="search" placeholder="Cari Disini" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none">
-                <button name="btnsearch" class="border-l-2 bg-white rounded-r-xl w-12 pl-1">
+                <button name="btnsearch" class="border-l-2 bg-white rounded-r-xl w-12 pl-1 hover:bg-slate-400">
                     <img src="assets/search.png" alt="" class="w-8 h-8 p-1">
                 </button>
             </div>
@@ -69,6 +69,25 @@
                     "Bringing the best Quality of Service"
                 </div>
                 <div class="w-2/3"></div>
+            </div>
+            <div class="w-full relative">
+                <div class="w-64 h-72 bg-slate-600 rounded-md flex flex-col fixed bottom-0 left-0 translate-y-3/4 hover:translate-y-0 duration-300">
+                    <div class="text-white font-semibold text-2xl text-center">Filter</div>
+                    <div class="my-1">Category</div>
+                    <div class="my-1">Price</div>
+                    <input type="text" name="min" placeholder="Harga minimum" class="my-1 w-3/4 mx-auto">
+                    <input type="text" name="maks" placeholder="Harga maksimum" class="my-1 w-3/4 mx-auto">
+                    <button class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold bg-gradient-to-r from-purple-700 to-purple-300 hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-500">Apply</button>
+                    <div class="my-1">Sort</div>
+                    <div>
+                        <input type="radio" name="sort" value="asc">
+                        Ascending
+                    </div>
+                    <div>
+                        <input type="radio" name="sort" value="desc">
+                        Descending
+                    </div>
+                </div>
             </div>
         </div>
         <!-- <div class="flex flex-col">
