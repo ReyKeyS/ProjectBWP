@@ -51,7 +51,7 @@
 <body>
     <form action="" method="POST">
         <div class="w-screen h-screen flex justify-center">
-            <div class="py-10 px-20 w-1/2 m-auto flex flex-col border rounded-xl place-content-center hover:shadow-cyan-300 hover:shadow-lg">
+            <div class="py-10 px-20 w-1/2 m-auto flex flex-col border rounded-xl place-content-center hover:shadow-cyan-300 hover:shadow-lg duration-300">
                 <h1 class="animate-pulse text-center font-bold text-6xl bg-gradient-to-r from-blue-500 to-red-700 bg-clip-text text-transparent">LOGIN</h1>
                 <div class="text-xl">Name/Email</div>
                 <input type="text" name="nama" placeholder="Masukkan Nama/Email" class="mb-3 px-3 py-2 border shadow rounded-lg w-full h-14 text-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
