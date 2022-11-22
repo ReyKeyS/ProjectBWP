@@ -71,22 +71,35 @@
                 <div class="w-2/3"></div>
             </div>
             <div class="w-full relative">
-                <div class="w-64 h-72 bg-slate-600 rounded-md flex flex-col fixed bottom-0 left-0 translate-y-3/4 hover:translate-y-0 duration-300">
+                <div class="w-64 h-72 bg-slate-600 rounded-md flex flex-col fixed bottom-0 left-0 translate-y-3/4 hover:translate-y-0 duration-500">
                     <div class="text-white font-semibold text-2xl text-center">Filter</div>
-                    <div class="my-1">Category</div>
-                    <div class="my-1">Price</div>
-                    <input type="text" name="min" placeholder="Harga minimum" class="my-1 w-3/4 mx-auto">
-                    <input type="text" name="maks" placeholder="Harga maksimum" class="my-1 w-3/4 mx-auto">
-                    <button class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold bg-gradient-to-r from-purple-700 to-purple-300 hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-500">Apply</button>
-                    <div class="my-1">Sort</div>
-                    <div>
-                        <input type="radio" name="sort" value="asc">
-                        Ascending
+                    <div class="my-1 text-white font-medium">Category</div>
+                    <div class="my-1 text-white font-medium">Price</div>
+                    <input type="text" name="min" placeholder="Harga minimum" class="my-1 w-3/4 mx-auto rounded-lg">
+                    <input type="text" name="maks" placeholder="Harga maksimum" class="my-1 w-3/4 mx-auto rounded-lg">
+                    <button type="submit" name="apply" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-300 hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-500">Apply</button>
+                    <div class="my-1 text-white font-medium">Sort</div>
+                    <div class="flex flex-row">
+                        <input type="radio" name="sort" value="asc" class="ml-3">
+                        <div class="text-white font-medium">Ascending</div>
                     </div>
-                    <div>
-                        <input type="radio" name="sort" value="desc">
-                        Descending
+                    <div class="flex flex-row">
+                        <input type="radio" name="sort" value="desc" class="ml-3">
+                        <div class="text-white font-medium">Descending</div>
                     </div>
+                </div>
+                <div class="text-slate-600 font-bold text-4xl">
+                    Recommended
+                </div>
+                <div class="flex">
+                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
+                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
+                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
+                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
+                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
+                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
+                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
+                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
                 </div>
             </div>
         </div>
