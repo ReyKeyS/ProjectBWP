@@ -38,33 +38,35 @@
 <body>
     <form action="" method="POST">
         <div class="flex h-screen">
-            <div class="flex-auto w-1/3 bg-red-500 flex flex-col text-center">
-                <h2 class="text-5xl px-5 pt-5 pb-5 mb-5">Home Admin</h2>
-                <div class="w-48 h-48 bg-gray-800 rounded-full mx-auto bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="homeAdmin.php">
-                    <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                    <div class=" my-auto ml-3">Home</div>
-                </button>
-                <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="productsAdmin.php">
-                    <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                    <div class=" my-auto ml-3">Products</div>
-                </button>
-                <button class="flex flex-row px-7 py-4 w-3/4 mx-auto text-2xl bg-slate-700 text-white rounded-full hover:bg-slate-500 focus:ring-4 active:ring-green-200 focus:outline-none p-5 my-4" formaction="#">
-                    <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                    <div class=" my-auto ml-3 font-bold">Categories</div>
-                </button>
-                <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="customerAdmin.php">
-                    <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                    <div class=" my-auto ml-3">Customers</div>
-                </button>
-                <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="historyAdmin.php">
-                    <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                    <div class=" my-auto ml-3">History</div>
-                </button>
-                <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" name="btnLogout">
-                    <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                    <div class=" my-auto ml-3">Logout</div>
-                </button>
+            <div class="flex-auto w-1/3 bg-neutral-900 flex flex-col text-center">
+                <h2 class="text-4xl px-5 pt-5 pb-6 mb-8 bg-neutral-600 mt-8 mx-12 rounded-[20px] font-semibold text-white">Categories Admin</h2>
+                <div class="w-48 h-48 rounded-full mx-auto bg-white bg-center" style="background-image: url('assets/userdrrichardlee.png'); background-size: 101%;"></div>
+                <div class="bg-neutral-600 w-9/12 h-auto mx-auto rounded-3xl mt-6">
+                    <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="homeAdmin.php">
+                        <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
+                        <div class=" my-auto ml-3">Home</div>
+                    </button>
+                    <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="productsAdmin.php">
+                        <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
+                        <div class=" my-auto ml-3">Products</div>
+                    </button>
+                    <button class="flex flex-row px-7 py-4 w-3/4 mx-auto text-2xl bg-slate-700 text-white rounded-full hover:bg-slate-500 focus:ring-4 active:ring-green-200 focus:outline-none p-5 my-4" formaction="#">
+                        <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
+                        <div class=" my-auto ml-3 font-bold">Categories</div>
+                    </button>
+                    <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="customerAdmin.php">
+                        <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
+                        <div class=" my-auto ml-3">Customers</div>
+                    </button>
+                    <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" formaction="historyAdmin.php">
+                        <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
+                        <div class=" my-auto ml-3">History</div>
+                    </button>
+                    <button class="flex flex-row px-7 py-3 w-3/4 mx-auto text-lg my-4 rounded-full hover:bg-slate-500 hover:text-white" name="btnLogout">
+                        <div class="w-10 h-10 bg-gray-800 rounded-full ml-5 bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
+                        <div class=" my-auto ml-3">Logout</div>
+                    </button>
+                </div>
             </div>
             <div class="flex-auto flex flex-col w-full bg-blue-600">
                     <div class="flex bg-green-500 p-5 mb-5">
