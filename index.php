@@ -21,11 +21,11 @@
 </head>
 <body>
     <form action="#" method="POST">
-        <nav class="h-14 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex">
-            <div class="w-10 h-10 my-auto ml-12 rounded-full bg-red-500">
-                <img src="assets/Logo.jpg" alt="" class="rounded-full">
-            </div>
-            <div class="my-auto ml-5 text-white font-bold text-2xl">
+        <div class="h-14 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex">
+            <a class="w-32 my-auto">
+                <img src="assets/gonadi.jpg" alt="" class="w-10 h-10 mx-auto rounded-full">
+            </a>
+            <a class="my-auto w-80 text-white font-bold text-2xl">
                 <?php
                     if(isset($_SESSION['data'])){
                         echo $_SESSION['data']['nama'];
@@ -34,36 +34,48 @@
                         echo "Glorindo Komputer";
                     }
                 ?>
-            </div>
-            <div class="my-auto ml-80 w-1/3 flex">
+            </a>
+            <div class="my-auto w-1/2 flex">
                 <input type="text" name="search" placeholder="Cari Disini" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none">
                 <button name="btnsearch" class="border-l-2">
                     <img src="assets/search.png" alt="" class=" bg-white w-10 h-10 p-1 rounded-r-xl">
                 </button>
             </div>
-            <button type="submit" name="rakit" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-purple-300 text-white font-semibold ml-20 my-auto rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to bg-purple-500">Rakit</button>
-            <button type="submit" name="cart" class="flex my-auto ml-10 rounded-2xl bg-slate-600 font-semibold text-white hover:bg-slate-900">
+            <div class="w-32 my-auto">
+                <button type="submit" name="rakit" class="px-5 py-2 ml-7 bg-gradient-to-r from-purple-700 to-purple-300 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to bg-purple-500">Rakit</button>
+            </div>
+            <button type="submit" name="cart" class="flex p-auto m-auto rounded-2xl bg-slate-600 font-semibold text-white hover:bg-slate-900">
                 <img src="assets/shopping-cart.png" alt="" class="w-10 h-10 p-1">
-                <span class="my-auto">Cart</span>
+                <span class="my-auto p-1">Cart</span>
             </button>
             <?php
             if($logged){
             ?>
-                <button submit="submit" name="logout" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold ml-10 my-auto rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Logout</button>
+                <button submit="submit" name="logout" class="px-5 py-2 m-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Logout</button>
             <?php
                 }else{
             ?>
-                <button submit="submit" formaction="login.php" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold ml-10 my-auto rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Login</button>
-                <button submit="submit" formaction="register.php" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold ml-10 my-auto rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
+                <button submit="submit" formaction="login.php" class="px-5 py-2 m-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Login</button>
+                <button submit="submit" formaction="register.php" class="px-5 py-2 m-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
             <?php
                 }
             ?>
-        </nav>
+        </div>
         <div class="flex flex-col">
-            <div class="w-full h-[600px] bg-red-500 overflow-hidden bg-center">
-                <img src="assets/setup.jpg" alt="" class="object-center">
+            <div class="w-full h-[600px] bg-center flex flex-row" style="background-image: url('assets/setup.jpg');">
+                <div class="w-1/3 m-auto text-center text-white font-bold text-3xl">
+                    Welcome To Our Shop
+                    <br>
+                    "Bringing the best Quality of Service"
+                </div>
+                <div class="w-2/3"></div>
             </div>
         </div>
+        <!-- <div class="flex flex-col">
+            <div class="w-full h-[600px] bg-center">
+                
+            </div>
+        </div> -->
     </form>
 </body>
 </html>
