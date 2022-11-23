@@ -21,8 +21,9 @@ USE `db_proyek`;
 DROP TABLE IF EXISTS `categories`;
 
 CREATE TABLE `categories` (
-  `id_cate` varchar(200) DEFAULT NULL,
-  `nama` varchar(200) DEFAULT NULL
+  `id_cate` varchar(200) NOT NULL,
+  `nama` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_cate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `categories` */
@@ -31,6 +32,24 @@ insert  into `categories`(`id_cate`,`nama`) values
 ('CA001','Mouse'),
 ('CA002','Keyboard'),
 ('CA003','VGA');
+
+/*Table structure for table `products` */
+
+DROP TABLE IF EXISTS `products`;
+
+CREATE TABLE `products` (
+  `id_products` varchar(200) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `desc` varchar(255) DEFAULT NULL,
+  `price` bigint(20) NOT NULL,
+  `stok` int(11) NOT NULL,
+  `brand` varchar(200) DEFAULT NULL,
+  `id_cate` varchar(200) NOT NULL,
+  `gmbr` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_products`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `products` */
 
 /*Table structure for table `users` */
 
