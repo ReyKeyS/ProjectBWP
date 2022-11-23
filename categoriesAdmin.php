@@ -138,13 +138,6 @@
                                     }
                                 }
                             ?>
-                            <!-- <tr>
-                                <td class="border">1</td>
-                                <td class="border">Mouse</td>
-                                <td class="border">
-                                    <button type="submit" name="btnDelete_Category" class="px-3 py-2 rounded bg-red-500 hover:bg-red-600">Delete</button>
-                                </td>
-                            </tr> -->
                         </table>
                     </div>
                 </div>

@@ -63,15 +63,14 @@
                 <img src="assets/gonadi.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
             <a class="my-auto w-80 text-white font-bold text-2xl">
-                <!-- <?php
+               <?php
                     if(isset($_SESSION['data'])){
                         echo $_SESSION['data']['nama'];
                     }
                     else{
                         echo "Glorindo Komputer";
                     }
-                ?> -->
-                Glorindo Komputer
+                ?> 
             </a>
             <div class="my-auto w-1/2 flex">
                 <input type="text" name="search" placeholder="Cari Disini" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none">
