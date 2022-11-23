@@ -25,7 +25,7 @@
               animation:{
                 'gerak':'goyang 3s ease-in-out infinite',
                 'tampil' : 'muncul 1.25s ease-in-out 1',
-                'tampil2': 'hadir 0.5s ease-in-out 1'
+                'tampil2': 'hadir 1.5s ease-in-out 1'
               },
               keyframes : {
                 goyang:{

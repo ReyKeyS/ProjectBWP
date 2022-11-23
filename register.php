@@ -85,9 +85,9 @@
                 <input type="email" placeholder="Enter your email" name="email" class="px-3 py-2 border shadow rounded w-full h-14 text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none invalid:text-purple-600 invalid:focus:ring-purple-600 peer">
                 <p class="text-sm text-purple-600 invisible peer-invalid:visible">Email tidak valid</p>
             </label>
-            <span class="text-xl">Nomor Telepon</span>
+            <span class="text-xl">Phone Number</span>
             <input type="number" placeholder="Enter your phone number" name="telp" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
-            <span class="text-xl">Alamat</span>
+            <span class="text-xl">Address</span>
             <input type="text" placeholder="Enter your address" name="alamat" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             <span class="text-xl">Password</span>
             <input type="password" placeholder="Enter your password" name="pass" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
