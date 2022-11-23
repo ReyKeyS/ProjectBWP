@@ -24,8 +24,8 @@
             extend: {
               animation:{
                 'gerak':'goyang 3s ease-in-out infinite',
-                'tampil' : 'muncul 1.25s ease-in-out 1'
-                // 'tampil2': 'hadir 0.5s ease-in-out 1'
+                'tampil' : 'muncul 1.25s ease-in-out 1',
+                'tampil2': 'hadir 0.5s ease-in-out 1'
               },
               keyframes : {
                 goyang:{
@@ -100,13 +100,15 @@
             ?>
         </nav>
         <div class="flex flex-col">
-            <div class="w-full h-[650px] bg-[center_bottom_-17rem] flex flex-row" style="background-image: url('assets/setup.jpg');">
-                <div class="w-1/3 m-auto text-center text-white font-bold text-3xl animate-tampil">
-                    Welcome To Our Shop
-                    <br>
-                    "Bringing the best Quality of Service"
+            <div class="w-full h-[650px] bg-black" >
+                <div class="flex flex-row w-full h-full bg-[center_bottom_-17rem]  animate-tampil2" style="background-image: url('assets/setup.jpg');">
+                    <div class="w-1/3 m-auto text-center text-white font-bold text-3xl animate-tampil">
+                        Welcome To Our Shop
+                        <br>
+                        "Bringing the best Quality of Service"
+                    </div>
+                    <div class="w-2/3"></div>
                 </div>
-                <div class="w-2/3"></div>
             </div>
             <div class="w-full relative">
                 <div class="w-64 h-72 bg-slate-700 rounded-t-xl flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
