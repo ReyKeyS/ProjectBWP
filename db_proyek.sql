@@ -16,6 +16,22 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_proyek` /*!40100 DEFAULT CHARACTER S
 
 USE `db_proyek`;
 
+/*Table structure for table `categories` */
+
+DROP TABLE IF EXISTS `categories`;
+
+CREATE TABLE `categories` (
+  `id_cate` varchar(200) DEFAULT NULL,
+  `nama` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `categories` */
+
+insert  into `categories`(`id_cate`,`nama`) values 
+('CA001','Mouse'),
+('CA002','Keyboard'),
+('CA003','VGA');
+
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;

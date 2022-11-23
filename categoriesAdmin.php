@@ -4,6 +4,28 @@
         header("Location: login.php");
     }
 
+    // Query
+    $queryCategory = mysqli_query($conn, "SELECT * from categories");
+
+    // Button
+    if(isset($_POST["btnAdd_Category"])){
+        $newNama = $_POST["nameCate"];
+
+        $newID = "CA";
+        $max = mysqli_query($conn, "SELECT max(substr(id_cate, 3)) from categories");
+        $urutan = mysqli_fetch_array($max)[0] + 1;
+        $newID .= str_pad(strval($urutan), 3, "0", STR_PAD_LEFT);
+
+        mysqli_query($conn, "INSERT INTO categories VALUES('$newID', '$newNama')");
+        header("Location: categoriesAdmin.php");
+    }
+
+    if(isset($_POST["btnDelete_Category"])){
+        $id_cate = $_POST["btnDelete_Category"];
+        mysqli_query($conn, "DELETE FROM categories where id_cate = '$id_cate'");
+        header("Location: categoriesAdmin.php");
+    }
+
     if(isset($_POST["btnLogout"])){
         unset($_SESSION["data"]);
         header("Location: index.php");
@@ -77,36 +99,58 @@
                     </div>
                 </div>
                 <div class="overflow-y-auto h-screen">
-                    <div class="max-w-2xl border border-slate-200 rounded-xl mx-auto shadow-md p-5">
+                    <div class="max-w-2xl border border-slate-200 rounded-xl mx-auto shadow-md p-5 bg-white">
                         <div class="text-center font-bold text-4xl mb-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">Add new Category</div>
                         <div class="flex">
                             <span class="my-auto mr-3 text-lg">Name : </span>
-                            <input type="text" name="name" class="px-3 py-2 border w-3/4 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Kategori">
+                            <input type="text" name="nameCate" class="px-3 py-2 border w-3/4 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Kategori">
                         </div>
                         <div class="flex mt-3">
-                            <button type="submit" class="py-2 px-4 mx-auto rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-300 hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-500">Add</button>
+                            <button type="submit" name="btnAdd_Category" class="py-2 px-4 mx-auto rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-300 hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-500">Add</button>
                         </div>
                     </div>
                     <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Category</div>
                     <div class="grid place-content-center">
-                        <table class="table-auto border-separate text-xl">
+                        <table class="table-auto border-separate text-xl" id="list_categories">
                             <tr>
                                 <th class="border">No</th>
                                 <th class="border">Name</th>
                                 <th class="border">Action</th>
                             </tr>
-                            <tr>
+                            <?php
+                                if($queryCategory->num_rows == 0){
+                            ?>
+                                <tr>
+                                    <td colspan="3" class="border text-center">Category is Empty</td> 
+                                </tr>
+                            <?php
+                                }else{
+                                    while($row = mysqli_fetch_row($queryCategory)){
+                            ?>
+                                <tr>
+                                    <td class="border"><?= $row[0]?></td>
+                                    <td class="border"><?=$row[1]?></td>
+                                    <td class="border">
+                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnDelete_Category" value="<?= $row[0]?>">Delete</button>    
+                                    </td>
+                                </tr>
+                            <?php
+                                    }
+                                }
+                            ?>
+                            <!-- <tr>
                                 <td class="border">1</td>
                                 <td class="border">Mouse</td>
                                 <td class="border">
-                                    <button type="submit" name="delete" class="px-3 py-2 rounded bg-red-500 hover:bg-red-600">Delete</button>
+                                    <button type="submit" name="btnDelete_Category" class="px-3 py-2 rounded bg-red-500 hover:bg-red-600">Delete</button>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </form>
+
 </body>
 </html>
