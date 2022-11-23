@@ -108,12 +108,12 @@
                 <div class="w-2/3"></div>
             </div>
             <div class="w-full relative">
-                <div class="w-64 h-72 bg-slate-700 rounded-md flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
+                <div class="w-64 h-72 bg-slate-700 rounded-t-xl flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
                     <div class="text-white font-semibold text-2xl text-center">Filter</div>
                     <div class="my-1 text-white font-medium">Category</div>
                     <div class="my-1 text-white font-medium">Price</div>
-                    <input type="text" name="min" placeholder="Harga minimum" class="my-1 w-3/4 mx-auto rounded-lg">
-                    <input type="text" name="maks" placeholder="Harga maksimum" class="my-1 w-3/4 mx-auto rounded-lg">
+                    <input type="text" name="min" placeholder="Harga minimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none">
+                    <input type="text" name="maks" placeholder="Harga maksimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none">
                     <button type="submit" name="apply" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-purple-300 hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-500">Apply</button>
                     <div class="my-1 text-white font-medium">Sort</div>
                     <div class="flex flex-row">

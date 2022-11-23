@@ -89,7 +89,7 @@
                     </div>
                     <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Category</div>
                     <div class="grid place-content-center">
-                        <table class="table-auto border-collapse border text-xl">
+                        <table class="table-auto border-separate text-xl">
                             <tr>
                                 <th class="border">No</th>
                                 <th class="border">Name</th>
