@@ -4,6 +4,41 @@
         header("Location: login.php");
     }
 
+    // Query
+
+    // Button
+    if(isset($_POST["btnAdd_Products"])){
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+        {
+            if (is_uploaded_file($_FILES['photo']['tmp_name'])) 
+            { 
+                //First, Validate the file name
+                if(empty($_FILES['photo']['name']))
+                {
+                    echo " File name is empty! ";
+                    exit;
+                }
+            
+                $upload_file_name = $_FILES['photo']['name'];
+            
+                //Save the file
+                $dest = __DIR__.'/storage/products/'.$upload_file_name;
+                $dest2 = 'storage/products/'.$upload_file_name;
+                if (move_uploaded_file($_FILES['photo']['tmp_name'], $dest)) 
+                {
+                    $newID = "CA";
+                    $max = mysqli_query($conn, "SELECT max(substr(id_products, 3)) from products");
+                    $urutan = mysqli_fetch_array($max)[0] + 1;
+                    $newID .= str_pad(strval($urutan), 3, "0", STR_PAD_LEFT);
+    
+                    mysqli_query($conn, "INSERT INTO color VALUES ('$co_id', '".$_POST["filter_add"]."', '$dest2')");
+    
+                }
+            }
+        }
+    }
+
     if(isset($_POST["btnLogout"])){
         unset($_SESSION["data"]);
         header("Location: index.php");
@@ -100,7 +135,7 @@
                             <span class="my-auto mr-3 text-lg">Brand : </span>
                             <input type="text" name="brand" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Brand"><br>
                             <span class="my-auto mr-3 text-lg">Category : </span>
-                            <select class="form-select w-96" aria-label="Default select example" name="kategoriBarang">
+                            <select class="form-select mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" aria-label="Default select example" name="kategoriBarang">
                                 <option selected value="">Choose the Category</option>
                             <?php
                                 $categoryCB = mysqli_query($conn, "SELECT * from categories");
@@ -110,10 +145,12 @@
                             <?php
                                 }
                             ?>
-                            </select>
+                            </select><br>
+                            <span class="my-auto mr-3 text-lg">Image : </span>
+                            <input type="file" name="photo" accept="image/png, image/jpeg, image/jpg,image/webp" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none">
                         </div>
                         <div class="flex mt-3">
-                            <button type="submit" name="btnAdd_Category" class="py-2 px-4 mx-auto rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-300 hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-500">Add</button>
+                            <button type="submit" name="btnAdd_Products" class="py-2 px-4 mx-auto rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-300 hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-500">Add</button>
                         </div>
                     </div>
                     <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Products</div>
@@ -145,13 +182,6 @@
                                     }
                                 }
                             ?>
-                            <!-- <tr>
-                                <td class="border">1</td>
-                                <td class="border">Mouse</td>
-                                <td class="border">
-                                    <button type="submit" name="btnDelete_Category" class="px-3 py-2 rounded bg-red-500 hover:bg-red-600">Delete</button>
-                                </td>
-                            </tr> -->
                         </table>
                     </div>
                 </div>
