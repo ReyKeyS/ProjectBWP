@@ -18,6 +18,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              animation:{
+                'gerak':'goyang 3s ease-in-out infinite',
+                'tampil' : 'muncul 2s ease-in-out 1'
+              },
+              keyframes : {
+                goyang:{
+                  '0%, 100%' : {transform: 'rotate(-3deg)'},
+                  '50%' :{transform:'rotate(3deg)'}
+                },
+                muncul:{
+                    '0%' : {
+                        opacity: 0
+                    },
+                    '100%':{
+                        opacity:1
+                    }
+                }
+              }
+            }
+          }
+        }
+      </script>
 </head>
 <body>
     <form action="#" method="POST">
@@ -63,7 +89,7 @@
         </nav>
         <div class="flex flex-col">
             <div class="w-full h-[600px] bg-center flex flex-row" style="background-image: url('assets/setup.jpg');">
-                <div class="w-1/3 m-auto text-center text-white font-bold text-3xl">
+                <div class="w-1/3 m-auto text-center text-white font-bold text-3xl animate-tampil">
                     Welcome To Our Shop
                     <br>
                     "Bringing the best Quality of Service"

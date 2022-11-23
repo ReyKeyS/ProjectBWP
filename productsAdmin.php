@@ -22,12 +22,21 @@
           theme: {
             extend: {
               animation:{
-                'gerak':'goyang 3s ease-in-out infinite'
+                'gerak':'goyang 3s ease-in-out infinite',
+                'tampil' : 'muncul 2s ease-in-out 2'
               },
               keyframes : {
                 goyang:{
                   '0%, 100%' : {transform: 'rotate(-3deg)'},
                   '50%' :{transform:'rotate(3deg)'}
+                },
+                muncul:{
+                    '0%, 100%' : {
+                        opacity: 0
+                    },
+                    '50%' : {
+                        opacity:1
+                    }
                 }
               }
             }

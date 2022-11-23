@@ -47,10 +47,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              animation:{
+                'gerak':'goyang 3s ease-in-out infinite',
+                'tampil' : 'muncul 0.5s ease-in-out 1'
+              },
+              keyframes : {
+                goyang:{
+                  '0%, 100%' : {transform: 'rotate(-3deg)'},
+                  '50%' :{transform:'rotate(3deg)'}
+                },
+                muncul:{
+                    '0%' : {
+                        opacity: 0
+                    },
+                    '100%':{
+                        opacity:1
+                    }
+                }
+              }
+            }
+          }
+        }
+      </script>
 </head>
 <body>
     <form action="" method="POST">
-        <div class="w-screen h-screen flex justify-center">
+        <div class="w-screen h-screen flex justify-center animate-tampil">
             <div class="py-10 px-20 w-1/2 m-auto flex flex-col border rounded-xl place-content-center hover:shadow-cyan-300 hover:shadow-lg duration-300">
                 <h1 class="animate-pulse text-center font-bold text-6xl bg-gradient-to-r from-blue-500 to-red-700 bg-clip-text text-transparent">LOGIN</h1>
                 <div class="text-xl">Name/Email</div>

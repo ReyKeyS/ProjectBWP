@@ -47,10 +47,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              animation:{
+                'gerak':'goyang 3s ease-in-out infinite',
+                'tampil' : 'muncul 0.5s ease-in-out 1'
+              },
+              keyframes : {
+                goyang:{
+                  '0%, 100%' : {transform: 'rotate(-3deg)'},
+                  '50%' :{transform:'rotate(3deg)'}
+                },
+                muncul:{
+                    '0%' : {
+                        opacity: 0
+                    },
+                    '100%':{
+                        opacity:1
+                    }
+                }
+              }
+            }
+          }
+        }
+      </script>
 </head>
 <body>
     <form action="" method="POST">
-        <div class="container box-border py-10 px-20 mx-auto my-20 flex-col top-52 left-52 border rounded-xl place-content-center hover:shadow-lg hover:shadow-cyan-300 duration-300">
+        <div class="container box-border py-10 px-20 mx-auto my-20 flex-col top-52 left-52 border rounded-xl place-content-center hover:shadow-lg hover:shadow-cyan-300 duration-300 animate-tampil">
             <h1 class="text-center font-bold text-6xl bg-gradient-to-br from-blue-500 to-red-700 bg-clip-text text-transparent animate-pulse">REGISTER</h1>
             <span class="text-xl">Name</span>
             <input type="text" placeholder="Masukkan Nama" name="name" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
