@@ -99,7 +99,7 @@
             ?>
         </nav>
         <div class="flex flex-col">
-            <div class="w-full h-[600px] bg-center flex flex-row animate-tampil2" style="background-image: url('assets/setup.jpg');">
+            <div class="w-full h-[650px] bg-[center_bottom_-17rem] flex flex-row animate-tampil2" style="background-image: url('assets/setup.jpg');">
                 <div class="w-1/3 m-auto text-center text-white font-bold text-3xl animate-tampil">
                     Welcome To Our Shop
                     <br>
