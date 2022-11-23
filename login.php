@@ -82,15 +82,15 @@
             <div class="bg-white py-10 px-20 w-1/2 m-auto flex flex-col border rounded-xl place-content-center hover:shadow-cyan-300 hover:shadow-lg duration-300">
                 <h1 class="animate-pulse text-center font-bold text-6xl bg-gradient-to-r from-blue-500 to-red-700 bg-clip-text text-transparent">LOGIN</h1>
                 <div class="text-xl mb-1">Name/Email</div>
-                <input type="text" name="nama" placeholder="Masukkan Nama/Email" class="mb-3 px-3 py-2 border shadow rounded-lg w-full h-14 text-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <input type="text" name="nama" placeholder="Enter your name/email" class="mb-3 px-3 py-2 border shadow rounded-lg w-full h-14 text-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
                 <!-- <div class="text-xl">Email</div> -->
                 <!-- <label for="email" id="email">
                     <input type="email" placeholder="Masukkan Email" class="px-3 py-2 border shadow rounded-xl w-full h-14 text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none invalid:text-purple-600 invalid:focus:ring-purple-600 peer">
                     <p class="text-sm text-purple-600 invisible peer-invalid:visible">Email tidak valid</p>
                 </label> -->
                 <div class="text-xl mb-1">Password</div>
-                <input type="password" name="pass" placeholder="Masukkan Password" class="px-3 py-2 border rounded-xl w-full h-14 text-xl shadow focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                <div class="text-xl text-center mt-3">Belum punya account? &nbsp;<a href="register.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Register Sekarang!</a></div>
+                <input type="password" name="pass" placeholder="Enter your password" class="px-3 py-2 border rounded-xl w-full h-14 text-xl shadow focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <div class="text-xl text-center mt-3">Doesn't have an account? &nbsp;<a href="register.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Register Now!</a></div>
                 <div class="flex">
                     <button type="submit" name="login" class="my-5 text-lg font-bold ml-auto px-7 py-3 text-white rounded-full bg-sky-400 hover:bg-sky-500 active:bg-sky-600 focus:ring-4 focus:ring-sky-200">LOGIN</button>
                 </div>
