@@ -77,19 +77,19 @@
                     </div>
                 </div>
                 <div class="overflow-y-auto h-screen">
-                    <div class="max-w-lg border border-slate-200 rounded-xl mx-auto shadow-md p-5">
-                        <div class="text-center font-semibold text-2xl mb-4">Add new Category</div>
+                    <div class="max-w-2xl border border-slate-200 rounded-xl mx-auto shadow-md p-5">
+                        <div class="text-center font-bold text-4xl mb-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">Add new Category</div>
                         <div class="flex">
-                            <span class="my-auto mr-3">Name : </span>
+                            <span class="my-auto mr-3 text-lg">Name : </span>
                             <input type="text" name="name" class="px-3 py-2 border w-3/4 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Kategori">
                         </div>
                         <div class="flex mt-3">
                             <button type="submit" class="py-2 px-4 mx-auto rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-300 hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-500">Add</button>
                         </div>
                     </div>
-                    <div class="text-center font-semibold text-2xl my-4">List Category</div>
+                    <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Category</div>
                     <div class="grid place-content-center">
-                        <table class="table-auto border-collapse border">
+                        <table class="table-auto border-collapse border text-xl">
                             <tr>
                                 <th class="border">No</th>
                                 <th class="border">Name</th>

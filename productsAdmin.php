@@ -86,31 +86,8 @@
                     </div>
                 </div>
                 <div class="overflow-y-scroll h-screen">
-                    <div class="mx-auto px-6 bg-purple-600 columns-4">
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                1000 Customer
-                            </div>
-                        </div>
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                2000 Products
-                            </div>
-                        </div>
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                10 Category
-                            </div>
-                        </div>
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                3000 Transaction
-                            </div>
-                        </div>
+                    <div class="max-w-2xl border border-slate-200 rounded-xl mx-auto shadow-md p-5">
+                        <div></div>
                     </div>
                     <div class="mt-20">
                         <img src="https://source.unsplash.com/600x400" alt="" class="mx-auto animate-gerak">
