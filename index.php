@@ -21,7 +21,7 @@
 </head>
 <body>
     <form action="#" method="POST">
-        <div class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex">
+        <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex">
             <a class="w-32 my-auto ml-3">
                 <img src="assets/gonadi.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
@@ -60,7 +60,7 @@
             <?php
                 }
             ?>
-        </div>
+        </nav>
         <div class="flex flex-col">
             <div class="w-full h-[600px] bg-center flex flex-row" style="background-image: url('assets/setup.jpg');">
                 <div class="w-1/3 m-auto text-center text-white font-bold text-3xl">

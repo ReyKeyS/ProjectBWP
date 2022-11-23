@@ -68,12 +68,12 @@
                     </button>
                 </div>
             </div>
-            <div class="flex-auto flex flex-col w-full bg-blue-600">
-                    <div class="flex bg-green-500 p-5 mb-5">
-                        <div class="w-20  h-20 rounded-full bg-slate-700 text-white text-center bg-[url('https://source.unsplash.com/600x400')] bg-center"></div>
-                        <div class="tulis pt-1 pl-7 ml-5 block">
-                            <div class="text-lg my-auto ml-3 pl-28 font-bold">Admin Glorindo Komputer</div>
-                            <div class="text-2xl my-auto ml-3 font-bold">Welcome Back Admin ! Let's Build a Future Together</div>
+            <div class="flex-auto flex flex-col w-full bg-neutral-100">
+                    <div class="flex bg-gradient-to-r from-purple-900 to-fuchsia-600 p-5 mb-5 shadow-xl">
+                        <div class="w-20 h-20 ml-8 mr-2 rounded-full bg-slate-700 text-white text-center bg-[url('assets/Logo.jpg')] bg-cover"></div>
+                        <div class="pt-1 pl-7 ml-44 block text-center text-white">
+                            <div class="text-xl my-auto font-bold">Admin Glorindo Komputer</div>
+                            <div class="text-3xl my-auto font-bold">Welcome Back Admin! Let's Build a Future Together</div>
                         </div>
                     </div>
                 <div class="overflow-y-auto h-screen">

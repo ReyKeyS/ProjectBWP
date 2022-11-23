@@ -71,9 +71,9 @@
             <div class="flex-auto flex flex-col w-full bg-neutral-100">
                     <div class="flex bg-gradient-to-r from-purple-900 to-fuchsia-600 p-5 mb-5 shadow-xl">
                         <div class="w-20 h-20 ml-8 mr-2 rounded-full bg-slate-700 text-white text-center bg-[url('assets/Logo.jpg')] bg-cover"></div>
-                        <div class="tulis pt-1 pl-7 ml-44 block text-center text-white">
+                        <div class="pt-1 pl-7 ml-44 block text-center text-white">
                             <div class="text-xl my-auto font-bold">Admin Glorindo Komputer</div>
-                            <div class="text-3xl my-auto font-bold">Welcome Back Admin! &nbsp; Let's Build a Future Together</div>
+                            <div class="text-3xl my-auto font-bold">Welcome Back Admin! Let's Build a Future Together</div>
                         </div>
                     </div>
                 <div class="overflow-y-scroll h-screen -mt-5">
