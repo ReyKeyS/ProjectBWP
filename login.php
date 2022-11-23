@@ -53,7 +53,7 @@
             extend: {
               animation:{
                 'gerak':'goyang 3s ease-in-out infinite',
-                'tampil' : 'muncul 0.5s ease-in-out 1'
+                'tampil' : 'muncul 2s ease-in-out 1'
               },
               keyframes : {
                 goyang:{
@@ -62,10 +62,12 @@
                 },
                 muncul:{
                     '0%' : {
-                        opacity: 0
+                        opacity: 0,
+                        transform:'translateX(-100%)'
                     },
                     '100%':{
-                        opacity:1
+                        opacity:1,
+                        transform:'translateX(0%)'
                     }
                 }
               }

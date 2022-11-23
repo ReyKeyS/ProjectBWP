@@ -24,7 +24,8 @@
             extend: {
               animation:{
                 'gerak':'goyang 3s ease-in-out infinite',
-                'tampil' : 'muncul 2s ease-in-out 1'
+                'tampil' : 'muncul 1s ease-in-out 1',
+                'tampil2':'hadir 1s ease-in-out 1'
               },
               keyframes : {
                 goyang:{
@@ -33,7 +34,17 @@
                 },
                 muncul:{
                     '0%' : {
-                        opacity: 0
+                        opacity: 0,
+                        transform:'translateX(-100%)'
+                    },
+                    '100%':{
+                        opacity:1,
+                        transform:'translateX(0%)'
+                    }
+                },
+                hadir:{
+                    '0%':{
+                        opacity:0
                     },
                     '100%':{
                         opacity:1
@@ -88,7 +99,7 @@
             ?>
         </nav>
         <div class="flex flex-col">
-            <div class="w-full h-[600px] bg-center flex flex-row" style="background-image: url('assets/setup.jpg');">
+            <div class="w-full h-[600px] bg-center flex flex-row animate-tampil2" style="background-image: url('assets/setup.jpg');">
                 <div class="w-1/3 m-auto text-center text-white font-bold text-3xl animate-tampil">
                     Welcome To Our Shop
                     <br>
