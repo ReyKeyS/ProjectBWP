@@ -77,7 +77,7 @@
                     </button>
                 </div>
             </div>
-            <div class="flex-auto flex flex-col w-full bg-blue-600">
+            <div class="flex-auto flex flex-col w-full bg-neutral-100">
                 <div class="flex bg-gradient-to-r from-purple-900 to-fuchsia-600 p-5 mb-5 shadow-xl">
                     <div class="w-20 h-20 ml-8 mr-2 rounded-full bg-slate-700 text-white text-center bg-[url('assets/Logo.jpg')] bg-cover"></div>
                     <div class="pt-1 pl-7 ml-44 block text-center text-white">
@@ -86,11 +86,73 @@
                     </div>
                 </div>
                 <div class="overflow-y-scroll h-screen">
-                    <div class="max-w-2xl border border-slate-200 rounded-xl mx-auto shadow-md p-5">
-                        <div></div>
+                <div class="max-w-5xl border border-slate-200 rounded-xl mx-auto shadow-md p-5 bg-white">
+                        <div class="text-center font-bold text-4xl mb-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">Add new Products</div>
+                        <div class="pl-8">
+                            <span class="my-auto mr-3 text-lg">Name : </span>
+                            <input type="text" name="name" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Name Products"><br>
+                            <span class="my-auto mr-3 text-lg">Description : </span>
+                            <input type="text" name="desc" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Description"><br>
+                            <span class="my-auto mr-3 text-lg">Price : </span>
+                            <input type="text" name="price" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Price"><br>
+                            <span class="my-auto mr-3 text-lg">Stock : </span>
+                            <input type="text" name="stok" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Stock"><br>
+                            <span class="my-auto mr-3 text-lg">Brand : </span>
+                            <input type="text" name="brand" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Brand"><br>
+                            <span class="my-auto mr-3 text-lg">Category : </span>
+                            <select class="form-select w-96" aria-label="Default select example" name="kategoriBarang">
+                                <option selected value="">Choose the Category</option>
+                            <?php
+                                $categoryCB = mysqli_query($conn, "SELECT * from categories");
+                                while($row = mysqli_fetch_row($categoryCB)){
+                            ?>        
+                                <option value="<?=$row[0];?>"> <?= $row[1] ?> </option>
+                            <?php
+                                }
+                            ?>
+                            </select>
+                        </div>
+                        <div class="flex mt-3">
+                            <button type="submit" name="btnAdd_Category" class="py-2 px-4 mx-auto rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-300 hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-500">Add</button>
+                        </div>
                     </div>
-                    <div class="mt-20">
-                        <img src="https://source.unsplash.com/600x400" alt="" class="mx-auto animate-gerak">
+                    <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Products</div>
+                    <div class="grid place-content-center">
+                        <table class="table-auto border-separate text-xl" id="list_categories">
+                            <tr>
+                                <th class="border">No</th>
+                                <th class="border">Name</th>
+                                <th class="border">Action</th>
+                            </tr>
+                            <?php
+                                if($queryCategory->num_rows == 0){
+                            ?>
+                                <tr>
+                                    <td colspan="3" class="border text-center">Category is Empty</td> 
+                                </tr>
+                            <?php
+                                }else{
+                                    while($row = mysqli_fetch_row($queryCategory)){
+                            ?>
+                                <tr>
+                                    <td class="border"><?= $row[0]?></td>
+                                    <td class="border"><?=$row[1]?></td>
+                                    <td class="border">
+                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnDelete_Category" value="<?= $row[0]?>">Delete</button>    
+                                    </td>
+                                </tr>
+                            <?php
+                                    }
+                                }
+                            ?>
+                            <!-- <tr>
+                                <td class="border">1</td>
+                                <td class="border">Mouse</td>
+                                <td class="border">
+                                    <button type="submit" name="btnDelete_Category" class="px-3 py-2 rounded bg-red-500 hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr> -->
+                        </table>
                     </div>
                 </div>
             </div>
