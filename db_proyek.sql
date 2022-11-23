@@ -46,7 +46,9 @@ CREATE TABLE `products` (
   `brand` varchar(200) DEFAULT NULL,
   `id_cate` varchar(200) NOT NULL,
   `gmbr` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_products`)
+  PRIMARY KEY (`id_products`),
+  KEY `id_cate` (`id_cate`),
+  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`id_cate`) REFERENCES `categories` (`id_cate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `products` */
