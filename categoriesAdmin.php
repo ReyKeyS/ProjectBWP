@@ -103,7 +103,7 @@
                         <div class="text-center font-bold text-4xl mb-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">Add new Category</div>
                         <div class="flex">
                             <span class="my-auto mr-3 text-lg">Name : </span>
-                            <input type="text" name="nameCate" class="px-3 py-2 border w-3/4 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Kategori">
+                            <input type="text" name="nameCate" class="px-3 py-2 border w-3/4 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Category">
                         </div>
                         <div class="flex mt-3">
                             <button type="submit" name="btnAdd_Category" class="py-2 px-4 mx-auto rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-300 hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-500">Add</button>
@@ -111,27 +111,27 @@
                     </div>
                     <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Category</div>
                     <div class="grid place-content-center">
-                        <table class="table-auto border-separate text-xl" id="list_categories">
+                        <table class="table-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl" id="list_categories">
                             <tr>
-                                <th class="border">No</th>
-                                <th class="border">Name</th>
-                                <th class="border">Action</th>
+                                <th class="">ID</th>
+                                <th class="">Name</th>
+                                <th class="">Action</th>
                             </tr>
                             <?php
                                 if($queryCategory->num_rows == 0){
                             ?>
                                 <tr>
-                                    <td colspan="3" class="border text-center">Category is Empty</td> 
+                                    <td colspan="3" class="text-center">Category is Empty</td> 
                                 </tr>
                             <?php
                                 }else{
                                     while($row = mysqli_fetch_row($queryCategory)){
                             ?>
                                 <tr>
-                                    <td class="border"><?= $row[0]?></td>
-                                    <td class="border"><?=$row[1]?></td>
-                                    <td class="border">
-                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnDelete_Category" value="<?= $row[0]?>">Delete</button>    
+                                    <td class=""><?= $row[0]?></td>
+                                    <td class=""><?=$row[1]?></td>
+                                    <td class="">
+                                        <button class="px-3 py-2 rounded-xl text-white font-semibold bg-red-500 hover:bg-red-600" type="submit" name="btnDelete_Category" value="<?= $row[0]?>">Delete</button>    
                                     </td>
                                 </tr>
                             <?php

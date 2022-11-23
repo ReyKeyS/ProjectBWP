@@ -79,21 +79,21 @@
         <div class="container bg-white box-border py-10 px-20 mx-auto my-20 flex-col top-52 left-52 border rounded-xl place-content-center hover:shadow-lg hover:shadow-cyan-300 duration-300 animate-tampil">
             <h1 class="text-center font-bold text-6xl bg-gradient-to-br from-blue-500 to-red-700 bg-clip-text text-transparent animate-pulse">REGISTER</h1>
             <span class="text-xl">Name</span>
-            <input type="text" placeholder="Masukkan Nama" name="name" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+            <input type="text" placeholder="Enter your name" name="name" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             <span class="text-xl">Email</span>
             <label for="email" id="email">
-                <input type="email" placeholder="Masukkan Email" name="email" class="px-3 py-2 border shadow rounded w-full h-14 text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none invalid:text-purple-600 invalid:focus:ring-purple-600 peer">
+                <input type="email" placeholder="Enter your email" name="email" class="px-3 py-2 border shadow rounded w-full h-14 text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none invalid:text-purple-600 invalid:focus:ring-purple-600 peer">
                 <p class="text-sm text-purple-600 invisible peer-invalid:visible">Email tidak valid</p>
             </label>
             <span class="text-xl">Nomor Telepon</span>
-            <input type="number" placeholder="Masukkan Nomor Telepon" name="telp" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+            <input type="number" placeholder="Enter your phone number" name="telp" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             <span class="text-xl">Alamat</span>
-            <input type="text" placeholder="Masukkan Alamat" name="alamat" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+            <input type="text" placeholder="Enter your address" name="alamat" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             <span class="text-xl">Password</span>
-            <input type="password" placeholder="Masukkan Password" name="pass" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+            <input type="password" placeholder="Enter your password" name="pass" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             <span class="text-xl">Confirm Password</span>
-            <input type="password" placeholder="Masukkan Confirm Password" name="conf" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
-            <div class="text-center text-xl my-3">Sudah Punya account? &nbsp;<a href="login.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Login Sekarang!</a></div>
+            <input type="password" placeholder="Confirm your password" name="conf" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+            <div class="text-center text-xl my-3">Already have an account? &nbsp;<a href="login.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Login Now!</a></div>
             <div class="flex">
                 <button type="submit" name="register" class="my-5 text-lg font-semibold px-7 py-3 ml-auto text-white rounded-full bg-sky-400 hover:bg-sky-500 active:bg-sky-600 focus:ring-4 focus:ring-sky-200">REGISTER</button>
             </div>
