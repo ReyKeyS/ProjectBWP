@@ -24,8 +24,8 @@
             extend: {
               animation:{
                 'gerak':'goyang 3s ease-in-out infinite',
-                'tampil' : 'muncul 1s ease-in-out 1',
-                'tampil2':'hadir 1s ease-in-out 1'
+                'tampil' : 'muncul 1.25s ease-in-out 1'
+                // 'tampil2': 'hadir 0.5s ease-in-out 1'
               },
               keyframes : {
                 goyang:{
@@ -35,7 +35,7 @@
                 muncul:{
                     '0%' : {
                         opacity: 0,
-                        transform:'translateX(-100%)'
+                        transform:'translateX(-10%)'
                     },
                     '100%':{
                         opacity:1,
@@ -63,14 +63,15 @@
                 <img src="assets/gonadi.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
             <a class="my-auto w-80 text-white font-bold text-2xl">
-                <?php
+                <!-- <?php
                     if(isset($_SESSION['data'])){
                         echo $_SESSION['data']['nama'];
                     }
                     else{
                         echo "Glorindo Komputer";
                     }
-                ?>
+                ?> -->
+                Glorindo Komputer
             </a>
             <div class="my-auto w-1/2 flex">
                 <input type="text" name="search" placeholder="Cari Disini" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none">
@@ -99,7 +100,7 @@
             ?>
         </nav>
         <div class="flex flex-col">
-            <div class="w-full h-[650px] bg-[center_bottom_-17rem] flex flex-row animate-tampil2" style="background-image: url('assets/setup.jpg');">
+            <div class="w-full h-[650px] bg-[center_bottom_-17rem] flex flex-row" style="background-image: url('assets/setup.jpg');">
                 <div class="w-1/3 m-auto text-center text-white font-bold text-3xl animate-tampil">
                     Welcome To Our Shop
                     <br>

@@ -53,7 +53,7 @@
             extend: {
               animation:{
                 'gerak':'goyang 3s ease-in-out infinite',
-                'tampil' : 'muncul 0.5s ease-in-out 1'
+                'tampil' : 'muncul 1s ease-in-out 1'
               },
               keyframes : {
                 goyang:{
