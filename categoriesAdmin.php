@@ -11,13 +11,17 @@
     if(isset($_POST["btnAdd_Category"])){
         $newNama = $_POST["nameCate"];
 
-        $newID = "CA";
-        $max = mysqli_query($conn, "SELECT max(substr(id_cate, 3)) from categories");
-        $urutan = mysqli_fetch_array($max)[0] + 1;
-        $newID .= str_pad(strval($urutan), 3, "0", STR_PAD_LEFT);
-
-        mysqli_query($conn, "INSERT INTO categories VALUES('$newID', '$newNama')");
-        header("Location: categoriesAdmin.php");
+        if ($newNama != ""){
+            $newID = "CA";
+            $max = mysqli_query($conn, "SELECT max(substr(id_cate, 3)) from categories");
+            $urutan = mysqli_fetch_array($max)[0] + 1;
+            $newID .= str_pad(strval($urutan), 3, "0", STR_PAD_LEFT);
+    
+            mysqli_query($conn, "INSERT INTO categories VALUES('$newID', '$newNama')");
+            header("Location: categoriesAdmin.php");
+        }else{
+            echo "<script>alert('There are empty fields!');</script>";
+        }
     }
 
     if(isset($_POST["btnDelete_Category"])){
