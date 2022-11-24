@@ -8,6 +8,14 @@
         unset($_SESSION['data']);
         header("Location: index.php");
     }
+    if(isset($_POST['cart'])){
+        if(isset($_SESSION['data'])){
+            header("Location:cart.php");
+        }
+        else{
+            echo "<script>alert('Please Log in first')</script>";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +87,7 @@
                 </button>
             </div>
             <div class="w-32 my-auto">
-                <button type="submit" name="rakit" class="px-5 py-2 ml-7 bg-gradient-to-r from-purple-700 to-purple-300 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to bg-purple-500">Rakit</button>
+                <button type="submit" name="rakit" class="px-5 py-2 ml-7 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Rakit</button>
             </div>
             <button type="submit" name="cart" class="flex p-auto m-auto rounded-2xl bg-slate-600 font-semibold text-white hover:bg-slate-900">
                 <img src="assets/shopping-cart.png" alt="" class="w-10 h-10 p-1">
@@ -142,7 +150,7 @@
                         <div class="px-6 py-3">
                             <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
                             <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-500">Add to Cart</button>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
                         </div>
                     </div>
                     <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
@@ -150,7 +158,7 @@
                         <div class="px-6 py-3">
                             <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
                             <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-500">Add to Cart</button>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
                         </div>
                     </div>
                     <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
@@ -158,7 +166,7 @@
                         <div class="px-6 py-3">
                             <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
                             <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-500">Add to Cart</button>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
                         </div>
                     </div>
                     <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
@@ -166,7 +174,7 @@
                         <div class="px-6 py-3">
                             <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
                             <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-500">Add to Cart</button>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
                         </div>
                     </div>
                     <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
@@ -174,9 +182,10 @@
                         <div class="px-6 py-3">
                             <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
                             <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-500">Add to Cart</button>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -194,7 +203,7 @@
                         <div class="flex">
                             <input type="checkbox" name="send">
                             <div class="my-auto">Let us send you an email</div>
-                            <button type="submit" name="send" class="px-3 py-2 ml-auto rounded-xl font-semibold bg-gradient-to-r from-purple-700 to-purple-300 hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-500">Send</button>
+                            <button type="submit" name="send" class="px-3 py-2 ml-auto rounded-xl font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Send</button>
                         </div>
                     </div>
                 </div>
