@@ -76,7 +76,7 @@
                             <div>Image Title</div>
                             <div>Rp 120.000</div>
                         </div>
-                        <div class="ml-auto my-auto">
+                        <div class="ml-auto my-auto mr-3">
                             <button type="submit" name="delete" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Delete</button>
                             <div class="text-center">1</div>
                         </div>
@@ -87,7 +87,7 @@
                             <div>Image Title</div>
                             <div>Rp 120.000</div>
                         </div>
-                        <div class="ml-auto my-auto">
+                        <div class="ml-auto my-auto mr-3">
                             <button type="submit" name="delete" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Delete</button>
                             <div class="text-center">1</div>
                         </div>
