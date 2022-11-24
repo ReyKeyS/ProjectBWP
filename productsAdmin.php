@@ -9,6 +9,22 @@
 
     // Button
     if(isset($_POST["btnAdd_Products"])){
+        $name = $_POST["name"];
+        $desc = $_POST["desc"];
+        $price = $_POST["price"];
+        $stok = $_POST["stok"];
+        $brand = $_POST["brand"];
+        $category = $_POST["category"];
+
+        if ($name != "" && $desc != "" && $price != "" && $stok != "" && $category != ""){
+            if ($stok > 0){
+
+            }else{
+                echo "<script>alert('Stock must be greater than 0!');</script>";    
+            }
+        }else{
+            echo "<script>alert('There are empty fields!');</script>";
+        }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') 
         {
@@ -24,16 +40,16 @@
                 $upload_file_name = $_FILES['photo']['name'];
             
                 //Save the file
-                $dest = __DIR__.'/storage/products/'.$upload_file_name;
-                $dest2 = 'storage/products/'.$upload_file_name;
+                $dest = 'products/'.$upload_file_name;
                 if (move_uploaded_file($_FILES['photo']['tmp_name'], $dest)) 
                 {
-                    $newID = "CA";
-                    $max = mysqli_query($conn, "SELECT max(substr(id_products, 3)) from products");
-                    $urutan = mysqli_fetch_array($max)[0] + 1;
-                    $newID .= str_pad(strval($urutan), 3, "0", STR_PAD_LEFT);
     
-                    mysqli_query($conn, "INSERT INTO color VALUES ('$co_id', '".$_POST["filter_add"]."', '$dest2')");
+                    // $newID = "CA";
+                    // $max = mysqli_query($conn, "SELECT max(substr(id_products, 3)) from products");
+                    // $urutan = mysqli_fetch_array($max)[0] + 1;
+                    // $newID .= str_pad(strval($urutan), 3, "0", STR_PAD_LEFT);
+    
+                    // mysqli_query($conn, "INSERT INTO color VALUES ('$co_id', '".$_POST["filter_add"]."', '$dest2')");
     
                 }
             }
@@ -81,7 +97,7 @@
       </script>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <div class="flex h-screen">
             <div class="flex-auto w-1/3 bg-neutral-900 flex flex-col text-center">
                 <div class="text-4xl px-5 pt-5 pb-6 mb-8 bg-neutral-600 mt-8 mx-12 rounded-[20px] font-semibold text-white">Products Admin</div>
@@ -139,7 +155,7 @@
                             <span class="my-auto mr-3 text-lg">Brand : </span>
                             <input type="text" name="brand" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Brand"><br>
                             <span class="my-auto mr-3 text-lg">Category : </span>
-                            <select class="form-select mb-3 px-3 py-2 border w-4/6 rounded-lg  focus:ring-4 focus:ring-purple-500 focus:outline-none" aria-label="Default select example" name="kategoriBarang">
+                            <select class="form-select mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" aria-label="Default select example" name="category">
                                 <option selected value="">Choose the Category</option>
                             <?php
                                 $categoryCB = mysqli_query($conn, "SELECT * from categories");

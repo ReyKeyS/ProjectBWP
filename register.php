@@ -83,7 +83,7 @@
             <span class="text-xl">Email</span>
             <label for="email" id="email">
                 <input type="email" placeholder="Enter your email" name="email" class="px-3 py-2 border shadow rounded w-full h-14 text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none invalid:text-purple-600 invalid:focus:ring-purple-600 peer">
-                <p class="text-sm text-purple-600 invisible peer-invalid:visible">Email tidak valid</p>
+                <p class="text-sm text-purple-600 invisible peer-invalid:visible">Invalid Email</p>
             </label>
             <span class="text-xl">Phone Number</span>
             <input type="number" placeholder="Enter your phone number" name="telp" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
