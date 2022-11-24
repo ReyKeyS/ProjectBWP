@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="w-full relative">
-                <div class="w-64 h-72 bg-slate-700 rounded-t-xl flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
+                <div class="w-72 px-3 h-80 bg-gradient-to-br from-slate-500 to-slate-900 rounded-t-xl flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
                     <div class="text-white font-semibold text-2xl text-center">Filter</div>
                     <div class="my-1 text-white font-medium">Category</div>
                     <div class="my-1 text-white font-medium">Price</div>
@@ -130,15 +130,48 @@
                 <div class="text-slate-600 font-bold text-4xl">
                     Recommended
                 </div>
-                <div class="flex">
-                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
-                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
-                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
-                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
-                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
-                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
-                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
-                    <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div>
+                <div class="grid grid-cols-4 mx-auto">
+                    <!-- <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div> -->
+                    <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
+                        <img src="https:/source.unsplash.com/600x400" alt="">
+                        <div class="px-6 py-3">
+                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
+                            <p class="text-md text-slate-600">Rp 120.000</p>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-500">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
+                        <img src="https:/source.unsplash.com/600x400" alt="">
+                        <div class="px-6 py-3">
+                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
+                            <p class="text-md text-slate-600">Rp 120.000</p>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-500">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
+                        <img src="https:/source.unsplash.com/600x400" alt="">
+                        <div class="px-6 py-3">
+                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
+                            <p class="text-md text-slate-600">Rp 120.000</p>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-500">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
+                        <img src="https:/source.unsplash.com/600x400" alt="">
+                        <div class="px-6 py-3">
+                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
+                            <p class="text-md text-slate-600">Rp 120.000</p>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-500">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
+                        <img src="https:/source.unsplash.com/600x400" alt="">
+                        <div class="px-6 py-3">
+                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
+                            <p class="text-md text-slate-600">Rp 120.000</p>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-purple-500">Add to Cart</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
