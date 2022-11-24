@@ -96,7 +96,11 @@
                             <div class="my-3 font-bold text-gray-500 text-3xl ml-3">Products</div>
                             <div class="w-full h-2 rounded-full bg-gradient-to-r from-purple-900 to-fuchsia-600"></div>
                             <div class="text-center py-4 font-bold text-5xl">
-                                2000
+                                <?php
+                                    $queryProduct = mysqli_query($conn, "SELECT count(*) from products where status = 1");
+                                    $banyakProduct = mysqli_fetch_row($queryProduct)[0];
+                                    echo $banyakProduct;
+                                ?>
                             </div>
                         </div><div class="rounded-xl border border-gray-400 shadow-lg overflow-hidden pt-8 px-8 bg-white">
                             <img src="assets/cateogoryabu.png" alt="" class="w-[75px] ml-5">

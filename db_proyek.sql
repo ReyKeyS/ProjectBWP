@@ -31,7 +31,8 @@ CREATE TABLE `categories` (
 insert  into `categories`(`id_cate`,`nama`) values 
 ('CA001','Mouse'),
 ('CA002','Keyboard'),
-('CA003','VGA');
+('CA003','VGA'),
+('CA004','Processor');
 
 /*Table structure for table `products` */
 
@@ -46,12 +47,18 @@ CREATE TABLE `products` (
   `brand` varchar(200) DEFAULT NULL,
   `id_cate` varchar(200) NOT NULL,
   `gmbr` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
   PRIMARY KEY (`id_products`),
   KEY `id_cate` (`id_cate`),
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`id_cate`) REFERENCES `categories` (`id_cate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `products` */
+
+insert  into `products`(`id_products`,`nama`,`desc`,`price`,`stok`,`brand`,`id_cate`,`gmbr`,`status`) values 
+('PR0001','Intel I3 10105F','-',1000000,1,'','CA004','products/intel-i3-10105f.jpg',1),
+('PR0002','Logitech G102','Mouse gaming sejuta umat',250000,5,'Logitech','CA001','products/logitech-g102.jpeg',1),
+('PR0003','Colorful RTX 3050','-',4500000,2,'NVIDIA','CA003','products/rtx-3050-colorful.jpg',1);
 
 /*Table structure for table `users` */
 

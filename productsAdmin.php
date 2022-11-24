@@ -5,7 +5,7 @@
     }
 
     // Query
-    $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1");
+    $queryProducts = mysqli_query($conn, "SELECT p.id_products, p.nama, p.price, c.nama, p.stok from products p JOIN categories c ON c.id_cate = p.id_cate where status = 1");
 
     // Button
     if(isset($_POST["btnAdd_Products"])){
@@ -151,7 +151,6 @@
                             <div class="flex">
                                 <span class="my-auto mr-3 text-lg">Description : </span>
                                 <textarea rows="4" cols="95" name="desc" class="mb-3 mt-2 px-3 py-2 border rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Description"></textarea><br>
-
                             </div>
                             <span class="my-auto mr-3 text-lg">Price : </span>
                             <input type="text" name="price" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Price"><br>
@@ -180,33 +179,37 @@
                     </div>
                     <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Products</div>
                     <div class="grid place-content-center">
-                        <table class="table-auto border-separate text-xl" id="list_categories">
+                        <table class="table-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl mb-5" id="list_categories">
                             <tr>
-                                <th class="border">No</th>
-                                <th class="border">ID</th>
-                                <th class="border">Name</th>
-                                <th class="border">Price</th>
-                                <th class="border">Category</th>
-                                <th class="border">Amount</th>
-                                <th class="border">Actions</th>
+                                <th class="">No</th>
+                                <th class="">ID</th>
+                                <th class="">Name</th>
+                                <th class="">Price</th>
+                                <th class="">Category</th>
+                                <th class="">Amount</th>
+                                <th class="">Actions</th>
                             </tr>
                             <?php
                                 if($queryProducts->num_rows == 0){
                             ?>
                                 <tr>
-                                    <td colspan="3" class="border text-center">Product is Empty</td> 
+                                    <td colspan="7" class="border text-center">Product is Empty</td> 
                                 </tr>
                             <?php
                                 }else{
+                                    $ctr = 1;
                                     while($row = mysqli_fetch_row($queryProducts)){
                             ?>
                                 <tr>
-                                    <td class="border"><?= $nomer?></td>
-                                    <td class="border"><?= $row[0]?></td>
-                                    <td class="border"><?=$row[1]?></td>
-                                    <td class="border">
-                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnDeleteProduct" value="<?= $row[0]?>">Delete</button>    
-                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnUpdateProduct" value="<?= $row[0]?>">Delete</button>    
+                                    <td class="text-right"><?= $ctr++?></td>
+                                    <td class=""><?= $row[0]?></td>
+                                    <td class=""><?=$row[1]?></td>
+                                    <td class="">Rp <?=number_format($row[2])?></td>
+                                    <td class=""><?=$row[3]?></td>
+                                    <td class="text-center"><?=$row[4]?></td>
+                                    <td class="">
+                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnUpdate_Product" value="<?= $row[0]?>">Update</button>    
+                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnDelete_Product" value="<?= $row[0]?>">Delete</button>    
                                     </td>
                                 </tr>
                             <?php
