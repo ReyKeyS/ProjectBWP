@@ -148,8 +148,8 @@
                         <div class="text-3xl my-auto font-bold">Welcome Back Admin! Let's Build a Future Together</div>
                     </div>
                 </div>
-                <div class="overflow-y-scroll h-screen">
-                <div class="max-w-5xl border border-slate-200 rounded-xl mx-auto shadow-md p-5 bg-white">
+                <div class="overflow-y-scroll h-screen -mt-5">
+                <div class="mt-6 max-w-5xl border border-slate-200 rounded-xl mx-auto shadow-md p-5 bg-white">
                         <div class="text-center font-bold text-4xl mb-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">Add new Products</div>
                         <div class="pl-8">
                             <span class="my-auto mr-3 text-lg">Name : </span>
@@ -185,7 +185,7 @@
                     </div>
                     <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Products</div>
                     <div class="grid place-content-center">
-                        <table class="table-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl mb-5" id="list_categories">
+                        <table class="table-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl mb-6" id="list_categories">
                             <tr>
                                 <th class="">No</th>
                                 <th class="">ID</th>
@@ -193,7 +193,7 @@
                                 <th class="">Price</th>
                                 <th class="">Category</th>
                                 <th class="">Amount</th>
-                                <th class="">Actions</th>
+                                <th class="">Action</th>
                             </tr>
                             <?php
                                 if($queryProducts->num_rows == 0){
@@ -214,7 +214,7 @@
                                     <td class=""><?=$row[3]?></td>
                                     <td class="text-center"><?=$row[4]?></td>
                                     <td class="">
-                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnUpdate_Product" value="<?= $row[0]?>">Update</button>
+                                        <!-- <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnUpdate_Product" value="<?= $row[0]?>">Update</button> -->
                                         <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnDelete_Product" value="<?= $row[0]?>">Delete</button>    
                                     </td>
                                 </tr>

@@ -102,8 +102,8 @@
                         <div class="text-3xl my-auto font-bold">Welcome Back Admin! Let's Build a Future Together</div>
                     </div>
                 </div>
-                <div class="overflow-y-auto h-screen">
-                    <div class="max-w-2xl border border-slate-200 rounded-xl mx-auto shadow-md p-5 bg-white">
+                <div class="overflow-y-auto h-screen -mt-5">
+                    <div class="mt-6 max-w-2xl border border-slate-200 rounded-xl mx-auto shadow-md p-5 bg-white">
                         <div class="text-center font-bold text-4xl mb-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">Add new Category</div>
                         <div class="flex">
                             <span class="my-auto mr-3 text-lg">Name : </span>
@@ -115,7 +115,7 @@
                     </div>
                     <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Category</div>
                     <div class="grid place-content-center">
-                        <table class="table-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl" id="list_categories">
+                        <table class="table-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl mb-6" id="list_categories">
                             <tr>
                                 <th class="">ID</th>
                                 <th class="">Name</th>
