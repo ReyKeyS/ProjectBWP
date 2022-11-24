@@ -130,7 +130,7 @@
                 <div class="text-slate-600 font-bold text-4xl">
                     Recommended
                 </div>
-                <div class="w-10 h-10 rounded-full flex fixed bottom-5 right-5 cursor-pointer animate-bounce">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-700 to-purple-400 flex fixed bottom-5 right-5 cursor-pointer animate-bounce">
                     <a href="#">
                         <img src="assets/up-arrow.png" alt="">
                     </a>
@@ -180,14 +180,34 @@
                 </div>
             </div>
         </div>
-        <nav class="h-96 bg-black ">
-            <div class="w-1/2">
-                <div class="flex justify-center">
-                    <div class="text-white mr-5 text-3xl font-semibold">Send Us Mail</div>
-                    <img src="assets/email (1).png" alt="">
+        <nav class="h-96 bg-black">
+            <div class="flex">
+                <div class="w-1/2 pt-5 flex flex-col border-r">
+                    <div class="flex justify-center my-1">
+                        <div class="text-white mr-5 text-3xl font-semibold">Send Us Mail</div>
+                        <img src="assets/email (1).png" alt="">
+                    </div>
+                    <input type="text" name="email" placeholder="Email Address" class="px-3 py-1 my-1 w-96 mx-auto rounded-lg bg-transparent placeholder-white border-b-2 focus:ring-2 focus:ring-purple-400 focus:outline-none focus:border-b-0">
+                    <div class="mx-auto text-white my-3">
+                        <div class="text-white">Mail</div>
+                        <textarea name="mail" id="" cols="50" rows="5" class="rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none"></textarea>
+                        <div class="flex">
+                            <input type="checkbox" name="send">
+                            <div class="my-auto">Let us send you an email</div>
+                            <button type="submit" name="send" class="px-3 py-2 ml-auto rounded-xl font-semibold bg-gradient-to-r from-purple-700 to-purple-300 hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-500">Send</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/2 flex flex-col">
+                    <div class="my-1 text-white text-3xl flex font-semibold justify-center">Follow Us</div>
+                    <div class="grid grid-cols-4 gap-2">
+                        <img src="assets/tokopedia.png" alt="">
+                        <img src="assets/instagram.png" alt="">
+                        <img src="assets/facebook.png" alt="">
+                        <img src="assets/tiktok.png" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="w-1/2"></div>
         </nav>
         <!-- <div class="flex flex-col">
             <div class="w-full h-[600px] bg-center">
