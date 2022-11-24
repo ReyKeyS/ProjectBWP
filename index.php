@@ -11,7 +11,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -129,6 +129,11 @@
                 </div>
                 <div class="text-slate-600 font-bold text-4xl">
                     Recommended
+                </div>
+                <div class="w-10 h-10 rounded-full flex fixed bottom-5 right-5 cursor-pointer animate-bounce">
+                    <a href="#">
+                        <img src="assets/up-arrow.png" alt="">
+                    </a>
                 </div>
                 <div class="grid grid-cols-4 mx-auto">
                     <!-- <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div> -->
