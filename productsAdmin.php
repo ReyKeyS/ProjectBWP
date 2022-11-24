@@ -5,7 +5,7 @@
     }
 
     // Query
-    $queryProducts = mysqli_query($conn, "SELECT p.id_products, p.nama, p.price, c.nama, p.stok from products p JOIN categories c ON c.id_cate = p.id_cate where status = 1");
+    $queryProducts = mysqli_query($conn, "SELECT p.id_products, p.nama, p.price, c.nama, p.stok from products p JOIN categories c ON c.id_cate = p.id_cate where status = 1 ORDER BY p.id_products");
 
     // Button
     if(isset($_POST["btnAdd_Products"])){
@@ -59,6 +59,12 @@
             echo "<script>alert('There are empty fields!');</script>";
         }
 
+    }
+
+    if(isset($_POST["btnDelete_Product"])){
+        $idProduct = $_POST["btnDelete_Product"];
+        mysqli_query($conn, "UPDATE products set status = 0 where id_products = '$idProduct'");
+        header("Location: productsAdmin.php");
     }
 
     if(isset($_POST["btnLogout"])){
@@ -208,7 +214,7 @@
                                     <td class=""><?=$row[3]?></td>
                                     <td class="text-center"><?=$row[4]?></td>
                                     <td class="">
-                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnUpdate_Product" value="<?= $row[0]?>">Update</button>    
+                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnUpdate_Product" value="<?= $row[0]?>">Update</button>
                                         <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnDelete_Product" value="<?= $row[0]?>">Delete</button>    
                                     </td>
                                 </tr>
