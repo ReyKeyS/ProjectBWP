@@ -47,7 +47,7 @@
                 </button>
             </div>
             <div class="w-32 my-auto">
-                <button type="submit" name="rakit" class="px-5 py-2 ml-7 bg-gradient-to-r from-purple-700 to-purple-300 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to bg-purple-500">Rakit</button>
+                <button type="submit" name="rakit" class="px-5 py-2 ml-7 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Rakit</button>
             </div>
             <button type="submit" name="home" class="flex p-auto m-auto rounded-2xl bg-slate-600 font-semibold text-white hover:bg-slate-900">
                 <img src="assets/home.png" alt="" class="w-10 h-10 p-1">
@@ -67,11 +67,40 @@
             ?>
         </nav>
         <div class="pt-20 flex">
-            <div class="w-2/3 flex flex-col bg-red-500">
-                <div class="text-xl">Your Cart</div>
-                <div class="max-w-xl bg-slate-600">a</div>
+            <div class="w-2/3 flex flex-col place-content-center">
+                <div class="text-3xl font-semibold mx-auto">Your Cart</div>
+                <div class="w-3/4 ml-auto">
+                    <div class="w-full my-3 border rounded-md shadow-lg overflow-hidden mb-10 flex">
+                        <img src="https:/source.unsplash.com/600x400" alt="" class="p-5 h-48 w-48">
+                        <div class="flex flex-col my-auto">
+                            <div>Image Title</div>
+                            <div>Rp 120.000</div>
+                        </div>
+                        <div class="ml-auto my-auto">
+                            <button type="submit" name="delete" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Delete</button>
+                            <div class="text-center">1</div>
+                        </div>
+                    </div>
+                    <div class="w-full my-3 border rounded-md shadow-lg overflow-hidden mb-10 flex">
+                        <img src="https:/source.unsplash.com/600x400" alt="" class="p-5 h-48 w-48">
+                        <div class="flex flex-col my-auto">
+                            <div>Image Title</div>
+                            <div>Rp 120.000</div>
+                        </div>
+                        <div class="ml-auto my-auto">
+                            <button type="submit" name="delete" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Delete</button>
+                            <div class="text-center">1</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="w-1/3 bg-green-500"></div>
+            <div class="w-1/3">
+                <div class="w-1/3 px-5 py-3 flex border rounded-xl shadow-xl flex-col mx-auto mt-14">
+                    <div>Total:</div>
+                    <div>Rp 120.000</div>
+                    <button type="submit" name="buy" class="px-3 py-1 font-semibold text-white my-2 ml-auto rounded-lg bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Buy</button>
+                </div>
+            </div>
         </div>
     </form>
 </body>
