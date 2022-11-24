@@ -58,7 +58,8 @@ CREATE TABLE `products` (
 insert  into `products`(`id_products`,`nama`,`desc`,`price`,`stok`,`brand`,`id_cate`,`gmbr`,`status`) values 
 ('PR0001','Intel I3 10105F','-',1000000,1,'','CA004','products/intel-i3-10105f.jpg',1),
 ('PR0002','Logitech G102','Mouse gaming sejuta umat',250000,5,'Logitech','CA001','products/logitech-g102.jpeg',1),
-('PR0003','Colorful RTX 3050','-',4500000,2,'NVIDIA','CA003','products/rtx-3050-colorful.jpg',1);
+('PR0003','Colorful RTX 3050','-',4500000,2,'NVIDIA','CA003','products/rtx-3050-colorful.jpg',1),
+('PR0004','Ryzen 5 3600','-',2000000,3,'AMD','CA004','products/ryzen5-3600.jpeg',1);
 
 /*Table structure for table `users` */
 
