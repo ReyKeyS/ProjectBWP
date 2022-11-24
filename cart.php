@@ -73,7 +73,7 @@
                     <div class="w-full my-3 border rounded-md shadow-lg overflow-hidden mb-10 flex">
                         <img src="https:/source.unsplash.com/600x400" alt="" class="p-5 h-48 w-48">
                         <div class="flex flex-col my-auto">
-                            <div>Image Title</div>
+                            <div class="text-2xl font-semibold">Image Title</div>
                             <div>Rp 120.000</div>
                         </div>
                         <div class="ml-auto my-auto mr-3">
@@ -84,7 +84,7 @@
                     <div class="w-full my-3 border rounded-md shadow-lg overflow-hidden mb-10 flex">
                         <img src="https:/source.unsplash.com/600x400" alt="" class="p-5 h-48 w-48">
                         <div class="flex flex-col my-auto">
-                            <div>Image Title</div>
+                            <div class="text-2xl font-semibold">Image Title</div>
                             <div>Rp 120.000</div>
                         </div>
                         <div class="ml-auto my-auto mr-3">
