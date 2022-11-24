@@ -33,7 +33,8 @@ insert  into `categories`(`id_cate`,`nama`) values
 ('CA002','Keyboard'),
 ('CA003','VGA'),
 ('CA004','Processor'),
-('CA005','Motherboard');
+('CA005','Motherboard'),
+('CA006','RAM');
 
 /*Table structure for table `products` */
 
@@ -61,7 +62,10 @@ insert  into `products`(`id_products`,`nama`,`desc`,`price`,`stok`,`brand`,`id_c
 ('PR0002','Logitech G102','Mouse gaming sejuta umat',250000,17,'Logitech','CA001','products/logitech-g102.jpeg',1),
 ('PR0003','Colorful RTX 3050','-',4500000,12,'NVIDIA','CA003','products/rtx-3050-colorful.jpg',1),
 ('PR0004','Ryzen 5 3600','-',2000000,7,'AMD','CA004','products/ryzen5-3600.jpeg',1),
-('PR0005','Gigabyte Aorus B550','ATX Model',3250000,3,'','CA005','products/Gigabyte-B550-Aorus.jpeg',1);
+('PR0005','Gigabyte Aorus B550','ATX Model',3250000,3,'','CA005','products/Gigabyte-B550-Aorus.jpeg',1),
+('PR0006','Kingston RAM PC/Laptop 16GB','ini description ',1000000,2,'Kingston','CA006','products/ram_kingston_8gb.jpg',1),
+('PR0007','VGA Colorful GTX 3050','ini desc baca desc sebelum tanya',7000000,4,'NVIDIA','CA003','products/vgacolorful.jpg',1),
+('PR0008','VGA Platinum ','ini desc',178000,1,'VGEN','CA006','products/vgaplatinum.jfif',1);
 
 /*Table structure for table `users` */
 
