@@ -61,6 +61,14 @@
 
     }
 
+    if(isset($_POST["btnUpdate_Product"])){
+        $idProduct = $_POST["btnUpdate_Product"];
+        $resulting = mysqli_query($conn, "SELECT stok FROM products where id_products = '$idProduct'");
+        $nambah = mysqli_fetch_row($resulting)[0] + 1;
+        mysqli_query($conn, "UPDATE products set stok = '$nambah' where id_products = '$idProduct'");
+        header("Location: productsAdmin.php");
+    }
+
     if(isset($_POST["btnDelete_Product"])){
         $idProduct = $_POST["btnDelete_Product"];
         mysqli_query($conn, "UPDATE products set status = 0 where id_products = '$idProduct'");
@@ -185,7 +193,7 @@
                     </div>
                     <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Products</div>
                     <div class="grid place-content-center">
-                        <table class="table-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl mb-6" id="list_categories">
+                        <table class="table-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl mb-6" id="list_products">
                             <tr>
                                 <th class="">No</th>
                                 <th class="">ID</th>
@@ -199,7 +207,7 @@
                                 if($queryProducts->num_rows == 0){
                             ?>
                                 <tr>
-                                    <td colspan="7" class="border text-center">Product is Empty</td> 
+                                    <td colspan="7" class="text-center">Product is Empty</td> 
                                 </tr>
                             <?php
                                 }else{
@@ -214,7 +222,7 @@
                                     <td class=""><?=$row[3]?></td>
                                     <td class="text-center"><?=$row[4]?></td>
                                     <td class="">
-                                        <!-- <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnUpdate_Product" value="<?= $row[0]?>">Update</button> -->
+                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnUpdate_Product" value="<?= $row[0]?>">Update</button>
                                         <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnDelete_Product" value="<?= $row[0]?>">Delete</button>    
                                     </td>
                                 </tr>
@@ -228,5 +236,9 @@
             </div>
         </div>
     </form>
+
+    <script lang="javascript">
+        
+    </script>
 </body>
 </html>
