@@ -10,7 +10,8 @@
     }
     if(isset($_REQUEST['deleteUser'])){
         $deleteId = $_REQUEST['deleteUser'];
-        $deleteUser = mysqli_query($conn, "update users set status = '0' where id_users = '$deleteId'");
+        $deleteUser = mysqli_query($conn, "UPDATE users set status = '0' where id_users = '$deleteId'");
+        header("Location: customerAdmin.php");
     }
 ?>
 <!DOCTYPE html>
