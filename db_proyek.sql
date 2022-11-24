@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.1.9 (64 bit)
-MySQL - 10.4.22-MariaDB : Database - db_proyek
+MySQL - 10.4.25-MariaDB : Database - db_proyek
 *********************************************************************
 */
 
@@ -38,7 +38,7 @@ insert  into `categories`(`id_cate`,`nama`) values
 ('CA007','Power Supply'),
 ('CA008','Casing'),
 ('CA009','Cooling'),
-('CA010','Ssd'),
+('CA010','SSD'),
 ('CA011','HDD'),
 ('CA012','Monitor');
 
