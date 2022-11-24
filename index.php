@@ -201,10 +201,18 @@
                 <div class="w-1/2 flex flex-col">
                     <div class="my-3 text-white text-4xl flex font-semibold justify-center">Follow Us</div>
                     <div class="flex space-x-4 place-content-center">
-                        <img src="assets/tokopedia.png" alt="" class="w-10 h-10">
-                        <img src="assets/instagram.png" alt="" class="w-10 h-10">
-                        <img src="assets/facebook.png" alt="" class="w-10 h-10">
-                        <img src="assets/tiktok.png" alt="" class="w-10 h-10">
+                        <a href="https://www.tokopedia.com/" target="_blank">
+                            <img src="assets/tokopedia.png" alt="" class="w-10 h-10">
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank">
+                            <img src="assets/instagram.png" alt="" class="w-10 h-10">
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <img src="assets/facebook.png" alt="" class="w-10 h-10">
+                        </a>
+                        <a href="https://www.tiktok.com" target="_blank">
+                            <img src="assets/tiktok.png" alt="" class="w-10 h-10">
+                        </a>
                     </div>
                     <div class="mt-7 mb-5 text-white text-4xl flex font-semibold justify-center">Contacts</div>
                     <div class="text-white flex justify-center text-sm">Customer care</div>
