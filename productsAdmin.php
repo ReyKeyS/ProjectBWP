@@ -196,7 +196,7 @@
                     </form>
                     <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Products</div>
                     <div class="grid place-content-center">
-                        <table class="table-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl mb-6" id="list_products">
+                        <table class="table-fixed border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl mb-6" id="list_products">
                             
                         </table>
                     </div>

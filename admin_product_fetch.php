@@ -8,7 +8,7 @@
     <tr>
         <th class="">No</th>
         <th class="">ID</th>
-        <th class="">Name</th>
+        <th class="w-52">Name</th>
         <th class="">Price</th>
         <th class="">Category</th>
         <th class="">Amount</th>
