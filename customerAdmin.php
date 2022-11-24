@@ -114,9 +114,9 @@
                                     <td class="col"><?= $row[0]?></td>
                                     <td class="col"><?=$row[1]?></td>
                                     <td class="col"><?=$row[2]?></td>
-                                    <td class="col"><?=$row[5]?></td>
-                                    <td class="col"><?=$row[4]?></td>
-                                    <td class="col"><?=$row[3]?></td>
+                                    <td class="col text-center"><?=$row[5]?></td>
+                                    <td class="col text-center"><?=$row[4]?></td>
+                                    <td class="col text-center"><?=$row[3]?></td>
                                     <td class="col">
                                         <button class="px-3 py-2 rounded-xl text-white font-semibold bg-red-500 hover:bg-red-600" 
                                         type="submit" name="deleteUser" value="<?= $row[0]?>">Delete</button>    
