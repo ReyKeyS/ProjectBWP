@@ -184,7 +184,7 @@
             <div class="flex">
                 <div class="w-1/2 pt-5 flex flex-col border-r">
                     <div class="flex justify-center my-1">
-                        <div class="text-white mr-5 text-3xl font-semibold">Send Us Mail</div>
+                        <div class="text-white mr-5 text-4xl font-semibold">Send Us Mail</div>
                         <img src="assets/email (1).png" alt="">
                     </div>
                     <input type="text" name="email" placeholder="Email Address" class="px-3 py-1 my-1 w-96 mx-auto rounded-lg bg-transparent placeholder-white border-b-2 focus:ring-2 focus:ring-purple-400 focus:outline-none focus:border-b-0">
@@ -199,15 +199,19 @@
                     </div>
                 </div>
                 <div class="w-1/2 flex flex-col">
-                    <div class="my-1 text-white text-3xl flex font-semibold justify-center">Follow Us</div>
-                    <div class="grid grid-cols-4 gap-2">
-                        <img src="assets/tokopedia.png" alt="">
-                        <img src="assets/instagram.png" alt="">
-                        <img src="assets/facebook.png" alt="">
-                        <img src="assets/tiktok.png" alt="">
+                    <div class="my-3 text-white text-4xl flex font-semibold justify-center">Follow Us</div>
+                    <div class="flex space-x-4 place-content-center">
+                        <img src="assets/tokopedia.png" alt="" class="w-10 h-10">
+                        <img src="assets/instagram.png" alt="" class="w-10 h-10">
+                        <img src="assets/facebook.png" alt="" class="w-10 h-10">
+                        <img src="assets/tiktok.png" alt="" class="w-10 h-10">
                     </div>
+                    <div class="mt-7 mb-5 text-white text-4xl flex font-semibold justify-center">Contacts</div>
+                    <div class="text-white flex justify-center text-sm">Customer care</div>
+                    <div class="text-white flex justify-center text-sm">Contact Person</div>
                 </div>
             </div>
+            <div class="text-white text-center mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
         </nav>
         <!-- <div class="flex flex-col">
             <div class="w-full h-[600px] bg-center">
