@@ -5,7 +5,7 @@
     }
 
     // Query
-    $queryProducts = mysqli_query($conn, "SELECT * from products");
+    $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1");
 
     // Button
     if(isset($_POST["btnAdd_Products"])){
@@ -14,11 +14,44 @@
         $price = $_POST["price"];
         $stok = $_POST["stok"];
         $brand = $_POST["brand"];
-        $category = $_POST["category"];
+        $category = $_POST["categoryCombo"];
 
-        if ($name != "" && $desc != "" && $price != "" && $stok != "" && $category != ""){
+        if ($name != "" && $price != "" && $stok != "" && $category != ""){
             if ($stok > 0){
-
+                if ($price > 0){
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+                    {
+                        if (is_uploaded_file($_FILES['photo']['tmp_name'])) 
+                        { 
+                            //First, Validate the file name
+                            if(empty($_FILES['photo']['name']))
+                            {
+                                echo "<script>alert(File name is empty!)</script>";
+                                exit;
+                            }
+                        
+                            $upload_file_name = $_FILES['photo']['name'];
+                        
+                            //Save the file
+                            $dest = 'products/'.$upload_file_name;
+                            if (move_uploaded_file($_FILES['photo']['tmp_name'], $dest)) 
+                            {
+                                $newID = "PR";
+                                $max = mysqli_query($conn, "SELECT max(substr(id_products, 3)) from products");
+                                $urutan = mysqli_fetch_array($max)[0] + 1;
+                                $newID .= str_pad(strval($urutan), 4, "0", STR_PAD_LEFT);
+                                
+                                if ($desc == "")
+                                    $desc = "-";
+    
+                                mysqli_query($conn, "INSERT INTO products VALUES ('$newID', '$name', '$desc', '$price', '$stok', '$brand', '$category', '$dest', 1)");
+                                header("Location: productsAdmin.php");
+                            }
+                        }
+                    }
+                }else{
+                    echo "<script>alert('Price must be greater than 0!');</script>";        
+                }
             }else{
                 echo "<script>alert('Stock must be greater than 0!');</script>";    
             }
@@ -26,34 +59,6 @@
             echo "<script>alert('There are empty fields!');</script>";
         }
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-        {
-            if (is_uploaded_file($_FILES['photo']['tmp_name'])) 
-            { 
-                //First, Validate the file name
-                if(empty($_FILES['photo']['name']))
-                {
-                    echo " File name is empty! ";
-                    exit;
-                }
-            
-                $upload_file_name = $_FILES['photo']['name'];
-            
-                //Save the file
-                $dest = 'products/'.$upload_file_name;
-                if (move_uploaded_file($_FILES['photo']['tmp_name'], $dest)) 
-                {
-    
-                    // $newID = "CA";
-                    // $max = mysqli_query($conn, "SELECT max(substr(id_products, 3)) from products");
-                    // $urutan = mysqli_fetch_array($max)[0] + 1;
-                    // $newID .= str_pad(strval($urutan), 3, "0", STR_PAD_LEFT);
-    
-                    // mysqli_query($conn, "INSERT INTO color VALUES ('$co_id', '".$_POST["filter_add"]."', '$dest2')");
-    
-                }
-            }
-        }
     }
 
     if(isset($_POST["btnLogout"])){
@@ -155,7 +160,7 @@
                             <span class="my-auto mr-3 text-lg">Brand : </span>
                             <input type="text" name="brand" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Brand"><br>
                             <span class="my-auto mr-3 text-lg">Category : </span>
-                            <select class="form-select mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" aria-label="Default select example" name="category">
+                            <select class="form-select mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" aria-label="Default select example" name="categoryCombo">
                                 <option selected value="">Choose the Category</option>
                             <?php
                                 $categoryCB = mysqli_query($conn, "SELECT * from categories");
@@ -186,16 +191,14 @@
                                 <th class="border">Actions</th>
                             </tr>
                             <?php
-                                $nomer = 0;
                                 if($queryProducts->num_rows == 0){
                             ?>
                                 <tr>
-                                    <td colspan="3" class="border text-center">There's no Products</td> 
+                                    <td colspan="3" class="border text-center">Product is Empty</td> 
                                 </tr>
                             <?php
                                 }else{
                                     while($row = mysqli_fetch_row($queryProducts)){
-                                        $nomer++;
                             ?>
                                 <tr>
                                     <td class="border"><?= $nomer?></td>
