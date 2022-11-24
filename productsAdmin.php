@@ -187,7 +187,7 @@
                                 ?>
                                 </select><br>
                                 <span class="my-auto mr-3 text-lg">Image : </span>
-                                <input type="file" name="photo" accept="image/png, image/jpeg, image/jpg,image/webp" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none">
+                                <input type="file" name="photo" accept="image/png, image/jpeg, image/jpg,image/webp" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gradient-to-r file:from-purple-700 file:to-blue-600 file:text-white hover:file:bg-gradient-to-r hover:file:from-purple-900 hover:file:to-blue-800">
                             </div>
                             <div class="flex mt-3">
                                 <button type="submit" name="btnAdd_Products" class="py-2 px-4 mx-auto rounded-lg text-white font-medium bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add</button>
