@@ -32,7 +32,8 @@ insert  into `categories`(`id_cate`,`nama`) values
 ('CA001','Mouse'),
 ('CA002','Keyboard'),
 ('CA003','VGA'),
-('CA004','Processor');
+('CA004','Processor'),
+('CA005','Motherboard');
 
 /*Table structure for table `products` */
 
@@ -56,10 +57,11 @@ CREATE TABLE `products` (
 /*Data for the table `products` */
 
 insert  into `products`(`id_products`,`nama`,`desc`,`price`,`stok`,`brand`,`id_cate`,`gmbr`,`status`) values 
-('PR0001','Intel I3 10105F','-',1000000,1,'','CA004','products/intel-i3-10105f.jpg',1),
-('PR0002','Logitech G102','Mouse gaming sejuta umat',250000,5,'Logitech','CA001','products/logitech-g102.jpeg',1),
-('PR0003','Colorful RTX 3050','-',4500000,2,'NVIDIA','CA003','products/rtx-3050-colorful.jpg',1),
-('PR0004','Ryzen 5 3600','-',2000000,3,'AMD','CA004','products/ryzen5-3600.jpeg',1);
+('PR0001','Intel I3 10105F','-',1000000,13,'','CA004','products/intel-i3-10105f.jpg',1),
+('PR0002','Logitech G102','Mouse gaming sejuta umat',250000,17,'Logitech','CA001','products/logitech-g102.jpeg',1),
+('PR0003','Colorful RTX 3050','-',4500000,12,'NVIDIA','CA003','products/rtx-3050-colorful.jpg',1),
+('PR0004','Ryzen 5 3600','-',2000000,7,'AMD','CA004','products/ryzen5-3600.jpeg',1),
+('PR0005','Gigabyte Aorus B550','ATX Model',3250000,3,'','CA005','products/Gigabyte-B550-Aorus.jpeg',1);
 
 /*Table structure for table `users` */
 
