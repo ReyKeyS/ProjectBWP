@@ -25,7 +25,7 @@
               animation:{
                 'gerak':'goyang 3s ease-in-out infinite',
                 'tampil' : 'muncul 1.25s ease-in-out 1',
-                'tampil2': 'hadir 1.5s ease-in-out 1'
+                'tampilgambar': 'hadir 1.5s ease-in-out 1'
               },
               keyframes : {
                 goyang:{
@@ -58,12 +58,12 @@
 </head>
 <body>
     <form action="#" method="POST">
-        <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex">
+        <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
             <a class="w-32 my-auto ml-3">
                 <img src="assets/gonadi.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
             <a class="my-auto w-80 text-white font-bold text-2xl">
-               <?php
+            <?php
                     if(isset($_SESSION['data'])){
                         echo $_SESSION['data']['nama'];
                     }
@@ -100,7 +100,7 @@
         </nav>
         <div class="flex flex-col">
             <div class="w-full h-[650px] bg-black" >
-                <div class="flex flex-row w-full h-full bg-[center_bottom_-17rem]  animate-tampil2" style="background-image: url('assets/setup.jpg');">
+                <div class="flex flex-row w-full h-full bg-[center_bottom_-17rem] animate-tampilgambar" style="background-image: url('assets/setup.jpg');">
                     <div class="w-1/3 m-auto text-center text-white font-bold text-3xl animate-tampil">
                         Welcome To Our Shop
                         <br>
@@ -180,6 +180,15 @@
                 </div>
             </div>
         </div>
+        <nav class="h-96 bg-black ">
+            <div class="w-1/2">
+                <div class="flex justify-center">
+                    <div class="text-white mr-5 text-3xl font-semibold">Send Us Mail</div>
+                    <img src="assets/email (1).png" alt="">
+                </div>
+            </div>
+            <div class="w-1/2"></div>
+        </nav>
         <!-- <div class="flex flex-col">
             <div class="w-full h-[600px] bg-center">
                 
