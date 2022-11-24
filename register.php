@@ -17,7 +17,7 @@
         if(!$ketemu){
             if($name!="" && $email!="" && $pass!="" && $conf!="" && $telp!="" && $alamat!=""){
                 if($pass!=$conf){
-                    echo "<script>alert('Password dan Confirm Password harus sama')</script>";
+                    echo "<script>alert('Password and Confirm Password don't match')</script>";
                 }
                 else{
                     // GenerateID
@@ -31,11 +31,11 @@
                 }
             }
             else{
-                echo "<script>alert('Field masih ada yang kosong')</script>";
+                echo "<script>alert('There's an Empty Field')</script>";
             }
         }
         else{
-            echo "<script>alert('Name/Email sudah digunakan')</script>";
+            echo "<script>alert('Name/Email is already used')</script>";
         }
     }
 ?>

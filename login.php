@@ -26,14 +26,14 @@
             }
         }
         if($ketemu2){
-            echo "<script>alert('Password salah')</script>";
+            echo "<script>alert('Incorrect Password')</script>";
         }
         else{
             if($nama == "admin" && $pass == "admin"){
                 $_SESSION['data']= "admin";
                 header("Location: homeAdmin.php");
             }else{
-                echo "<script>alert('Password salah')</script>";
+                echo "<script>alert('Incorrect Password')</script>";
             }
         }
     }

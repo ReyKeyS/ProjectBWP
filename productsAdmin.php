@@ -5,6 +5,7 @@
     }
 
     // Query
+    $queryProducts = mysqli_query($conn, "SELECT * from products");
 
     // Button
     if(isset($_POST["btnAdd_Products"])){
@@ -126,8 +127,11 @@
                         <div class="pl-8">
                             <span class="my-auto mr-3 text-lg">Name : </span>
                             <input type="text" name="name" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Name Products"><br>
-                            <span class="my-auto mr-3 text-lg">Description : </span>
-                            <input type="text" name="desc" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Description"><br>
+                            <div class="flex">
+                                <span class="my-auto mr-3 text-lg">Description : </span>
+                                <textarea rows="4" cols="95" name="desc" class="mb-3 mt-2 px-3 py-2 border rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Description"></textarea><br>
+
+                            </div>
                             <span class="my-auto mr-3 text-lg">Price : </span>
                             <input type="text" name="price" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Price"><br>
                             <span class="my-auto mr-3 text-lg">Stock : </span>
@@ -135,7 +139,7 @@
                             <span class="my-auto mr-3 text-lg">Brand : </span>
                             <input type="text" name="brand" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Brand"><br>
                             <span class="my-auto mr-3 text-lg">Category : </span>
-                            <select class="form-select mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" aria-label="Default select example" name="kategoriBarang">
+                            <select class="form-select mb-3 px-3 py-2 border w-4/6 rounded-lg  focus:ring-4 focus:ring-purple-500 focus:outline-none" aria-label="Default select example" name="kategoriBarang">
                                 <option selected value="">Choose the Category</option>
                             <?php
                                 $categoryCB = mysqli_query($conn, "SELECT * from categories");
@@ -158,24 +162,32 @@
                         <table class="table-auto border-separate text-xl" id="list_categories">
                             <tr>
                                 <th class="border">No</th>
+                                <th class="border">ID</th>
                                 <th class="border">Name</th>
-                                <th class="border">Action</th>
+                                <th class="border">Price</th>
+                                <th class="border">Category</th>
+                                <th class="border">Amount</th>
+                                <th class="border">Actions</th>
                             </tr>
                             <?php
-                                if($queryCategory->num_rows == 0){
+                                $nomer = 0;
+                                if($queryProducts->num_rows == 0){
                             ?>
                                 <tr>
-                                    <td colspan="3" class="border text-center">Category is Empty</td> 
+                                    <td colspan="3" class="border text-center">There's no Products</td> 
                                 </tr>
                             <?php
                                 }else{
-                                    while($row = mysqli_fetch_row($queryCategory)){
+                                    while($row = mysqli_fetch_row($queryProducts)){
+                                        $nomer++;
                             ?>
                                 <tr>
+                                    <td class="border"><?= $nomer?></td>
                                     <td class="border"><?= $row[0]?></td>
                                     <td class="border"><?=$row[1]?></td>
                                     <td class="border">
-                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnDelete_Category" value="<?= $row[0]?>">Delete</button>    
+                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnDeleteProduct" value="<?= $row[0]?>">Delete</button>    
+                                        <button class="px-3 py-2 rounded bg-red-500 hover:bg-red-600" type="submit" name="btnUpdateProduct" value="<?= $row[0]?>">Delete</button>    
                                     </td>
                                 </tr>
                             <?php

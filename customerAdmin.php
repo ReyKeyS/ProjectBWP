@@ -8,6 +8,10 @@
         unset($_SESSION["data"]);
         header("Location: index.php");
     }
+    if(isset($_REQUEST['deleteUser'])){
+        $deleteId = $_REQUEST['deleteUser'];
+        $deleteUser = mysqli_query($conn, "update users set status = '0' where id_users = '$deleteId'");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +72,7 @@
                     </button>
                 </div>
             </div>
-            <div class="flex-auto flex flex-col w-full bg-blue-600">
+            <div class="flex-auto flex flex-col w-full bg-neutral-100">
                 <div class="flex bg-gradient-to-r from-purple-900 to-fuchsia-600 p-5 mb-5 shadow-xl">
                     <div class="w-20 h-20 ml-8 mr-2 rounded-full bg-slate-700 text-white text-center bg-[url('assets/Logo.jpg')] bg-cover"></div>
                     <div class="pt-1 pl-7 ml-44 block text-center text-white">
@@ -76,36 +80,54 @@
                         <div class="text-3xl my-auto font-bold">Welcome Back Admin! Let's Build a Future Together</div>
                     </div>
                 </div>
-                <div class="overflow-y-scroll h-screen">
-                    <div class="mx-auto px-6 bg-purple-600 columns-4">
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                1000 Customer
-                            </div>
-                        </div>
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                2000 Products
-                            </div>
-                        </div>
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                10 Category
-                            </div>
-                        </div>
-                        <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
-                            <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
-                            <div class="px-6 py-4">
-                                3000 Transaction
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-20">
-                        <img src="https://source.unsplash.com/600x400" alt="" class="mx-auto animate-gerak">
-                    </div>
+                <div class="overflow-y-scroll h-screen -mt-5">
+                    <div class="my-6 text-center font-bold text-5xl bg-gradient-to-r from-purple-900 to-fuchsia-600 bg-clip-text text-transparent">Customers</div>
+                    <table class="table-auto mx-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl" id="list_categories">
+                            <tr>
+                                <th class="col">No</th>
+                                <th class="col">ID</th>
+                                <th class="col">Name</th>
+                                <th class="col">Email</th>
+                                <th class="col">Password</th>
+                                <th class="col">Address</th>
+                                <th class="col">Phone Number</th>
+                                <th class="col">Action</th>
+                            </tr>
+                            <?php
+                                $nomer = 0;
+                                $all_items = mysqli_query($conn, "select * from users");
+                                if($all_items->num_rows == 0){
+                            ?>
+                                <tr>
+                                    <td colspan="3" class="text-center">There's No Customers yet..</td> 
+                                </tr>
+                            <?php
+                                }else{
+                                    while($row = mysqli_fetch_row($all_items)){
+                                        $nomer++;
+                                        if($row[6] == '1'){
+
+                                        
+                            ?>
+                                <tr>
+                                    <td class="col"><?= $nomer?></td>
+                                    <td class="col"><?= $row[0]?></td>
+                                    <td class="col"><?=$row[1]?></td>
+                                    <td class="col"><?=$row[2]?></td>
+                                    <td class="col"><?=$row[5]?></td>
+                                    <td class="col"><?=$row[4]?></td>
+                                    <td class="col"><?=$row[3]?></td>
+                                    <td class="col">
+                                        <button class="px-3 py-2 rounded-xl text-white font-semibold bg-red-500 hover:bg-red-600" 
+                                        type="submit" name="deleteUser" value="<?= $row[0]?>">Delete</button>    
+                                    </td>
+                                </tr>
+                            <?php
+                                        }
+                                    }
+                                }
+                            ?>
+                        </table>
                 </div>
             </div>
         </div>
