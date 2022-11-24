@@ -110,7 +110,7 @@
                             <input type="text" name="nameCate" class="px-3 py-2 border w-3/4 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Category">
                         </div>
                         <div class="flex mt-3">
-                            <button type="submit" name="btnAdd_Category" class="py-2 px-4 mx-auto rounded-lg text-white font-medium bg-gradient-to-r from-purple-600 to-purple-300 hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-500">Add</button>
+                            <button type="submit" name="btnAdd_Category" class="py-2 px-4 mx-auto rounded-lg text-white font-medium bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add</button>
                         </div>
                     </div>
                     <div class="text-center font-bold text-4xl my-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">List Category</div>
