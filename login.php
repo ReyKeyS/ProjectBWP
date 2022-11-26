@@ -92,6 +92,10 @@
                 <input type="password" name="pass" placeholder="Enter your password" class="px-3 py-2 border rounded-xl w-full h-14 text-xl shadow focus:ring-2 focus:ring-blue-500 focus:outline-none">
                 <div class="text-xl text-center mt-3">Doesn't have an account? &nbsp;<a href="register.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Register Now!</a></div>
                 <div class="flex">
+                    <button type="submit" name="home" formaction="index.php" class="my-5 text-lg font-bold mr-auto px-7 py-3 flex text-white rounded-full bg-sky-400 hover:bg-sky-500 active:bg-sky-600 focus:ring-4 focus:ring-sky-200">
+                        <img src="assets/home.png" alt="" class="w-5 h-5 my-auto mr-5">
+                        HOME
+                    </button>
                     <button type="submit" name="login" class="my-5 text-lg font-bold ml-auto px-7 py-3 text-white rounded-full bg-sky-400 hover:bg-sky-500 active:bg-sky-600 focus:ring-4 focus:ring-sky-200">LOGIN</button>
                 </div>
             </div>

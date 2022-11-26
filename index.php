@@ -13,7 +13,15 @@
             header("Location:cart.php");
         }
         else{
-            echo "<script>alert('Please Log in first')</script>";
+            echo "<script>alert('Please Login first')</script>";
+        }
+    }
+    if(isset($_POST['build'])){
+        if(isset($_SESSION['data'])){
+            header("Location:build.php");
+        }
+        else{
+            echo "<script>alert('Please Login first')</script>";
         }
     }
 ?>
@@ -87,7 +95,7 @@
                 </button>
             </div>
             <div class="w-32 my-auto">
-                <button type="submit" name="rakit" class="px-5 py-2 ml-7 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Rakit</button>
+                <button type="submit" name="build" class="px-5 py-2 ml-7 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Build</button>
             </div>
             <button type="submit" name="cart" class="flex p-auto m-auto rounded-2xl bg-slate-600 font-semibold text-white hover:bg-slate-900">
                 <img src="assets/shopping-cart.png" alt="" class="w-10 h-10 p-1">
@@ -139,8 +147,8 @@
                     Recommended
                 </div>
                 <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-700 to-purple-400 flex fixed bottom-5 right-5 cursor-pointer animate-bounce">
-                    <a href="#">
-                        <img src="assets/up-arrow.png" alt="">
+                    <a href="#" class="m-auto">
+                        <img src="assets/up-arrow.png" alt="" class="w-7 h-7">
                     </a>
                 </div>
                 <div class="grid grid-cols-4 mx-auto">
