@@ -155,7 +155,7 @@
             </div>
             <div class="w-full relative">
                 <div class="w-72 px-3 py-4 h-[335px] bg-gradient-to-br from-slate-500 to-slate-900 rounded-t-xl flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
-                    <div class="text-white font-semibold text-2xl text-center">Filter</div>
+                    <div class="text-white font-semibold text-2xl text-center mb-1">Filter</div>
                     <div class="flex">
                         <div class="my-1 text-white font-medium">Category</div>
                         <select class="form-select ml-3 mt-1 w-[155px] h-7 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none text-sm" aria-label="Default select example" name="categoryCombo">
@@ -171,9 +171,9 @@
                         </select><br>
                     </div>
                     <div class="my-1 text-white font-medium">Price</div>
-                    <input type="text" name="min" placeholder="Harga minimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$minimum?>">
-                    <input type="text" name="maks" placeholder="Harga maksimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$maximum?>">
-                    <div class="flex pl-1 pr-5">
+                    <input type="text" name="min" placeholder="Harga minimum" class="px-5 py-1 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$minimum?>">
+                    <input type="text" name="maks" placeholder="Harga maksimum" class="px-5 py-1 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$maximum?>">
+                    <div class="flex pl-1 pr-5 mt-1">
                         <button type="submit" name="btnReset" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Reset</button>
                         <button type="submit" name="btnApply" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
                     </div>
