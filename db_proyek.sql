@@ -32,6 +32,11 @@ CREATE TABLE `carts` (
 
 /*Data for the table `carts` */
 
+insert  into `carts`(`id_users`,`id_products`,`qty`) values 
+('US0001','PR0001',5),
+('US0001','PR0005',1),
+('US0001','PR0010',10);
+
 /*Table structure for table `categories` */
 
 DROP TABLE IF EXISTS `categories`;
