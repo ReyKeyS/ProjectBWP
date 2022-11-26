@@ -114,7 +114,7 @@
                 }
             ?>
         </nav>
-        <div class="flex flex-col">
+        <div class="flex flex-col pt-20">
             <div class="w-full h-[650px] bg-black" >
                 <div class="flex flex-row w-full h-full bg-[center_bottom_-17rem] animate-tampilgambar" style="background-image: url('assets/setup.jpg');">
                     <div class="w-1/3 m-auto text-center text-white font-bold text-3xl animate-tampil">
@@ -126,7 +126,7 @@
                 </div>
             </div>
             <div class="w-full relative">
-                <div class="w-72 px-3 h-80 bg-gradient-to-br from-slate-500 to-slate-900 rounded-t-xl flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
+                <div class="w-72 px-3 py-4 h-[335px] bg-gradient-to-br from-slate-500 to-slate-900 rounded-t-xl flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
                     <div class="text-white font-semibold text-2xl text-center">Filter</div>
                     <div class="my-1 text-white font-medium">Category</div>
                     <div class="my-1 text-white font-medium">Price</div>
@@ -146,7 +146,7 @@
                 <div class="text-slate-600 font-bold text-4xl">
                     Recommended
                 </div>
-                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-700 to-purple-400 flex fixed bottom-5 right-5 cursor-pointer animate-bounce">
+                <div class="w-10 h-10 rounded-full bg-white border-2 border-black flex fixed bottom-5 right-5 cursor-pointer animate-bounce">
                     <a href="#" class="m-auto">
                         <img src="assets/up-arrow.png" alt="" class="w-7 h-7">
                     </a>
@@ -218,16 +218,16 @@
                 <div class="w-1/2 flex flex-col">
                     <div class="my-3 text-white text-4xl flex font-semibold justify-center">Follow Us</div>
                     <div class="flex space-x-4 place-content-center">
-                        <a href="https://www.tokopedia.com/" target="_blank">
+                        <a href="https://www.tokopedia.com/" target="_blank" class="hover:scale-125 duration-200">
                             <img src="assets/tokopedia.png" alt="" class="w-10 h-10">
                         </a>
-                        <a href="https://www.instagram.com" target="_blank">
+                        <a href="https://www.instagram.com" target="_blank" class="hover:scale-125 duration-200">
                             <img src="assets/instagram.png" alt="" class="w-10 h-10">
                         </a>
-                        <a href="https://www.facebook.com/" target="_blank">
+                        <a href="https://www.facebook.com/" target="_blank" class="hover:scale-125 duration-200">
                             <img src="assets/facebook.png" alt="" class="w-10 h-10">
                         </a>
-                        <a href="https://www.tiktok.com" target="_blank">
+                        <a href="https://www.tiktok.com" target="_blank" class="hover:scale-125 duration-200">
                             <img src="assets/tiktok.png" alt="" class="w-10 h-10">
                         </a>
                     </div>
