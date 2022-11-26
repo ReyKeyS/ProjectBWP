@@ -35,7 +35,8 @@ CREATE TABLE `carts` (
 insert  into `carts`(`id_users`,`id_products`,`qty`) values 
 ('US0001','PR0001',5),
 ('US0001','PR0005',1),
-('US0001','PR0010',10);
+('US0001','PR0010',10),
+('US0001','PR0034',2);
 
 /*Table structure for table `categories` */
 
@@ -118,7 +119,7 @@ insert  into `products`(`id_products`,`nama`,`desc`,`price`,`stok`,`brand`,`id_c
 ('PR0031','VGEN LONGDIMM 16 GB DDR4','Dimensi : 68mm x 30mm x 2mm\r\nKecepatan : 3200Mhz\r\nChipset : Major Brand (Samsung/SKHynix/Micron)\r\nSlot : DIMM 260 Pin\r\nType : Unbuffered\r\nVoltage : 1.2V\r\nECC : No\r\nRegistered : No\r\nGaransi : Limited Lifetime Warranty',750000,72,'VGEN','CA006','products/messageImage_1616039661698.jpg',1),
 ('PR0032','MEMORY RAM KINGSTON LONGDIMM 8GB DDR4 PC21300 2666MHZ - LONGDIM 8 GB','Garansi Lifetime\r\n\r\nMemory Capacity 8GB\r\nModel/Series/Type ValueRAM\r\nBrand Kingston\r\nCASLatency CL19\r\nData Width X64\r\nForm Factor DDR4\r\nMemory Voltage 1.2v\r\nModule Type DIMM\r\nOperating Temperature 0C to 85C\r\nPins 288 Pin\r\nProduct Type/Family DRAM\r\nRAM Mem',600000,13,'Kingston','CA006','products/messageImage_1616042727891.jpg',1),
 ('PR0033','RAM KINGSTON LONGDIMM DDR4 16GB PC 21300 / 2666MHz','Deskripsi produk :\r\n* Barang 100% Baru\r\n* Pemakaian untuk PC\r\n* Kapasitas 16GB\r\n* Speed 2666MHz\r\n* Kompatible ( Cocok ) dengan semua motherboard yang menggunakan DDR4\r\n* Premium Quality, menggunakan IC CHIP Yang Ori\r\n* Voltage : 1.2V (LOW VOLTAGE)\r\n\r\nGara',750000,12,'Kingston','CA006','products/messageImage_1616042727891.jpg',1),
-('PR0034','Casing Armagedon NIMITZ N7','Armaggeddon NIMITZ N7 - Excellent ATX With Multi Color Effects\r\n\r\nTEMPERED GLASS SIDE PANEL\r\nDarkness Tempered Glass Side Panel\r\nChassis Material : SPCC Blackened Steel Palte 0.45 mm on Top ,0,4 mm Other Side\r\n\r\nSpesifikasi :\r\nChassis Size L330 X W208 X H',500000,7,'Armagedon','CA008','products/n7-500x500.jpg',1),
+('PR0034','Casing Armagedon NIMITZ N7','Armaggeddon NIMITZ N7 - Excellent ATX With Multi Color Effects\r\n\r\nTEMPERED GLASS SIDE PANEL\r\nDarkness Tempered Glass Side Panel\r\nChassis Material : SPCC Blackened Steel Palte 0.45 mm on Top ,0,4 mm Other Side\r\n\r\nSpesifikasi :\r\nChassis Size L330 X W208 X H',500000,5,'Armagedon','CA008','products/n7-500x500.jpg',1),
 ('PR0035','MSI Vampiric 100L','MSI MAG VAMPIRIC 100L Gaming Case\r\n\r\nPRODUCT NAME : MAG VAMPIRIC 100L\r\n\r\nI/O PORTS\r\nUSB 3.2 Gen 1 Type A x 1\r\nUSB 2.0 x2\r\nAudio x1\r\nMic x1\r\n\r\nDRIVER BAYS : 2.5” x 2 + 3.5” x 2 (1 x compatible with 2.5”)\r\nCASE EXPANSION SLOTS : 7\r\nMAXIMUM GPU LENGTH : 300m',670000,3,'MSI','CA008','products/vampiric 100l.jpg',1),
 ('PR0036','MSI SEKIRA CASE','Face of Visible Greatness\r\n-Can install up to 6x system fans, providing ventilation and stable performance to the whole system\r\n-Three dust filters to prevent dust from entering the system\r\n-Top vent lid provides additional system airflow and protection\r\n',1100000,3,'MSI','CA008','products/Casing MSI Bannered.jpg',1),
 ('PR0037','Darkflash L6','CPU COOLER DarkFlash L6 Heat Sink CPU Air Cooler\r\n\r\n- Mohon tanyakan stok terlebih dahulu sebelum order\r\n- Spesifikasi dan harga dapat berubah sewaktu-waktu tanpa pemberitahuan\r\n- Siap Kirim ke seluruh Indonesia\r\n- Harap konfirmasi jika barang sudah di te',280000,32,'DarkFlash','CA009','products/5b5adfa7-849d-4499-b2ba-416877accba6.jpg',1),

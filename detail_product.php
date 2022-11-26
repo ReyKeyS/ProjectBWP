@@ -2,7 +2,9 @@
     require_once("connection.php");
     $logged = false;
     if (isset($_SESSION['data'])){
-        $logged = true;
+        $logged = true;        
+        $queryUser = mysqli_query($conn, "SELECT id_users from users where nama = '".$_SESSION['data']['nama']."'");
+        $idUser = mysqli_fetch_row($queryUser)[0];
     }
     if(isset($_POST['home'])){
         header('Location:index.php');
@@ -17,21 +19,14 @@
         }
         else{
             echo "<script>alert('Please Login first')</script>";
+            header("Location: login.php");
         }
     }
-    if(isset($_POST['tambah'])){
-        if(!$logged){
-            echo "<script>alert('Please Login first')</script>";
-        }
-        else{
-
-        }
-    }
-
+        
     $idProduct = "";
     if (isset($_GET["ID"])){
         $idProduct = $_GET["ID"];
-        $queryProduct = mysqli_query($conn, "SELECT * from products where id_products = '$idProduct' and status = 1");
+        $queryProduct = mysqli_query($conn, "SELECT * from products where id_products = '$idProduct' and status = 1 and stok > 0");
         $dataProduct = mysqli_fetch_array($queryProduct);
         if (!isset($dataProduct)){
             header("Location: index.php");    
@@ -39,7 +34,20 @@
     }else{
         header("Location: index.php");
     }
-
+    
+    if(isset($_POST['tambah'])){
+        if(!$logged){
+            echo "<script>alert('Please Login first')</script>";
+            header("Location: login.php");
+        }
+        else{
+            $qty = $_POST["amountProduct"];
+            mysqli_query($conn, "INSERT INTO carts values('$idUser', '$idProduct', '$qty')");
+            $newStok = $dataProduct["stok"] - $qty;
+            mysqli_query($conn, "UPDATE products SET stok = '$newStok' where id_products = '$idProduct'");
+            header("Location: cart.php");
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +116,7 @@
                 <div class="mt-8 font-medium"><?=$dataProduct["desc"]?></div>
                 <div class="flex mt-20 gap-2">
                     <div class="my-auto font-medium">Amount : </div>
-                    <input type="number" value="1" class="border rounded-xl">
+                    <input type="number" name="amountProduct" value="1" class="w-14 border rounded-xl text-center pl-3" min="1" max="<?=$dataProduct["stok"]?>">
                     <button type="submit" name="tambah" class="px-5 py-3 w-32 border bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
 
                 </div>
@@ -124,7 +132,7 @@
             <div class="text-slate-600 font-bold text-4xl px-10 py-6">Others</div>
             <div class="grid grid-cols-4 gap-x-16 mx-auto my-8">
             <?php
-                $queryJumlah = mysqli_query($conn, "SELECT count(*) from products where status = 1");
+                $queryJumlah = mysqli_query($conn, "SELECT count(*) from products where status = 1 and stok > 0");
                 $jumlahP = mysqli_fetch_row($queryJumlah)[0];
                 $angkaHasilRand = [];
                 for ($i=0; $i < 4; $i++) { 
