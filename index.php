@@ -29,6 +29,21 @@
     if (isset($_POST["btnSearch"])){
         $search = $_POST["search"];
     }
+    $minimum = 0;
+    $maximum = 0;
+    $sorted = "asc";
+    if (isset($_POST["btnApply"])){
+        $minimum = $_POST["min"];
+        $maximum = $_POST["maks"];
+        
+        if ($minimum <= $maximum){ 
+            $sorted = $_POST["sort"];
+        }else if ($minimum > $maximum){
+            $minimum = 0;
+            $maximum = 0;
+            echo "<script>alert('Invalid Filter!')</script>";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -135,16 +150,16 @@
                     <div class="text-white font-semibold text-2xl text-center">Filter</div>
                     <div class="my-1 text-white font-medium">Category</div>
                     <div class="my-1 text-white font-medium">Price</div>
-                    <input type="text" name="min" placeholder="Harga minimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none">
-                    <input type="text" name="maks" placeholder="Harga maksimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none">
-                    <button type="submit" name="apply" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
+                    <input type="text" name="min" placeholder="Harga minimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$minimum?>">
+                    <input type="text" name="maks" placeholder="Harga maksimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$maximum?>">
+                    <button type="submit" name="btnApply" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
                     <div class="my-1 text-white font-medium">Sort</div>
                     <div class="flex flex-row">
-                        <input type="radio" name="sort" value="asc" class="ml-3">
+                        <input type="radio" name="sort" id="asc" value="asc" class="ml-3" <?php if($sorted == "asc") echo "checked"; ?>>
                         <div class="text-white font-medium">Ascending</div>
                     </div>
                     <div class="flex flex-row">
-                        <input type="radio" name="sort" value="desc" class="ml-3">
+                        <input type="radio" name="sort" id="desc" value="desc" class="ml-3" <?php if($sorted == "desc") echo "checked"; ?>>
                         <div class="text-white font-medium">Descending</div>
                     </div>
                 </div>
@@ -234,7 +249,7 @@
             }
             r.open("POST", "index_product_fetch.php");
             r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            r.send(`search=<?=$search?>`);
+            r.send(`search=<?=$search?>&sorted=<?=$sorted?>`);
         }
 
     </script>

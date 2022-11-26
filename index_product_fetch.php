@@ -1,8 +1,9 @@
 <?php
 	require("connection.php");
     $search = $_REQUEST["search"];
+    $sorted = $_REQUEST["sorted"];
 
-	$queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%'");
+	$queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' ORDER BY nama $sorted");
     $bnykData = intval($queryProducts->num_rows);
 ?>
 <?php
