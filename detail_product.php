@@ -75,11 +75,16 @@
                 }
             ?>
         </nav>
-        <div class="w-2/3 pt-20 mx-auto flex">
+        <div class="w-2/3 pt-24 mx-auto flex">
             <div class="w-1/3 bg-red-300">
                 <img src="https://source.unsplash.com/600x400" alt="">
             </div>
-            <div class="w-2/3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora dolor culpa rem vitae amet repudiandae eaque voluptate, explicabo molestias cupiditate nulla est blanditiis expedita, nam sed aliquam eveniet corrupti adipisci magni rerum laboriosam. Ea enim fuga minima a quis perferendis maxime sed hic quas in nihil esse, quo reiciendis architecto tempora error corporis nam veniam earum tempore quasi quod neque quaerat! Aperiam corporis aut nobis illo earum similique ab, harum distinctio sapiente, odit voluptatem quam reprehenderit aspernatur culpa officia vel saepe illum quas, commodi atque fugit nesciunt quo omnis. Alias explicabo nemo quos possimus ab natus ipsam laborum ut tenetur rem laboriosam, quo illo, esse, sequi consequuntur! Nihil sunt dolorum cumque inventore consequuntur blanditiis ducimus maxime quas, magnam aut assumenda, iusto rem eveniet omnis, in quisquam ipsa quos molestias voluptatum tempore quis voluptate voluptas? Magnam, molestiae velit pariatur ad sed voluptatibus ex similique quaerat, quibusdam tempore architecto quis maxime incidunt laudantium quidem dolorum ratione nemo non ab! Sed magnam atque nesciunt reiciendis eaque voluptatum iste error numquam ipsam, architecto quisquam? Dolorum vitae ea magni odit ut qui repellendus corrupti perferendis quidem fugiat fuga placeat, ex ipsum voluptatem amet neque adipisci consequuntur. Eveniet iusto voluptate ipsam delectus modi culpa placeat odit.</div>
+            <div class="w-2/3 flex flex-col bg-green-300 pl-10">
+                <div class="text-4xl font-semibold my-2">Image Title</div>
+                <div class="text-2xl font-medium">Rp 120.000</div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero illo adipisci odit ipsam delectus numquam pariatur earum repellat voluptatem praesentium?</div>
+                <button type="submit" class="px-3 py-5 border bg-red-400">Add to Cart</button>
+            </div>
         </div>
     </form>
 </body>
