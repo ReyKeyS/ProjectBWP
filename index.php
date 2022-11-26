@@ -215,7 +215,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-1/2 flex flex-col">
+                <div class="w-1/2 flex flex-col pt-2">
                     <div class="my-3 text-white text-4xl flex font-semibold justify-center">Follow Us</div>
                     <div class="flex space-x-4 place-content-center">
                         <a href="https://www.tokopedia.com/" target="_blank" class="hover:scale-125 duration-200">
@@ -232,8 +232,8 @@
                         </a>
                     </div>
                     <div class="mt-7 mb-5 text-white text-4xl flex font-semibold justify-center">Contacts</div>
-                    <div class="text-white flex justify-center text-sm">Customer care</div>
-                    <div class="text-white flex justify-center text-sm">Contact Person</div>
+                    <div class="text-white text-center mx-auto text-sm"><span class="text-lg font-bold"><i>Customer Care</i></span><br><b>Email:</b> Glorindo.Care@care.co.id</div>
+                    <div class="text-white text-center mx-auto text-sm"><span class="text-lg font-bold"><i>Contact Person</i></span><br><b>Email:</b> Glorindo.Komp@official.co.id<br><b>Phone:</b> 081234567890</div>
                 </div>
             </div>
             <div class="text-white text-center mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
