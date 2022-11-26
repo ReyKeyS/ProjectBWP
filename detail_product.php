@@ -135,22 +135,24 @@
                 $queryJumlah = mysqli_query($conn, "SELECT count(*) from products where status = 1 and stok > 0");
                 $jumlahP = mysqli_fetch_row($queryJumlah)[0];
                 $angkaHasilRand = [];
-                for ($i=0; $i < 4; $i++) { 
-                    $cekUniq = false;
+                for ($i=0; $i < 4; $i++) {
                     do {
+                        $cekUniq = false;
                         $rand = rand(1,$jumlahP);
                         for ($j=0; $j < $i; $j++) { 
-                            if ($angkaHasilRand[$j] == $rand)
+                            if ($angkaHasilRand[$j] == $rand){
                                 $cekUniq = true;
+                                break;
+                            }
                         }
                     } while ($cekUniq);
                     if (!$cekUniq){
-                        $angkaHasilRand[] = $rand;
-                    }
+                        $angkaHasilRand[$i] = $rand;
+                        $idOthers = "PR".str_pad(strval($rand), 4, "0", STR_PAD_LEFT);
+                        $queryOthers = mysqli_query($conn, "SELECT * from products where id_products = '$idOthers' and status = 1 and stok > 0");
+                        $dataOthers = mysqli_fetch_array($queryOthers);
                     
-                    $idOthers = "PR".str_pad(strval($rand), 4, "0", STR_PAD_LEFT);
-                    $queryOthers = mysqli_query($conn, "SELECT * from products where id_products = '$idOthers' and status = 1 and stok > 0");
-                    $dataOthers = mysqli_fetch_array($queryOthers);
+                    // $rand = rand(1,$jumlahP);
             ?>
                 <button class="w-96 h-full shadow-lg overflow-hidden mx-auto rounded-lg p-5" formaction="detail_product.php?ID=<?=$dataOthers["id_products"]?>";>
                     <img src='<?=$dataOthers["gmbr"]?>' alt="" class="w-full h-11/12">
@@ -161,8 +163,8 @@
                     </div>
                 </button>
             <?php
+                    }
                 }
-                $angkaHasilRand = array();
             ?>
             </div> 
         </div>
