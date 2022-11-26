@@ -151,7 +151,7 @@
                         <img src="assets/up-arrow.png" alt="" class="w-7 h-7">
                     </a>
                 </div>
-                <div class="grid grid-cols-4 mx-auto mt-2" id="product_list">
+                <div class="grid grid-cols-4 gap-y-20 mx-auto mt-2" id="product_list">
                     <!-- <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div> -->
                     <!-- <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
                         <img src="https:/source.unsplash.com/600x400" alt="">

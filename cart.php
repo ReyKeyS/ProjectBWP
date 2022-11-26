@@ -14,6 +14,14 @@
         unset($_SESSION['data']);
         header("Location: index.php");
     }
+    if(isset($_POST['build'])){
+        if($logged){
+            header("Location:build.php");
+        }
+        else{
+            echo "<script>alert('Please Login first')</script>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -74,7 +74,179 @@
             ?>
         </nav>
         <div class="w-5/6 pt-20 mx-auto bg-red-300 flex flex-col">
-            <div class="ml-10 text-4xl font-bold">Build Your PC</div>
+            <div class="ml-10 mb-10 text-4xl font-bold">Build Your PC</div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">Motherboard</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">Processor</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">RAM</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">Casing</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">SSD</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">HDD</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">VGA</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">PSU</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">Cooling</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">Mouse</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">Monitor</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="my-4 flex gap-2">
+                <div class="min-w-[80px]">Keyboard</div>
+                <div class="flex justify-end ml-20 w-2/3">
+                    <select name="" id="" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+                        <option value="">mobo1</option>
+                        <option value="">mobo2</option>
+                        <option value="">mobo3</option>
+                    </select>
+                </div>
+                <input type="number" value="1" class="border border-slate-400 rounded-lg">
+                <div class="flex">
+                    Rp: <input type="text" class="border border-slate-400 rounded-lg" disabled>
+                </div>
+            </div>
+            <div class="ml-auto flex">
+                <div class="">Grand Total : Rp</div>
+                <input type="text" class="rounded-lg border border-slate-400" disabled>
+            </div>
         </div>
     </form>
 </body>
