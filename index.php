@@ -323,6 +323,11 @@
                 fetch_product();
             }
         }
+
+        function paging(pageTerpilih){
+            page = pageTerpilih;
+            fetch_product();
+        }
         
     </script>
 
