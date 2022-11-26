@@ -81,7 +81,7 @@
             }
         }
     }
-    $bnykPage = intval($queryPage->num_rows);
+    $bnykPage = intval($queryPage->num_rows)/12;
 
 ?>
 
@@ -290,7 +290,7 @@
     </form>
 
     <script lang="javascript">
-        judulIndex, product_list, offset = 1;
+        judulIndex, product_list, page = 1;
         function load_ajax(){
             judulIndex = document.getElementById("judulIndex");
             product_list = document.getElementById("product_list");
@@ -307,19 +307,19 @@
             }
             r.open("POST", "index_product_fetch.php");
             r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            r.send(`search=<?=$search?>&cate=<?=$cate?>&sorted=<?=$sorted?>&minimum=<?=$minimum?>&maximum=<?=$maximum?>&offset=${offset}`);
+            r.send(`search=<?=$search?>&cate=<?=$cate?>&sorted=<?=$sorted?>&minimum=<?=$minimum?>&maximum=<?=$maximum?>&page=${page}`);
         }
 
         function prev_btn(){
-            if (offset > 1){
-                offset -= 12;
+            if (page > 1){
+                page--;
                 fetch_product();
             }
         }
 
         function next_btn(){
-            if (offset < <?=$bnykPage?>){
-                offset += 12;
+            if (page < <?=$bnykPage?>){
+                page++;
                 fetch_product();
             }
         }

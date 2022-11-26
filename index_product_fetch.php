@@ -5,22 +5,22 @@
     $minimum = $_REQUEST["minimum"];
     $maximum = $_REQUEST["maximum"];
     $cate = $_REQUEST["cate"];
-    $offset = $_REQUEST["offset"] - 1;
+    $page = ($_REQUEST["page"]-1)*12;
 
     if ($cate != ""){
         if ($minimum != 0 || $maximum != 0){
-            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted LIMIT 12 OFFSET $offset");
+            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted LIMIT 12 OFFSET $page");
             $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted");
         }else{
-            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' ORDER BY nama $sorted LIMIT 12 OFFSET $offset");
+            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' ORDER BY nama $sorted LIMIT 12 OFFSET $page");
             $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' ORDER BY nama $sorted");
         }
     }else{
         if ($minimum != 0 || $maximum != 0){
-            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted LIMIT 12 OFFSET $offset");
+            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted LIMIT 12 OFFSET $page");
             $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted");
         }else{
-            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' ORDER BY nama $sorted LIMIT 12 OFFSET $offset");
+            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' ORDER BY nama $sorted LIMIT 12 OFFSET $page");
             $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' ORDER BY nama $sorted");
         }
     }
