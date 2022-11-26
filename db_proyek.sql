@@ -16,6 +16,22 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_proyek` /*!40100 DEFAULT CHARACTER S
 
 USE `db_proyek`;
 
+/*Table structure for table `carts` */
+
+DROP TABLE IF EXISTS `carts`;
+
+CREATE TABLE `carts` (
+  `id_users` varchar(200) NOT NULL,
+  `id_products` varchar(200) NOT NULL,
+  `qty` int(11) NOT NULL,
+  PRIMARY KEY (`id_users`,`id_products`),
+  KEY `id_products` (`id_products`),
+  CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id_users`),
+  CONSTRAINT `carts_ibfk_2` FOREIGN KEY (`id_products`) REFERENCES `products` (`id_products`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `carts` */
+
 /*Table structure for table `categories` */
 
 DROP TABLE IF EXISTS `categories`;
