@@ -72,7 +72,7 @@
         }
       </script>
 </head>
-<body>
+<body onload="load_ajax()">
     <form action="#" method="POST">
         <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
             <a class="w-32 my-auto ml-3">
@@ -143,17 +143,25 @@
                         <div class="text-white font-medium">Descending</div>
                     </div>
                 </div>
-                <div class="text-slate-600 font-bold text-4xl">
-                    Recommended
+                <div class="text-slate-600 font-bold text-4xl px-10 py-6" id="judulIndex">
+                    All Products
                 </div>
                 <div class="w-10 h-10 rounded-full bg-white border-2 border-black flex fixed bottom-5 right-5 cursor-pointer animate-bounce">
                     <a href="#" class="m-auto">
                         <img src="assets/up-arrow.png" alt="" class="w-7 h-7">
                     </a>
                 </div>
-                <div class="grid grid-cols-4 mx-auto">
+                <div class="grid grid-cols-4 mx-auto mt-2" id="product_list">
                     <!-- <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div> -->
-                    <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
+                    <!-- <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
+                        <img src="https:/source.unsplash.com/600x400" alt="">
+                        <div class="px-6 py-3">
+                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
+                            <p class="text-md text-slate-600">Rp 120.000</p>
+                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
+                        </div>
+                    </div> -->
+                    <!-- <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
                         <img src="https:/source.unsplash.com/600x400" alt="">
                         <div class="px-6 py-3">
                             <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
@@ -184,15 +192,7 @@
                             <p class="text-md text-slate-600">Rp 120.000</p>
                             <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
                         </div>
-                    </div>
-                    <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
-                        <img src="https:/source.unsplash.com/600x400" alt="">
-                        <div class="px-6 py-3">
-                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
-                            <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
-                        </div>
-                    </div>
+                    </div> -->
                     
                 </div>
             </div>
@@ -244,5 +244,29 @@
             </div>
         </div> -->
     </form>
+
+    <script lang="javascript">
+        judulIndex, product_list;
+        function load_ajax(){
+            judulIndex = document.getElementById("judulIndex");
+            product_list = document.getElementById("product_list");
+            fetch_product();
+        }
+        refreshProduct = setInterval(fetch_product, 500);
+
+        function fetch_product(){
+            r = new XMLHttpRequest();
+            r.onreadystatechange = function(){
+                if ((this.readyState==4) && (this.status==200)){
+                    product_list.innerHTML = this.responseText;
+                }
+            }
+            r.open("POST", "index_product_fetch.php");
+            r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            r.send(``);
+        }
+
+    </script>
+
 </body>
 </html>
