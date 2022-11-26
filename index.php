@@ -24,6 +24,11 @@
             echo "<script>alert('Please Login first')</script>";
         }
     }
+
+    $search = "";
+    if (isset($_POST["btnSearch"])){
+        $search = $_POST["search"];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -89,8 +94,8 @@
                 ?> 
             </a>
             <div class="my-auto w-1/2 flex">
-                <input type="text" name="search" placeholder="Cari Disini" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none">
-                <button name="btnsearch" class="border-l-2 bg-white rounded-r-xl w-12 pl-1 hover:bg-slate-400">
+                <input type="text" name="search" placeholder="Cari Disini" value="<?=$search?>" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none">
+                <button name="btnSearch" class="border-l-2 bg-white rounded-r-xl w-12 pl-1 hover:bg-slate-400">
                     <img src="assets/search.png" alt="" class="w-8 h-8 p-1">
                 </button>
             </div>
@@ -151,8 +156,7 @@
                         <img src="assets/up-arrow.png" alt="" class="w-7 h-7">
                     </a>
                 </div>
-                <div class="grid grid-cols-4 gap-y-20 mx-auto mt-2" id="product_list">
-                    <!-- <div class="w-56 h-56 bg-[url('https:/source.unsplash.com/600x400')] bg-center mx-3 rounded-lg"></div> -->
+                <div class="grid grid-cols-4 gap-y-16 mx-auto mt-2 mb-16" id="product_list">
                     <!-- <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
                         <img src="https:/source.unsplash.com/600x400" alt="">
                         <div class="px-6 py-3">
@@ -160,40 +164,7 @@
                             <p class="text-md text-slate-600">Rp 120.000</p>
                             <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
                         </div>
-                    </div> -->
-                    <!-- <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
-                        <img src="https:/source.unsplash.com/600x400" alt="">
-                        <div class="px-6 py-3">
-                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
-                            <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
-                        <img src="https:/source.unsplash.com/600x400" alt="">
-                        <div class="px-6 py-3">
-                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
-                            <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
-                        <img src="https:/source.unsplash.com/600x400" alt="">
-                        <div class="px-6 py-3">
-                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
-                            <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
-                        </div>
-                    </div>
-                    <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
-                        <img src="https:/source.unsplash.com/600x400" alt="">
-                        <div class="px-6 py-3">
-                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
-                            <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
-                        </div>
-                    </div> -->
-                    
+                    </div> -->                    
                 </div>
             </div>
         </div>
@@ -263,7 +234,7 @@
             }
             r.open("POST", "index_product_fetch.php");
             r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            r.send(``);
+            r.send(`search=<?=$search?>`);
         }
 
     </script>
