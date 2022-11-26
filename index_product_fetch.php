@@ -31,19 +31,27 @@
 <div class="mx-auto w-2/3 -mt-[60px]">
     <ul class="flex justify-center">
         <li class="">
-            <button class="border border-neutral-400 rounded-l-lg py-1 px-3" onclick="prev_btn()">Previous</button>
+            <button class="border border-neutral-700 rounded-l-lg py-1 px-3 hover:bg-neutral-400 hover:text-white" onclick="prev_btn()">Previous</button>
         </li>
     <?php
         for ($i=0; $i < $bnykPage; $i++) { 
     ?>
         <li class="">
-            <button class="border border-neutral-400 py-1 px-3 <?php if($_REQUEST["page"] == $i+1) echo 'bg-neutral-400'?>" onclick="paging(<?=$i+1?>)"><?=$i+1?></button>
+            <button class="border border-neutral-700 py-1 px-3 
+            <?php 
+                if($_REQUEST["page"] == $i+1){
+                    echo 'bg-neutral-700 text-white font-semibold';
+                }
+                else{
+                    echo 'hover:bg-neutral-400 hover:text-white';
+                }
+            ?>" onclick="paging(<?=$i+1?>)"><?=$i+1?></button>
         </li>
     <?php
         }
     ?>
         <li class="">
-            <button class="border border-neutral-400 rounded-r-lg py-1 px-3" onclick="next_btn()">Next</button>
+            <button class="border border-neutral-700 rounded-r-lg py-1 px-3 hover:bg-neutral-400 hover:text-white" onclick="next_btn()">Next</button>
         </li>
     </ul>
 </div>
@@ -58,8 +66,8 @@
                 <hr class="mt-3">
                 <div class="px-6 py-3">
                     <div class="font-bold text-xl mb-2 text-slate-700"><?=$row["nama"]?></div>
-                    <p class="text-xl text-slate-600">Rp <?=number_format((int)$row["price"])?></p>
-                    <!-- <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button> -->
+                    <p class="text-xl text-slate-700">Rp <?=number_format((int)$row["price"])?></p>
+                    <!-- <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-700 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button> -->
                 </div>
             </button>
         <?php
@@ -70,19 +78,27 @@
 <div class="mx-auto w-2/3 mb-8">
     <ul class="flex justify-center">
         <li class="">
-            <button class="border border-neutral-400 rounded-l-lg py-1 px-3" onclick="prev_btn()">Previous</button>
+            <button class="border border-neutral-700 rounded-l-lg py-1 px-3 hover:bg-neutral-400 hover:text-white" onclick="prev_btn()">Previous</button>
         </li>
     <?php
         for ($i=0; $i < $bnykPage; $i++) { 
     ?>
         <li class="">
-            <button class="border border-neutral-400 py-1 px-3 <?php if($_REQUEST["page"] == $i+1) echo 'bg-neutral-400'?>" onclick="paging(<?=$i+1?>)"><?=$i+1?></button>
+            <button class="border border-neutral-700 py-1 px-3 
+            <?php 
+                if($_REQUEST["page"] == $i+1){
+                    echo 'bg-neutral-700 text-white font-semibold';
+                }
+                else{
+                    echo 'hover:bg-neutral-400 hover:text-white';
+                }
+            ?>" onclick="paging(<?=$i+1?>)"><?=$i+1?></button>
         </li>
     <?php
         }
     ?>
         <li class="">
-            <button class="border border-neutral-400 rounded-r-lg py-1 px-3" onclick="next_btn()">Next</button>
+            <button class="border border-neutral-700 rounded-r-lg py-1 px-3 hover:bg-neutral-400 hover:text-white" onclick="next_btn()">Next</button>
         </li>
     </ul>
 </div>

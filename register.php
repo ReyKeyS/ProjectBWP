@@ -95,6 +95,10 @@
             <input type="password" placeholder="Confirm your password" name="conf" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             <div class="text-center text-xl my-3">Already have an account? &nbsp;<a href="login.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Login Now!</a></div>
             <div class="flex">
+                <button type="submit" name="home" formaction="index.php" class="my-5 text-lg font-bold mr-auto px-7 py-3 flex text-white rounded-full bg-sky-400 hover:bg-sky-500 active:bg-sky-600 focus:ring-4 focus:ring-sky-200">
+                    <img src="assets/home.png" alt="" class="w-5 h-5 my-auto mr-5">
+                    HOME
+                </button>
                 <button type="submit" name="register" class="my-5 text-lg font-semibold px-7 py-3 ml-auto text-white rounded-full bg-sky-400 hover:bg-sky-500 active:bg-sky-600 focus:ring-4 focus:ring-sky-200">REGISTER</button>
             </div>
         </div>
