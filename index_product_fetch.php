@@ -9,7 +9,7 @@
     for ($i=0; $i < $bnykData; $i++) { 
         $row = mysqli_fetch_array($queryProducts);
 ?>
-    <button class="w-96 h-full shadow-lg overflow-hidden mx-auto rounded-lg p-5" formaction="detail_product.php?ID='<?=$row["id_products"]?>'";>
+    <button class="w-96 h-full shadow-lg overflow-hidden mx-auto rounded-lg p-5" formaction="detail_product.php?ID=<?=$row["id_products"]?>";>
         <img src='<?=$row["gmbr"]?>' alt="" class="w-full h-11/12">
         <hr class="mt-3">
         <div class="px-6 py-3">
