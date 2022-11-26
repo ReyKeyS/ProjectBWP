@@ -3,9 +3,11 @@
     $idUser = $_REQUEST["idUser"];
 
     $queryCart = mysqli_query($conn, "SELECT * from carts where id_users = '$idUser'");
-    
+    $cekisi=mysqli_query($conn,"SELECT * from carts where id_users = '$idUser'");
+    $hasilisi=mysqli_fetch_array($cekisi);
     $total = 0;
     $totalQty = 0;
+    if(isset($hasilisi)){
 ?>
 <div class="w-2/3 flex flex-col place-content-center">
     <div class="text-6xl font-semibold mx-auto flex">
@@ -36,6 +38,8 @@
             $total += $subtotal;
             $totalQty += $row["qty"];
         }
+    
+    
     ?>
     </div>
 </div>
@@ -50,5 +54,20 @@
         <div class="text-2xl font-medium ml-auto">Rp <?=number_format($total)?></div>
         <button type="submit" name="buy" class="px-3 py-1 font-semibold text-white my-2 ml-auto rounded-lg bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Buy</button>
     </div>
+    <?php
+    }
+    else{
+    ?>
+    <div class="w-1/2 bg-green-300 flex flex-col mx-auto font-mono mt-auto">
+        <div class="mx-auto text-9xl font-semibold">ERROR 404</div>
+        <div class="mx-auto text-6xl">Your cart is empty</div>
+        <div class="mx-auto text-3xl">Lets go shopping</div>
+        <div class="mx-auto">
+            <button type="submit" formaction="index.php" class="px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
+        </div>
+    </div>
+    <?php
+    }
+    ?>
 </div>
 </html>
