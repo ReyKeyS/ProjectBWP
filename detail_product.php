@@ -106,10 +106,15 @@
                 <div class="mt-3">Stock : <?=$dataProduct["stok"]?></div>
                 <div class="mt-3 text-lg font-medium">Brand : <?php if ($dataProduct["brand"] != "") echo $dataProduct["brand"]; else echo "-";?></div>
                 <div class="mt-8 font-medium"><?=$dataProduct["desc"]?></div>
-                <button type="submit" name="tambah" class="px-5 py-3 border bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 w-32 mt-20">Add to Cart</button>
+                <div class="flex mt-20 gap-2">
+                    <div class="my-auto font-medium">Amount : </div>
+                    <input type="number" value="1" class="border rounded-xl">
+                    <button type="submit" name="tambah" class="px-5 py-3 w-32 border bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
+
+                </div>
                 <div class="flex mt-14">
-                    <a class="">
-                        <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
+                    <a class="w-12 h-12 border-4 border-slate-700">
+                        <img src="assets/Logo.jpg" alt="" class="w-full h-full mx-auto">
                     </a>
                     <a class="my-auto ml-3 font-bold text-2xl">Glorindo Komputer</a>
                 </div>

@@ -29,7 +29,7 @@
             </div>
             <div class="flex flex-col ml-auto my-auto mr-3">
                 <button type="submit" name="delete" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Cancel</button>
-                <div class="text-2xl font-medium">Total : <?=number_format($subtotal)?></div>
+                <div class="text-2xl font-medium">Subtotal : <?=number_format($subtotal)?></div>
             </div>
         </div>
     <?php
