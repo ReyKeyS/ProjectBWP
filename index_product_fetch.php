@@ -37,7 +37,7 @@
         for ($i=0; $i < $bnykPage; $i++) { 
     ?>
         <li class="">
-            <button class="border border-neutral-400 py-1 px-3" onclick="paging(<?=$i+1?>)"><?=$i+1?></button>
+            <button class="border border-neutral-400 py-1 px-3 <?php if($_REQUEST["page"] == $i+1) echo 'bg-neutral-400'?>" onclick="paging(<?=$i+1?>)"><?=$i+1?></button>
         </li>
     <?php
         }
@@ -76,7 +76,7 @@
         for ($i=0; $i < $bnykPage; $i++) { 
     ?>
         <li class="">
-            <button class="border border-neutral-400 py-1 px-3" onclick="paging(<?=$i+1?>)"><?=$i+1?></button>
+            <button class="border border-neutral-400 py-1 px-3 <?php if($_REQUEST["page"] == $i+1) echo 'bg-neutral-400'?>" onclick="paging(<?=$i+1?>)"><?=$i+1?></button>
         </li>
     <?php
         }
