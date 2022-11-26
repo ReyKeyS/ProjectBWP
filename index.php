@@ -14,6 +14,7 @@
         }
         else{
             echo "<script>alert('Please Login first')</script>";
+            header("Location: login.php");
         }
     }
     if(isset($_POST['build'])){
@@ -22,6 +23,7 @@
         }
         else{
             echo "<script>alert('Please Login first')</script>";
+            header("Location: login.php");
         }
     }
 
@@ -241,6 +243,7 @@
                 </div>                
             </div>
         </div>
+    <form action="" method="POST">
         <nav class="h-96 bg-black">
             <div class="flex">
                 <div class="w-1/2 pt-5 flex flex-col border-r">

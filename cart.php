@@ -20,8 +20,17 @@
         }
         else{
             echo "<script>alert('Please Login first')</script>";
+            header("Location: login.php");
         }
     }
+
+    // $queryCart = mysqli_query($conn,
+    // "SELECT * from carts c 
+    // JOIN users u ON u.id_users = c.id_users
+    // JOIN products p on p.id_products = c.id_products
+    // where u.email");
+    $idUser = mysqli_query($conn, "SELECT id_users from users where email = '".$_SESSION['data']['email']."'");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -152,5 +161,9 @@
             <div class="text-white text-center mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
         </nav>
     </form>
+
+    <script lang="javascript">
+
+    </script>
 </body>
 </html>
