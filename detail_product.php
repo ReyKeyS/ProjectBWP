@@ -27,6 +27,19 @@
 
         }
     }
+
+    $idProduct = "";
+    if (isset($_GET["ID"])){
+        $idProduct = $_GET["ID"];
+        $queryProduct = mysqli_query($conn, "SELECT * from products where id_products = '$idProduct' and status = 1");
+        $dataProduct = mysqli_fetch_array($queryProduct);
+        if (!isset($dataProduct)){
+            header("Location: index.php");    
+        }
+    }else{
+        header("Location: index.php");
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,18 +96,18 @@
                 }
             ?>
         </nav>
-        <div class="w-2/3 pt-24 mx-auto flex">
+        <div class="w-2/3 pt-28 mx-auto flex">
             <div class="w-1/3">
-                <img src="https://source.unsplash.com/600x400" alt="">
+                <img src="<?=$dataProduct["gmbr"]?>" alt="">
             </div>
             <div class="w-2/3 flex flex-col px-10">
-                <div class="text-4xl font-semibold my-2">Image Title</div>
-                <div class="text-2xl font-medium">Rp 120.000</div>
-                <div class="mt-3">Stock : 5</div>
-                <div class="mt-3 text-lg font-medium">Brand : INTEL</div>
-                <div class="mt-8 font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero illo adipisci odit ipsam delectus numquam pariatur earum repellat voluptatem praesentium?</div>
+                <div class="text-4xl font-semibold my-2"><?=$dataProduct["nama"]?></div>
+                <div class="text-2xl font-medium">Rp <?=number_format($dataProduct["price"])?></div>
+                <div class="mt-3">Stock : <?=$dataProduct["stok"]?></div>
+                <div class="mt-3 text-lg font-medium">Brand : <?php if ($dataProduct["brand"] != "") echo $dataProduct["brand"]; else echo "-";?></div>
+                <div class="mt-8 font-medium"><?=$dataProduct["desc"]?></div>
                 <button type="submit" name="tambah" class="px-5 py-3 border bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 w-32 mt-20">Add to Cart</button>
-                <div class="flex mt-10">
+                <div class="flex mt-14">
                     <a class="">
                         <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
                     </a>
@@ -105,40 +118,23 @@
         <div class="flex flex-col">
             <div class="text-slate-600 font-bold text-4xl px-10 py-6">Others</div>
             <div class="grid grid-cols-4 gap-x-16 mx-auto my-8">
+            <?php
+                $queryJumlah = mysqli_query($conn, "SELECT count(*) from products where status = 1");
+                $jumlahP = mysqli_fetch_row($queryJumlah)[0];
+                $angkaHasilRand = [];
+                for ($i=0; $i < 4; $i++) { 
+                    $cekUniq = false;
+                    do {
+                        $rand = rand(0,$jumlahP-1);
+                    } while ($cekUniq);
+                }
+            ?>
                 <button class="w-96 h-full shadow-lg overflow-hidden mx-auto rounded-lg p-5" formaction="detail_product.php?ID=<?=$row["id_products"]?>";>
                     <img src='https://source.unsplash.com/600x400' alt="" class="w-full h-11/12">
                     <hr class="mt-3">
                     <div class="px-6 py-3">
                         <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
                         <p class="text-xl text-slate-700">Rp 120.000</p>
-                        <!-- <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-700 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button> -->
-                    </div>
-                </button>
-                <button class="w-96 h-full shadow-lg overflow-hidden mx-auto rounded-lg p-5" formaction="detail_product.php?ID=<?=$row["id_products"]?>";>
-                    <img src='https://source.unsplash.com/600x400' alt="" class="w-full h-11/12">
-                    <hr class="mt-3">
-                    <div class="px-6 py-3">
-                        <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
-                        <p class="text-xl text-slate-700">Rp 120.000</p>
-                        <!-- <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-700 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button> -->
-                    </div>
-                </button>
-                <button class="w-96 h-full shadow-lg overflow-hidden mx-auto rounded-lg p-5" formaction="detail_product.php?ID=<?=$row["id_products"]?>";>
-                    <img src='https://source.unsplash.com/600x400' alt="" class="w-full h-11/12">
-                    <hr class="mt-3">
-                    <div class="px-6 py-3">
-                        <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
-                        <p class="text-xl text-slate-700">Rp 120.000</p>
-                        <!-- <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-700 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button> -->
-                    </div>
-                </button>
-                <button class="w-96 h-full shadow-lg overflow-hidden mx-auto rounded-lg p-5" formaction="detail_product.php?ID=<?=$row["id_products"]?>";>
-                    <img src='https://source.unsplash.com/600x400' alt="" class="w-full h-11/12">
-                    <hr class="mt-3">
-                    <div class="px-6 py-3">
-                        <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
-                        <p class="text-xl text-slate-700">Rp 120.000</p>
-                        <!-- <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-700 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button> -->
                     </div>
                 </button>
             </div> 
