@@ -40,10 +40,14 @@
     </div>
 </div>
 <div class="w-1/3">
-    <div class="w-1/3 px-5 py-3 flex border rounded-xl shadow-xl flex-col mx-auto mt-14">
-        <!-- <div class="text-lg">Total QTY : <?=$totalQty?></div> -->
+    <div class="w-1/2 px-5 py-3 flex flex-col border rounded-xl shadow-xl mx-auto mt-14">
+        <div class="text-lg">
+            <input type="checkbox" name="build" disabled>
+            Build Service : Rp 120.000
+        </div>
         <div class="text-xl font-medium">Grand Total:</div>
-        <div class="text-2xl font-medium">Rp <?=number_format($total)?></div>
+        <!-- JOK LUPA DITAMBAHI SAMA SERVICE E -->
+        <div class="text-2xl font-medium ml-auto">Rp <?=number_format($total)?></div>
         <button type="submit" name="buy" class="px-3 py-1 font-semibold text-white my-2 ml-auto rounded-lg bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Buy</button>
     </div>
 </div>

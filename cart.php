@@ -159,7 +159,6 @@
             <div class="text-white text-center mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
         </nav>
     </form>
-
     <script lang="javascript">
         list_cart;
         function load_ajax(){
