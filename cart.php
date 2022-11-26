@@ -24,12 +24,8 @@
         }
     }
 
-    // $queryCart = mysqli_query($conn,
-    // "SELECT * from carts c 
-    // JOIN users u ON u.id_users = c.id_users
-    // JOIN products p on p.id_products = c.id_products
-    // where u.email");
-    $idUser = mysqli_query($conn, "SELECT id_users from users where email = '".$_SESSION['data']['email']."'");
+    $queryUser = mysqli_query($conn, "SELECT id_users from users where nama = '".$_SESSION['data']['nama']."'");
+    $idUser = mysqli_fetch_row($queryUser)[0];
 
 ?>
 <!DOCTYPE html>
@@ -41,9 +37,9 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <form action="" method="POST">
-    <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
+<body onload="load_ajax()">
+    <form action="#" method="POST">
+        <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
             <a class="w-32 my-auto ml-3">
                 <img src="assets/gonadi.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
@@ -83,8 +79,9 @@
                 }
             ?>
         </nav>
-        <div class="pt-20 flex">
-            <div class="w-2/3 flex flex-col place-content-center">
+    </form>
+        <div class="pt-20 flex" id="list_cart">
+            <!-- <div class="w-2/3 flex flex-col place-content-center">
                 <div class="text-3xl font-semibold mx-auto">Your Cart</div>
                 <div class="w-3/4 ml-auto">
                     <div class="w-full my-3 border rounded-md shadow-lg overflow-hidden mb-10 flex">
@@ -117,8 +114,9 @@
                     <div>Rp 120.000</div>
                     <button type="submit" name="buy" class="px-3 py-1 font-semibold text-white my-2 ml-auto rounded-lg bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Buy</button>
                 </div>
-            </div>
+            </div> -->
         </div>
+    <form action="#" method="POST">
         <nav class="h-96 bg-black">
             <div class="flex">
                 <div class="w-1/2 pt-5 flex flex-col border-r">
@@ -163,7 +161,24 @@
     </form>
 
     <script lang="javascript">
+        list_cart;
+        function load_ajax(){
+            list_cart = document.getElementById("list_cart");
+            fetch_cart();
+        }
+        refreshCart = setInterval(fetch_cart, 500);
 
+        function fetch_cart(){
+            r = new XMLHttpRequest();
+            r.onreadystatechange = function(){
+                if ((this.readyState==4) && (this.status==200)){
+                    list_cart.innerHTML = this.responseText;
+                }
+            }
+            r.open("POST", "cart_fetch.php");
+            r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            r.send(`idUser=<?=$idUser?>`);
+        }
     </script>
 </body>
 </html>
