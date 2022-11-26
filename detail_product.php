@@ -138,18 +138,32 @@
                 for ($i=0; $i < 4; $i++) { 
                     $cekUniq = false;
                     do {
-                        $rand = rand(0,$jumlahP-1);
+                        $rand = rand(1,$jumlahP);
+                        for ($j=0; $j < $i; $j++) { 
+                            if ($angkaHasilRand[$j] == $rand)
+                                $cekUniq = true;
+                        }
                     } while ($cekUniq);
-                }
+                    if (!$cekUniq){
+                        $angkaHasilRand[] = $rand;
+                    }
+                    
+                    $idOthers = "PR".str_pad(strval($rand), 4, "0", STR_PAD_LEFT);
+                    $queryOthers = mysqli_query($conn, "SELECT * from products where id_products = '$idOthers' and status = 1 and stok > 0");
+                    $dataOthers = mysqli_fetch_array($queryOthers);
             ?>
-                <button class="w-96 h-full shadow-lg overflow-hidden mx-auto rounded-lg p-5" formaction="detail_product.php?ID=<?=$row["id_products"]?>";>
-                    <img src='https://source.unsplash.com/600x400' alt="" class="w-full h-11/12">
+                <button class="w-96 h-full shadow-lg overflow-hidden mx-auto rounded-lg p-5" formaction="detail_product.php?ID=<?=$dataOthers["id_products"]?>";>
+                    <img src='<?=$dataOthers["gmbr"]?>' alt="" class="w-full h-11/12">
                     <hr class="mt-3">
                     <div class="px-6 py-3">
-                        <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
-                        <p class="text-xl text-slate-700">Rp 120.000</p>
+                        <div class="font-bold text-xl mb-2 text-slate-700"><?=$dataOthers["nama"]?></div>
+                        <p class="text-xl text-slate-700">Rp <?=number_format($dataOthers["price"])?></p>
                     </div>
                 </button>
+            <?php
+                }
+                $angkaHasilRand = array();
+            ?>
             </div> 
         </div>
         <nav class="h-96 bg-black">
