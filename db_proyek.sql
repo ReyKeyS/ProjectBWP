@@ -36,7 +36,8 @@ insert  into `carts`(`id_users`,`id_products`,`qty`) values
 ('US0001','PR0001',5),
 ('US0001','PR0005',1),
 ('US0001','PR0010',10),
-('US0001','PR0034',2);
+('US0001','PR0034',2),
+('US0002','PR0009',1);
 
 /*Table structure for table `categories` */
 
@@ -63,6 +64,39 @@ insert  into `categories`(`id_cate`,`nama`) values
 ('CA010','SSD'),
 ('CA011','HDD'),
 ('CA012','Monitor');
+
+/*Table structure for table `dtrans` */
+
+DROP TABLE IF EXISTS `dtrans`;
+
+CREATE TABLE `dtrans` (
+  `id_dtrans` varchar(200) NOT NULL,
+  `id_htrans` varchar(200) NOT NULL,
+  `id_products` varbinary(200) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `subtotal` bigint(20) NOT NULL,
+  PRIMARY KEY (`id_dtrans`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `dtrans` */
+
+/*Table structure for table `htrans` */
+
+DROP TABLE IF EXISTS `htrans`;
+
+CREATE TABLE `htrans` (
+  `id_htrans` varchar(200) NOT NULL,
+  `id_users` varchar(200) NOT NULL,
+  `tanggal` date NOT NULL,
+  `dirakit` int(1) NOT NULL,
+  `total` bigint(200) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id_htrans`),
+  KEY `id_users` (`id_users`),
+  CONSTRAINT `htrans_ibfk_1` FOREIGN KEY (`id_users`) REFERENCES `users` (`id_users`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `htrans` */
 
 /*Table structure for table `products` */
 
@@ -94,7 +128,7 @@ insert  into `products`(`id_products`,`nama`,`desc`,`price`,`stok`,`brand`,`id_c
 ('PR0006','Kingston RAM PC/Laptop 16GB','ini description ',1000000,2,'Kingston','CA006','products/ram_kingston_8gb.jpg',1),
 ('PR0007','VGA Colorful GTX 3050','ini desc baca desc sebelum tanya',7000000,4,'NVIDIA','CA003','products/vgacolorful.jpg',1),
 ('PR0008','VGA Platinum ','ini desc',178000,1,'VGEN','CA006','products/vgaplatinum.jfif',1),
-('PR0009','Asus TUF RTX 3060','Graphics Card: NVIDIA® GeForce RTX™ 3060 LHR\r\nThe Ultimate Play GeForce RTX 30 series Laptop with 2nd gen RTX (RT & AI)\r\n\r\nBus Standard :PCI Express 4.0\r\nOpenGL :OpenGL®4.6\r\nVideo Memory :12GB GDDR6\r\n\r\nEngine Clock :\r\nOC Mode - 1807 MHz (Boost Clock)\r\nGam',6880000,4,'Asus','CA003','products/download (1).png',1),
+('PR0009','Asus TUF RTX 3060','Graphics Card: NVIDIA® GeForce RTX™ 3060 LHR\r\nThe Ultimate Play GeForce RTX 30 series Laptop with 2nd gen RTX (RT & AI)\r\n\r\nBus Standard :PCI Express 4.0\r\nOpenGL :OpenGL®4.6\r\nVideo Memory :12GB GDDR6\r\n\r\nEngine Clock :\r\nOC Mode - 1807 MHz (Boost Clock)\r\nGam',6880000,3,'Asus','CA003','products/download (1).png',1),
 ('PR0010','Colorful RTX 3070 NB','Chip Series GeForce® RTX 3070\r\nProduct Series Colorful Series\r\nGPU Code Name GA104\r\nManufacturing Process 8nm\r\nCUDA Cores 5888\r\nCore Clock Base:1500Mhz; Boost:1725Mhz\r\nMemory Speed Grade 14Gbps\r\nMemory Size 8GB\r\nMemory Bus Width 256 bit\r\nMemory Type GDDR6',11700000,3,'Colorful','CA003','products/4b58e22c-90ef-4530-94a5-aedbb61b1499.jpg',1),
 ('PR0011','RTX 3070ti Suprim X','MODEL NAME\r\nGeForce RTX™ 3070 Ti SUPRIM X 8G\r\nGRAPHICS PROCESSING UNIT\r\nNVIDIA® GeForce RTX™ 3070 Ti\r\nINTERFACE\r\nPCI Express® Gen 4\r\nCUDA® CORES\r\n6144 Units\r\nCORE CLOCKS\r\nEXTREME Mode: 1875 MHz (MSI Center)\r\nGAMING Mode & SILENT Mode: 1860 MHz\r\nMEMORY SPE',13872000,4,'MSI ','CA003','products/unnamed.jpg',1),
 ('PR0012','MSI MAG301CR2','Deskripsi MSI Optix MAG301CR2 MONITOR [1080p, 200Hz]\r\n\r\nCurved Gaming display (1500R) – The best gameplay immersion.\r\n\r\nMystic Light – The ultimate gaming finish.\r\n\r\nWFHD High Resolution - Game titles will even look better, displaying more details due to ',5100000,3,'MSI','CA012','products/82b2dc4d-76fd-4282-b1db-a61694ee83ff.jpg',1),
