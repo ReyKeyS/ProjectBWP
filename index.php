@@ -44,6 +44,11 @@
             echo "<script>alert('Invalid Filter!')</script>";
         }
     }
+    if (isset($_POST["btnReset"])){
+        $minimum = 0;
+        $maximum = 0;
+        $sorted = "asc";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -152,7 +157,10 @@
                     <div class="my-1 text-white font-medium">Price</div>
                     <input type="text" name="min" placeholder="Harga minimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$minimum?>">
                     <input type="text" name="maks" placeholder="Harga maksimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$maximum?>">
-                    <button type="submit" name="btnApply" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
+                    <div class="flex pl-1 pr-5">
+                        <button type="submit" name="btnReset" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Reset</button>
+                        <button type="submit" name="btnApply" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
+                    </div>
                     <div class="my-1 text-white font-medium">Sort</div>
                     <div class="flex flex-row">
                         <input type="radio" name="sort" id="asc" value="asc" class="ml-3" <?php if($sorted == "asc") echo "checked"; ?>>
@@ -249,7 +257,7 @@
             }
             r.open("POST", "index_product_fetch.php");
             r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            r.send(`search=<?=$search?>&sorted=<?=$sorted?>`);
+            r.send(`search=<?=$search?>&sorted=<?=$sorted?>&minimum=<?=$minimum?>&maximum=<?=$maximum?>`);
         }
 
     </script>
