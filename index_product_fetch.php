@@ -4,11 +4,20 @@
     $sorted = $_REQUEST["sorted"];
     $minimum = $_REQUEST["minimum"];
     $maximum = $_REQUEST["maximum"];
+    $cate = $_REQUEST["cate"];
 
-    if ($minimum != 0 || $maximum != 0){
-        $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted");
+    if ($cate != ""){
+        if ($minimum != 0 || $maximum != 0){
+            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted");
+        }else{
+            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' ORDER BY nama $sorted");
+        }
     }else{
-        $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' ORDER BY nama $sorted");
+        if ($minimum != 0 || $maximum != 0){
+            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted");
+        }else{
+            $queryProducts = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' ORDER BY nama $sorted");
+        }
     }
 
     $bnykData = intval($queryProducts->num_rows);

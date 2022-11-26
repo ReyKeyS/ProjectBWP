@@ -32,12 +32,14 @@
     $minimum = 0;
     $maximum = 0;
     $sorted = "asc";
+    $cate = "";
     if (isset($_POST["btnApply"])){
         $minimum = $_POST["min"];
         $maximum = $_POST["maks"];
         
         if ($minimum <= $maximum){ 
             $sorted = $_POST["sort"];
+            $cate = $_POST["categoryCombo"];
         }else if ($minimum > $maximum){
             $minimum = 0;
             $maximum = 0;
@@ -48,6 +50,7 @@
         $minimum = 0;
         $maximum = 0;
         $sorted = "asc";
+        $cate = "";
     }
 ?>
 
@@ -153,7 +156,20 @@
             <div class="w-full relative">
                 <div class="w-72 px-3 py-4 h-[335px] bg-gradient-to-br from-slate-500 to-slate-900 rounded-t-xl flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
                     <div class="text-white font-semibold text-2xl text-center">Filter</div>
-                    <div class="my-1 text-white font-medium">Category</div>
+                    <div class="flex">
+                        <div class="my-1 text-white font-medium">Category</div>
+                        <select class="form-select ml-3 mt-1 w-[155px] h-7 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none text-sm" aria-label="Default select example" name="categoryCombo">
+                            <option <?php if($cate == "") echo "selected" ?> value="">Choose the Category</option>
+                        <?php
+                            $categoryCB = mysqli_query($conn, "SELECT * from categories");
+                            while($row = mysqli_fetch_row($categoryCB)){
+                        ?>        
+                            <option <?php if($cate == $row[0]) echo "selected" ?> value="<?=$row[0];?>"> <?= $row[1] ?> </option>
+                        <?php
+                            }
+                        ?>
+                        </select><br>
+                    </div>
                     <div class="my-1 text-white font-medium">Price</div>
                     <input type="text" name="min" placeholder="Harga minimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$minimum?>">
                     <input type="text" name="maks" placeholder="Harga maksimum" class="px-5 py-2 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$maximum?>">
@@ -172,7 +188,14 @@
                     </div>
                 </div>
                 <div class="text-slate-600 font-bold text-4xl px-10 py-6" id="judulIndex">
-                    All Products
+                    <?php 
+                        if ($cate == "")
+                            echo "All Products";
+                        else{
+                            $resultFilterCate = mysqli_query($conn, "SELECT nama from categories where id_cate = '$cate'");
+                            echo mysqli_fetch_row($resultFilterCate)[0];
+                        }
+                    ?>
                 </div>
                 <div class="w-10 h-10 rounded-full bg-white border-2 border-black flex fixed bottom-5 right-5 cursor-pointer animate-bounce">
                     <a href="#" class="m-auto">
@@ -257,7 +280,7 @@
             }
             r.open("POST", "index_product_fetch.php");
             r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            r.send(`search=<?=$search?>&sorted=<?=$sorted?>&minimum=<?=$minimum?>&maximum=<?=$maximum?>`);
+            r.send(`search=<?=$search?>&cate=<?=$cate?>&sorted=<?=$sorted?>&minimum=<?=$minimum?>&maximum=<?=$maximum?>`);
         }
 
     </script>
