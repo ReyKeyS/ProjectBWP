@@ -33,6 +33,7 @@
     $maximum = 0;
     $sorted = "asc";
     $cate = "";
+    $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' ORDER BY nama $sorted");
     if (isset($_POST["btnApply"])){
         $minimum = $_POST["min"];
         $maximum = $_POST["maks"];
@@ -45,13 +46,43 @@
             $maximum = 0;
             echo "<script>alert('Invalid Filter!')</script>";
         }
-    }
+
+        if ($cate != ""){
+            if ($minimum != 0 || $maximum != 0){
+                $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted");
+            }else{
+                $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' ORDER BY nama $sorted");
+            }
+        }else{
+            if ($minimum != 0 || $maximum != 0){
+                $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted");
+            }else{
+                $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' ORDER BY nama $sorted");
+            }
+        }
+    }    
     if (isset($_POST["btnReset"])){
         $minimum = 0;
         $maximum = 0;
         $sorted = "asc";
         $cate = "";
+
+        if ($cate != ""){
+            if ($minimum != 0 || $maximum != 0){
+                $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted");
+            }else{
+                $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and id_cate = '$cate' and nama like '%$search%' ORDER BY nama $sorted");
+            }
+        }else{
+            if ($minimum != 0 || $maximum != 0){
+                $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' and price > $minimum and price < $maximum ORDER BY nama $sorted");
+            }else{
+                $queryPage = mysqli_query($conn, "SELECT * from products where status = 1 and stok > 0 and nama like '%$search%' ORDER BY nama $sorted");
+            }
+        }
     }
+    $bnykPage = intval($queryPage->num_rows);
+
 ?>
 
 <!DOCTYPE html>
@@ -142,6 +173,7 @@
                 }
             ?>
         </nav>
+    </form>
         <div class="flex flex-col pt-20">
             <div class="w-full h-[650px] bg-black" >
                 <div class="flex flex-row w-full h-full bg-[center_bottom_-17rem] animate-tampilgambar" style="background-image: url('assets/setup.jpg');">
@@ -154,6 +186,7 @@
                 </div>
             </div>
             <div class="w-full relative">
+            <form action="#" method="POST">
                 <div class="w-72 px-3 py-4 h-[335px] bg-gradient-to-br from-slate-500 to-slate-900 rounded-t-xl flex flex-col fixed bottom-0 left-0 translate-y-3/4 animate-pulse hover:animate-none hover:translate-y-0 duration-500">
                     <div class="text-white font-semibold text-2xl text-center mb-1">Filter</div>
                     <div class="flex">
@@ -202,16 +235,10 @@
                         <img src="assets/up-arrow.png" alt="" class="w-7 h-7">
                     </a>
                 </div>
-                <div class="grid grid-cols-4 gap-y-16 mx-auto mt-2 mb-16" id="product_list">
-                    <!-- <div class="w-96 h-96 shadow-lg overflow-hidden mb-10 mx-auto rounded-lg">
-                        <img src="https:/source.unsplash.com/600x400" alt="">
-                        <div class="px-6 py-3">
-                            <div class="font-bold text-xl mb-2 text-slate-700">Image Title</div>
-                            <p class="text-md text-slate-600">Rp 120.000</p>
-                            <button class="px-3 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
-                        </div>
-                    </div> -->                    
-                </div>
+            </form>
+                <div id=product_list>
+
+                </div>                
             </div>
         </div>
         <nav class="h-96 bg-black">
@@ -263,7 +290,7 @@
     </form>
 
     <script lang="javascript">
-        judulIndex, product_list;
+        judulIndex, product_list, offset = 1;
         function load_ajax(){
             judulIndex = document.getElementById("judulIndex");
             product_list = document.getElementById("product_list");
@@ -280,9 +307,23 @@
             }
             r.open("POST", "index_product_fetch.php");
             r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            r.send(`search=<?=$search?>&cate=<?=$cate?>&sorted=<?=$sorted?>&minimum=<?=$minimum?>&maximum=<?=$maximum?>`);
+            r.send(`search=<?=$search?>&cate=<?=$cate?>&sorted=<?=$sorted?>&minimum=<?=$minimum?>&maximum=<?=$maximum?>&offset=${offset}`);
         }
 
+        function prev_btn(){
+            if (offset > 1){
+                offset -= 12;
+                fetch_product();
+            }
+        }
+
+        function next_btn(){
+            if (offset < <?=$bnykPage?>){
+                offset += 12;
+                fetch_product();
+            }
+        }
+        
     </script>
 
 </body>
