@@ -115,7 +115,7 @@
                             <div class="text-lg">12:34:56</div>
                             <?php
                                 $id=$row2['id_htrans'];
-                                $isidtrans=mysqli_query($conn,"SELECT pr.nama from dtrans dt where id_htrans='$id' join products pr on dt.id_products=pr.id_products");
+                                $isidtrans=mysqli_query($conn,"SELECT * from dtrans dt where id_htrans='$id'");
                                 while($row=mysqli_fetch_array($isidtrans)){
                             ?>
                             <div class="flex my-1">
@@ -137,7 +137,15 @@
                             <div>Gonadi</div>
                             <div>08123456</div>
                             <div>Jalan Buntu 123</div>
-                            <div class="text-2xl font-bold">Grand Total : Rp 120.000</div>
+                            <div class="flex">
+                                <div class="text-2xl font-bold">
+                                    Grand Total : Rp 120.000
+                                </div>
+                                <div class="flex ml-auto gap-1">
+                                    <button type="submit" class="px-5 py-3 text-white font-semibold bg-green-500 rounded-xl hover:bg-green-600">Accept</button>
+                                    <button type="submit" class="px-5 py-3 text-white font-semibold bg-red-500 rounded-xl hover:bg-red-600">Decline</button>
+                                </div>
+                            </div>
                         </div>
                         <?php
                             }
