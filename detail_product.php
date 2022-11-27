@@ -133,7 +133,7 @@
 
                 </div>
                 <div class="flex mt-14">
-                    <a class="w-12 h-12 border-4 border-slate-700 bg-white rounded-full">
+                    <a class="w-12 h-12 border-2 border-slate-700 bg-white rounded-full">
                         <img src="assets/logotransparanLTJ.png" alt="" class="w-full h-full mx-auto">
                     </a>
                     <a class="my-auto ml-3 font-bold text-2xl">Glorindo Komputer</a>

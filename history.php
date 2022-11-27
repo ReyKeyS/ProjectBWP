@@ -104,14 +104,14 @@
             ?>
         </nav>
         <div class="w-11/12 mx-auto pt-20 mb-auto flex flex-col">
-            <div class="text-4xl font-semibold">TRANSACTION HISTORY</div>
+            <div class="text-4xl font-bold text-center bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent">TRANSACTION HISTORY</div>
             <?php
                 if(isset($hasilisi)){
                     while($row = mysqli_fetch_array($queryTrans)){
                         $querySatuProduct = mysqli_query($conn, "SELECT p.nama, dt.qty, p.price, p.gmbr from dtrans dt JOIN products p ON p.id_products = dt.id_products where dt.id_htrans = '".$row["id_htrans"]."'");
                         $SatuProduct = mysqli_fetch_row($querySatuProduct);
             ?>
-                <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl shadow-xl">
+                <div class="w-1/2 h-64 mx-auto my-3 p-2 flex border rounded-xl shadow-xl">
                     <div class="w-1/4 flex flex-col">
                         <div class="text-slate-400"><?=$row["invoice"]?> | <?=$row["tanggal"]?></div>
                         <img src="<?=$SatuProduct[3]?>" alt="Imaged" class="w-48 h-48 m-auto">
