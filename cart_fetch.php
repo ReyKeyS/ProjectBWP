@@ -28,8 +28,8 @@
                 <div class="text-4xl font-semibold mb-7"><?=$isiProduct["nama"]?></div>
                 <div class="text-2xl font-medium">Price : <?=number_format($isiProduct["price"])?></div>
                 <div>
-                    Amount : 
-                    <input type="number" value='<?=$row["qty"]?>' class="border border-slate-500 rounded-lg w-14 h-7">
+                    Amount : <button class="border-2 border-black rounded">➖</button> <?=$row["qty"]?> <button class="border-2 border-black rounded">➕</button>
+                    <!-- <input type="number" value='<?=$row["qty"]?>' class="border border-slate-500 rounded-lg w-14 h-7"> -->
                 </div>
             </div>
             <div class="flex flex-col ml-auto my-auto mr-3">
