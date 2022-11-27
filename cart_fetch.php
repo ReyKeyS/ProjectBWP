@@ -31,10 +31,10 @@
                     <b>Amount :</b>
                     <!-- Amount : <button class="border-2 border-black rounded">➖</button> <?=$row["qty"]?> <button class="border-2 border-black rounded">➕</button> -->
                     <input type="number" onchange="update_cart(this)" min="1" max="<?=$isiProduct["stok"]?>" value='<?=$row["qty"]?>' class="border border-slate-500 rounded-lg w-14 h-7" idProduct='<?=$row["id_products"]?>'>
-                    Tersisa <?=$isiProduct["stok"]?>
                 </div>
             </div>
             <div class="flex flex-col ml-auto my-auto mr-3">
+                <div>Stock : <?=$isiProduct["stok"]?></div>
                 <button type="submit" onclick="delete_cart(this)" value="<?=$row["id_products"]?>" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Cancel</button>
                 <div class="text-2xl font-medium">Subtotal : <?=number_format($subtotal)?></div>
             </div>
