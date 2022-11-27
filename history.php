@@ -36,10 +36,10 @@
 <body>
     <form action="" method="POST">
     <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
-            <a class="w-28 my-auto ml-3" href="#">
+            <a class="w-28 my-auto ml-3" href="index.php">
                 <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
-            <a class="my-auto w-64 text-white font-bold text-2xl" href="#">
+            <a class="my-auto w-64 text-white font-bold text-2xl" href="index.php">
             <?php
                     // if(isset($_SESSION['data'])){
                     //     echo $_SESSION['data']['nama'];
