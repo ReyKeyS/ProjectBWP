@@ -43,8 +43,6 @@
         else{
             $qty = $_POST["amountProduct"];
             mysqli_query($conn, "INSERT INTO carts values('$idUser', '$idProduct', '$qty')");
-            $newStok = $dataProduct["stok"] - $qty;
-            mysqli_query($conn, "UPDATE products SET stok = '$newStok' where id_products = '$idProduct'");
             header("Location: cart.php");
         }
     }

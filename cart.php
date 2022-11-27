@@ -279,6 +279,36 @@
             r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             r.send(`idUser=<?=$idUser?>`);
         }
+
+        function update_cart(obj){
+            curQty = obj.value;
+            idProduct = obj.getAttribute("idProduct");
+
+            r = new XMLHttpRequest();
+            r.onreadystatechange = function(){
+                if ((this.readyState==4) && (this.status==200)){
+                    fetch_cart();
+                }
+            }
+            r.open("POST", "cart_update.php");
+            r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            r.send(`idProduct=${idProduct}&curQty=${curQty}`);
+        }
+
+        function delete_cart(obj){
+            idProduct = obj.value;
+
+            r = new XMLHttpRequest();
+            r.onreadystatechange = function(){
+                if ((this.readyState==4) && (this.status==200)){
+                    fetch_cart();
+                }
+            }
+            r.open("POST", "cart_delete.php");
+            r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            r.send(`idProduct=${idProduct}`);
+        }
+
     </script>
 </body>
 </html>
