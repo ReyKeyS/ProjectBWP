@@ -8,6 +8,8 @@
         unset($_SESSION["data"]);
         header("Location: index.php");
     }
+    $isihtrans=mysqli_query($conn,"SELECT * from htrans");
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,15 +106,24 @@
                         </div>
                     </div> -->
                     <div class="w-3/4 mx-auto flex flex-col">
+                        <?php
+                            while($row2=mysqli_fetch_array($isihtrans)){
+                            
+                        ?>
                         <div class="w-1/2 mx-auto my-2 p-3 rounded-xl shadow-xl flex flex-col border">
-                            <div class="text-lg flex w-full"><a class="text-slate-400">KODEINV123</a><a class="ml-auto">17-8-1945</a></div>
+                            <div class="text-lg flex w-full"><a class="text-slate-400"><?= $row2['invoice']?></a><a class="ml-auto">17-8-1945</a></div>
                             <div class="text-lg">12:34:56</div>
+                            <?php
+                                $id=$row2['id_htrans'];
+                                $isidtrans=mysqli_query($conn,"SELECT pr.nama from dtrans dt where id_htrans='$id' join products pr on dt.id_products=pr.id_products");
+                                while($row=mysqli_fetch_array($isidtrans)){
+                            ?>
                             <div class="flex my-1">
                                 <div class="w-1/4">
                                     <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
                                 </div>
                                 <div class="w-2/4 flex flex-col">
-                                    <div class="text-2xl font-semibold">Image Title</div>
+                                    <div class="text-2xl font-semibold"><?= $row[0]?></div>
                                     <div class="text-base text-slate-600">1 x Rp 120.000</div>
                                 </div>
                                 <div class="w-1/4 flex flex-col">
@@ -120,71 +131,17 @@
                                     <div class="text-xl font-bold">Rp 120.000</div>
                                 </div>
                             </div>
-                            <div class="flex my-1">
-                                <div class="w-1/4">
-                                    <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
-                                </div>
-                                <div class="w-2/4 flex flex-col">
-                                    <div class="text-2xl font-semibold">Image Title</div>
-                                    <div class="text-base text-slate-600">1 x Rp 120.000</div>
-                                </div>
-                                <div class="w-1/4 flex flex-col">
-                                    <div class="text-base">Subtotal</div>
-                                    <div class="text-xl font-bold">Rp 120.000</div>
-                                </div>
-                            </div>
+                            <?php
+                                }
+                            ?>
                             <div>Gonadi</div>
                             <div>08123456</div>
                             <div>Jalan Buntu 123</div>
                             <div class="text-2xl font-bold">Grand Total : Rp 120.000</div>
                         </div>
-                        <div class="w-1/2 mx-auto my-2 p-3 rounded-xl shadow-xl flex flex-col border">
-                            <div class="text-lg flex w-full"><a class="text-slate-400">KODEINV123</a><a class="ml-auto">17-8-1945</a></div>
-                            <div class="text-lg">12:34:56</div>
-                            <div class="flex my-1">
-                                <div class="w-1/4">
-                                    <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
-                                </div>
-                                <div class="w-2/4 flex flex-col">
-                                    <div class="text-2xl font-semibold">Image Title</div>
-                                    <div class="text-base text-slate-600">1 x Rp 120.000</div>
-                                </div>
-                                <div class="w-1/4 flex flex-col">
-                                    <div class="text-base">Subtotal</div>
-                                    <div class="text-xl font-bold">Rp 120.000</div>
-                                </div>
-                            </div>
-                            <div class="flex my-1">
-                                <div class="w-1/4">
-                                    <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
-                                </div>
-                                <div class="w-2/4 flex flex-col">
-                                    <div class="text-2xl font-semibold">Image Title</div>
-                                    <div class="text-base text-slate-600">1 x Rp 120.000</div>
-                                </div>
-                                <div class="w-1/4 flex flex-col">
-                                    <div class="text-base">Subtotal</div>
-                                    <div class="text-xl font-bold">Rp 120.000</div>
-                                </div>
-                            </div>
-                            <div class="flex my-1">
-                                <div class="w-1/4">
-                                    <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
-                                </div>
-                                <div class="w-2/4 flex flex-col">
-                                    <div class="text-2xl font-semibold">Image Title</div>
-                                    <div class="text-base text-slate-600">1 x Rp 120.000</div>
-                                </div>
-                                <div class="w-1/4 flex flex-col">
-                                    <div class="text-base">Subtotal</div>
-                                    <div class="text-xl font-bold">Rp 120.000</div>
-                                </div>
-                            </div>
-                            <div>Gonadi</div>
-                            <div>08123456</div>
-                            <div>Jalan Buntu 123</div>
-                            <div class="text-2xl font-bold">Grand Total : Rp 120.000</div>
-                        </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <div class="mt-20">
                         <img src="https://source.unsplash.com/600x400" alt="" class="mx-auto animate-gerak">
