@@ -23,6 +23,11 @@
             header("Location: login.php");
         }
     }
+
+    $queryUser = mysqli_query($conn, "SELECT id_users from users where nama = '".$_SESSION['data']['nama']."'");
+    $idUser = mysqli_fetch_row($queryUser)[0];
+
+    $queryTrans = mysqli_query($conn, "SELECT * from htrans where id_users = '$idUser'");
 ?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -97,51 +102,35 @@
         </nav>
         <div class="w-11/12 mx-auto pt-20 mb-auto flex flex-col">
             <div class="text-4xl font-semibold">TRANSACTION HISTORY</div>
-            <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl shadow-xl">
-                <div class="w-1/4 flex flex-col">
-                    <div class="text-slate-400">KODEINVOICE123</div>
-                    <img src="assets/gonadi.jpg" alt="Imaged" class="w-48 h-48 m-auto">
+            <?php
+                while($row = mysqli_fetch_array($queryTrans)){
+                    $querySatuProduct = mysqli_query($conn, "SELECT p.nama, dt.qty, p.price, p.gmbr from dtrans dt JOIN products p ON p.id_products = dt.id_products where dt.id_htrans = '".$row["id_htrans"]."'");
+                    $SatuProduct = mysqli_fetch_row($querySatuProduct);
+            ?>
+                <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl shadow-xl">
+                    <div class="w-1/4 flex flex-col">
+                        <div class="text-slate-400"><?=$row["invoice"]?> | <?=$row["tanggal"]?></div>
+                        <img src="<?=$SatuProduct[3]?>" alt="Imaged" class="w-48 h-48 m-auto">
+                    </div>
+                    <div class="w-2/4 flex flex-col pt-20">
+                        <div class="text-3xl font-semibold"><?=$SatuProduct[0]?></div>
+                        <div class="text-base"><?=$SatuProduct[1]?> x Rp <?=number_format($SatuProduct[2])?></div>
+                        <?php
+                            if ($querySatuProduct->num_rows > 1){
+                                $kurang = (int)$querySatuProduct->num_rows - 1;
+                                echo "+".$kurang." produk lainnya";
+                            }
+                        ?>
+                    </div>
+                    <div class="w-1/4 flex flex-col pt-20">
+                        <div>Total</div>
+                        <div class="text-xl font-bold">Rp <?=number_format($row["total"])?></div>
+                        <a class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Lihat Detail Transaksi</a>
+                    </div>
                 </div>
-                <div class="w-2/4 flex flex-col pt-20">
-                    <div class="text-3xl font-semibold">Image Title</div>
-                    <div class="text-base">1 x Rp 120.000</div>
-                </div>
-                <div class="w-1/4 flex flex-col pt-20">
-                    <div>Total</div>
-                    <div class="text-xl font-bold">Rp 120.000</div>
-                    <a class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Lihat Detail Transaksi</a>
-                </div>
-            </div>
-            <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl shadow-xl">
-                <div class="w-1/4 flex flex-col">
-                    <div class="text-slate-400">KODEINVOICE123</div>
-                    <img src="assets/gonadi.jpg" alt="Imaged" class="w-48 h-48 m-auto">
-                </div>
-                <div class="w-2/4 flex flex-col pt-20">
-                    <div class="text-3xl font-semibold">Image Title</div>
-                    <div class="text-base">1 x Rp 120.000</div>
-                </div>
-                <div class="w-1/4 flex flex-col pt-20">
-                    <div>Total</div>
-                    <div class="text-xl font-bold">Rp 120.000</div>
-                    <a class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Lihat Detail Transaksi</a>
-                </div>
-            </div>
-            <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl shadow-xl">
-                <div class="w-1/4 flex flex-col">
-                    <div class="text-slate-400">KODEINVOICE123</div>
-                    <img src="assets/gonadi.jpg" alt="Imaged" class="w-48 h-48 m-auto">
-                </div>
-                <div class="w-2/4 flex flex-col pt-20">
-                    <div class="text-3xl font-semibold">Image Title</div>
-                    <div class="text-base">1 x Rp 120.000</div>
-                </div>
-                <div class="w-1/4 flex flex-col pt-20">
-                    <div>Total</div>
-                    <div class="text-xl font-bold">Rp 120.000</div>
-                    <a class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Lihat Detail Transaksi</a>
-                </div>
-            </div>
+            <?php
+                }
+            ?>
         </div>
         <div class="w-10 h-10 rounded-full bg-white border-2 border-black flex fixed bottom-5 right-5 cursor-pointer animate-bounce">
             <a href="#" class="m-auto">
