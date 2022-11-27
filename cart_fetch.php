@@ -50,7 +50,7 @@
             Build Service : Rp 120.000
         </div>
         <div class="text-xl font-medium">Grand Total:</div>
-        <!-- JOK LUPA DITAMBAHI SAMA SERVICE E -->
+        <!-- JOK LUPA DITAMBAHI COST BUILD SERVICE E -->
         <div class="text-2xl font-medium ml-auto">Rp <?=number_format($total)?></div>
         <button type="submit" name="buy" class="px-3 py-1 font-semibold text-white my-2 ml-auto rounded-lg bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Buy</button>
     </div>
@@ -58,14 +58,15 @@
     }
     else{
     ?>
-    <div class="w-1/2 bg-green-300 flex flex-col mx-auto font-mono mt-auto">
-        <div class="mx-auto text-9xl font-semibold">ERROR 404</div>
+    <!-- <div class="w-1/2 flex flex-col mx-auto font-mono mt-auto">
+        <div class="mx-auto text-9xl font-semibold"><marquee>ERROR 404</marquee></div>
+        <div class="text-9xl text-center">☠</div>
         <div class="mx-auto text-6xl">Your cart is empty</div>
         <div class="mx-auto text-3xl">Lets go shopping</div>
-        <div class="mx-auto">
+        <div class="mx-auto mt-10">
             <button type="submit" formaction="index.php" class="px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
         </div>
-    </div>
+    </div> -->
     <?php
     }
     ?>

@@ -15,8 +15,14 @@
         header("Location: index.php");
     }
     if(isset($_POST['build'])){
-        if($logged){
-            header("Location:build.php");
+        ceklogin('build');
+    }
+    if(isset($_POST['history'])){
+        ceklogin('history');
+    }
+    function ceklogin($pergi){
+        if(isset($_SESSION['data'])){
+            header("Location:$pergi.php");
         }
         else{
             echo "<script>alert('Please Login first')</script>";
@@ -26,7 +32,8 @@
 
     $queryUser = mysqli_query($conn, "SELECT id_users from users where nama = '".$_SESSION['data']['nama']."'");
     $idUser = mysqli_fetch_row($queryUser)[0];
-
+    $cekisi=mysqli_query($conn,"SELECT * from carts where id_users = '$idUser'");
+    $hasilisi=mysqli_fetch_array($cekisi);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,13 +46,13 @@
 </head>
 <body onload="load_ajax()">
     <form action="#" method="POST">
-        <div class="h-screen">
+        <div class="<?php echo(isset($idUser) ? 'h-screen flex flex-col':'')?>">
 
         <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
-            <a class="w-32 my-auto ml-3" href="index.php">
+            <a class="w-28 my-auto ml-3" href="index.php">
                 <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
-            <a class="my-auto w-80 text-white font-bold text-2xl" href="index.php">
+            <a class="my-auto w-64 text-white font-bold text-2xl" href="index.php">
             <?php
                     // if(isset($_SESSION['data'])){
                     //     echo $_SESSION['data']['nama'];
@@ -62,8 +69,8 @@
                     <img src="assets/search.png" alt="" class="w-8 h-8 p-1">
                 </button>
             </div>
-            <div class="w-fit my-auto">
-                <button type="submit" name="build" class="px-5 py-2 ml-7 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Build</button>
+            <div class="w-24 my-auto">
+                <button type="submit" name="build" class="px-5 py-2 flex mx-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Build</button>
             </div>
             <div class="w-32 my-auto">
                 <button type="submit" name="cart" class="flex w-24 px-2 m-auto rounded-2xl bg-slate-600 font-semibold text-white hover:bg-slate-900">
@@ -82,23 +89,30 @@
                         </div>
                     </a>
                 </div>
-                    <div class="w-32 my-auto">    
-                    <button submit="submit" name="logout" class="px-5 py-2 m-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Logout</button>
+                <div class="w-28 my-auto">
+                    <button type="submit" name="history" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">History</button> 
+                </div>
+                <div class="w-24 my-auto">  
+                    <button type="submit" name="logout" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Logout</button>
                 </div>
             <?php
                 }else{
             ?>
                 <div class="w-32 my-auto">
-                    <button submit="submit" formaction="login.php" class="px-5 py-2 mx-3 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Login</button>
+                    <button type="submit" formaction="login.php" class="px-5 py-2 mx-3 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Login</button>
                 </div>
                 <div class="w-32 my-auto">
-                    <button submit="submit" formaction="register.php" class="px-5 py-2 m-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
+                    <button type="submit" formaction="register.php" class="px-5 py-2 m-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
                 </div>
             <?php
                 }
             ?>
         </nav>
     </form>
+        <?php
+            if(isset($hasilisi)){
+                ?>
+                
         <div class="pt-20 flex mb-auto" id="list_cart">
             <!-- <div class="w-2/3 flex flex-col place-content-center">
                 <div class="text-3xl font-semibold mx-auto">Your Cart</div>
@@ -135,6 +149,22 @@
                 </div>
             </div> -->
         </div>
+        <?php
+            }
+            else{
+                ?>
+                <div class="w-1/2 pt-20 flex flex-col mx-auto font-mono mt-auto">
+                    <div class="mx-auto text-9xl font-semibold"><marquee scrollamount="20">ERROR 404</marquee></div>
+                    <div class="text-9xl text-center">☠</div>
+                    <div class="mx-auto text-6xl">Your cart is empty</div>
+                    <div class="mx-auto text-3xl">Lets go shopping</div>
+                    <div class="mx-auto mt-10">
+                        <button type="submit" formaction="index.php" class="px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
+                    </div>
+                </div>
+                <?php
+            }
+        ?>
     <form action="#" method="POST">
         <nav class="h-96 bg-black <?php echo(isset($idUser) ? 'mt-auto':'')?>">
             <div class="flex">

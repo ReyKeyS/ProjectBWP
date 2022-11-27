@@ -15,7 +15,19 @@
         header("Location: index.php");
     }
     if(isset($_POST['cart'])){
-        header("Location:cart.php");
+        ceklogin('cart');
+    }
+    if(isset($_POST['history'])){
+        ceklogin('history');
+    }
+    function ceklogin($pergi){
+        if(isset($_SESSION['data'])){
+            header("Location:$pergi.php");
+        }
+        else{
+            echo "<script>alert('Please Login first')</script>";
+            header("Location: login.php");
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -29,11 +41,11 @@
 </head>
 <body>
     <form action="" method="POST">
-        <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
-            <a class="w-32 my-auto ml-3" href="index.php">
+    <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
+            <a class="w-28 my-auto ml-3" href="index.php">
                 <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
-            <a class="my-auto w-80 text-white font-bold text-2xl" href="index.php">
+            <a class="my-auto w-64 text-white font-bold text-2xl" href="index.php">
             <?php
                     // if(isset($_SESSION['data'])){
                     //     echo $_SESSION['data']['nama'];
@@ -50,8 +62,8 @@
                     <img src="assets/search.png" alt="" class="w-8 h-8 p-1">
                 </button>
             </div>
-            <div class="w-fit my-auto">
-                <button type="submit" name="build" class="px-5 py-2 ml-7 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Build</button>
+            <div class="w-24 my-auto">
+                <button type="submit" name="build" class="px-5 py-2 flex mx-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Build</button>
             </div>
             <div class="w-32 my-auto">
                 <button type="submit" name="cart" class="flex w-24 px-2 m-auto rounded-2xl bg-slate-600 font-semibold text-white hover:bg-slate-900">
@@ -70,17 +82,20 @@
                         </div>
                     </a>
                 </div>
-                    <div class="w-32 my-auto">    
-                    <button submit="submit" name="logout" class="px-5 py-2 m-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Logout</button>
+                <div class="w-28 my-auto">
+                    <button type="submit" name="history" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">History</button> 
+                </div>
+                <div class="w-24 my-auto">  
+                    <button type="submit" name="logout" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Logout</button>
                 </div>
             <?php
                 }else{
             ?>
                 <div class="w-32 my-auto">
-                    <button submit="submit" formaction="login.php" class="px-5 py-2 mx-3 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Login</button>
+                    <button type="submit" formaction="login.php" class="px-5 py-2 mx-3 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Login</button>
                 </div>
                 <div class="w-32 my-auto">
-                    <button submit="submit" formaction="register.php" class="px-5 py-2 m-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
+                    <button type="submit" formaction="register.php" class="px-5 py-2 m-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
                 </div>
             <?php
                 }
