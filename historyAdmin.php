@@ -68,7 +68,7 @@
                     </button>
                 </div>
             </div>
-            <div class="flex-auto flex flex-col w-full bg-blue-600">
+            <div class="flex-auto flex flex-col w-full">
                 <div class="flex bg-gradient-to-r from-purple-900 to-fuchsia-600 p-5 mb-5 shadow-xl">
                     <div class="w-20 h-20 ml-8 mr-2 rounded-full bg-slate-700 text-white text-center bg-[url('assets/Logo.jpg')] bg-cover"></div>
                     <div class="pt-1 pl-7 ml-44 block text-center text-white">
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="overflow-y-scroll h-screen">
-                    <div class="mx-auto px-6 bg-purple-600 columns-4">
+                    <!-- <div class="mx-auto px-6 bg-purple-600 columns-4">
                         <div class="rounded-md shadow-lg overflow-hidden bg-slate-500">
                             <img src="https://source.unsplash.com/600x400" alt="" class="w-full">
                             <div class="px-6 py-4">
@@ -101,6 +101,89 @@
                             <div class="px-6 py-4">
                                 3000 Transaction
                             </div>
+                        </div>
+                    </div> -->
+                    <div class="w-3/4 mx-auto flex flex-col">
+                        <div class="w-1/2 mx-auto my-2 p-3 rounded-xl shadow-xl flex flex-col border">
+                            <div class="text-lg flex w-full"><a class="text-slate-400">KODEINV123</a><a class="ml-auto">17-8-1945</a></div>
+                            <div class="text-lg">12:34:56</div>
+                            <div class="flex my-1">
+                                <div class="w-1/4">
+                                    <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
+                                </div>
+                                <div class="w-2/4 flex flex-col">
+                                    <div class="text-2xl font-semibold">Image Title</div>
+                                    <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                                </div>
+                                <div class="w-1/4 flex flex-col">
+                                    <div class="text-base">Subtotal</div>
+                                    <div class="text-xl font-bold">Rp 120.000</div>
+                                </div>
+                            </div>
+                            <div class="flex my-1">
+                                <div class="w-1/4">
+                                    <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
+                                </div>
+                                <div class="w-2/4 flex flex-col">
+                                    <div class="text-2xl font-semibold">Image Title</div>
+                                    <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                                </div>
+                                <div class="w-1/4 flex flex-col">
+                                    <div class="text-base">Subtotal</div>
+                                    <div class="text-xl font-bold">Rp 120.000</div>
+                                </div>
+                            </div>
+                            <div>Gonadi</div>
+                            <div>08123456</div>
+                            <div>Jalan Buntu 123</div>
+                            <div class="text-2xl font-bold">Grand Total : Rp 120.000</div>
+                        </div>
+                        <div class="w-1/2 mx-auto my-2 p-3 rounded-xl shadow-xl flex flex-col border">
+                            <div class="text-lg flex w-full"><a class="text-slate-400">KODEINV123</a><a class="ml-auto">17-8-1945</a></div>
+                            <div class="text-lg">12:34:56</div>
+                            <div class="flex my-1">
+                                <div class="w-1/4">
+                                    <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
+                                </div>
+                                <div class="w-2/4 flex flex-col">
+                                    <div class="text-2xl font-semibold">Image Title</div>
+                                    <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                                </div>
+                                <div class="w-1/4 flex flex-col">
+                                    <div class="text-base">Subtotal</div>
+                                    <div class="text-xl font-bold">Rp 120.000</div>
+                                </div>
+                            </div>
+                            <div class="flex my-1">
+                                <div class="w-1/4">
+                                    <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
+                                </div>
+                                <div class="w-2/4 flex flex-col">
+                                    <div class="text-2xl font-semibold">Image Title</div>
+                                    <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                                </div>
+                                <div class="w-1/4 flex flex-col">
+                                    <div class="text-base">Subtotal</div>
+                                    <div class="text-xl font-bold">Rp 120.000</div>
+                                </div>
+                            </div>
+                            <div class="flex my-1">
+                                <div class="w-1/4">
+                                    <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
+                                </div>
+                                <div class="w-2/4 flex flex-col">
+                                    <div class="text-2xl font-semibold">Image Title</div>
+                                    <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                                </div>
+                                <div class="w-1/4 flex flex-col">
+                                    <div class="text-base">Subtotal</div>
+                                    <div class="text-xl font-bold">Rp 120.000</div>
+                                </div>
+                            </div>
+                            <div>Gonadi</div>
+                            <div>08123456</div>
+                            <div>Jalan Buntu 123</div>
+                            <div class="text-2xl font-bold">Grand Total : Rp 120.000</div>
                         </div>
                     </div>
                     <div class="mt-20">
