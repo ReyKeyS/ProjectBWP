@@ -110,12 +110,12 @@
             ?>
         </nav>
         <div class="pt-20 w-11/12 mx-auto flex flex-col">
-            <div class="flex">
+            <div class="flex justify-center">
                 <!-- <button type="submit" formaction="history.php" class="px-5 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Back</button> -->
-                <div class="text-4xl font-semibold">Transaction Detail</div>
+                <div class="text-4xl font-bold bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent">TRANSACTION DETAIL</div>
             </div>
-            <div class="w-1/2 p-2 mx-auto flex flex-col border rounded-xl shadow-xl">
-                <div class="text-xl flex w-full">Invoice Code : &nbsp;<a class="text-slate-400"><?=$dataHTRANS["invoice"]?></a><a class="ml-auto"><?=substr($dataHTRANS["tanggal"], 0, 10)?> | <?=substr($dataHTRANS["tanggal"], 11)?></a></div>
+            <div class="w-1/2 p-2 mx-auto my-4 flex flex-col border rounded-xl shadow-xl">
+                <div class="text-xl flex w-full"><a class="text-slate-400"><?=$dataHTRANS["invoice"]?></a><a class="ml-auto"><?=substr($dataHTRANS["tanggal"], 0, 10)?> | <?=substr($dataHTRANS["tanggal"], 11)?></a></div>
                 <div class="text-2xl font-semibold">Product Details</div>
                 <?php
                     $totalSubtotal = 0;
