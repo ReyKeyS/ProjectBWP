@@ -35,7 +35,7 @@
             </div>
             <div class="flex flex-col ml-auto my-auto mr-3">
                 <div>Stock : <?=$isiProduct["stok"]?></div>
-                <button type="submit" onclick="delete_cart(this)" value="<?=$row["id_products"]?>" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Cancel</button>
+                <button type="button" onclick="delete_cart(this)" value="<?=$row["id_products"]?>" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Cancel</button>
                 <div class="text-2xl font-medium">Subtotal : <?=number_format($subtotal)?></div>
             </div>
         </div>

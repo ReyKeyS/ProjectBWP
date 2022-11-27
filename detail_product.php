@@ -42,7 +42,21 @@
         }
         else{
             $qty = $_POST["amountProduct"];
-            mysqli_query($conn, "INSERT INTO carts values('$idUser', '$idProduct', '$qty')");
+
+            $queryAdaGa = mysqli_query($conn, "SELECT * from carts where id_users = '$idUser' and id_products = '$idProduct'");
+            $dataAdaGa = mysqli_fetch_array($queryAdaGa);
+
+            if ($queryAdaGa->num_rows == 0){
+                mysqli_query($conn, "INSERT INTO carts values('$idUser', '$idProduct', '$qty')");
+            }else{
+                $stokYgAda = $dataProduct["stok"];
+                $curQty = $dataAdaGa["qty"];
+                $curQty += $qty;
+                if ($curQty > $stokYgAda){
+                    $curQty = $stokYgAda;
+                }
+                mysqli_query($conn, "UPDATE carts SET qty = $curQty WHERE id_users = '$idUser' and id_products = '$idProduct'"); 
+            }
             header("Location: cart.php");
         }
     }
