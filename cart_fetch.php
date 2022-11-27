@@ -27,7 +27,10 @@
             <div class="flex flex-col my-auto">
                 <div class="text-4xl font-semibold mb-7"><?=$isiProduct["nama"]?></div>
                 <div class="text-2xl font-medium">Price : <?=number_format($isiProduct["price"])?></div>
-                <div>Amount : <?=$row["qty"]?></div>
+                <div>
+                    Amount : 
+                    <input type="number" value='<?=$row["qty"]?>' class="border border-slate-500 rounded-lg w-14 h-7">
+                </div>
             </div>
             <div class="flex flex-col ml-auto my-auto mr-3">
                 <button type="submit" name="delete" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Cancel</button>
