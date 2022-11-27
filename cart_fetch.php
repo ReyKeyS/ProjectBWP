@@ -53,7 +53,7 @@
 <div class="w-1/3">
     <div class="w-1/2 px-5 py-3 flex flex-col border rounded-xl shadow-xl mx-auto mt-14">
         <div class="text-lg">
-            <input type="checkbox" name="build" disabled <?php if(isset($_SESSION["tekoBuild"])) echo "checked"; ?>>
+            <input type="checkbox" disabled <?php if(isset($_SESSION["tekoBuild"])) echo "checked";?>>
             Build Service : Rp 120.000
         </div>
         <div class="text-xl font-medium">Grand Total:</div>

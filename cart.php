@@ -54,10 +54,7 @@
         $queryNewestInv = mysqli_query($conn, "SELECT max(substr(invoice, 10)) from htrans where invoice like '$newInv%'");
         $newestInv = mysqli_fetch_row($queryNewestInv)[0] + 1;
         $newInv .= str_pad($newestInv, 3, "0", STR_PAD_LEFT);
-        
-        // Checkbox Rakit
-        ////belum
-
+                
         // Simpen total di variable + unset SESSION
         $grandtotal = "";
         if (isset($_SESSION["grandtotal"])){
@@ -65,7 +62,14 @@
         }
         unset($_SESSION["grandtotal"]);
 
-        mysqli_query($conn, "INSERT INTO htrans values('$newHtrans', '$idUser', '$newInv', '$now', 0 ,'$grandtotal', 1)");
+        // Checkbox Rakit
+        $statusRakit = '0';
+        if (isset($_SESSION["tekoBuild"])){
+            $statusRakit = '1';
+            unset($_SESSION["tekoBuild"]);
+        }
+
+        mysqli_query($conn, "INSERT INTO htrans values('$newHtrans', '$idUser', '$newInv', '$now', $statusRakit ,'$grandtotal', 1)");
 
         // DTRANS
         $queryIsiCart = mysqli_query($conn, "SELECT c.id_products, c.qty, p.price from carts c JOIN products p on p.id_products = c.id_products where c.id_users ='$idUser'");
@@ -266,7 +270,6 @@
             list_cart = document.getElementById("list_cart");
             fetch_cart();
         }
-        refreshCart = setInterval(fetch_cart, 500);
 
         function fetch_cart(){
             r = new XMLHttpRequest();

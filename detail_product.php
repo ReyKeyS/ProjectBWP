@@ -57,6 +57,8 @@
                 }
                 mysqli_query($conn, "UPDATE carts SET qty = $curQty WHERE id_users = '$idUser' and id_products = '$idProduct'"); 
             }
+            if (isset($_SESSION["tekoBuild"]))
+                unset($_SESSION["tekoBuild"]);
             header("Location: cart.php");
         }
     }
