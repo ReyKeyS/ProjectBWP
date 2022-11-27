@@ -1,18 +1,15 @@
 <?php
     require_once("connection.php");
-    $logged=false;
-    if(isset($_SESSION['data'])){
-        $logged=true;
-    }
-    else{
-        header('Location:index.php');
-    }
-    if(isset($_POST['home'])){
-        header('Location:index.php');
+    $logged = false;
+    if (isset($_SESSION['data'])){
+        $logged = true;
     }
     if (isset($_POST["logout"])){
         unset($_SESSION['data']);
         header("Location: index.php");
+    }
+    if(isset($_POST['cart'])){
+        ceklogin('cart');
     }
     if(isset($_POST['build'])){
         ceklogin('build');
@@ -29,62 +26,6 @@
             header("Location: login.php");
         }
     }
-
-    $queryUser = mysqli_query($conn, "SELECT id_users from users where nama = '".$_SESSION['data']['nama']."'");
-    $idUser = mysqli_fetch_row($queryUser)[0];
-    $cekisi=mysqli_query($conn,"SELECT * from carts where id_users = '$idUser'");
-    $hasilisi=mysqli_fetch_array($cekisi);
-    
-    if (isset($_POST["buy"])){
-        date_default_timezone_set("Asia/Jakarta");        
-        $now = date("Y-m-d H:i:s");
-
-        // Generate ID Htrans
-        $newHtrans = "HS";
-        $maxHt = mysqli_query($conn, "SELECT max(substr(id_htrans,3)) from htrans");
-        $maxHtUrut = mysqli_fetch_row($maxHt)[0] + 1;
-        $newHtrans .= str_pad($maxHtUrut, 4, "0", STR_PAD_LEFT);
-        // Generate Invoice
-        $newInv = "INV";
-        $tahun = date("y");
-        $bulan = date("m");
-        $hari = date("d");
-        $newInv .= $tahun.$bulan.$hari;
-        
-        $queryNewestInv = mysqli_query($conn, "SELECT max(substr(invoice, 10)) from htrans where invoice like '$newInv%'");
-        $newestInv = mysqli_fetch_row($queryNewestInv)[0] + 1;
-        $newInv .= str_pad($newestInv, 3, "0", STR_PAD_LEFT);
-        
-        // Checkbox Rakit
-        ////belum
-
-        // Simpen total di variable + unset SESSION
-        $grandtotal = "";
-        if (isset($_SESSION["grandtotal"])){
-            $grandtotal = $_SESSION["grandtotal"];
-        }
-        unset($_SESSION["grandtotal"]);
-
-        mysqli_query($conn, "INSERT INTO htrans values('$newHtrans', '$idUser', '$newInv', '$now', 0 ,'$grandtotal', 1)");
-
-        // DTRANS
-        $queryIsiCart = mysqli_query($conn, "SELECT c.id_products, c.qty, p.price from carts c JOIN products p on p.id_products = c.id_products where c.id_users ='$idUser'");
-        while($row = mysqli_fetch_row($queryIsiCart)){
-            $newDtrans = "DS";
-            $maxDt = mysqli_query($conn, "SELECT max(substr(id_dtrans,3)) from dtrans");
-            $maxDtUrut = mysqli_fetch_row($maxDt)[0] + 1;
-            $newDtrans .= str_pad($maxDtUrut, 5, "0", STR_PAD_LEFT);
-            
-            $idBarangCur = $row[0];
-            $qtyCur = $row[1];
-            $subtotalCur = intval($row[1]) * intval($row[2]);
-            mysqli_query($conn, "INSERT INTO dtrans values('$newDtrans', '$newHtrans', '$idBarangCur', '$qtyCur', '$subtotalCur')");
-        }
-
-        // Delete Cart
-        mysqli_query($conn, "DELETE FROM carts where id_users = '$idUser'");
-        header("Location: history.php");
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,10 +36,9 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body onload="load_ajax()">
-    <form action="#" method="POST">
-        <div class="<?php echo(isset($idUser) ? 'h-screen flex flex-col':'')?>">
-
+<body>
+    <form action="" method="POST">
+        <div class="min-h-screen flex flex-col">
         <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
             <a class="w-28 my-auto ml-3" href="index.php">
                 <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
@@ -159,65 +99,49 @@
                 }
             ?>
         </nav>
-    </form>
-        <?php
-            if(isset($hasilisi)){
-                ?>
-                
-        <div class="pt-20 flex mb-auto" id="list_cart">
-            <!-- <div class="w-2/3 flex flex-col place-content-center">
-                <div class="text-3xl font-semibold mx-auto">Your Cart</div>
-                <div class="w-3/4 ml-auto">
-                    <div class="w-full my-3 border rounded-md shadow-lg overflow-hidden mb-10 flex">
-                        <img src="https:/source.unsplash.com/600x400" alt="" class="p-5 h-48 w-48">
-                        <div class="flex flex-col my-auto">
-                            <div class="text-2xl font-semibold">Image Title</div>
-                            <div>Rp 120.000</div>
-                        </div>
-                        <div class="ml-auto my-auto mr-3">
-                            <button type="submit" name="delete" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Delete</button>
-                            <div class="text-center">1</div>
-                        </div>
-                    </div>
-                    <div class="w-full my-3 border rounded-md shadow-lg overflow-hidden mb-10 flex">
-                        <img src="https:/source.unsplash.com/600x400" alt="" class="p-5 h-48 w-48">
-                        <div class="flex flex-col my-auto">
-                            <div class="text-2xl font-semibold">Image Title</div>
-                            <div>Rp 120.000</div>
-                        </div>
-                        <div class="ml-auto my-auto mr-3">
-                            <button type="submit" name="delete" class="px-5 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Delete</button>
-                            <div class="text-center">1</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="pt-20 w-11/12 mx-auto flex flex-col">
+            <div class="flex">
+                <!-- <button type="submit" formaction="history.php" class="px-5 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Back</button> -->
+                <div class="text-4xl font-semibold">Transaction Detail</div>
             </div>
-            <div class="w-1/3">
-                <div class="w-1/3 px-5 py-3 flex border rounded-xl shadow-xl flex-col mx-auto mt-14">
-                    <div>Total:</div>
-                    <div>Rp 120.000</div>
-                    <button type="submit" name="buy" class="px-3 py-1 font-semibold text-white my-2 ml-auto rounded-lg bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Buy</button>
-                </div>
-            </div> -->
-        </div>
-        <?php
-            }
-            else{
-                ?>
-                <div class="w-1/2 pt-20 flex flex-col mx-auto font-mono mt-auto">
-                    <div class="mx-auto text-9xl font-semibold bg-yellow-400"><marquee scrollamount="20">ERROR 404</marquee></div>
-                    <div class="text-9xl text-center">☠</div>
-                    <div class="mx-auto text-6xl">Your cart is empty</div>
-                    <div class="mx-auto text-3xl">Let's go shopping</div>
-                    <div class="mx-auto mt-10">
-                        <button type="submit" formaction="index.php" class="mb-5 px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
+            <div class="w-1/2 p-2 mx-auto flex flex-col border rounded-xl shadow-xl">
+                <div class="text-xl flex w-full">Invoice Code : <a class="text-slate-400">KODEINVOICE123</a><a class="ml-auto">17-8-1945</a></div>
+                <div class="text-2xl font-semibold">Product Details</div>
+                <div class="flex border rounded-xl my-3 shadow-md">
+                    <div class="w-1/4">
+                        <img src="assets/gonadi.jpg" alt="" class="w-24 h-24 mx-auto">
+                    </div>
+                    <div class="w-2/4 flex flex-col">
+                        <div class="text-3xl font-semibold">Image Title</div>
+                        <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                    </div>
+                    <div class="w-1/4 flex flex-col">
+                        <div class="text-lg">Total Price</div>
+                        <div class="text-2xl font-bold">Rp 120.000</div>
                     </div>
                 </div>
-                <?php
-            }
-        ?>
-    <form action="#" method="POST">
-        <nav class="h-96 bg-black <?php echo(isset($idUser) ? 'mt-auto':'')?>">
+                <div class="flex border rounded-xl my-3 shadow-md">
+                    <div class="w-1/4">
+                        <img src="assets/gonadi.jpg" alt="" class="w-24 h-24 mx-auto">
+                    </div>
+                    <div class="w-2/4 flex flex-col">
+                        <div class="text-3xl font-semibold">Image Title</div>
+                        <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                    </div>
+                    <div class="w-1/4 flex flex-col">
+                        <div class="text-lg">Total Price</div>
+                        <div class="text-2xl font-bold">Rp 120.000</div>
+                    </div>
+                </div>
+                <div class="text-lg">Name : Gonadi</div>
+                <div class="text-lg">Phone : 08123345567</div>
+                <div class="text-lg">Address : Jalan Buntu 123</div>
+                <div class="text-lg">Build Service : Rp 120.000</div>
+                <div class="font-bold text-2xl">Grand Total : Rp 120.000</div>
+                <a href="history.php" class="ml-auto font-bold mb-2 bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Back to History</a>
+            </div>
+        </div>
+        <nav class="h-96 bg-black mt-auto">
             <div class="flex">
                 <div class="w-1/2 pt-5 flex flex-col border-r">
                     <div class="flex justify-center my-1">
@@ -258,57 +182,7 @@
             </div>
             <div class="text-white text-center mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
         </nav>
-            </div>
+        </div>
     </form>
-    <script lang="javascript">
-        list_cart;
-        function load_ajax(){
-            list_cart = document.getElementById("list_cart");
-            fetch_cart();
-        }
-        refreshCart = setInterval(fetch_cart, 500);
-
-        function fetch_cart(){
-            r = new XMLHttpRequest();
-            r.onreadystatechange = function(){
-                if ((this.readyState==4) && (this.status==200)){
-                    list_cart.innerHTML = this.responseText;
-                }
-            }
-            r.open("POST", "cart_fetch.php");
-            r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            r.send(`idUser=<?=$idUser?>`);
-        }
-
-        function update_cart(obj){
-            curQty = obj.value;
-            idProduct = obj.getAttribute("idProduct");
-
-            r = new XMLHttpRequest();
-            r.onreadystatechange = function(){
-                if ((this.readyState==4) && (this.status==200)){
-                    fetch_cart();
-                }
-            }
-            r.open("POST", "cart_update.php");
-            r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            r.send(`idProduct=${idProduct}&curQty=${curQty}`);
-        }
-
-        function delete_cart(obj){
-            idProduct = obj.value;
-
-            r = new XMLHttpRequest();
-            r.onreadystatechange = function(){
-                if ((this.readyState==4) && (this.status==200)){
-                    fetch_cart();
-                }
-            }
-            r.open("POST", "cart_delete.php");
-            r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            r.send(`idProduct=${idProduct}`);
-        }
-
-    </script>
 </body>
 </html>

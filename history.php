@@ -28,6 +28,8 @@
     $idUser = mysqli_fetch_row($queryUser)[0];
 
     $queryTrans = mysqli_query($conn, "SELECT * from htrans where id_users = '$idUser'");
+    $cekisi = mysqli_query($conn, "SELECT * from htrans where id_users = '$idUser'");
+    $hasilisi=mysqli_fetch_array($cekisi);
 ?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -40,6 +42,7 @@
 </head>
 <body>
     <form action="" method="POST">
+        <div class="min-h-screen flex flex-col">
     <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
             <a class="w-28 my-auto ml-3" href="index.php">
                 <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
@@ -103,9 +106,10 @@
         <div class="w-11/12 mx-auto pt-20 mb-auto flex flex-col">
             <div class="text-4xl font-semibold">TRANSACTION HISTORY</div>
             <?php
-                while($row = mysqli_fetch_array($queryTrans)){
-                    $querySatuProduct = mysqli_query($conn, "SELECT p.nama, dt.qty, p.price, p.gmbr from dtrans dt JOIN products p ON p.id_products = dt.id_products where dt.id_htrans = '".$row["id_htrans"]."'");
-                    $SatuProduct = mysqli_fetch_row($querySatuProduct);
+                if(isset($hasilisi)){
+                    while($row = mysqli_fetch_array($queryTrans)){
+                        $querySatuProduct = mysqli_query($conn, "SELECT p.nama, dt.qty, p.price, p.gmbr from dtrans dt JOIN products p ON p.id_products = dt.id_products where dt.id_htrans = '".$row["id_htrans"]."'");
+                        $SatuProduct = mysqli_fetch_row($querySatuProduct);
             ?>
                 <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl shadow-xl">
                     <div class="w-1/4 flex flex-col">
@@ -114,21 +118,35 @@
                     </div>
                     <div class="w-2/4 flex flex-col pt-20">
                         <div class="text-3xl font-semibold"><?=$SatuProduct[0]?></div>
-                        <div class="text-base"><?=$SatuProduct[1]?> x Rp <?=number_format($SatuProduct[2])?></div>
+                        <div class="text-base text-slate-600"><?=$SatuProduct[1]?> x Rp <?=number_format($SatuProduct[2])?></div>
                         <?php
                             if ($querySatuProduct->num_rows > 1){
                                 $kurang = (int)$querySatuProduct->num_rows - 1;
-                                echo "+".$kurang." produk lainnya";
+                                echo "<div class='text-slate-600'>+".$kurang." produk lainnya</div>";
                             }
                         ?>
                     </div>
                     <div class="w-1/4 flex flex-col pt-20">
                         <div>Total</div>
                         <div class="text-xl font-bold">Rp <?=number_format($row["total"])?></div>
-                        <a class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Lihat Detail Transaksi</a>
+                        <a href="detail_transaksi.php" class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">See Transaction Detail</a>
                     </div>
                 </div>
             <?php
+                    }
+                }
+                else{
+                    ?>
+                    <div class="w-1/2 pt-20 flex flex-col mx-auto font-mono mt-auto">
+                        <div class="mx-auto text-9xl font-semibold bg-yellow-400"><marquee scrollamount="20">ERROR 404</marquee></div>
+                        <div class="text-9xl text-center">☠</div>
+                        <div class="mx-auto text-6xl">Your history is empty</div>
+                        <div class="mx-auto text-3xl">Let's go shopping</div>
+                        <div class="mx-auto mt-10">
+                            <button type="submit" formaction="index.php" class="mb-5 px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
+                        </div>
+                    </div>
+                    <?php
                 }
             ?>
         </div>
@@ -137,7 +155,7 @@
                 <img src="assets/up-arrow.png" alt="" class="w-7 h-7">
             </a>
         </div>
-        <nav class="h-96 bg-black">
+        <nav class="h-96 bg-black mt-auto">
             <div class="flex">
                 <div class="w-1/2 pt-5 flex flex-col border-r">
                     <div class="flex justify-center my-1">
@@ -178,6 +196,7 @@
             </div>
             <div class="text-white text-center mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
         </nav>
+        </div>
     </form>
 </body>
 </html>
