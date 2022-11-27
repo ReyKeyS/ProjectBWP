@@ -138,7 +138,7 @@
                 else{
                     ?>
                     <div class="w-1/2 pt-20 flex flex-col mx-auto font-mono mt-auto">
-                        <div class="mx-auto text-9xl font-semibold bg-yellow-400"><marquee scrollamount="20">ERROR 404</marquee></div>
+                        <div class="mx-auto text-9xl font-semibold"><marquee scrollamount="20">ERROR 404</marquee></div>
                         <div class="text-9xl text-center">☠</div>
                         <div class="mx-auto text-6xl">Your history is empty</div>
                         <div class="mx-auto text-3xl">Let's go shopping</div>

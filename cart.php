@@ -205,7 +205,7 @@
             else{
                 ?>
                 <div class="w-1/2 pt-20 flex flex-col mx-auto font-mono mt-auto">
-                    <div class="mx-auto text-9xl font-semibold bg-yellow-400"><marquee scrollamount="20">ERROR 404</marquee></div>
+                    <div class="mx-auto text-9xl font-semibold"><marquee scrollamount="20">ERROR 404</marquee></div>
                     <div class="text-9xl text-center">☠</div>
                     <div class="mx-auto text-6xl">Your cart is empty</div>
                     <div class="mx-auto text-3xl">Let's go shopping</div>
@@ -302,11 +302,15 @@
             r.onreadystatechange = function(){
                 if ((this.readyState==4) && (this.status==200)){
                     fetch_cart();
+                    if (this.responseText == "0"){
+                        clearInterval(refreshCart);
+                        location.reload();
+                    }
                 }
             }
             r.open("POST", "cart_delete.php");
             r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            r.send(`idProduct=${idProduct}`);
+            r.send(`idProduct=${idProduct}&idUser=<?=$idUser?>`);
         }
 
     </script>

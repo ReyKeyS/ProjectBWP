@@ -64,15 +64,17 @@
     }
     else{
     ?>
-    <!-- <div class="w-1/2 flex flex-col mx-auto font-mono mt-auto">
-        <div class="mx-auto text-9xl font-semibold"><marquee>ERROR 404</marquee></div>
-        <div class="text-9xl text-center">☠</div>
-        <div class="mx-auto text-6xl">Your cart is empty</div>
-        <div class="mx-auto text-3xl">Lets go shopping</div>
-        <div class="mx-auto mt-10">
-            <button type="submit" formaction="index.php" class="px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
+    <!-- <form action="" method="POST">
+        <div class="w-1/2 flex flex-col mx-auto font-mono mt-auto">
+            <div class="mx-auto text-9xl font-semibold"><marquee>ERROR 404</marquee></div>
+            <div class="text-9xl text-center">☠</div>
+            <div class="mx-auto text-6xl">Your cart is empty</div>
+            <div class="mx-auto text-3xl">Lets go shopping</div>
+            <div class="mx-auto mt-10">
+                <button type="submit" formaction="index.php" class="px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
+            </div>
         </div>
-    </div> -->
+    </form> -->
     <?php
     }
     ?>
