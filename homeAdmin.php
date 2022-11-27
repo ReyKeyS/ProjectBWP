@@ -107,7 +107,7 @@
                             <div class="my-3 font-bold text-gray-500 text-3xl ml-3">Categories</div>
                             <div class="w-full h-2 rounded-full bg-gradient-to-r from-purple-900 to-fuchsia-600"></div>
                             <div class="text-center py-4 font-bold text-5xl">
-                            <?php
+                                <?php
                                     $queryCategory = mysqli_query($conn, "SELECT count(*) from categories");
                                     $banyakCate = mysqli_fetch_row($queryCategory)[0];
                                     echo $banyakCate;
@@ -118,7 +118,11 @@
                             <div class="my-3 font-bold text-gray-500 text-3xl ml-3">Transactions</div>
                             <div class="w-full h-2 rounded-full bg-gradient-to-r from-purple-900 to-fuchsia-600"></div>
                             <div class="text-center py-4 font-bold text-5xl">
-                                3000
+                                <?php
+                                    $queryCategory = mysqli_query($conn, "SELECT count(*) from htrans");
+                                    $banyakCate = mysqli_fetch_row($queryCategory)[0];
+                                    echo $banyakCate;
+                                ?>
                             </div>
                         </div>
                     </div>
