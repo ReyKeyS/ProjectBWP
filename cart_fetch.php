@@ -52,6 +52,7 @@
         <div class="text-xl font-medium">Grand Total:</div>
         <!-- JOK LUPA DITAMBAHI COST BUILD SERVICE E -->
         <div class="text-2xl font-medium ml-auto">Rp <?=number_format($total)?></div>
+        <?php $_SESSION["grandtotal"] = $total ?>
         <button type="submit" name="buy" class="px-3 py-1 font-semibold text-white my-2 ml-auto rounded-lg bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Buy</button>
     </div>
     <?php

@@ -34,6 +34,57 @@
     $idUser = mysqli_fetch_row($queryUser)[0];
     $cekisi=mysqli_query($conn,"SELECT * from carts where id_users = '$idUser'");
     $hasilisi=mysqli_fetch_array($cekisi);
+    
+    if (isset($_POST["buy"])){
+        date_default_timezone_set("Asia/Jakarta");        
+        $now = date("Y-m-d H:i:s");
+
+        // Generate ID Htrans
+        $newHtrans = "HS";
+        $maxHt = mysqli_query($conn, "SELECT max(substr(id_htrans,3)) from htrans");
+        $maxHtUrut = mysqli_fetch_row($maxHt)[0] + 1;
+        $newHtrans .= str_pad($maxHtUrut, 4, "0", STR_PAD_LEFT);
+        // Generate Invoice
+        $newInv = "INV";
+        $tahun = date("y");
+        $bulan = date("m");
+        $hari = date("d");
+        $newInv .= $tahun.$bulan.$hari;
+        
+        $queryNewestInv = mysqli_query($conn, "SELECT max(substr(invoice, 10)) from htrans where invoice like '$newInv%'");
+        $newestInv = mysqli_fetch_row($queryNewestInv)[0] + 1;
+        $newInv .= str_pad($newestInv, 3, "0", STR_PAD_LEFT);
+        
+        // Checkbox Rakit
+        ////belum
+
+        // Simpen total di variable + unset SESSION
+        $grandtotal = "";
+        if (isset($_SESSION["grandtotal"])){
+            $grandtotal = $_SESSION["grandtotal"];
+        }
+        unset($_SESSION["grandtotal"]);
+
+        mysqli_query($conn, "INSERT INTO htrans values('$newHtrans', '$idUser', '$newInv', '$now', 0 ,'$grandtotal', 1)");
+
+        // DTRANS
+        $queryIsiCart = mysqli_query($conn, "SELECT c.id_products, c.qty, p.price from carts c JOIN products p on p.id_products = c.id_products where c.id_users ='$idUser'");
+        while($row = mysqli_fetch_row($queryIsiCart)){
+            $newDtrans = "DS";
+            $maxDt = mysqli_query($conn, "SELECT max(substr(id_dtrans,3)) from dtrans");
+            $maxDtUrut = mysqli_fetch_row($maxDt)[0] + 1;
+            $newDtrans .= str_pad($maxDtUrut, 5, "0", STR_PAD_LEFT);
+            
+            $idBarangCur = $row[0];
+            $qtyCur = $row[1];
+            $subtotalCur = intval($row[1]) * intval($row[2]);
+            mysqli_query($conn, "INSERT INTO dtrans values('$newDtrans', '$newHtrans', '$idBarangCur', '$qtyCur', '$subtotalCur')");
+        }
+
+        // Delete Cart
+        mysqli_query($conn, "DELETE FROM carts where id_users = '$idUser'");
+        header("Location: history.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -157,9 +208,9 @@
                     <div class="mx-auto text-9xl font-semibold"><marquee scrollamount="20">ERROR 404</marquee></div>
                     <div class="text-9xl text-center">☠</div>
                     <div class="mx-auto text-6xl">Your cart is empty</div>
-                    <div class="mx-auto text-3xl">Lets go shopping</div>
+                    <div class="mx-auto text-3xl">Let's go shopping</div>
                     <div class="mx-auto mt-10">
-                        <button type="submit" formaction="index.php" class="px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
+                        <button type="submit" formaction="index.php" class="mb-5 px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
                     </div>
                 </div>
                 <?php
