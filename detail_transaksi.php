@@ -26,6 +26,16 @@
             header("Location: login.php");
         }
     }
+
+    $idHtrans = "";
+    if (isset($_GET["hID"])){
+        $idHtrans = $_GET["hID"];
+
+        $queryHTRANS = mysqli_query($conn, "SELECT * from htrans where id_htrans = '$idHtrans'");
+        $dataHTRANS = mysqli_fetch_array($queryHTRANS);
+
+        $queryDTRANS = mysqli_query($conn, "SELECT p.gmbr, p.nama, dt.qty, p.price from dtrans dt JOIN products p ON p.id_products = dt.id_products where id_htrans = '$idHtrans'");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,39 +115,32 @@
                 <div class="text-4xl font-semibold">Transaction Detail</div>
             </div>
             <div class="w-1/2 p-2 mx-auto flex flex-col border rounded-xl shadow-xl">
-                <div class="text-xl flex w-full">Invoice Code : <a class="text-slate-400">KODEINVOICE123</a><a class="ml-auto">17-8-1945</a></div>
+                <div class="text-xl flex w-full">Invoice Code : &nbsp;<a class="text-slate-400"><?=$dataHTRANS["invoice"]?></a><a class="ml-auto"><?=substr($dataHTRANS["tanggal"], 0, 10)?> | <?=substr($dataHTRANS["tanggal"], 11)?></a></div>
                 <div class="text-2xl font-semibold">Product Details</div>
+                <?php
+                    $totalSubtotal = 0;
+                    while($row = mysqli_fetch_row($queryDTRANS)){
+                ?>  
                 <div class="flex border rounded-xl my-3 shadow-md">
                     <div class="w-1/4">
-                        <img src="assets/gonadi.jpg" alt="" class="w-24 h-24 mx-auto">
+                        <img src="<?=$row[0]?>" alt="" class="w-24 h-24 mx-auto">
                     </div>
                     <div class="w-2/4 flex flex-col">
-                        <div class="text-3xl font-semibold">Image Title</div>
-                        <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                        <div class="text-3xl font-semibold"><?=$row[1]?></div>
+                        <div class="text-base text-slate-600"><?=$row[2]?> x Rp <?=number_format($row[3])?></div>
                     </div>
                     <div class="w-1/4 flex flex-col">
-                        <div class="text-lg">Total Price</div>
-                        <div class="text-2xl font-bold">Rp 120.000</div>
+                        <div class="text-lg">Subtotal</div>
+                        <div class="text-2xl font-bold">Rp <?=number_format($row[2]*$row[3])?></div>
                     </div>
                 </div>
-                <div class="flex border rounded-xl my-3 shadow-md">
-                    <div class="w-1/4">
-                        <img src="assets/gonadi.jpg" alt="" class="w-24 h-24 mx-auto">
-                    </div>
-                    <div class="w-2/4 flex flex-col">
-                        <div class="text-3xl font-semibold">Image Title</div>
-                        <div class="text-base text-slate-600">1 x Rp 120.000</div>
-                    </div>
-                    <div class="w-1/4 flex flex-col">
-                        <div class="text-lg">Total Price</div>
-                        <div class="text-2xl font-bold">Rp 120.000</div>
-                    </div>
-                </div>
-                <div class="text-lg">Name : Gonadi</div>
-                <div class="text-lg">Phone : 08123345567</div>
-                <div class="text-lg">Address : Jalan Buntu 123</div>
-                <div class="text-lg">Build Service : Rp 120.000</div>
-                <div class="font-bold text-2xl">Grand Total : Rp 120.000</div>
+                <?php
+                        $totalSubtotal += ($row[2]*$row[3]);
+                    }
+                ?>
+                <div class="text-lg">Total Price : Rp <?=number_format($totalSubtotal)?></div>
+                <div class="text-lg">Build Service : Rp <?php if ($dataHTRANS["dirakit"] == 0) echo "0"; else echo "120,000"; ?></div>
+                <div class="font-bold text-2xl">Grand Total : Rp <?=number_format($dataHTRANS["total"])?></div>
                 <a href="history.php" class="ml-auto font-bold mb-2 bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Back to History</a>
             </div>
         </div>

@@ -129,7 +129,7 @@
                     <div class="w-1/4 flex flex-col pt-20">
                         <div>Total</div>
                         <div class="text-xl font-bold">Rp <?=number_format($row["total"])?></div>
-                        <a href="detail_transaksi.php" class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">See Transaction Detail</a>
+                        <a href="detail_transaksi.php?hID=<?=$row["id_htrans"]?>" class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">See Transaction Detail</a>
                     </div>
                 </div>
             <?php
