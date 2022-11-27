@@ -25,7 +25,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -97,7 +97,7 @@
         </nav>
         <div class="w-11/12 mx-auto pt-20 mb-auto flex flex-col">
             <div class="text-4xl font-semibold">TRANSACTION HISTORY</div>
-            <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl">
+            <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl shadow-xl">
                 <div class="w-1/4 flex flex-col">
                     <div class="text-slate-400">KODEINVOICE123</div>
                     <img src="assets/gonadi.jpg" alt="Imaged" class="w-48 h-48 m-auto">
@@ -112,7 +112,7 @@
                     <a class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Lihat Detail Transaksi</a>
                 </div>
             </div>
-            <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl">
+            <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl shadow-xl">
                 <div class="w-1/4 flex flex-col">
                     <div class="text-slate-400">KODEINVOICE123</div>
                     <img src="assets/gonadi.jpg" alt="Imaged" class="w-48 h-48 m-auto">
@@ -127,7 +127,7 @@
                     <a class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Lihat Detail Transaksi</a>
                 </div>
             </div>
-            <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl">
+            <div class="w-1/2 h-64 mx-auto my-3 flex border rounded-xl shadow-xl">
                 <div class="w-1/4 flex flex-col">
                     <div class="text-slate-400">KODEINVOICE123</div>
                     <img src="assets/gonadi.jpg" alt="Imaged" class="w-48 h-48 m-auto">
@@ -142,8 +142,11 @@
                     <a class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Lihat Detail Transaksi</a>
                 </div>
             </div>
-            
-            
+        </div>
+        <div class="w-10 h-10 rounded-full bg-white border-2 border-black flex fixed bottom-5 right-5 cursor-pointer animate-bounce">
+            <a href="#" class="m-auto">
+                <img src="assets/up-arrow.png" alt="" class="w-7 h-7">
+            </a>
         </div>
         <nav class="h-96 bg-black">
             <div class="flex">
