@@ -36,6 +36,11 @@
 
         $queryDTRANS = mysqli_query($conn, "SELECT p.gmbr, p.nama, dt.qty, p.price from dtrans dt JOIN products p ON p.id_products = dt.id_products where id_htrans = '$idHtrans'");
     }
+
+    if (isset($_POST["cancelTrans"])){
+        mysqli_query($conn, "UPDATE htrans SET status = 2 where id_htrans = '".$dataHTRANS["id_htrans"]."'");
+        header("Location: history.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,14 +119,14 @@
                 <!-- <button type="submit" formaction="history.php" class="px-5 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Back</button> -->
                 <div class="text-4xl font-bold bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent">TRANSACTION DETAIL</div>
             </div>
-            <div class="w-1/2 p-2 mx-auto my-4 flex flex-col border rounded-xl shadow-xl">
+            <div class="w-1/2 p-5 mx-auto my-4 flex flex-col border rounded-xl shadow-xl">
                 <div class="text-xl flex w-full"><a class="text-slate-400"><?=$dataHTRANS["invoice"]?></a><a class="ml-auto"><?=substr($dataHTRANS["tanggal"], 0, 10)?> | <?=substr($dataHTRANS["tanggal"], 11)?></a></div>
                 <div class="text-2xl font-semibold">Product Details</div>
                 <?php
                     $totalSubtotal = 0;
                     while($row = mysqli_fetch_row($queryDTRANS)){
                 ?>  
-                <div class="flex border rounded-xl my-3 shadow-md">
+                <div class="flex border rounded-xl my-2 mx-10 shadow-sm">
                     <div class="w-1/4">
                         <img src="<?=$row[0]?>" alt="" class="w-24 h-24 mx-auto">
                     </div>
@@ -141,7 +146,16 @@
                 <div class="text-lg">Total Price : Rp <?=number_format($totalSubtotal)?></div>
                 <div class="text-lg">Build Service : Rp <?php if ($dataHTRANS["dirakit"] == 0) echo "0"; else echo "120,000"; ?></div>
                 <div class="font-bold text-2xl">Grand Total : Rp <?=number_format($dataHTRANS["total"])?></div>
-                <a href="history.php" class="ml-auto font-bold mb-2 bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Back to History</a>
+                <div class="flex ml-auto">
+                    <?php
+                        if($dataHTRANS["status"]=="1"){
+                    ?>
+                        <button type="submit" name="cancelTrans" class="px-3 py-2 w-20 rounded-xl mr-3 text-white font-semibold bg-red-500 hover:bg-red-600">Cancel</button>
+                    <?php
+                        }
+                    ?>
+                    <a href="history.php" class="font-bold mb-2 my-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Back to History</a>
+                </div>
             </div>
         </div>
         <nav class="h-96 bg-black mt-auto">

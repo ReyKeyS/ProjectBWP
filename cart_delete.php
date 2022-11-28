@@ -8,4 +8,7 @@
     $cekKosong = mysqli_query($conn, "SELECT count(*) from carts where id_users = '$idUser'");
     $kosongGa = mysqli_fetch_row($cekKosong)[0];
     echo $kosongGa;
+    if(isset($_SESSION['tekoBuild'])){
+        unset($_SESSION['tekoBuild']);
+    }
 ?>

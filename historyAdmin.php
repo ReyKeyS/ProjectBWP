@@ -8,8 +8,20 @@
         unset($_SESSION["data"]);
         header("Location: index.php");
     }
-    $isihtrans=mysqli_query($conn,"SELECT * from htrans");
+    $isihtrans=mysqli_query($conn,"SELECT * from htrans order by id_htrans desc");
     
+    if (isset($_POST["btnAccept"])){
+        $idHtrans = $_POST["btnAccept"];
+        mysqli_query($conn, "UPDATE htrans set status = 0 where id_htrans = '$idHtrans'");
+        header("Location: historyAdmin.php");
+    }
+
+    if (isset($_POST["btnDecline"])){
+        $idHtrans = $_POST["btnDecline"];
+        mysqli_query($conn, "UPDATE htrans set status = 2 where id_htrans = '$idHtrans'");
+        header("Location: historyAdmin.php");
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,45 +117,81 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="w-3/4 mx-auto flex flex-col">
+                    <div class="w-full mx-auto flex flex-col">
                         <?php
                             while($row2=mysqli_fetch_array($isihtrans)){
                             
                         ?>
                         <div class="w-1/2 mx-auto my-2 p-3 rounded-xl shadow-xl flex flex-col border">
-                            <div class="text-lg flex w-full"><a class="text-slate-400"><?= $row2['invoice']?></a><a class="ml-auto">17-8-1945</a></div>
-                            <div class="text-lg">12:34:56</div>
+                            <div class="text-lg flex w-full">
+                                <a class="text-slate-400">
+                                    <?= $row2['invoice']?>
+                                </a>
+                                <a class="ml-auto">
+                                <?php
+                                    if ($row2["status"]=="1"){
+                                ?>
+                                    <a class="text-2xl text-yellow-500 font-semibold">Pending ⌛</a>
+                                <?php
+                                    }else if ($row2["status"]=="0"){
+                                ?>
+                                    <a class="text-2xl text-green-400 font-semibold">Done ✔ </a>
+                                <?php
+                                    }else if ($row2["status"]=="2"){
+                                ?>
+                                    <a class="text-2xl text-red-400 font-bold">Failed❌</a>
+                                <?php
+                                    }
+                                ?>
+                                </a>
+                            </div>
+                            <div class="mb-2"><?=substr($row2["tanggal"], 0, 10)?> | <?=substr($row2["tanggal"], 11)?></div>
                             <?php
                                 $id=$row2['id_htrans'];
-                                $isidtrans=mysqli_query($conn,"SELECT * from dtrans dt where id_htrans='$id'");
+                                $isidtrans=mysqli_query($conn,"SELECT p.nama, dt.qty, p.price, p.gmbr from dtrans dt join products p on p.id_products = dt.id_products where id_htrans='$id'");
+                                $totalSubtotal = 0;
                                 while($row=mysqli_fetch_array($isidtrans)){
                             ?>
                             <div class="flex my-1">
                                 <div class="w-1/4">
-                                    <img src="assets/gonadi.jpg" alt="" class="w-20 h-20 mx-auto">
+                                    <img src="<?=$row[3]?>" alt="" class="w-20 h-20 mx-auto">
                                 </div>
                                 <div class="w-2/4 flex flex-col">
                                     <div class="text-2xl font-semibold"><?= $row[0]?></div>
-                                    <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                                    <div class="text-base text-slate-600"><?= $row[1]?> x Rp <?= number_format($row[2])?></div>
                                 </div>
                                 <div class="w-1/4 flex flex-col">
                                     <div class="text-base">Subtotal</div>
-                                    <div class="text-xl font-bold">Rp 120.000</div>
+                                    <div class="text-xl font-bold">Rp <?= number_format($row[1]*$row[2])?></div>
+                                    <?php $totalSubtotal += ($row[1]*$row[2]); ?>
                                 </div>
                             </div>
                             <?php
                                 }
+                                $queryUserBeli = mysqli_query($conn, "SELECT * from users where id_users = '".$row2["id_users"]."'");
+                                $dataUserBeli = mysqli_fetch_array($queryUserBeli);
                             ?>
-                            <div>Gonadi</div>
-                            <div>08123456</div>
-                            <div>Jalan Buntu 123</div>
+                            <div class="ml-auto mr-16 font-bold text-2xl flex flex-col">
+                                <a class="font-semibold">Total Price</a>
+                                <a>Rp <?=number_format($totalSubtotal)?></a>
+                            </div>
+                            <div><?=$dataUserBeli["nama"]?></div>
+                            <div><?=$dataUserBeli["telp"]?></div>
+                            <div><?=$dataUserBeli["alamat"]?></div>
+                            <div class="text-lg font-semibold">Build Service : Rp <?php if ($row2["dirakit"] == 0) echo "0"; else echo "120,000"; ?></div>
                             <div class="flex">
                                 <div class="text-2xl font-bold">
-                                    Grand Total : Rp 120.000
+                                    Grand Total : Rp <?=number_format($row2["total"])?>
                                 </div>
                                 <div class="flex ml-auto gap-1">
-                                    <button type="submit" class="px-5 py-3 text-white font-semibold bg-green-500 rounded-xl hover:bg-green-600">Accept</button>
-                                    <button type="submit" class="px-5 py-3 text-white font-semibold bg-red-500 rounded-xl hover:bg-red-600">Decline</button>
+                                    <?php
+                                        if($row2["status"]=="1"){
+                                    ?>
+                                    <button type="submit" name="btnAccept" value="<?=$row2["id_htrans"]?>" class="px-5 py-3 text-white font-semibold bg-green-500 rounded-xl hover:bg-green-600">Accept</button>
+                                    <button type="submit" name="btnDecline" value="<?=$row2["id_htrans"]?>" class="px-5 py-3 text-white font-semibold bg-red-500 rounded-xl hover:bg-red-600">Decline</button>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>

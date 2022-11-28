@@ -66,6 +66,7 @@
         $statusRakit = '0';
         if (isset($_SESSION["tekoBuild"])){
             $statusRakit = '1';
+            $grandtotal += 120000;
             unset($_SESSION["tekoBuild"]);
         }
 

@@ -122,12 +122,30 @@
                         <?php
                             if ($querySatuProduct->num_rows > 1){
                                 $kurang = (int)$querySatuProduct->num_rows - 1;
-                                echo "<div class='text-slate-600'>+".$kurang." produk lainnya</div>";
+                                echo "<div class='text-slate-600'>+".$kurang." others</div>";
                             }
                         ?>
+                        
                     </div>
-                    <div class="w-1/4 flex flex-col pt-20">
-                        <div>Total</div>
+                    <div class="w-1/4 flex flex-col">
+                        <div class="ml-auto">
+                            <?php
+                                if ($row["status"]=="1"){
+                            ?>
+                                <a class="text-2xl text-yellow-500 font-semibold">Pending ⌛</a>
+                            <?php
+                                }else if ($row["status"]=="0"){
+                            ?>
+                                <a class="text-2xl text-green-400 font-semibold">Done ✔ </a>
+                            <?php
+                                }else if ($row["status"]=="2"){
+                            ?>
+                                <a class="text-2xl text-red-400 font-bold">Failed❌</a>
+                            <?php
+                                }
+                            ?>                            
+                        </div>
+                        <div class="pt-16">Total</div>
                         <div class="text-xl font-bold">Rp <?=number_format($row["total"])?></div>
                         <a href="detail_transaksi.php?hID=<?=$row["id_htrans"]?>" class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">See Transaction Detail</a>
                     </div>
