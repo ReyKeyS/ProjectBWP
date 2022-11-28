@@ -212,10 +212,37 @@
                                         if($row2["status"]=="1"){
                                     ?>
                                     <button type="submit" name="btnAccept" value="<?=$row2["id_htrans"]?>" class="px-5 py-3 text-white font-semibold bg-green-500 rounded-xl hover:bg-green-600">Accept</button>
-                                    <button type="button" data-modal-toggle="defaultModal" value="<?=$row2["id_htrans"]?>" class="px-5 py-3 text-white font-semibold bg-red-500 rounded-xl hover:bg-red-600">Decline</button>
+                                    <button type="button" data-modal-toggle="defaultModal<?=$row2["id_htrans"]?>" value="<?=$row2["id_htrans"]?>" class="px-5 py-3 text-white font-semibold bg-red-500 rounded-xl hover:bg-red-600">Decline</button>
                                     <?php
                                         }
                                     ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="defaultModal<?=$row2["id_htrans"]?>" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full">
+                            <div class="relative w-full max-w-2xl h-full md:h-auto">
+                                <div class="relative bg-white rounded-lg shadow">
+                                    <div class="flex justify-between items-start p-4 rounded-t border-b">
+                                        <h3 class="text-xl font-semibold text-gray-900">
+                                            Cancel Transaction
+                                        </h3>
+                                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="defaultModal<?=$row2["id_htrans"]?>">
+                                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
+                                    </div>
+                                    <div class="p-6 space-y-6">
+                                        <p class="text-base leading-relaxed text-gray-500">
+                                            Are you sure you want to cancel the transaction?
+                                        </p>
+                                        <p class="text-base leading-relaxed text-gray-500">
+                                            
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200">
+                                        <button data-modal-toggle="defaultModal<?=$row2["id_htrans"]?>" type="submit" name="btnDecline" value="<?=$row2["id_htrans"]?>" class="text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Yes</button>
+                                        <button data-modal-toggle="defaultModal<?=$row2["id_htrans"]?>" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -229,11 +256,9 @@
         <!-- Modal toggle -->
 
 <!-- Main modal -->
-<div id="defaultModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full">
+<!-- <div id="defaultModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full">
     <div class="relative w-full max-w-2xl h-full md:h-auto">
-        <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow">
-            <!-- Modal header -->
             <div class="flex justify-between items-start p-4 rounded-t border-b">
                 <h3 class="text-xl font-semibold text-gray-900">
                     Cancel Transaction
@@ -243,7 +268,6 @@
                     <span class="sr-only">Close modal</span>
                 </button>
             </div>
-            <!-- Modal body -->
             <div class="p-6 space-y-6">
                 <p class="text-base leading-relaxed text-gray-500">
                     Are you sure you want to cancel the transaction?
@@ -252,14 +276,13 @@
                     
                 </p>
             </div>
-            <!-- Modal footer -->
             <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200">
                 <button data-modal-toggle="defaultModal" type="submit" name="btnDecline" class="text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Yes</button>
                 <button data-modal-toggle="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No</button>
             </div>
         </div>
     </div>
-</div>
+</div> -->
     </form>
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
 </body>
