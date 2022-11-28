@@ -56,8 +56,8 @@
 ?>
     <div class="ml-10 mb-10 text-4xl font-bold">Build Your PC</div>
     <div class="my-4 flex gap-2">
-        <div class="min-w-[80px]">Processor</div>
-        <div class="flex justify-end ml-20 w-2/3">
+        <div class="w-1/6">Processor</div>
+        <div class="flex justify-end ml-20 w-3/6">
             <select onchange="change_proc(this)" name="cbProc" class="w-[900px] border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($proc == "") echo "selected"; ?> value="">Choose the Processor</option>
                 <?php
@@ -69,14 +69,17 @@
                 ?>
             </select>
         </div>
-        <input type="number" onchange="amount_pr(this)" name="qtyProc" value="<?php if($proc == "") echo "0"; else echo $pr; ?>" min="<?php if($proc == "") echo "0"; else echo "1"; ?>" max="<?php if($proc == "") echo "0"; else echo $dataProc["stok"]; ?>" class="border border-slate-400 rounded-lg">
-        <div class="flex">
+        <div class="w-1/6">
+            <input type="number" onchange="amount_pr(this)" name="qtyProc" value="<?php if($proc == "") echo "0"; else echo $pr; ?>" min="<?php if($proc == "") echo "0"; else echo "1"; ?>" max="<?php if($proc == "") echo "0"; else echo $dataProc["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
+
+        </div>
+        <div class="flex w-1/6">
             Rp: <input type="text" value="<?php if ($proc == "") echo "0"; else {echo $pr*$dataProc["price"];$grandTotal += $pr*$dataProc["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
-        <div class="min-w-[80px]">Motherboard</div>
-        <div class="flex justify-end ml-20 w-2/3">
+        <div class="w-1/6">Motherboard</div>
+        <div class="flex justify-end ml-20 w-3/6">
             <select onchange="change_mobo(this)" name="cbMobo" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($mobo == "") echo "selected"; ?> value="">Choose the Motherboard</option>
                 <?php
@@ -88,14 +91,16 @@
                 ?>
             </select>
         </div>
-        <input type="number" onchange="amount_mo(this)" name="qtyMobo" value="<?php if($mobo == "") echo "0"; else echo $mo; ?>" min="<?php if($mobo == "") echo "0"; else echo "1"; ?>" max="<?php if($mobo == "") echo "0"; else echo $dataMobo["stok"]; ?>" class="border border-slate-400 rounded-lg">
-        <div class="flex">
+        <div class="w-1/6">
+            <input type="number" onchange="amount_mo(this)" name="qtyMobo" value="<?php if($mobo == "") echo "0"; else echo $mo; ?>" min="<?php if($mobo == "") echo "0"; else echo "1"; ?>" max="<?php if($mobo == "") echo "0"; else echo $dataMobo["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
+        </div>
+        <div class="flex w-1/6">
             Rp: <input type="text" value="<?php if ($mobo == "") echo "0"; else {echo $mo*$dataMobo["price"];$grandTotal += $mo*$dataMobo["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
-        <div class="min-w-[80px]">RAM</div>
-        <div class="flex justify-end ml-20 w-2/3">
+        <div class="w-1/6">RAM</div>
+        <div class="flex justify-end ml-20 w-3/6">
             <select onchange="change_ram(this)" name="cbRam" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($ram == "") echo "selected"; ?> value="">Choose the RAM</option>
                 <?php
@@ -107,14 +112,16 @@
                 ?>
             </select>
         </div>
-        <input type="number" onchange="amount_ra(this)" name="qtyRam" value="<?php if($ram == "") echo "0"; else echo $ra; ?>" min="<?php if($ram == "") echo "0"; else echo "1"; ?>" max="<?php if($ram == "") echo "0"; else echo $dataRam["stok"]; ?>" class="border border-slate-400 rounded-lg">
-        <div class="flex">
+        <div class="w-1/6">
+            <input type="number" onchange="amount_ra(this)" name="qtyRam" value="<?php if($ram == "") echo "0"; else echo $ra; ?>" min="<?php if($ram == "") echo "0"; else echo "1"; ?>" max="<?php if($ram == "") echo "0"; else echo $dataRam["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
+        </div>
+        <div class="flex w-1/6">
             Rp: <input type="text" value="<?php if ($ram == "") echo "0"; else {echo $ra*$dataRam["price"];$grandTotal += $ra*$dataRam["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
-        <div class="min-w-[80px]">VGA</div>
-        <div class="flex justify-end ml-20 w-2/3">
+        <div class="w-1/6">VGA</div>
+        <div class="flex justify-end ml-20 w-3/6">
             <select onchange="change_vga(this)" name="cbVga" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($vga == "") echo "selected"; ?> value="">Choose the VGA</option>
                 <?php
@@ -126,14 +133,16 @@
                 ?>
             </select>
         </div>
-        <input type="number" onchange="amount_vg(this)" name="qtyVga" value="<?php if($vga == "") echo "0"; else echo $vg; ?>" min="<?php if($vga == "") echo "0"; else echo "1"; ?>" max="<?php if($vga == "") echo "0"; else echo $dataVga["stok"]; ?>" class="border border-slate-400 rounded-lg">
-        <div class="flex">
+        <div class="w-1/6">
+            <input type="number" onchange="amount_vg(this)" name="qtyVga" value="<?php if($vga == "") echo "0"; else echo $vg; ?>" min="<?php if($vga == "") echo "0"; else echo "1"; ?>" max="<?php if($vga == "") echo "0"; else echo $dataVga["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
+        </div>
+        <div class="flex w-1/6">
             Rp: <input type="text" value="<?php if ($vga == "") echo "0"; else {echo $vg*$dataVga["price"];$grandTotal += $vg*$dataVga["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
-        <div class="min-w-[80px]">SSD</div>
-        <div class="flex justify-end ml-20 w-2/3">
+        <div class="w-1/6">SSD</div>
+        <div class="flex justify-end ml-20 w-3/6">
             <select onchange="change_ssd(this)" name="cbSsd" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($ssd == "") echo "selected"; ?> value="">Choose the SSD</option>
                 <?php
@@ -145,14 +154,16 @@
                 ?>
             </select>
         </div>
-        <input type="number" onchange="amount_ss(this)" name="qtySsd" value="<?php if($ssd == "") echo "0"; else echo $ss; ?>" min="<?php if($ssd == "") echo "0"; else echo "1"; ?>" max="<?php if($ssd == "") echo "0"; else echo $dataSsd["stok"]; ?>" class="border border-slate-400 rounded-lg">
-        <div class="flex">
+        <div class="w-1/6">
+            <input type="number" onchange="amount_ss(this)" name="qtySsd" value="<?php if($ssd == "") echo "0"; else echo $ss; ?>" min="<?php if($ssd == "") echo "0"; else echo "1"; ?>" max="<?php if($ssd == "") echo "0"; else echo $dataSsd["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
+        </div>
+        <div class="flex w-1/6">
             Rp: <input type="text" value="<?php if ($ssd == "") echo "0"; else {echo $ss*$dataSsd["price"];$grandTotal += $ss*$dataSsd["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
-        <div class="min-w-[80px]">HDD</div>
-        <div class="flex justify-end ml-20 w-2/3">
+        <div class="w-1/6">HDD</div>
+        <div class="flex justify-end ml-20 w-3/6">
             <select onchange="change_hdd(this)" name="cbHdd" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($hdd == "") echo "selected"; ?> value="">Choose the HDD</option>
                 <?php
@@ -164,14 +175,16 @@
                 ?>
             </select>
         </div>
-        <input type="number" onchange="amount_hd(this)" name="qtyHdd" value="<?php if($hdd == "") echo "0"; else echo $hd; ?>" min="<?php if($hdd == "") echo "0"; else echo "1"; ?>" max="<?php if($hdd == "") echo "0"; else echo $dataHdd["stok"]; ?>" class="border border-slate-400 rounded-lg">
-        <div class="flex">
+        <div class="w-1/6">
+            <input type="number" onchange="amount_hd(this)" name="qtyHdd" value="<?php if($hdd == "") echo "0"; else echo $hd; ?>" min="<?php if($hdd == "") echo "0"; else echo "1"; ?>" max="<?php if($hdd == "") echo "0"; else echo $dataHdd["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
+        </div>
+        <div class="flex w-1/6">
             Rp: <input type="text" value="<?php if ($hdd == "") echo "0"; else {echo $hd*$dataHdd["price"];$grandTotal += $hd*$dataHdd["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
-        <div class="min-w-[80px]">PSU</div>
-        <div class="flex justify-end ml-20 w-2/3">
+        <div class="w-1/6">PSU</div>
+        <div class="flex justify-end ml-20 w-3/6">
             <select onchange="change_psu(this)" name="cbPsu" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($psu == "") echo "selected"; ?> value="">Choose the PSU</option>
                 <?php
@@ -183,14 +196,16 @@
                 ?>
             </select>
         </div>
-        <input type="number" onchange="amount_ps(this)" name="qtyPsu" value="<?php if($psu == "") echo "0"; else echo $ps; ?>" min="<?php if($psu == "") echo "0"; else echo "1"; ?>" max="<?php if($psu == "") echo "0"; else echo $dataPsu["stok"]; ?>" class="border border-slate-400 rounded-lg">
-        <div class="flex">
+        <div class="w-1/6">
+            <input type="number" onchange="amount_ps(this)" name="qtyPsu" value="<?php if($psu == "") echo "0"; else echo $ps; ?>" min="<?php if($psu == "") echo "0"; else echo "1"; ?>" max="<?php if($psu == "") echo "0"; else echo $dataPsu["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
+        </div>
+        <div class="flex w-1/6">
             Rp: <input type="text" value="<?php if ($psu == "") echo "0"; else {echo $ps*$dataPsu["price"];$grandTotal += $ps*$dataPsu["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
-        <div class="min-w-[80px]">Casing</div>
-        <div class="flex justify-end ml-20 w-2/3">
+        <div class="w-1/6">Casing</div>
+        <div class="flex justify-end ml-20 w-3/6">
             <select onchange="change_casing(this)" name="cbCasing" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($casing == "") echo "selected"; ?> value="">Choose the Casing</option>
                 <?php
@@ -202,8 +217,10 @@
                 ?>
             </select>
         </div>
-        <input type="number" onchange="amount_ca(this)" name="qtyCasing" value="<?php if($casing == "") echo "0"; else echo $ca; ?>" min="<?php if($casing == "") echo "0"; else echo "1"; ?>" max="<?php if($casing == "") echo "0"; else echo $dataCasing["stok"]; ?>" class="border border-slate-400 rounded-lg">
-        <div class="flex">
+        <div class="w-1/6">
+            <input type="number" onchange="amount_ca(this)" name="qtyCasing" value="<?php if($casing == "") echo "0"; else echo $ca; ?>" min="<?php if($casing == "") echo "0"; else echo "1"; ?>" max="<?php if($casing == "") echo "0"; else echo $dataCasing["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
+        </div>
+        <div class="flex w-1/6">
             Rp: <input type="text" value="<?php if ($casing == "") echo "0"; else {echo $ca*$dataCasing["price"];$grandTotal += $ca*$dataCasing["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
         </div>
     </div>
@@ -211,7 +228,7 @@
         <div class="text-2xl font-semibold">Grand Total : Rp</div>
         <input type="text" value="<?=number_format($grandTotal)?>" class="rounded-lg border border-slate-400" disabled>
     </div>
-    <div class="ml-auto flex gap-2">
+    <div class="ml-auto my-3 flex gap-2">
         <button type="submit" formaction="#" class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Reset</button>
         <button type="submit" name="addToCart" class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Add to Cart</button>
     </div>
