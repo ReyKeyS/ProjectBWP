@@ -12,7 +12,30 @@
     
     if (isset($_POST["btnAccept"])){
         $idHtrans = $_POST["btnAccept"];
-        mysqli_query($conn, "UPDATE htrans set status = 0 where id_htrans = '$idHtrans'");
+        $queryCurDTrans = mysqli_query($conn, "SELECT * from dtrans where id_htrans = '$idHtrans'");
+        $berhasil = true;
+        while($row = mysqli_fetch_array($queryCurDTrans)){
+            $queryP = mysqli_query($conn, "SELECT * from products where status = 1 and id_products = '".$row["id_products"]."'");
+            $prod = mysqli_fetch_array($queryP);
+            if ($row["qty"] > $prod["stok"]){
+                $berhasil = false;
+                break;
+            }
+        }
+        if ($berhasil){
+            echo "<script>alert('".$idHtrans."');</script>";
+            mysqli_query($conn, "UPDATE htrans set status = 0 where id_htrans = '$idHtrans'");
+            // Kurangi Stok
+            $queryCurDTrans = mysqli_query($conn, "SELECT * from dtrans where id_htrans = '$idHtrans'");
+            while($row = mysqli_fetch_array($queryCurDTrans)){
+                $queryP = mysqli_query($conn, "SELECT stok from products where status = 1 and id_products = '".$row["id_products"]."'");
+                $hasilKurang = mysqli_fetch_row($queryP)[0] - $row["qty"];
+                mysqli_query($conn, "UPDATE products set stok = $hasilKurang where id_products = '".$row["id_products"]."'");                
+            }
+        }else{
+            echo "<script>alert('Stock is empty / not enough!');</script>";
+        }
+        
         header("Location: historyAdmin.php");
     }
 
