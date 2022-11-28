@@ -223,9 +223,6 @@
                             }
                         ?>
                     </div>
-                    <div class="mt-20">
-                        <img src="https://source.unsplash.com/600x400" alt="" class="mx-auto animate-gerak">
-                    </div>
                 </div>
             </div>
         </div>
