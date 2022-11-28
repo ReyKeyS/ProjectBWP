@@ -27,12 +27,23 @@
           theme: {
             extend: {
               animation:{
-                'gerak':'goyang 3s ease-in-out infinite'
+                'gerak':'goyang 3s ease-in-out infinite',
+                'geserBg':'bgGerak 3s ease infinite'
               },
               keyframes : {
                 goyang:{
                   '0%, 100%' : {transform: 'rotate(-3deg)'},
                   '50%' :{transform:'rotate(3deg)'}
+                },
+                bgGerak:{
+                    '0%,100%':{
+                        'background-size':'200% 200%',
+                        'background-position':'left center'
+                    },
+                    '50%':{
+                        'background-size':'200% 200%',
+                        'background-position':'right center'
+                    }
                 }
               }
             }
@@ -45,7 +56,7 @@
         <div class="flex h-screen">
             <div class="flex-auto w-1/3 bg-neutral-900 flex flex-col text-center">
                 <div class="text-4xl px-5 pt-5 pb-6 mb-8 bg-neutral-600 mt-8 mx-12 rounded-[20px] font-semibold text-white">Customers Admin</div>
-                <div class="w-48 h-48 rounded-full mx-auto bg-white bg-center" style="background-image: url('assets/userdrrichardlee.png'); background-size: 101%;"></div>
+                <div class="w-48 h-48 rounded-full mx-auto bg-white bg-center" style="background-image: url('assets/rykflex.png'); background-size: 101%;"></div>
                 <div class="bg-neutral-600 w-9/12 h-auto mx-auto rounded-3xl mt-6">
                     <button class="flex flex-row px-6 py-3 w-5/6 mx-auto text-lg my-4 rounded-full text-white hover:bg-neutral-900 hover:text-white" formaction="homeAdmin.php">
                         <div class="w-12 h-12 ml-5 bg-center bg-no-repeat" style="background-image: url('assets/home.png'); background-size: 90%;"></div>
@@ -74,14 +85,14 @@
                 </div>
             </div>
             <div class="flex-auto flex flex-col w-full bg-neutral-100">
-                <div class="flex bg-gradient-to-r from-purple-900 to-fuchsia-600 p-5 mb-5 shadow-xl">
+                <div class="flex bg-gradient-to-r from-purple-900 via-fuchsia-600 to-blue-600 p-5 mb-5 shadow-xl animate-geserBg">
                     <div class="w-20 h-20 ml-8 mr-2 rounded-full bg-slate-700 text-white text-center bg-[url('assets/Logo.jpg')] bg-cover"></div>
                     <div class="pt-1 pl-7 ml-44 block text-center text-white">
                         <div class="text-xl my-auto font-bold">Admin Glorindo Komputer</div>
                         <div class="text-3xl my-auto font-bold">Welcome Back Admin! Let's Build a Future Together</div>
                     </div>
                 </div>
-                <div class="overflow-y-scroll h-screen -mt-5">
+                <div class="overflow-y-auto h-screen -mt-5">
                     <div class="my-6 text-center font-bold text-5xl bg-gradient-to-r from-purple-900 to-fuchsia-600 bg-clip-text text-transparent">Customers</div>
                     <table class="table-auto mx-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl" id="list_categories">
                             <tr>

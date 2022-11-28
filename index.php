@@ -4,6 +4,9 @@
     if (isset($_SESSION['data'])){
         $logged = true;
     }
+    if(isset($_SESSION['page'])){
+        unset($_SESSION['page']);
+    }
     if (isset($_POST["logout"])){
         unset($_SESSION['data']);
         header("Location: index.php");
@@ -23,6 +26,7 @@
         }
         else{
             echo "<script>alert('Please Login first')</script>";
+            $_SESSION['page']=$pergi;
             header("Location: login.php");
         }
     }
@@ -101,7 +105,8 @@
               animation:{
                 'gerak':'goyang 3s ease-in-out infinite',
                 'tampil' : 'muncul 1.25s ease-in-out 1',
-                'tampilgambar': 'hadir 1.5s ease-in-out 1'
+                'tampilgambar': 'hadir 1.5s ease-in-out 1',
+                'geserBg':'bgGerak 3s ease infinite'
               },
               keyframes : {
                 goyang:{
@@ -125,6 +130,16 @@
                     '100%':{
                         opacity:1
                     }
+                },
+                bgGerak:{
+                    '0%,100%':{
+                        'background-size':'200% 200%',
+                        'background-position':'left center'
+                    },
+                    '50%':{
+                        'background-size':'200% 200%',
+                        'background-position':'right center'
+                    }
                 }
               }
             }
@@ -134,7 +149,7 @@
 </head>
 <body onload="load_ajax()">
     <form action="#" method="POST">
-        <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10">
+        <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10 animate-geserBg">
             <a class="w-28 my-auto ml-3" href="#">
                 <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
             </a>
@@ -184,11 +199,11 @@
             <?php
                 }else{
             ?>
-                <div class="w-32 my-auto">
+                <div class="w-40 my-auto flex place-content-center">
                     <button type="submit" formaction="login.php" class="px-5 py-2 mx-3 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Login</button>
                 </div>
-                <div class="w-32 my-auto">
-                    <button type="submit" formaction="register.php" class="px-5 py-2 m-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
+                <div class="w-40 my-auto flex mx-auto place-content-center">
+                    <button type="submit" formaction="register.php" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
                 </div>
             <?php
                 }

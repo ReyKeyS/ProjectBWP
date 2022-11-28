@@ -53,7 +53,8 @@
             extend: {
               animation:{
                 'gerak':'goyang 3s ease-in-out infinite',
-                'tampil' : 'muncul 1s ease-in-out 1'
+                'tampil' : 'muncul 1s ease-in-out 1',
+                'geserBg':'bgGerak 3s ease infinite'
               },
               keyframes : {
                 goyang:{
@@ -67,6 +68,16 @@
                     '100%':{
                         opacity:1
                     }
+                },
+                bgGerak:{
+                    '0%,100%':{
+                        'background-size':'200% 200%',
+                        'background-position':'left center',
+                    },
+                    '50%':{
+                        'background-size':'200% 200%',
+                        'background-position':'right center'
+                    }
                 }
               }
             }
@@ -74,9 +85,9 @@
         }
       </script>
 </head>
-<body class="bg-neutral-100">
+<body class="bg-gradient-to-r from-purple-700 via-red-300 to-blue-600 animate-geserBg">
     <form action="" method="POST">
-        <div class="container bg-white box-border py-10 px-20 mx-auto my-20 flex-col top-52 left-52 border rounded-xl place-content-center hover:shadow-lg hover:shadow-cyan-300 duration-300 animate-tampil">
+        <div class="container bg-white box-border py-10 px-20 mx-auto my-20 flex-col top-52 left-52 border rounded-xl place-content-center hover:shadow-xl hover:shadow-cyan-300 duration-300 animate-tampil">
             <h1 class="text-center font-bold text-6xl bg-gradient-to-br from-blue-500 to-red-700 bg-clip-text text-transparent animate-pulse">REGISTER</h1>
             <span class="text-xl">Name</span>
             <input type="text" placeholder="Enter your name" name="name" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
@@ -95,11 +106,11 @@
             <input type="password" placeholder="Confirm your password" name="conf" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             <div class="text-center text-xl my-3">Already have an account? &nbsp;<a href="login.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Login Now!</a></div>
             <div class="flex">
-                <button type="submit" name="home" formaction="index.php" class="my-5 text-lg font-bold mr-auto px-7 py-3 flex text-white rounded-full bg-sky-400 hover:bg-sky-500 active:bg-sky-600 focus:ring-4 focus:ring-sky-200">
+                <button type="submit" name="home" formaction="index.php" class="my-5 text-lg font-bold mr-auto px-7 py-3 flex text-white rounded-full bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 active:bg-purple-600 focus:ring-4 focus:ring-purple-200">
                     <img src="assets/home.png" alt="" class="w-5 h-5 my-auto mr-5">
                     HOME
                 </button>
-                <button type="submit" name="register" class="my-5 text-lg font-semibold px-7 py-3 ml-auto text-white rounded-full bg-sky-400 hover:bg-sky-500 active:bg-sky-600 focus:ring-4 focus:ring-sky-200">REGISTER</button>
+                <button type="submit" name="register" class="my-5 text-lg font-semibold px-7 py-3 ml-auto text-white rounded-full bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 active:bg-purple-600 focus:ring-4 focus:ring-purple-200">REGISTER</button>
             </div>
         </div>
     </form>

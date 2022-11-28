@@ -94,7 +94,8 @@
             extend: {
               animation:{
                 'gerak':'goyang 3s ease-in-out infinite',
-                'tampil' : 'muncul 2s ease-in-out 2'
+                'tampil' : 'muncul 2s ease-in-out 2',
+                'geserBg':'bgGerak 3s ease infinite'
               },
               keyframes : {
                 goyang:{
@@ -108,6 +109,16 @@
                     '50%' : {
                         opacity:1
                     }
+                },
+                bgGerak:{
+                    '0%,100%':{
+                        'background-size':'200% 200%',
+                        'background-position':'left center'
+                    },
+                    '50%':{
+                        'background-size':'200% 200%',
+                        'background-position':'right center'
+                    }
                 }
               }
             }
@@ -119,7 +130,7 @@
     <div class="flex h-screen">
         <div class="flex-auto w-1/3 bg-neutral-900 flex flex-col text-center">
             <div class="text-4xl px-5 pt-5 pb-6 mb-8 bg-neutral-600 mt-8 mx-12 rounded-[20px] font-semibold text-white">Products Admin</div>
-                <div class="w-48 h-48 rounded-full mx-auto bg-white bg-center" style="background-image: url('assets/userdrrichardlee.png'); background-size: 101%;"></div>
+                <div class="w-48 h-48 rounded-full mx-auto bg-white bg-center" style="background-image: url('assets/rykflex.png'); background-size: 101%;"></div>
                 <div class="bg-neutral-600 w-9/12 h-auto mx-auto rounded-3xl mt-6">
                     <form action="" method="POST" enctype="multipart/form-data">
                     <button class="flex flex-row px-6 py-3 w-5/6 mx-auto text-lg my-4 rounded-full text-white hover:bg-neutral-900 hover:text-white" formaction="homeAdmin.php">
@@ -150,14 +161,14 @@
             </div>
         </div>
         <div class="flex-auto flex flex-col w-full bg-neutral-100">
-            <div class="flex bg-gradient-to-r from-purple-900 to-fuchsia-600 p-5 mb-5 shadow-xl">
+            <div class="flex bg-gradient-to-r from-purple-900 via-fuchsia-600 to-blue-600 p-5 mb-5 shadow-xl animate-geserBg">
                 <div class="w-20 h-20 ml-8 mr-2 rounded-full bg-slate-700 text-white text-center bg-[url('assets/Logo.jpg')] bg-cover"></div>
                     <div class="pt-1 pl-7 ml-44 block text-center text-white">
                         <div class="text-xl my-auto font-bold">Admin Glorindo Komputer</div>
                         <div class="text-3xl my-auto font-bold">Welcome Back Admin! Let's Build a Future Together</div>
                     </div>
                 </div>
-                <div class="overflow-y-scroll h-screen -mt-5">
+                <div class="overflow-y-auto h-screen -mt-5">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="mt-6 max-w-5xl border border-slate-200 rounded-xl mx-auto shadow-md p-5 bg-white">
                             <div class="text-center font-bold text-4xl mb-4 h-14 bg-gradient-to-r from-purple-900 to-purple-600 bg-clip-text text-transparent">Add new Products</div>
