@@ -151,24 +151,24 @@ CREATE TABLE `products` (
 /*Data for the table `products` */
 
 insert  into `products`(`id_products`,`nama`,`desc`,`price`,`stok`,`brand`,`id_cate`,`gmbr`,`status`) values 
-('PR0001','Intel I3 10105F','-',1000000,13,'','CA004','products/intel-i3-10105f.jpg',1),
-('PR0002','Logitech G102','Mouse gaming sejuta umat',250000,17,'Logitech','CA001','products/logitech-g102.jpeg',1),
-('PR0003','Colorful RTX 3050','-',4500000,12,'NVIDIA','CA003','products/rtx-3050-colorful.jpg',1),
-('PR0004','Ryzen 5 3600','-',2000000,7,'AMD','CA004','products/ryzen5-3600.jpeg',1),
-('PR0005','Gigabyte Aorus B550','ATX Model',3250000,3,'','CA005','products/Gigabyte-B550-Aorus.jpeg',1),
-('PR0006','Kingston RAM PC/Laptop 16GB','ini description ',1000000,2,'Kingston','CA006','products/ram_kingston_8gb.jpg',1),
-('PR0007','VGA Colorful GTX 3050','ini desc baca desc sebelum tanya',7000000,4,'NVIDIA','CA003','products/vgacolorful.jpg',1),
-('PR0008','VGA Platinum ','ini desc',178000,1,'VGEN','CA006','products/vgaplatinum.jfif',1),
+('PR0001','Intel I3 10105F','Garansi Original. Barang masih disegel',1000000,13,'Intel','CA004','products/intel-i3-10105f.jpg',1),
+('PR0002','Logitech G102','Mouse gaming terbaik tahun 2022, second 2 bulan. tidak ada cacat',250000,17,'Logitech','CA001','products/logitech-g102.jpeg',1),
+('PR0003','Colorful RTX 3050','Merk NVIDIA, keluaran terbaru. barang asli dari pabrik',4500000,12,'NVIDIA','CA003','products/rtx-3050-colorful.jpg',1),
+('PR0004','Ryzen 5 3600','Merk AMD. Processor high-end',2000000,7,'AMD','CA004','products/ryzen5-3600.jpeg',1),
+('PR0005','Gigabyte Aorus B550','ATX Model',3250000,3,'Gigabyte','CA005','products/Gigabyte-B550-Aorus.jpeg',1),
+('PR0006','Kingston RAM PC/Laptop 16GB','RAM 16GB. DDR3. Garansi full lifetime',1000000,2,'Kingston','CA006','products/ram_kingston_8gb.jpg',1),
+('PR0007','VGA Colorful GTX 3050','VGA GTX terbaru merk NVIDIA',7000000,4,'NVIDIA','CA003','products/vgacolorful.jpg',1),
+('PR0008','VGA Platinum ','VGA merk NVIDIA. Garansi 3 tahun',178000,1,'VGEN','CA006','products/vgaplatinum.jfif',1),
 ('PR0009','Asus TUF RTX 3060','Graphics Card: NVIDIA® GeForce RTX™ 3060 LHR\r\nThe Ultimate Play GeForce RTX 30 series Laptop with 2nd gen RTX (RT & AI)\r\n\r\nBus Standard :PCI Express 4.0\r\nOpenGL :OpenGL®4.6\r\nVideo Memory :12GB GDDR6\r\n\r\nEngine Clock :\r\nOC Mode - 1807 MHz (Boost Clock)\r\nGam',6880000,3,'Asus','CA003','products/download (1).png',1),
 ('PR0010','Colorful RTX 3070 NB','Chip Series GeForce® RTX 3070\r\nProduct Series Colorful Series\r\nGPU Code Name GA104\r\nManufacturing Process 8nm\r\nCUDA Cores 5888\r\nCore Clock Base:1500Mhz; Boost:1725Mhz\r\nMemory Speed Grade 14Gbps\r\nMemory Size 8GB\r\nMemory Bus Width 256 bit\r\nMemory Type GDDR6',11700000,0,'Colorful','CA003','products/4b58e22c-90ef-4530-94a5-aedbb61b1499.jpg',1),
 ('PR0011','RTX 3070ti Suprim X','MODEL NAME\r\nGeForce RTX™ 3070 Ti SUPRIM X 8G\r\nGRAPHICS PROCESSING UNIT\r\nNVIDIA® GeForce RTX™ 3070 Ti\r\nINTERFACE\r\nPCI Express® Gen 4\r\nCUDA® CORES\r\n6144 Units\r\nCORE CLOCKS\r\nEXTREME Mode: 1875 MHz (MSI Center)\r\nGAMING Mode & SILENT Mode: 1860 MHz\r\nMEMORY SPE',13872000,4,'MSI ','CA003','products/unnamed.jpg',1),
 ('PR0012','MSI MAG301CR2','Deskripsi MSI Optix MAG301CR2 MONITOR [1080p, 200Hz]\r\n\r\nCurved Gaming display (1500R) – The best gameplay immersion.\r\n\r\nMystic Light – The ultimate gaming finish.\r\n\r\nWFHD High Resolution - Game titles will even look better, displaying more details due to ',5100000,3,'MSI','CA012','products/82b2dc4d-76fd-4282-b1db-a61694ee83ff.jpg',1),
 ('PR0013','Xiaomi Ultrawide Curved Gaming Monitor 34 inch','SILAHKAN PILIH LAMA GARANSI DI VARIANT.\r\n\r\nDalam Box:\r\n1 x Mi Ultra Wide Curved Gaming Monitor 1440P 144Hz AMD Free-Sync 34 Inch\r\n1 x Base\r\n1 x Bracket\r\n1 x Power Adapter\r\n1 x DP Cable\r\n4 x Screws\r\n4 x Bolts\r\n1 x Base Screw\r\n1 x Instruction Manual\r\n\r\nspes',6000000,6,'Xiaomi','CA012','products/xiaomi-ultra-wide-curved-gaming-monitor-1440p-144hz-amd-free-sync-34-inch-black-1.jpg',1),
 ('PR0014','MSI G27CQ4','Curved Gaming display (1500R) – The best gameplay immersion.\r\n\r\nWQHD High Resolution – Game titles will even look better, displaying more details due to the WQHD\r\nresolution.\r\n\r\n165Hz Refresh Rate – Real smooth gaming.\r\n\r\n1ms response time – Eliminate scr',5000000,15,'MSI','CA012','products/MSI G27CQ4.jpg',1),
-('PR0015','Viewsonic 24 inch 144hz','Monitor kentank',2500000,2,'View Sonic','CA012','products/VX2458-P-mhd_RF01_pc.jpg',1),
+('PR0015','Viewsonic 24 inch 144hz','Monitor kuno. no garansi. 144hz',2500000,2,'View Sonic','CA012','products/VX2458-P-mhd_RF01_pc.jpg',1),
 ('PR0016','i3 10100f','Spesifikasi Inti Intel Core i3-10100F\r\nProduct Collection 10th Generation Intel Core i3 Processors\r\nCode Name Comet Lake\r\nLithography 14 nm\r\n# of Cores 4\r\n# of Threads 8\r\nProcessor Base Frequency 3.60 GHz\r\nMax Turbo Frequency 4.30 GHz\r\nCache 6 MB Intel Sm',1100000,2,'Intel','CA004','products/intel_intel_core_i3-10100f_i3_10100f_3-6ghz_up_to_4-3ghz_box_socket_lga_1200__full01_mvbw37ud.jpg',1),
 ('PR0017','i5 9400f','Processor Name : Intel Core i5-9400F 2.9Ghz Up To 4.1Ghz - Cache 9MB [Box] Socket LGA 1151V2 - Coffeelake Series\r\nBrand : Intel\r\nCPU Socket Type : LGA 1151V2\r\nProcessors Generation : 9th Gen\r\nFamily : Coffeelake\r\nCores : 6\r\nThreads : 6\r\nOperating Frequenc',1600000,3,'Intel','CA004','products/7e5d346c3466baa8c0e93de88a80b649.jpg',1),
-('PR0018','i7 10700','Intel I7 BAGUS INI AHIHIHIH',5000000,3,'Intel','CA004','products/intel_processor_intel_core_i7_10700f_i7-10700f_2-90_ghz_lga_1200_box_full01_rg6ca6ju.jpg',1),
+('PR0018','i7 10700','Intel I7 keluaran terbaru. garansi original',5000000,3,'Intel','CA004','products/intel_processor_intel_core_i7_10700f_i7-10700f_2-90_ghz_lga_1200_box_full01_rg6ca6ju.jpg',1),
 ('PR0019','AMD Ryzen 5 5600x','AMD Ryzen™ 5 5600X\r\nSpecifications\r\n# of CPU Cores : 6\r\n# of Threads : 12\r\nBase Clock : 3.7GHz\r\nMax Boost Clock : Up to 4.6GHz\r\nTotal L2 Cache : 3MB\r\nTotal L3 Cache : 32MB\r\nUnlocked : Yes\r\nCMOS : TSMC 7nm FinFET\r\nPackage : AM4\r\nPCI Express® Version : PCIe',2700000,12,'AMD','CA004','products/messageImage_1656317325871.jpg',1),
 ('PR0020','Ryzen 9','Garansi Resmi EMD/AGS 3 Tahun\r\nKonfirmasi Persediaan Stok Barang Sebelum Order ya\r\n\r\nSpecifications\r\n\r\n# of CPU Cores\r\n12\r\n\r\n# of Threads\r\n24\r\n\r\nBase Clock\r\n3.7GHz\r\n\r\nMax Boost Clock\r\nUp to 4.8GHz\r\n\r\nTotal L2 Cache\r\n6MB\r\n\r\nTotal L3 Cache\r\n64MB\r\n\r\nUnlocked',5995000,10,'AMD','CA004','products/messageImage_1656317340590.jpg',1),
 ('PR0021','POWER SUPPLY / PSU PC 80+ GOLD ASUS ROG STRIX 650G / 650WATT','GARANSI RESMI 10TAHUN\r\n\r\nIntel Specification\r\nATX12V\r\n\r\nDimensi\r\n16 x 15 x8.6 Centimeter\r\n\r\nEfficiency\r\n80Plus Gold\r\n\r\nProtection Features\r\nOPP/OVP/SCP/OCP/OTP\r\n\r\nHazardous Materials\r\nROHS\r\n\r\nAC Input Range\r\n100-240Vac\r\n\r\nThermal Features\r\nROG Thermal Sol',2100000,3,'Asus','CA007','products/1489178_80f57ad9-8438-46a9-a9fa-a93253d54c7b_500_500.jpg',1),
@@ -196,7 +196,7 @@ insert  into `products`(`id_products`,`nama`,`desc`,`price`,`stok`,`brand`,`id_c
 ('PR0043','VGEN SSD 512 GB','Spesifikasi M.2 SATA:\r\nCapacity: 128GB, 256GB, 512GB, 1TB, 2TB\r\nInterface: M.2 / AHCI\r\nForm Factor: M.2 (2280)\r\nController: Asolid / Silicon Motion\r\nRead Speed: Up to 550 MB/s\r\nWrite Speed: Up to 520 MB/s\r\nGaransi Resmi 3 Tahun (Rusak langsung tukar, tida',780000,7,'VGEN','CA010','products/https_s1.bukalapak.com_img_13619532981_large_data.jpeg',1),
 ('PR0044','SSD Colorful CN600 DDR 1TB PCIE 3.0 GEN3 M.2 NVME','Specification\r\nColorful CN600 1TB M.2 NVMe M2 PCIe Gen3x4 SSD\r\n\r\nSSD Series CN Series\r\nCapacity 1TB\r\nInterface M.2 NVME Interface\r\nNAND Type 3D NAND\r\nMaster Control YES\r\nRead Speed（Write Speed) 2000MB/S-1500MB/S',1890000,4,'Colorful','CA010','products/314325_22fc57f9-e32d-4ce7-b0ae-b65e5cce21da_636_636 (1).jfif',1),
 ('PR0045','SSD Colorful CN600 DDR 512GB PCIE 3.0 GEN3 M.2 NVME','Spesifikasi :\r\n- SSD Series : CN Series\r\n- Capacity : 512GB\r\n- Interface : M.2 NVME\r\n- NAND Type : 3D NAND\r\n- Master Control : YES\r\n- Read Speed（Write Speed) : 1500MB/S-500MB/S\r\n- Cache : N',780000,3,'Colorful','CA010','products/314325_22fc57f9-e32d-4ce7-b0ae-b65e5cce21da_636_636 (1).jfif',1),
-('PR0046','SSD INTEL 660p 512gb','SSD Intel ni',790000,5,'Intel','CA010','products/messageImage_1633961194359.jpg',1),
+('PR0046','SSD INTEL 660p 512gb','SSD Intel ukuran 512Gb. merk ',790000,5,'Intel','CA010','products/messageImage_1633961194359.jpg',1),
 ('PR0047','SSD MSI SPATIUM M390 NVMe M.2 500GB','MODEL NAME SPATIUM M390 NVMe M.2\r\nCAPACITY 500GB 1TB\r\nCONTROLLER PHISON E15T\r\nFLASH MEMORY 3D NAND\r\nFORM FACTOR M.2 2280\r\nINTERFACE PCIe Gen3x4, NVMe 1.4\r\nCOMPATIBILITY PCIe Gen3 / Gen2 / Gen1\r\nDIMENSIONS 80.00mm (L) x 22.00mm (W) x 2.15mm (H)\r\nSEQUENTIAL',1000000,13,'MSI','CA010','products/messageImage_1637254740595.jpg',1),
 ('PR0048','Hdd Seagate 1TB Barracuda Internal Sata 3.5in','Seagate Barracuda 1TB HDD / Hardisk / Harddisk Internal PC 3.5\"\r\n\r\nSeagate BarraCuda sangat sesuai untuk Penyimpanan desktop, Penyimpanan all-in-one, Server Rumah, Perangkat DAS.\r\n\r\nSemua harddisk dalam famili BarraCuda dilengkapi dengan Multi-Tier Cachin',600000,2,'Seagate','CA011','products/70ee190711dfb9c446e654f01ce127a4.jpg',1),
 ('PR0049','Hdd Seagate 2TB Barracuda Internal Sata 3.5in','Hardisk Internal seagate 1TB 2TB 4TB HDD pc 3.5\" 7200 RPM | Resmi 2Th\r\n3.5 SATA 3 7200 RPM\r\n\r\nGaransi Resmi 2 Tahun\r\n\r\nBARACUDA 35 2 TB ST2000DM008\r\nBARACUDA 35 4 TB ST4000DM004\r\n\r\nSpesifikasi:\r\nCapacity : 1TB / 2TB / 4TB\r\n7200 rpm, \r\n64MB cache\r\nSATA 6Gb',910000,6,'Seagate','CA011','products/70ee190711dfb9c446e654f01ce127a4.jpg',1),
@@ -221,10 +221,10 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`id_users`,`nama`,`email`,`telp`,`alamat`,`password`,`status`) values 
-('US0001','Ryan','ryk@gmail.com','081234567891','Ngangel','123',1),
+('US0001','Ryan','ryk@gmail.com','081234567891','Jl Ngangel Jaya Tengah 53','123',1),
 ('US0002','paddy','paddy@mail.com','089512753','Jl medayu selaran','111',1),
-('US0003','Michael Lukas Tjandra','lukastjan13@gmail.com','089517508300','Ngagel Jaya Tengah 52','123',1),
-('US0004','Feli','flp@gmail.com','081234567890','Jaya Tengah','123',1);
+('US0003','Michael Lukas Tjandra','lukastjan13@gmail.com','089517508300','Jl Ngagel Jaya Tengah 52','123',1),
+('US0004','Feli','flp@gmail.com','081234567890','Jl Tunjungan X No 9','123',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
