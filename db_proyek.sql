@@ -73,35 +73,6 @@ CREATE TABLE `dtrans` (
 
 /*Data for the table `dtrans` */
 
-insert  into `dtrans`(`id_dtrans`,`id_htrans`,`id_products`,`qty`,`subtotal`) values 
-('DS00001','HS0001','PR0010',2,23400000),
-('DS00002','HS0001','PR0040',1,1780000),
-('DS00003','HS0002','PR0013',1,6000000),
-('DS00004','HS0002','PR0016',1,1100000),
-('DS00005','HS0002','PR0048',2,1200000),
-('DS00006','HS0003','PR0010',1,11700000),
-('DS00007','HS0004','PR0005',3,9750000),
-('DS00008','HS0004','PR0019',1,2700000),
-('DS00009','HS0004','PR0040',2,3560000),
-('DS00010','HS0004','PR0047',4,4000000),
-('DS00011','HS0004','PR0048',1,600000),
-('DS00012','HS0005','PR0011',1,13872000),
-('DS00013','HS0005','PR0016',1,1100000),
-('DS00014','HS0005','PR0023',1,900000),
-('DS00015','HS0005','PR0024',1,1450000),
-('DS00016','HS0005','PR0029',1,340000),
-('DS00017','HS0005','PR0036',1,1100000),
-('DS00018','HS0005','PR0043',1,780000),
-('DS00019','HS0005','PR0050',1,650000),
-('DS00020','HS0006','PR0004',1,2000000),
-('DS00021','HS0006','PR0008',1,178000),
-('DS00022','HS0006','PR0009',1,6880000),
-('DS00023','HS0006','PR0021',1,2100000),
-('DS00024','HS0006','PR0026',1,5400000),
-('DS00025','HS0006','PR0034',1,500000),
-('DS00026','HS0006','PR0043',1,780000),
-('DS00027','HS0006','PR0048',1,600000);
-
 /*Table structure for table `htrans` */
 
 DROP TABLE IF EXISTS `htrans`;
@@ -120,14 +91,6 @@ CREATE TABLE `htrans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `htrans` */
-
-insert  into `htrans`(`id_htrans`,`id_users`,`invoice`,`tanggal`,`dirakit`,`total`,`status`) values 
-('HS0001','US0001','INV221127001','2022-11-27 14:26:34',0,25180000,2),
-('HS0002','US0004','INV221127002','2022-11-27 14:27:31',0,8300000,0),
-('HS0003','US0004','INV221127003','2022-11-27 14:28:11',0,11700000,2),
-('HS0004','US0001','INV221128001','2022-11-28 09:41:29',0,20610000,1),
-('HS0005','US0001','INV221128002','2022-11-28 09:56:11',0,20192000,1),
-('HS0006','US0002','INV221128003','2022-11-28 10:15:31',1,18558000,1);
 
 /*Table structure for table `products` */
 
@@ -219,12 +182,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `users` */
-
-insert  into `users`(`id_users`,`nama`,`email`,`telp`,`alamat`,`password`,`status`) values 
-('US0001','Ryan','ryk@gmail.com','081234567891','Jl Ngangel Jaya Tengah 53','123',1),
-('US0002','paddy','paddy@mail.com','089512753','Jl medayu selaran','111',1),
-('US0003','Michael Lukas Tjandra','lukastjan13@gmail.com','089517508300','Jl Ngagel Jaya Tengah 52','123',1),
-('US0004','Feli','flp@gmail.com','081234567890','Jl Tunjungan X No 9','123',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
