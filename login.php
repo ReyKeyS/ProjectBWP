@@ -12,6 +12,7 @@
                 if($pass==$row['password']){
                     $ketemu=true;
                     $nama=$row['nama'];
+                    $email=$row['email'];
                     $telp=$row['telp'];
                     $alamat=$row['alamat'];
                     $baru=[];

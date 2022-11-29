@@ -23,7 +23,6 @@
             }
         }
         if ($berhasil){
-            echo "<script>alert('".$idHtrans."');</script>";
             mysqli_query($conn, "UPDATE htrans set status = 0 where id_htrans = '$idHtrans'");
             // Kurangi Stok
             $queryCurDTrans = mysqli_query($conn, "SELECT * from dtrans where id_htrans = '$idHtrans'");
