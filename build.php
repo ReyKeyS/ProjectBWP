@@ -298,7 +298,7 @@
                         <div class="text-white mr-5 text-4xl font-semibold">Send Us Mail</div>
                         <img src="assets/email (1).png" alt="">
                     </div>
-                    <input type="text" name="email" placeholder="Email Address" class="px-3 py-1 my-1 w-96 mx-auto rounded-lg bg-transparent placeholder-white border-b-2 focus:ring-2 focus:ring-purple-400 focus:outline-none focus:border-b-0">
+                    <input type="text" name="email" placeholder="Email Address" class="px-3 py-1 my-1 w-96 mx-auto rounded-lg bg-transparent text-white placeholder-white border-b-2 focus:ring-2 focus:ring-purple-400 focus:outline-none focus:border-b-0">
                     <div class="mx-auto text-white my-3">
                         <div class="text-white">Mail</div>
                         <textarea name="mail" id="" cols="50" rows="5" class="rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none"></textarea>
