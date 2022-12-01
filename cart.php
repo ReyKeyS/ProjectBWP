@@ -330,7 +330,6 @@
                 if ((this.readyState==4) && (this.status==200)){
                     fetch_cart();
                     if (this.responseText == "0"){
-                        clearInterval(refreshCart);
                         location.reload();
                     }
                 }
