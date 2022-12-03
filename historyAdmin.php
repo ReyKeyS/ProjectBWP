@@ -151,6 +151,32 @@
                             </div>
                         </div>
                     </div> -->
+                    <div class="w-full bg-slate-300 flex flex-col">
+                        <div>Filter</div>
+                        <div>Sort by</div>
+                        <div>Start : 
+                            <input type="date">
+                        </div>
+                        <div>
+                            End : 
+                            <input type="date">
+                        </div>
+                        <div>
+                            Status :
+                        </div>
+                        <div class="flex">
+                            <div class="text-green-500">Done ✔</div>
+                            <input type="Radio" name="status">
+                        </div>
+                        <div class="flex">
+                            <div class="text-red-500">Failed❌</div>
+                            <input type="Radio" name="status">
+                        </div>
+                        <div class="flex">
+                            <div class="text-yellow-500">Pending ⌛</div>
+                            <input type="Radio" name="status">
+                        </div>
+                    </div>
                     <div class="w-full mx-auto flex flex-col">
                         <?php
                             while($row2=mysqli_fetch_array($isihtrans)){
