@@ -165,15 +165,15 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="w-full bg-slate-300 flex flex-col mx-auto my-2 p-3 rounded-xl">
-                        <div class="text-2xl ml-3 my-auto font-bold text-center">Filter</div>
-                        <div class="text-xl ml-3 my-auto font-bold">Sort by</div>
-                        <div class="text-xl  ml-3 my-auto font-bold mt-2">Start : 
-                            <input type="date" name="tglawal" value="<?php echo date('Y-m-d'); ?>">
+                    <div class="w-1/4 border shadow-lg flex flex-col mx-auto my-2 p-3 rounded-xl">
+                        <div class="text-4xl mx-auto my-auto font-bold text-center">Filter</div>
+                        <div class="ml-3 my-auto font-bold mt-2">
+                            Start : 
+                            <input type="date" name="tglawal" value="<?php echo date('Y-m-d'); ?>" class="rounded-xl">
                         </div>
-                        <div class="text-xl ml-3 my-auto font-bold mt-2 ">
+                        <div class="ml-3 my-auto font-bold mt-2 ">
                             End &nbsp; : 
-                            <input type="date" name="tglakhir" value="<?php echo date('Y-m-d'); ?>">
+                            <input type="date" name="tglakhir" value="<?php echo date('Y-m-d'); ?>" class="rounded-xl">
                         </div>
                         <div class="text-xl ml-3 my-auto font-bold">
                             Status :
@@ -190,6 +190,13 @@
                             <input type="Radio" name="status" class="mt-2" value="1">
                             <div class="text-yellow-500 text-xl ml-3 my-auto font-bold">Pending ⌛</div>
                         </div>
+                        <div class="flex gap-1">
+                            <button class="px-5 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
+                            <button class="px-5 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Reset</button>
+                        </div>
+                    </div>
+                    <div class="text-slate-600 font-bold text-4xl px-10 py-6">
+                        All History
                     </div>
                     <div class="w-full mx-auto flex flex-col">
                         <?php
@@ -198,8 +205,7 @@
                         ?>
                         <div class="w-3/4 h-64 mx-auto my-3 p-2 flex border rounded-xl shadow-xl">
                             <div class="w-1/4 flex flex-col">
-                                <div class="text-slate-400">KODEINV123</div>
-                                <div class="text-slate-400">17-8-1945</div>
+                                <div class="text-slate-400">KODEINV123 | 17-8-1945</div>
                                 <img src="assets/gonadi.jpg" alt="Imaged" class="w-48 h-48 m-auto">
                             </div>
                             <div class="w-2/4 flex flex-col pt-20">

@@ -87,6 +87,35 @@
                 </div>
             </div>
             <div class="overflow-y-auto h-screen">
+                <div class="w-1/2 p-5 mx-auto my-4 flex flex-col border rounded-xl shadow-xl">
+                    <div class="text-xl flex w-full"><a class="text-slate-400">KODEINV123</a><a class="ml-auto">17-8-1945 | 12:34:56</a></div>
+                    <div class="text-2xl font-semibold">Product Details</div>
+                    <div class="flex border rounded-xl my-2 mx-10 shadow-sm">
+                        <div class="w-1/4">
+                            <img src="assets/gonadi.jpg" alt="" class="w-24 h-24 mx-auto">
+                        </div>
+                        <div class="w-2/4 flex flex-col">
+                            <div class="text-3xl font-semibold">Image Title</div>
+                            <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                        </div>
+                        <div class="w-1/4 flex flex-col">
+                            <div class="text-lg">Subtotal</div>
+                            <div class="text-2xl font-bold">Rp 120.000</div>
+                        </div>
+                    </div>
+                    <div>Gonadi</div>
+                    <div>081234567</div>
+                    <div>Jalan Buntu 123</div>
+                    <br>
+                    <div class="text-lg">Total Price : Rp 120.000</div>
+                    <div class="text-lg">Build Service : Rp 120.000</div>
+                    <div class="font-bold text-2xl">Grand Total : Rp 120.000</div>
+                    <div class="flex ml-auto gap-3">
+                        <button type="submit" class="px-5 py-3 text-white font-semibold bg-green-500 rounded-xl hover:bg-green-600">Accept</button>
+                        <button type="submit" class="px-5 py-3 rounded-xl text-white font-semibold bg-red-500 hover:bg-red-600">Decline</button>
+                        <a href="historyAdmin.php" class="font-bold mb-2 my-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">Back to History</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
