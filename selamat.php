@@ -14,6 +14,21 @@
         unset($_SESSION['data']);
         header("Location: index.php");
     }
+    if(isset($_POST['history'])){
+        ceklogin('history');
+    }
+    if(isset($_POST['build'])){
+        ceklogin('build');
+    }
+    function ceklogin($pergi){
+        if(isset($_SESSION['data'])){
+            header("Location:$pergi.php");
+        }
+        else{
+            echo "<script>alert('Please Login first')</script>";
+            header("Location: login.php");
+        }
+    }
 
 ?>
 <html lang="en">
