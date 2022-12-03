@@ -1,6 +1,7 @@
 <?php
     require_once("connection.php");
     $logged=false;
+    $beli=false;
     if(isset($_SESSION['data'])){
         $logged=true;
     }
@@ -29,12 +30,10 @@
             header("Location: login.php");
         }
     }
-
     $queryUser = mysqli_query($conn, "SELECT id_users from users where nama = '".$_SESSION['data']['nama']."'");
     $idUser = mysqli_fetch_row($queryUser)[0];
     $cekisi=mysqli_query($conn,"SELECT * from carts where id_users = '$idUser'");
     $hasilisi=mysqli_fetch_array($cekisi);
-    
     if (isset($_POST["buy"])){
         date_default_timezone_set("Asia/Jakarta");        
         $now = date("Y-m-d H:i:s");
@@ -88,7 +87,6 @@
 
         // Delete Cart
         mysqli_query($conn, "DELETE FROM carts where id_users = '$idUser'");
-        header("Location: selamat.php");
     }
 ?>
 <!DOCTYPE html>
@@ -122,6 +120,7 @@
           }
         }
     </script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
 </head>
 <body onload="load_ajax()">
     <form action="#" method="POST">
@@ -143,7 +142,7 @@
                 Glorindo Komputer
             </a>
             <div class="my-auto w-1/2 flex">
-                <input type="text" name="search" placeholder="Cari Disini" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none cursor-not-allowed" disabled>
+            <input type="text" name="search" placeholder="Cari Disini" class="px-5 py-2 bg-slate-400 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none cursor-not-allowed" disabled>
                 <button name="btnsearch" class="border-l-2 bg-white rounded-r-xl w-12 pl-1 hover:bg-slate-400 disabled:opacity-25 cursor-not-allowed disabled:hover:bg-white" disabled>
                     <img src="assets/search.png" alt="" class="w-8 h-8 p-1">
                 </button>
@@ -193,7 +192,7 @@
                 ?>
                 
         <div class="pt-20 flex mb-auto" id="list_cart">
-            <div class="w-2/3 flex flex-col place-content-center">
+            <!-- <div class="w-2/3 flex flex-col place-content-center">
                 <div class="text-3xl font-semibold mx-auto">Your Cart</div>
                 <div class="w-3/4 ml-auto">
                     <div class="w-full my-3 border rounded-md shadow-lg overflow-hidden mb-10 flex">
@@ -232,7 +231,7 @@
                         and you can't cancel or add new items in cart
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <?php
             }
@@ -249,7 +248,9 @@
                 </div>
                 <?php
             }
+            
         ?>
+        
     <form action="#" method="POST">
         <nav class="h-96 bg-black <?php echo(isset($idUser) ? 'mt-auto':'')?>">
             <div class="flex">
@@ -292,8 +293,44 @@
             </div>
             <div class="text-white text-center mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
         </nav>
+        <?php
+            if(isset($_POST['buy'])){
+
+            
+        ?>
+        <!-- Main modal -->
+        <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed flex top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full bg-slate-800 bg-opacity-95">
+            <div class="relative w-full h-full max-w-2xl md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow">
+                    <!-- Modal header -->
+                    <div class="flex items-start justify-between p-4 border-b rounded-t">
+                        <h3 class="text-xl font-semibold text-gray-900">
+                            Thank you for shopping
+                        </h3>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-6 space-y-6">
+                        <p class="text-base leading-relaxed text-gray-500">
+                            Please note that your items is being processed by admin. It will take some time
+                        </p>
+                        <p class="text-base leading-relaxed text-gray-500">
+                            You can see your purchases on the history page
+                        </p>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b">
+                        <button data-modal-toggle="defaultModal" type="submit" name="ok" formaction="history.php" class="text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+            }
+        ?>
             </div>
     </form>
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     <script lang="javascript">
         list_cart;
         function load_ajax(){

@@ -299,10 +299,10 @@
                 <div class="w-1/2 flex flex-col pt-2">
                     <div class="my-3 text-white text-4xl flex font-semibold justify-center">Follow Us</div>
                     <div class="flex space-x-4 place-content-center">
-                        <a href="https://www.tokopedia.com/" target="_blank" class="hover:scale-125 duration-200">
+                        <a href="https://tokopedia.link/JiqmfSeYrvb" target="_blank" class="hover:scale-125 duration-200">
                             <img src="assets/tokopedia.png" alt="" class="w-10 h-10">
                         </a>
-                        <a href="https://www.instagram.com" target="_blank" class="hover:scale-125 duration-200">
+                        <a href="https://www.instagram.com/ltj.shop/" target="_blank" class="hover:scale-125 duration-200">
                             <img src="assets/instagram.png" alt="" class="w-10 h-10">
                         </a>
                         <a href="https://www.facebook.com/" target="_blank" class="hover:scale-125 duration-200">

@@ -62,6 +62,11 @@
         <?php $_SESSION["grandtotal"] = $total ?>
         <button type="submit" name="buy" class="px-3 py-1 font-semibold text-white my-2 ml-auto rounded-lg bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Buy</button>
     </div>
+    <div class="w-1/2 px-5 py-3 flex flex-col mx-auto mt-14 text-xs text-red-500 font-bold">
+        *Add and remove items via the build page to get your pc built
+        <br><br>
+        *Any other actions may cause your pc not to be build
+    </div>
     <?php
     }
     else{

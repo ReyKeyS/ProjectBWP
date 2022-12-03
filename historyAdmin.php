@@ -8,6 +8,7 @@
         unset($_SESSION["data"]);
         header("Location: index.php");
     }
+    $isihtrans=mysqli_query($conn,"SELECT * from htrans order by id_htrans desc");
     $awal ="";
     $akhir ="";
     if(isset($_POST["tglawal"])){
@@ -192,15 +193,30 @@
                     </div>
                     <div class="w-full mx-auto flex flex-col">
                         <?php
-                            $isihtrans= mysqli_query($conn,"SELECT * from htrans 
-                            where tanggal > $awal and tanggal < $akhir
-                            where status = $stat
-                            order by id_htrans desc");
-
                             while($row2=mysqli_fetch_array($isihtrans)){
                             
                         ?>
-                        <div class="w-1/2 mx-auto my-2 p-3 rounded-xl shadow-xl flex flex-col border">
+                        <div class="w-3/4 h-64 mx-auto my-3 p-2 flex border rounded-xl shadow-xl">
+                            <div class="w-1/4 flex flex-col">
+                                <div class="text-slate-400">KODEINV123</div>
+                                <div class="text-slate-400">17-8-1945</div>
+                                <img src="assets/rykflex.png" alt="Imaged" class="w-48 h-48 m-auto">
+                            </div>
+                            <div class="w-2/4 flex flex-col pt-20">
+                                <div class="text-3xl font-semibold">Image Title</div>
+                                <div class="text-base text-slate-600">1 x Rp 120.000</div>
+                                <div class="text-slate-600">+1 other</div>
+                            </div>
+                            <div class="w-1/4 flex flex-col">
+                                <div class="ml-auto">
+                                    <a class="text-yellow-500">Pending ⌛</a>
+                                </div>
+                                <div class="pt-16">Total</div>
+                                <div class="text-xl font-bold">Rp 120.000</div>
+                                <a href="detailAdmin.php" class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">More details</a>
+                            </div>
+                        </div>
+                        <!-- <div class="w-1/2 mx-auto my-2 p-3 rounded-xl shadow-xl flex flex-col border">
                             <div class="text-lg flex w-full">
                                 <a class="text-slate-400">
                                     <?= $row2['invoice']?>
@@ -272,7 +288,7 @@
                                     ?>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div id="defaultModal<?=$row2["id_htrans"]?>" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full">
                             <div class="relative w-full max-w-2xl h-full md:h-auto">
                                 <div class="relative bg-white rounded-lg shadow">
