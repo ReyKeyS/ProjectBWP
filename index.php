@@ -184,7 +184,7 @@
             ?>
                 <div class="w-32 my-auto flex flex-col">
                     <a class="my-auto text-center font-bold text-lg">
-                        <img src="assets/gonadi.jpg" alt="" class="w-7 h-7 mx-auto rounded-full">
+                        <img src="assets/customer.png" alt="" class="w-7 h-7 mx-auto rounded-full">
                         <div>
                             <?= $_SESSION['data']['nama']?>
                         </div>
