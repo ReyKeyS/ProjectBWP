@@ -200,7 +200,7 @@
                             <div class="w-1/4 flex flex-col">
                                 <div class="text-slate-400">KODEINV123</div>
                                 <div class="text-slate-400">17-8-1945</div>
-                                <img src="assets/rykflex.png" alt="Imaged" class="w-48 h-48 m-auto">
+                                <img src="assets/gonadi.jpg" alt="Imaged" class="w-48 h-48 m-auto">
                             </div>
                             <div class="w-2/4 flex flex-col pt-20">
                                 <div class="text-3xl font-semibold">Image Title</div>
