@@ -193,7 +193,7 @@
                 ?>
                 
         <div class="pt-20 flex mb-auto" id="list_cart">
-            <!-- <div class="w-2/3 flex flex-col place-content-center">
+            <div class="w-2/3 flex flex-col place-content-center">
                 <div class="text-3xl font-semibold mx-auto">Your Cart</div>
                 <div class="w-3/4 ml-auto">
                     <div class="w-full my-3 border rounded-md shadow-lg overflow-hidden mb-10 flex">
@@ -226,7 +226,19 @@
                     <div>Rp 120.000</div>
                     <button type="submit" name="buy" class="px-3 py-1 font-semibold text-white my-2 ml-auto rounded-lg bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Buy</button>
                 </div>
-            </div> -->
+                <?php 
+                    if($statusRakit = '1'){
+
+                ?>
+                <div class="w-1/3 px-5 py-3 flex border rounded-xl shadow-xl flex-col mx-auto mt-14">
+                    <div>This is your cart according to your build item, if you have other item in your
+                        cart before you add your build item, that item will be replaced.
+                        If you go back your cart will be empty
+                    </div>
+                </div>
+                <?php }
+                ?>
+            </div>
         </div>
         <?php
             }

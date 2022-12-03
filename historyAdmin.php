@@ -8,7 +8,20 @@
         unset($_SESSION["data"]);
         header("Location: index.php");
     }
-    $isihtrans=mysqli_query($conn,"SELECT * from htrans order by id_htrans desc");
+    $awal ="";
+    $akhir ="";
+    if(isset($_POST["tglawal"])){
+        $awal = $_POST["tglawal"];
+    }
+    if(isset($_POST["tglakhir"])){
+        $akhir = $_POST["tglakhir"];
+    }
+    if(isset($_POST["status"])){
+        $stat = $_POST["status"];
+    }else{
+        $stat = "0";
+    }
+    
     
     if (isset($_POST["btnAccept"])){
         $idHtrans = $_POST["btnAccept"];
@@ -165,20 +178,25 @@
                             Status :
                         </div>
                         <div class="flex ml-3">
-                            <input type="Radio" name="status" class="mt-2">
+                            <input type="Radio" name="status" class="mt-2" value="0">
                             <div class="text-green-500 text-xl ml-3 my-auto font-bold">Done ✔</div>
                         </div>
                         <div class="flex ml-3">
-                            <input type="Radio" name="status" class="mt-2">
+                            <input type="Radio" name="status" class="mt-2" value="2">
                             <div class="text-red-500 text-xl ml-3 my-auto font-bold">Failed❌</div>
                         </div>
                         <div class="flex ml-3">
-                            <input type="Radio" name="status" class="mt-2">
+                            <input type="Radio" name="status" class="mt-2" value="1">
                             <div class="text-yellow-500 text-xl ml-3 my-auto font-bold">Pending ⌛</div>
                         </div>
                     </div>
                     <div class="w-full mx-auto flex flex-col">
                         <?php
+                            $isihtrans= mysqli_query($conn,"SELECT * from htrans 
+                            where tanggal > $awal and tanggal < $akhir
+                            where status = $stat
+                            order by id_htrans desc");
+
                             while($row2=mysqli_fetch_array($isihtrans)){
                             
                         ?>
