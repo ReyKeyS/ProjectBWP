@@ -155,11 +155,11 @@
                         <div class="text-2xl ml-3 my-auto font-bold text-center">Filter</div>
                         <div class="text-xl ml-3 my-auto font-bold">Sort by</div>
                         <div class="text-xl  ml-3 my-auto font-bold mt-2">Start : 
-                            <input type="date" name="tglawal">
+                            <input type="date" name="tglawal" value="<?php echo date('Y-m-d'); ?>">
                         </div>
                         <div class="text-xl ml-3 my-auto font-bold mt-2 ">
                             End &nbsp; : 
-                            <input type="date" name="tglakhir">
+                            <input type="date" name="tglakhir" value="<?php echo date('Y-m-d'); ?>">
                         </div>
                         <div class="text-xl ml-3 my-auto font-bold">
                             Status :
