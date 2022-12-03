@@ -146,6 +146,7 @@
           }
         }
       </script>
+       <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body onload="load_ajax()">
     <form action="#" method="POST">
@@ -325,7 +326,12 @@
             </div>
         </div> -->
     </form>
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration:1500
+        });
+    </script>
     <script lang="javascript">
         judulIndex, product_list, page = 1;
         function load_ajax(){
@@ -333,7 +339,7 @@
             product_list = document.getElementById("product_list");
             fetch_product();
         }
-        refreshProduct = setInterval(fetch_product, 500);
+        // refreshProduct = setInterval(fetch_product, 500);
 
         function fetch_product(){
             r = new XMLHttpRequest();
