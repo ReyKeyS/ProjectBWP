@@ -88,7 +88,7 @@
 
         // Delete Cart
         mysqli_query($conn, "DELETE FROM carts where id_users = '$idUser'");
-        header("Location: history.php");
+        header("Location: selamat.php");
     }
 ?>
 <!DOCTYPE html>
@@ -226,18 +226,12 @@
                     <div>Rp 120.000</div>
                     <button type="submit" name="buy" class="px-3 py-1 font-semibold text-white my-2 ml-auto rounded-lg bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Buy</button>
                 </div>
-                <?php 
-                    if($statusRakit = '1'){
-
-                ?>
                 <div class="w-1/3 px-5 py-3 flex border rounded-xl shadow-xl flex-col mx-auto mt-14">
-                    <div>This is your cart according to your build item, if you have other item in your
-                        cart before you add your build item, that item will be replaced.
-                        If you go back your cart will be empty
+                    <div>If you have ordered build and had other item in your
+                        cart before you add your build item, that item will be replaced
+                        and you can't cancel or add new items in cart
                     </div>
                 </div>
-                <?php }
-                ?>
             </div>
         </div>
         <?php
