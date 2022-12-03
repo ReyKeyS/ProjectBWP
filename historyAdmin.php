@@ -151,30 +151,30 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="w-full bg-slate-300 flex flex-col">
-                        <div>Filter</div>
-                        <div>Sort by</div>
-                        <div>Start : 
-                            <input type="date">
+                    <div class="w-full bg-slate-300 flex flex-col mx-auto my-2 p-3 rounded-xl">
+                        <div class="text-2xl ml-3 my-auto font-bold text-center">Filter</div>
+                        <div class="text-xl ml-3 my-auto font-bold">Sort by</div>
+                        <div class="text-xl  ml-3 my-auto font-bold mt-2">Start : 
+                            <input type="date" name="tglawal">
                         </div>
-                        <div>
-                            End : 
-                            <input type="date">
+                        <div class="text-xl ml-3 my-auto font-bold mt-2 ">
+                            End &nbsp; : 
+                            <input type="date" name="tglakhir">
                         </div>
-                        <div>
+                        <div class="text-xl ml-3 my-auto font-bold">
                             Status :
                         </div>
-                        <div class="flex">
-                            <input type="Radio" name="status">
-                            <div class="text-green-500">Done ✔</div>
+                        <div class="flex ml-3">
+                            <input type="Radio" name="status" class="mt-2">
+                            <div class="text-green-500 text-xl ml-3 my-auto font-bold">Done ✔</div>
                         </div>
-                        <div class="flex">
-                            <input type="Radio" name="status">
-                            <div class="text-red-500">Failed❌</div>
+                        <div class="flex ml-3">
+                            <input type="Radio" name="status" class="mt-2">
+                            <div class="text-red-500 text-xl ml-3 my-auto font-bold">Failed❌</div>
                         </div>
-                        <div class="flex">
-                            <input type="Radio" name="status">
-                            <div class="text-yellow-500">Pending ⌛</div>
+                        <div class="flex ml-3">
+                            <input type="Radio" name="status" class="mt-2">
+                            <div class="text-yellow-500 text-xl ml-3 my-auto font-bold">Pending ⌛</div>
                         </div>
                     </div>
                     <div class="w-full mx-auto flex flex-col">
