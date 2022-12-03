@@ -165,16 +165,16 @@
                             Status :
                         </div>
                         <div class="flex">
+                            <input type="Radio" name="status">
                             <div class="text-green-500">Done ✔</div>
-                            <input type="Radio" name="status">
                         </div>
                         <div class="flex">
+                            <input type="Radio" name="status">
                             <div class="text-red-500">Failed❌</div>
-                            <input type="Radio" name="status">
                         </div>
                         <div class="flex">
-                            <div class="text-yellow-500">Pending ⌛</div>
                             <input type="Radio" name="status">
+                            <div class="text-yellow-500">Pending ⌛</div>
                         </div>
                     </div>
                     <div class="w-full mx-auto flex flex-col">
