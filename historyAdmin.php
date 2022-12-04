@@ -31,7 +31,7 @@
     $statusFilt = "0";
     $tglAwal = date("Y-m-d");
     $tglAkhir = date("Y-m-d");
-    $isiHtrans = mysqli_query($conn, "SELECT * from htrans WHERE date_format(tanggal, '%Y-%m-%d') = '$tglAwal' AND status = $statusFilt ORDER BY id_htrans DESC");
+    $isiHtrans = mysqli_query($conn, "SELECT h.invoice, h.tanggal, u.nama, h.total, h.id_htrans from htrans h JOIN users u ON u.id_users = h.id_users WHERE date_format(h.tanggal, '%Y-%m-%d') = '$tglAwal' AND h.status = $statusFilt ORDER BY h.id_htrans DESC");
     if (isset($_POST["applyFilt"])){
         $statusFilt = $_POST["status"];
         if ($_POST["tglawal"] <= $_POST["tglakhir"]){
@@ -39,9 +39,9 @@
             $tglAkhir = $_POST["tglakhir"];
 
             if ($tglAwal == $tglAkhir){
-                $isiHtrans = mysqli_query($conn, "SELECT * from htrans WHERE date_format(tanggal, '%Y-%m-%d') = '$tglAwal' AND status = $statusFilt ORDER BY id_htrans DESC");
+                $isiHtrans = mysqli_query($conn, "SELECT h.invoice, h.tanggal, u.nama, h.total, h.id_htrans from htrans h JOIN users u ON u.id_users = h.id_users WHERE date_format(h.tanggal, '%Y-%m-%d') = '$tglAwal' AND h.status = $statusFilt ORDER BY h.id_htrans DESC");
             }else{
-                $isiHtrans = mysqli_query($conn, "SELECT * from htrans WHERE status = $statusFilt AND date_format(tanggal, '%Y-%m-%d') BETWEEN '$tglAwal' AND '$tglAkhir' ORDER BY id_htrans DESC");
+                $isiHtrans = mysqli_query($conn, "SELECT h.invoice, h.tanggal, u.nama, h.total, h.id_htrans from htrans h JOIN users u ON u.id_users = h.id_users WHERE h.status = $statusFilt AND date_format(h.tanggal, '%Y-%m-%d') BETWEEN '$tglAwal' AND '$tglAkhir' ORDER BY h.id_htrans DESC");
             }
         }else{
             echo "<script>alert('Invalid Date!')</script>";
@@ -53,43 +53,6 @@
         $tglAwal = date("Y-m-d");
         $tglAkhir = date("Y-m-d");
     }
-
-
-    
-    // if (isset($_POST["btnAccept"])){
-    //     $idHtrans = $_POST["btnAccept"];
-    //     $queryCurDTrans = mysqli_query($conn, "SELECT * from dtrans where id_htrans = '$idHtrans'");
-    //     $berhasil = true;
-    //     while($row = mysqli_fetch_array($queryCurDTrans)){
-    //         $queryP = mysqli_query($conn, "SELECT * from products where status = 1 and id_products = '".$row["id_products"]."'");
-    //         $prod = mysqli_fetch_array($queryP);
-    //         if ($row["qty"] > $prod["stok"]){
-    //             $berhasil = false;
-    //             break;
-    //         }
-    //     }
-    //     if ($berhasil){
-    //         mysqli_query($conn, "UPDATE htrans set status = 0 where id_htrans = '$idHtrans'");
-    //         // Kurangi Stok
-    //         $queryCurDTrans = mysqli_query($conn, "SELECT * from dtrans where id_htrans = '$idHtrans'");
-    //         while($row = mysqli_fetch_array($queryCurDTrans)){
-    //             $queryP = mysqli_query($conn, "SELECT stok from products where status = 1 and id_products = '".$row["id_products"]."'");
-    //             $hasilKurang = mysqli_fetch_row($queryP)[0] - $row["qty"];
-    //             mysqli_query($conn, "UPDATE products set stok = $hasilKurang where id_products = '".$row["id_products"]."'");                
-    //         }
-    //     }else{
-    //         echo "<script>alert('Stock is empty / not enough!');</script>";
-    //     }
-        
-    //     header("Location: historyAdmin.php");
-    // }
-
-    // if (isset($_POST["btnDecline"])){
-    //     $idHtrans = $_POST["btnDecline"];
-    //     mysqli_query($conn, "UPDATE htrans set status = 2 where id_htrans = '$idHtrans'");
-    //     header("Location: historyAdmin.php");
-    // }
-
 
 ?>
 <!DOCTYPE html>
@@ -225,139 +188,50 @@
                         </div>
                         <div class="flex gap-1 mt-2">
                             <button name="applyFilt" class="px-5 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
-                            <button name="resetFilt" class="px-5 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Reset</button>
+                            <button name="resetFilt" class="px-5 py-3 ml-2 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Reset</button>
+                            <div class="mt-3 ml-3 font-bold text-violet-800 text-md">Result : <?=intval($isiHtrans->num_rows)?></div>
                         </div>
                     </div>
-                    <div class="text-slate-600 font-bold text-4xl px-10 py-6">
+                    <div class="text-slate-600 font-bold text-4xl px-10 py-6 text-center tracking-wide">
                         All History
                     </div>
                     <div class="w-full mx-auto flex flex-col">
-                        <?php
-                            while($row2=mysqli_fetch_array($isiHtrans)){
-                            
-                        ?>
-                        <div class="w-3/4 h-64 mx-auto my-3 p-2 flex border rounded-xl shadow-xl">
-                            <div class="w-1/4 flex flex-col">
-                                <div class="text-slate-400">KODEINV123 | 17-8-1945</div>
-                                <img src="assets/gonadi.jpg" alt="Imaged" class="w-48 h-48 m-auto">
-                            </div>
-                            <div class="w-2/4 flex flex-col pt-20">
-                                <div class="text-3xl font-semibold">Image Title</div>
-                                <div class="text-base text-slate-600">1 x Rp 120.000</div>
-                                <div class="text-slate-600">+1 other</div>
-                            </div>
-                            <div class="w-1/4 flex flex-col">
-                                <div class="ml-auto">
-                                    <a class="text-yellow-500">Pending ⌛</a>
-                                </div>
-                                <div class="pt-16">Total</div>
-                                <div class="text-xl font-bold">Rp 120.000</div>
-                                <a href="detailAdmin.php" class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">More details</a>
-                            </div>
-                        </div>
-                        <!-- <div class="w-1/2 mx-auto my-2 p-3 rounded-xl shadow-xl flex flex-col border">
-                            <div class="text-lg flex w-full">
-                                <a class="text-slate-400">
-                                    <?= $row2['invoice']?>
-                                </a>
-                                <a class="ml-auto">
-                                <?php
-                                    if ($row2["status"]=="1"){
-                                ?>
-                                    <a class="text-2xl text-yellow-500 font-semibold">Pending ⌛</a>
-                                <?php
-                                    }else if ($row2["status"]=="0"){
-                                ?>
-                                    <a class="text-2xl text-green-400 font-semibold">Done ✔ </a>
-                                <?php
-                                    }else if ($row2["status"]=="2"){
-                                ?>
-                                    <a class="text-2xl text-red-400 font-bold">Failed❌</a>
-                                <?php
+                        <table class="table-auto mx-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl" id="list_categories">
+                            <tr>
+                                <th class="col">No</th>
+                                <th class="col">Invoice</th>
+                                <th class="col">Date Time</th>
+                                <th class="col">Buyer</th>
+                                <th class="col">Grandtotal</th>
+                                <th class="col">Action</th>
+                            </tr>
+                            <?php
+                                $nomer = 0;
+                                if($isiHtrans->num_rows == 0){
+                            ?>
+                                <tr>
+                                    <td colspan="6" class="text-center">There's No Transaction yet..</td> 
+                                </tr>
+                            <?php
+                                }else{
+                                    while($row = mysqli_fetch_row($isiHtrans)){
+                                        $nomer++;                                    
+                            ?>
+                                <tr>
+                                    <td class="col text-right"><?= $nomer?></td>
+                                    <td class="col"><?=$row[0]?></td>
+                                    <td class="col text-center"><?=substr($row[1],0,10)." | <i>".substr($row[1],11)."</i>"?></td>
+                                    <td class="col text-center"><?=$row[2]?></td>
+                                    <td class="col text-center">Rp <?=number_format($row[3])?></td>
+                                    <td class="col">
+                                        <button class="px-3 py-2 rounded-xl text-white font-semibold bg-green-500 hover:bg-green-600" type="submit" formaction="detailAdmin.php?id=<?=$row[4]?>">Detail</button>    
+                                    </td>
+                                </tr>
+                            <?php 
                                     }
-                                ?>
-                                </a>
-                            </div>
-                            <div class="mb-2"><?=substr($row2["tanggal"], 0, 10)?> | <?=substr($row2["tanggal"], 11)?></div>
-                            <?php
-                                $id=$row2['id_htrans'];
-                                $isidtrans=mysqli_query($conn,"SELECT p.nama, dt.qty, p.price, p.gmbr from dtrans dt join products p on p.id_products = dt.id_products where id_htrans='$id'");
-                                $totalSubtotal = 0;
-                                while($row=mysqli_fetch_array($isidtrans)){
-                            ?>
-                            <div class="flex my-1">
-                                <div class="w-1/4">
-                                    <img src="<?=$row[3]?>" alt="" class="w-20 h-20 mx-auto">
-                                </div>
-                                <div class="w-2/4 flex flex-col">
-                                    <div class="text-2xl font-semibold"><?= $row[0]?></div>
-                                    <div class="text-base text-slate-600"><?= $row[1]?> x Rp <?= number_format($row[2])?></div>
-                                </div>
-                                <div class="w-1/4 flex flex-col">
-                                    <div class="text-base">Subtotal</div>
-                                    <div class="text-xl font-bold">Rp <?= number_format($row[1]*$row[2])?></div>
-                                    <?php $totalSubtotal += ($row[1]*$row[2]); ?>
-                                </div>
-                            </div>
-                            <?php
                                 }
-                                $queryUserBeli = mysqli_query($conn, "SELECT * from users where id_users = '".$row2["id_users"]."'");
-                                $dataUserBeli = mysqli_fetch_array($queryUserBeli);
                             ?>
-                            <div class="ml-auto mr-16 font-bold text-2xl flex flex-col">
-                                <a class="font-semibold">Total Price</a>
-                                <a>Rp <?=number_format($totalSubtotal)?></a>
-                            </div>
-                            <div><?=$dataUserBeli["nama"]?></div>
-                            <div><?=$dataUserBeli["telp"]?></div>
-                            <div><?=$dataUserBeli["alamat"]?></div>
-                            <div class="text-lg font-semibold">Build Service : Rp <?php if ($row2["dirakit"] == 0) echo "0"; else echo "120,000"; ?></div>
-                            <div class="flex">
-                                <div class="text-2xl font-bold">
-                                    Grand Total : Rp <?=number_format($row2["total"])?>
-                                </div>
-                                <div class="flex ml-auto gap-1">
-                                    <?php
-                                        if($row2["status"]=="1"){
-                                    ?>
-                                    <button type="submit" name="btnAccept" value="<?=$row2["id_htrans"]?>" class="px-5 py-3 text-white font-semibold bg-green-500 rounded-xl hover:bg-green-600">Accept</button>
-                                    <button type="button" data-modal-toggle="defaultModal<?=$row2["id_htrans"]?>" value="<?=$row2["id_htrans"]?>" class="px-5 py-3 text-white font-semibold bg-red-500 rounded-xl hover:bg-red-600">Decline</button>
-                                    <?php
-                                        }
-                                    ?>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div id="defaultModal<?=$row2["id_htrans"]?>" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full">
-                            <div class="relative w-full max-w-2xl h-full md:h-auto">
-                                <div class="relative bg-white rounded-lg shadow">
-                                    <div class="flex justify-between items-start p-4 rounded-t border-b">
-                                        <h3 class="text-xl font-semibold text-gray-900">
-                                            Cancel Transaction
-                                        </h3>
-                                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="defaultModal<?=$row2["id_htrans"]?>">
-                                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                                            <span class="sr-only">Close modal</span>
-                                        </button>
-                                    </div>
-                                    <div class="p-6 space-y-6">
-                                        <p class="text-base leading-relaxed text-gray-500">
-                                            Are you sure you want to cancel the transaction?
-                                        </p>
-                                        <p class="text-base leading-relaxed text-gray-500">
-                                            
-                                        </p>
-                                    </div>
-                                    <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200">
-                                        <button data-modal-toggle="defaultModal<?=$row2["id_htrans"]?>" type="submit" name="btnDecline" value="<?=$row2["id_htrans"]?>" class="text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Yes</button>
-                                        <button data-modal-toggle="defaultModal<?=$row2["id_htrans"]?>" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                            }
-                        ?>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -396,3 +270,105 @@
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
 </body>
 </html>
+
+<!--
+<?php
+    while($row2=mysqli_fetch_array($isiHtrans)){
+?>
+<div class="w-3/4 h-64 mx-auto my-3 p-2 flex border rounded-xl shadow-xl">
+    <div class="w-1/4 flex flex-col">
+        <div class="text-slate-400"><?=$row2['invoice']?> | <?=$row2['tanggal']?></div>
+        <img src="assets/gonadi.jpg" alt="Imaged" class="w-48 h-48 m-auto">
+    </div>
+    <div class="w-2/4 flex flex-col pt-20">
+        <div class="text-3xl font-semibold">Image Title</div>
+        <div class="text-base text-slate-600">1 x Rp 120.000</div>
+        <div class="text-slate-600">+1 other</div>
+    </div>
+    <div class="w-1/4 flex flex-col">
+        <div class="ml-auto">
+            <a class="text-yellow-500">Pending ⌛</a>
+        </div>
+        <div class="pt-16">Total</div>
+        <div class="text-xl font-bold">Rp 120.000</div>
+        <a href="detailAdmin.php" class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">More details</a>
+    </div>
+</div>
+<div class="w-1/2 mx-auto my-2 p-3 rounded-xl shadow-xl flex flex-col border">
+    <div class="text-lg flex w-full">
+        <a class="text-slate-400">
+            <?= $row2['invoice']?>
+        </a>
+        <a class="ml-auto">
+        <?php
+            if ($row2["status"]=="1"){
+        ?>
+            <a class="text-2xl text-yellow-500 font-semibold">Pending ⌛</a>
+        <?php
+            }else if ($row2["status"]=="0"){
+        ?>
+            <a class="text-2xl text-green-400 font-semibold">Done ✔ </a>
+        <?php
+            }else if ($row2["status"]=="2"){
+        ?>
+            <a class="text-2xl text-red-400 font-bold">Failed❌</a>
+        <?php
+            }
+        ?>
+        </a>
+    </div>
+    <div class="mb-2"><?=substr($row2["tanggal"], 0, 10)?> | <?=substr($row2["tanggal"], 11)?></div>
+    <?php
+        $id=$row2['id_htrans'];
+        $isidtrans=mysqli_query($conn,"SELECT p.nama, dt.qty, p.price, p.gmbr from dtrans dt join products p on p.id_products = dt.id_products where id_htrans='$id'");
+        $totalSubtotal = 0;
+        while($row=mysqli_fetch_array($isidtrans)){
+    ?>
+    <div class="flex my-1">
+        <div class="w-1/4">
+            <img src="<?=$row[3]?>" alt="" class="w-20 h-20 mx-auto">
+        </div>
+        <div class="w-2/4 flex flex-col">
+            <div class="text-2xl font-semibold"><?= $row[0]?></div>
+            <div class="text-base text-slate-600"><?= $row[1]?> x Rp <?= number_format($row[2])?></div>
+        </div>
+        <div class="w-1/4 flex flex-col">
+            <div class="text-base">Subtotal</div>
+            <div class="text-xl font-bold">Rp <?= number_format($row[1]*$row[2])?></div>
+            <?php $totalSubtotal += ($row[1]*$row[2]); ?>
+        </div>
+    </div>
+    <?php
+        }
+        $queryUserBeli = mysqli_query($conn, "SELECT * from users where id_users = '".$row2["id_users"]."'");
+        $dataUserBeli = mysqli_fetch_array($queryUserBeli);
+    ?>
+    <div class="ml-auto mr-16 font-bold text-2xl flex flex-col">
+        <a class="font-semibold">Total Price</a>
+        <a>Rp <?=number_format($totalSubtotal)?></a>
+    </div>
+    <div><?=$dataUserBeli["nama"]?></div>
+    <div><?=$dataUserBeli["telp"]?></div>
+    <div><?=$dataUserBeli["alamat"]?></div>
+    <div class="text-lg font-semibold">Build Service : Rp <?php if ($row2["dirakit"] == 0) echo "0"; else echo "120,000"; ?></div>
+    <div class="flex">
+        <div class="text-2xl font-bold">
+            Grand Total : Rp <?=number_format($row2["total"])?>
+        </div>
+        <div class="flex ml-auto gap-1">
+            <?php
+                if($row2["status"]=="1"){
+            ?>
+            <button type="submit" name="btnAccept" value="<?=$row2["id_htrans"]?>" class="px-5 py-3 text-white font-semibold bg-green-500 rounded-xl hover:bg-green-600">Accept</button>
+            <button type="button" data-modal-toggle="defaultModal<?=$row2["id_htrans"]?>" value="<?=$row2["id_htrans"]?>" class="px-5 py-3 text-white font-semibold bg-red-500 rounded-xl hover:bg-red-600">Decline</button>
+            <?php
+                }
+            ?>
+        </div>
+    </div>
+</div>
+
+<?php
+    }
+?>
+-->

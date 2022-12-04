@@ -95,51 +95,49 @@
                 <div class="overflow-y-auto h-screen -mt-5">
                     <div class="my-6 text-center font-bold text-5xl bg-gradient-to-r from-purple-900 to-fuchsia-600 bg-clip-text text-transparent">Customers</div>
                     <table class="table-auto mx-auto border-separate border-spacing-5 border border-slate-600 text-xl shadow-lg shadow-slate-400 rounded-xl" id="list_categories">
+                        <tr>
+                            <th class="col">No</th>
+                            <th class="col">ID</th>
+                            <th class="col">Name</th>
+                            <th class="col">Email</th>
+                            <th class="col">Password</th>
+                            <th class="col">Address</th>
+                            <th class="col">Phone Number</th>
+                            <th class="col">Action</th>
+                        </tr>
+                        <?php
+                            $nomer = 0;
+                            $all_items = mysqli_query($conn, "select * from users");
+                            if($all_items->num_rows == 0){
+                        ?>
                             <tr>
-                                <th class="col">No</th>
-                                <th class="col">ID</th>
-                                <th class="col">Name</th>
-                                <th class="col">Email</th>
-                                <th class="col">Password</th>
-                                <th class="col">Address</th>
-                                <th class="col">Phone Number</th>
-                                <th class="col">Action</th>
+                                <td colspan="8" class="text-center">There's No Customers yet..</td> 
                             </tr>
-                            <?php
-                                $nomer = 0;
-                                $all_items = mysqli_query($conn, "select * from users");
-                                if($all_items->num_rows == 0){
-                            ?>
-                                <tr>
-                                    <td colspan="3" class="text-center">There's No Customers yet..</td> 
-                                </tr>
-                            <?php
-                                }else{
-                                    while($row = mysqli_fetch_row($all_items)){
-                                        $nomer++;
-                                        if($row[6] == '1'){
-
-                                        
-                            ?>
-                                <tr>
-                                    <td class="col"><?= $nomer?></td>
-                                    <td class="col"><?= $row[0]?></td>
-                                    <td class="col"><?=$row[1]?></td>
-                                    <td class="col"><?=$row[2]?></td>
-                                    <td class="col text-center"><?=$row[5]?></td>
-                                    <td class="col text-center"><?=$row[4]?></td>
-                                    <td class="col text-center"><?=$row[3]?></td>
-                                    <td class="col">
-                                        <button class="px-3 py-2 rounded-xl text-white font-semibold bg-red-500 hover:bg-red-600" 
-                                        type="submit" name="deleteUser" value="<?= $row[0]?>">Delete</button>    
-                                    </td>
-                                </tr>
-                            <?php
-                                        }
+                        <?php
+                            }else{
+                                while($row = mysqli_fetch_row($all_items)){
+                                    $nomer++;
+                                    if($row[6] == '1'){                                    
+                        ?>
+                            <tr>
+                                <td class="col"><?= $nomer?></td>
+                                <td class="col"><?= $row[0]?></td>
+                                <td class="col"><?=$row[1]?></td>
+                                <td class="col"><?=$row[2]?></td>
+                                <td class="col text-center"><?=$row[5]?></td>
+                                <td class="col text-center"><?=$row[4]?></td>
+                                <td class="col text-center"><?=$row[3]?></td>
+                                <td class="col">
+                                    <button class="px-3 py-2 rounded-xl text-white font-semibold bg-red-500 hover:bg-red-600" 
+                                    type="submit" name="deleteUser" value="<?= $row[0]?>">Delete</button>    
+                                </td>
+                            </tr>
+                        <?php
                                     }
                                 }
-                            ?>
-                        </table>
+                            }
+                        ?>
+                    </table>
                 </div>
             </div>
         </div>
