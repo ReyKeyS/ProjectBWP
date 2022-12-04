@@ -32,6 +32,16 @@
     $tglAwal = date("Y-m-d");
     $tglAkhir = date("Y-m-d");
     $isiHtrans = mysqli_query($conn, "SELECT h.invoice, h.tanggal, u.nama, h.total, h.id_htrans from htrans h JOIN users u ON u.id_users = h.id_users WHERE date_format(h.tanggal, '%Y-%m-%d') = '$tglAwal' AND h.status = $statusFilt ORDER BY h.id_htrans DESC");
+    if (isset($_SESSION["statusFilt"])){
+        $statusFilt = $_SESSION["statusFilt"];
+        $tglAwal = $_SESSION["tglAwal"];
+        $tglAkhir = $_SESSION["tglAkhir"];
+        if ($tglAwal == $tglAkhir){
+            $isiHtrans = mysqli_query($conn, "SELECT h.invoice, h.tanggal, u.nama, h.total, h.id_htrans from htrans h JOIN users u ON u.id_users = h.id_users WHERE date_format(h.tanggal, '%Y-%m-%d') = '$tglAwal' AND h.status = $statusFilt ORDER BY h.id_htrans DESC");
+        }else{
+            $isiHtrans = mysqli_query($conn, "SELECT h.invoice, h.tanggal, u.nama, h.total, h.id_htrans from htrans h JOIN users u ON u.id_users = h.id_users WHERE h.status = $statusFilt AND date_format(h.tanggal, '%Y-%m-%d') BETWEEN '$tglAwal' AND '$tglAkhir' ORDER BY h.id_htrans DESC");
+        }
+    }
     if (isset($_POST["applyFilt"])){
         $statusFilt = $_POST["status"];
         if ($_POST["tglawal"] <= $_POST["tglakhir"]){
@@ -43,6 +53,9 @@
             }else{
                 $isiHtrans = mysqli_query($conn, "SELECT h.invoice, h.tanggal, u.nama, h.total, h.id_htrans from htrans h JOIN users u ON u.id_users = h.id_users WHERE h.status = $statusFilt AND date_format(h.tanggal, '%Y-%m-%d') BETWEEN '$tglAwal' AND '$tglAkhir' ORDER BY h.id_htrans DESC");
             }
+            $_SESSION["statusFilt"] = $statusFilt;
+            $_SESSION["tglAwal"] = $tglAwal;
+            $_SESSION["tglAkhir"] = $tglAkhir;
         }else{
             echo "<script>alert('Invalid Date!')</script>";
         }
@@ -52,6 +65,12 @@
         $statusFilt = "0";    
         $tglAwal = date("Y-m-d");
         $tglAkhir = date("Y-m-d");
+        
+        $_SESSION["statusFilt"] = $statusFilt;
+        $_SESSION["tglAwal"] = $tglAwal;
+        $_SESSION["tglAkhir"] = $tglAkhir;
+        
+        header("Location: historyAdmin.php");
     }
 
 ?>
