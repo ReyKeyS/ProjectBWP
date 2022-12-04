@@ -8,55 +8,88 @@
         unset($_SESSION["data"]);
         header("Location: index.php");
     }
-    $isihtrans=mysqli_query($conn,"SELECT * from htrans order by id_htrans desc");
-    $awal ="";
-    $akhir ="";
-    if(isset($_POST["tglawal"])){
-        $awal = $_POST["tglawal"];
-    }
-    if(isset($_POST["tglakhir"])){
-        $akhir = $_POST["tglakhir"];
-    }
-    if(isset($_POST["status"])){
-        $stat = $_POST["status"];
-    }else{
-        $stat = "0";
-    }
+
+    // $isihtrans=mysqli_query($conn,"SELECT * from htrans order by id_htrans desc");
+    // $awal ="";
+    // $akhir ="";
+    // if(isset($_POST["tglawal"])){
+    //     $awal = $_POST["tglawal"];
+    // }
+    // if(isset($_POST["tglakhir"])){
+    //     $akhir = $_POST["tglakhir"];
+    // }
+    // if(isset($_POST["status"])){
+    //     $stat = $_POST["status"];
+    // }else{
+    //     $stat = "0";
+    // }
     
-    
-    if (isset($_POST["btnAccept"])){
-        $idHtrans = $_POST["btnAccept"];
-        $queryCurDTrans = mysqli_query($conn, "SELECT * from dtrans where id_htrans = '$idHtrans'");
-        $berhasil = true;
-        while($row = mysqli_fetch_array($queryCurDTrans)){
-            $queryP = mysqli_query($conn, "SELECT * from products where status = 1 and id_products = '".$row["id_products"]."'");
-            $prod = mysqli_fetch_array($queryP);
-            if ($row["qty"] > $prod["stok"]){
-                $berhasil = false;
-                break;
-            }
-        }
-        if ($berhasil){
-            mysqli_query($conn, "UPDATE htrans set status = 0 where id_htrans = '$idHtrans'");
-            // Kurangi Stok
-            $queryCurDTrans = mysqli_query($conn, "SELECT * from dtrans where id_htrans = '$idHtrans'");
-            while($row = mysqli_fetch_array($queryCurDTrans)){
-                $queryP = mysqli_query($conn, "SELECT stok from products where status = 1 and id_products = '".$row["id_products"]."'");
-                $hasilKurang = mysqli_fetch_row($queryP)[0] - $row["qty"];
-                mysqli_query($conn, "UPDATE products set stok = $hasilKurang where id_products = '".$row["id_products"]."'");                
+    // Filter    
+    date_default_timezone_set("Asia/Jakarta");        
+    // $now = date("Y-m-d H:i:s");
+
+    $statusFilt = "0";
+    $tglAwal = date("Y-m-d");
+    $tglAkhir = date("Y-m-d");
+    $isiHtrans = mysqli_query($conn, "SELECT * from htrans WHERE date_format(tanggal, '%Y-%m-%d') = '$tglAwal' AND status = $statusFilt ORDER BY id_htrans DESC");
+    if (isset($_POST["applyFilt"])){
+        $statusFilt = $_POST["status"];
+        if ($_POST["tglawal"] <= $_POST["tglakhir"]){
+            $tglAwal = $_POST["tglawal"];
+            $tglAkhir = $_POST["tglakhir"];
+
+            if ($tglAwal == $tglAkhir){
+                $isiHtrans = mysqli_query($conn, "SELECT * from htrans WHERE date_format(tanggal, '%Y-%m-%d') = '$tglAwal' AND status = $statusFilt ORDER BY id_htrans DESC");
+            }else{
+                $isiHtrans = mysqli_query($conn, "SELECT * from htrans WHERE status = $statusFilt AND date_format(tanggal, '%Y-%m-%d') BETWEEN '$tglAwal' AND '$tglAkhir' ORDER BY id_htrans DESC");
             }
         }else{
-            echo "<script>alert('Stock is empty / not enough!');</script>";
+            echo "<script>alert('Invalid Date!')</script>";
         }
-        
-        header("Location: historyAdmin.php");
     }
 
-    if (isset($_POST["btnDecline"])){
-        $idHtrans = $_POST["btnDecline"];
-        mysqli_query($conn, "UPDATE htrans set status = 2 where id_htrans = '$idHtrans'");
-        header("Location: historyAdmin.php");
+    if (isset($_POST["resetFilt"])){
+        $statusFilt = "0";    
+        $tglAwal = date("Y-m-d");
+        $tglAkhir = date("Y-m-d");
     }
+
+
+    
+    // if (isset($_POST["btnAccept"])){
+    //     $idHtrans = $_POST["btnAccept"];
+    //     $queryCurDTrans = mysqli_query($conn, "SELECT * from dtrans where id_htrans = '$idHtrans'");
+    //     $berhasil = true;
+    //     while($row = mysqli_fetch_array($queryCurDTrans)){
+    //         $queryP = mysqli_query($conn, "SELECT * from products where status = 1 and id_products = '".$row["id_products"]."'");
+    //         $prod = mysqli_fetch_array($queryP);
+    //         if ($row["qty"] > $prod["stok"]){
+    //             $berhasil = false;
+    //             break;
+    //         }
+    //     }
+    //     if ($berhasil){
+    //         mysqli_query($conn, "UPDATE htrans set status = 0 where id_htrans = '$idHtrans'");
+    //         // Kurangi Stok
+    //         $queryCurDTrans = mysqli_query($conn, "SELECT * from dtrans where id_htrans = '$idHtrans'");
+    //         while($row = mysqli_fetch_array($queryCurDTrans)){
+    //             $queryP = mysqli_query($conn, "SELECT stok from products where status = 1 and id_products = '".$row["id_products"]."'");
+    //             $hasilKurang = mysqli_fetch_row($queryP)[0] - $row["qty"];
+    //             mysqli_query($conn, "UPDATE products set stok = $hasilKurang where id_products = '".$row["id_products"]."'");                
+    //         }
+    //     }else{
+    //         echo "<script>alert('Stock is empty / not enough!');</script>";
+    //     }
+        
+    //     header("Location: historyAdmin.php");
+    // }
+
+    // if (isset($_POST["btnDecline"])){
+    //     $idHtrans = $_POST["btnDecline"];
+    //     mysqli_query($conn, "UPDATE htrans set status = 2 where id_htrans = '$idHtrans'");
+    //     header("Location: historyAdmin.php");
+    // }
+
 
 ?>
 <!DOCTYPE html>
@@ -102,7 +135,7 @@
         <div class="flex h-screen">
             <div class="flex-auto w-1/3 bg-neutral-900 flex flex-col text-center">
                 <div class="text-4xl px-5 pt-5 pb-6 mb-8 bg-neutral-600 mt-8 mx-12 rounded-[20px] font-semibold text-white">History Admin</div>
-                <div class="w-48 h-48 rounded-full mx-auto bg-white bg-center" style="background-image: url('assets/rykflex.png'); background-size: 101%;"></div>
+                <div class="w-48 h-48 rounded-full mx-auto bg-white bg-center" style="background-image: url('assets/userdrrichardlee.png'); background-size: 101%;"></div>
                 <div class="bg-neutral-600 w-9/12 h-auto mx-auto rounded-3xl mt-6">
                     <button class="flex flex-row px-6 py-3 w-5/6 mx-auto text-lg my-4 rounded-full text-white hover:bg-neutral-900 hover:text-white" formaction="homeAdmin.php">
                         <div class="w-12 h-12 ml-5 bg-center bg-no-repeat" style="background-image: url('assets/home.png'); background-size: 90%;"></div>
@@ -169,30 +202,30 @@
                         <div class="text-4xl mx-auto my-auto font-bold text-center">Filter</div>
                         <div class="ml-3 my-auto font-bold mt-2">
                             Start : 
-                            <input type="date" name="tglawal" value="<?php echo date('Y-m-d'); ?>" class="rounded-xl">
+                            <input type="date" name="tglawal" value="<?=$tglAwal?>" class="rounded-xl">
                         </div>
                         <div class="ml-3 my-auto font-bold mt-2 ">
                             End &nbsp; : 
-                            <input type="date" name="tglakhir" value="<?php echo date('Y-m-d'); ?>" class="rounded-xl">
+                            <input type="date" name="tglakhir" value="<?=$tglAkhir?>" class="rounded-xl">
                         </div>
                         <div class="text-xl ml-3 my-auto font-bold">
                             Status :
                         </div>
                         <div class="flex ml-3">
-                            <input type="Radio" name="status" class="mt-2" value="0">
+                            <input type="Radio" name="status" class="mt-2" value="0" <?php if($statusFilt == "0") echo "checked"?>>
                             <div class="text-green-500 text-xl ml-3 my-auto font-bold">Done ✔</div>
                         </div>
                         <div class="flex ml-3">
-                            <input type="Radio" name="status" class="mt-2" value="2">
+                            <input type="Radio" name="status" class="mt-2" value="2" <?php if($statusFilt == "2") echo "checked"?>>
                             <div class="text-red-500 text-xl ml-3 my-auto font-bold">Failed❌</div>
                         </div>
                         <div class="flex ml-3">
-                            <input type="Radio" name="status" class="mt-2" value="1">
+                            <input type="Radio" name="status" class="mt-2" value="1" <?php if($statusFilt == "1") echo "checked"?>>
                             <div class="text-yellow-500 text-xl ml-3 my-auto font-bold">Pending ⌛</div>
                         </div>
-                        <div class="flex gap-1">
-                            <button class="px-5 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
-                            <button class="px-5 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Reset</button>
+                        <div class="flex gap-1 mt-2">
+                            <button name="applyFilt" class="px-5 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
+                            <button name="resetFilt" class="px-5 py-3 text-white font-semibold rounded-xl bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Reset</button>
                         </div>
                     </div>
                     <div class="text-slate-600 font-bold text-4xl px-10 py-6">
@@ -200,7 +233,7 @@
                     </div>
                     <div class="w-full mx-auto flex flex-col">
                         <?php
-                            while($row2=mysqli_fetch_array($isihtrans)){
+                            while($row2=mysqli_fetch_array($isiHtrans)){
                             
                         ?>
                         <div class="w-3/4 h-64 mx-auto my-3 p-2 flex border rounded-xl shadow-xl">
