@@ -166,7 +166,7 @@
                 Glorindo Komputer
             </a>
             <div class="my-auto w-1/2 flex">
-                <input type="text" name="search" placeholder="Cari Disini" value="<?=$search?>" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none">
+                <input type="text" name="search" placeholder="Cari Nama Barang Disini" value="<?=$search?>" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none">
                 <button name="btnSearch" class="border-l-2 bg-white rounded-r-xl w-12 pl-1 hover:bg-slate-400">
                     <img src="assets/search.png" alt="" class="w-8 h-8 p-1">
                 </button>
