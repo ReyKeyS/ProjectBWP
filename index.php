@@ -212,7 +212,7 @@
         </nav>
     </form>
         <div class="flex flex-col pt-20">
-            <div class="w-full sm:h-[650px] h-96 bg-black">
+            <div class="w-full sm:h-[650px] h-64 bg-black">
                 <div class="flex flex-row w-full h-full sm:bg-[center_bottom_-17rem] sm:bg-auto bg-cover bg-center animate-tampilgambar" style="background-image: url('assets/setup.jpg');">
                     <div class="w-1/3 m-auto text-center text-white font-bold sm:text-3xl text-sm animate-tampil">
                         Welcome To Our Shop
@@ -228,7 +228,7 @@
                     <div class="text-white font-semibold text-2xl text-center mb-1">Filter</div>
                     <div class="flex">
                         <div class="my-1 text-white font-medium">Category</div>
-                        <select class="form-select ml-3 mt-1 w-[155px] h-7 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none text-sm" aria-label="Default select example" name="categoryCombo">
+                        <select class="form-select ml-3 mt-1 w-28 sm:w-[155px] h-7 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none text-sm" aria-label="Default select example" name="categoryCombo">
                             <option <?php if($cate == "") echo "selected" ?> value="">Choose the Category</option>
                         <?php
                             $categoryCB = mysqli_query($conn, "SELECT * from categories");
@@ -244,8 +244,8 @@
                     <input type="text" name="min" placeholder="Harga minimum" class="px-5 py-1 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$minimum?>">
                     <input type="text" name="maks" placeholder="Harga maksimum" class="px-5 py-1 my-1 w-3/4 mx-auto rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?=$maximum?>">
                     <div class="flex pl-1 pr-5 mt-1">
-                        <button type="submit" name="btnReset" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Reset</button>
-                        <button type="submit" name="btnApply" class="px-5 py-2 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
+                        <button type="submit" name="btnReset" class="sm:px-5 sm:py-2 px-2 py-1 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Reset</button>
+                        <button type="submit" name="btnApply" class="sm:px-5 sm:py-2 px-2 py-1 mr-3 ml-auto rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Apply</button>
                     </div>
                     <div class="my-1 text-white font-medium">Sort</div>
                     <div class="flex flex-row">
