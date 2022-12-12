@@ -58,7 +58,7 @@
     <div class="my-4 flex gap-2">
         <div class="w-1/6">Processor</div>
         <div class="flex justify-end ml-20 w-3/6">
-            <select onchange="change_proc(this)" name="cbProc" class="w-[900px] border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+            <select onchange="change_proc(this)" name="cbProc" class="w-36 sm:w-[750px] border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($proc == "") echo "selected"; ?> value="">Choose the Processor</option>
                 <?php
                     while($rowProcessor = mysqli_fetch_array($queryProcessor)){
@@ -73,14 +73,14 @@
             <input type="number" onchange="amount_pr(this)" name="qtyProc" value="<?php if($proc == "") echo "0"; else echo $pr; ?>" min="<?php if($proc == "") echo "0"; else echo "1"; ?>" max="<?php if($proc == "") echo "0"; else echo $dataProc["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
 
         </div>
-        <div class="flex w-1/6">
-            Rp: <input type="text" value="<?php if ($proc == "") echo "0"; else {echo $pr*$dataProc["price"];$grandTotal += $pr*$dataProc["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
+        <div class="flex w-20 sm:w-1/6">
+            Rp: <input type="text" value="<?php if ($proc == "") echo "0"; else {echo $pr*$dataProc["price"];$grandTotal += $pr*$dataProc["price"];}?>" class="border border-slate-400 rounded-lg w-full" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
         <div class="w-1/6">Motherboard</div>
         <div class="flex justify-end ml-20 w-3/6">
-            <select onchange="change_mobo(this)" name="cbMobo" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+            <select onchange="change_mobo(this)" name="cbMobo" class="w-36 sm:w-[750px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($mobo == "") echo "selected"; ?> value="">Choose the Motherboard</option>
                 <?php
                     while($rowMotherBoard = mysqli_fetch_array($queryMotherboard)){
@@ -94,14 +94,14 @@
         <div class="w-1/6">
             <input type="number" onchange="amount_mo(this)" name="qtyMobo" value="<?php if($mobo == "") echo "0"; else echo $mo; ?>" min="<?php if($mobo == "") echo "0"; else echo "1"; ?>" max="<?php if($mobo == "") echo "0"; else echo $dataMobo["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
         </div>
-        <div class="flex w-1/6">
-            Rp: <input type="text" value="<?php if ($mobo == "") echo "0"; else {echo $mo*$dataMobo["price"];$grandTotal += $mo*$dataMobo["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
+        <div class="flex w-20 sm:w-1/6">
+            Rp: <input type="text" value="<?php if ($mobo == "") echo "0"; else {echo $mo*$dataMobo["price"];$grandTotal += $mo*$dataMobo["price"];}?>" class="border border-slate-400 rounded-lg w-full" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
         <div class="w-1/6">RAM</div>
         <div class="flex justify-end ml-20 w-3/6">
-            <select onchange="change_ram(this)" name="cbRam" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+            <select onchange="change_ram(this)" name="cbRam" class="w-36 sm:w-[750px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($ram == "") echo "selected"; ?> value="">Choose the RAM</option>
                 <?php
                     while($rowRAM = mysqli_fetch_array($queryRAM)){
@@ -115,14 +115,14 @@
         <div class="w-1/6">
             <input type="number" onchange="amount_ra(this)" name="qtyRam" value="<?php if($ram == "") echo "0"; else echo $ra; ?>" min="<?php if($ram == "") echo "0"; else echo "1"; ?>" max="<?php if($ram == "") echo "0"; else echo $dataRam["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
         </div>
-        <div class="flex w-1/6">
-            Rp: <input type="text" value="<?php if ($ram == "") echo "0"; else {echo $ra*$dataRam["price"];$grandTotal += $ra*$dataRam["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
+        <div class="flex w-20 sm:w-1/6">
+            Rp: <input type="text" value="<?php if ($ram == "") echo "0"; else {echo $ra*$dataRam["price"];$grandTotal += $ra*$dataRam["price"];}?>" class="border border-slate-400 rounded-lg w-full" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
         <div class="w-1/6">VGA</div>
         <div class="flex justify-end ml-20 w-3/6">
-            <select onchange="change_vga(this)" name="cbVga" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+            <select onchange="change_vga(this)" name="cbVga" class="w-36 sm:w-[750px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($vga == "") echo "selected"; ?> value="">Choose the VGA</option>
                 <?php
                     while($rowVGA = mysqli_fetch_array($queryVGA)){
@@ -136,14 +136,14 @@
         <div class="w-1/6">
             <input type="number" onchange="amount_vg(this)" name="qtyVga" value="<?php if($vga == "") echo "0"; else echo $vg; ?>" min="<?php if($vga == "") echo "0"; else echo "1"; ?>" max="<?php if($vga == "") echo "0"; else echo $dataVga["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
         </div>
-        <div class="flex w-1/6">
-            Rp: <input type="text" value="<?php if ($vga == "") echo "0"; else {echo $vg*$dataVga["price"];$grandTotal += $vg*$dataVga["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
+        <div class="flex w-20 sm:w-1/6">
+            Rp: <input type="text" value="<?php if ($vga == "") echo "0"; else {echo $vg*$dataVga["price"];$grandTotal += $vg*$dataVga["price"];}?>" class="border border-slate-400 rounded-lg w-full" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
         <div class="w-1/6">SSD</div>
         <div class="flex justify-end ml-20 w-3/6">
-            <select onchange="change_ssd(this)" name="cbSsd" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+            <select onchange="change_ssd(this)" name="cbSsd" class="w-36 sm:w-[750px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($ssd == "") echo "selected"; ?> value="">Choose the SSD</option>
                 <?php
                     while($rowSSD = mysqli_fetch_array($querySSD)){
@@ -157,14 +157,14 @@
         <div class="w-1/6">
             <input type="number" onchange="amount_ss(this)" name="qtySsd" value="<?php if($ssd == "") echo "0"; else echo $ss; ?>" min="<?php if($ssd == "") echo "0"; else echo "1"; ?>" max="<?php if($ssd == "") echo "0"; else echo $dataSsd["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
         </div>
-        <div class="flex w-1/6">
-            Rp: <input type="text" value="<?php if ($ssd == "") echo "0"; else {echo $ss*$dataSsd["price"];$grandTotal += $ss*$dataSsd["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
+        <div class="flex w-20 sm:w-1/6">
+            Rp: <input type="text" value="<?php if ($ssd == "") echo "0"; else {echo $ss*$dataSsd["price"];$grandTotal += $ss*$dataSsd["price"];}?>" class="border border-slate-400 rounded-lg w-full" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
         <div class="w-1/6">HDD</div>
         <div class="flex justify-end ml-20 w-3/6">
-            <select onchange="change_hdd(this)" name="cbHdd" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+            <select onchange="change_hdd(this)" name="cbHdd" class="w-36 sm:w-[750px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($hdd == "") echo "selected"; ?> value="">Choose the HDD</option>
                 <?php
                     while($rowHDD = mysqli_fetch_array($queryHDD)){
@@ -178,14 +178,14 @@
         <div class="w-1/6">
             <input type="number" onchange="amount_hd(this)" name="qtyHdd" value="<?php if($hdd == "") echo "0"; else echo $hd; ?>" min="<?php if($hdd == "") echo "0"; else echo "1"; ?>" max="<?php if($hdd == "") echo "0"; else echo $dataHdd["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
         </div>
-        <div class="flex w-1/6">
-            Rp: <input type="text" value="<?php if ($hdd == "") echo "0"; else {echo $hd*$dataHdd["price"];$grandTotal += $hd*$dataHdd["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
+        <div class="flex w-20 sm:w-1/6">
+            Rp: <input type="text" value="<?php if ($hdd == "") echo "0"; else {echo $hd*$dataHdd["price"];$grandTotal += $hd*$dataHdd["price"];}?>" class="border border-slate-400 rounded-lg w-full" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
         <div class="w-1/6">PSU</div>
         <div class="flex justify-end ml-20 w-3/6">
-            <select onchange="change_psu(this)" name="cbPsu" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+            <select onchange="change_psu(this)" name="cbPsu" class="w-36 sm:w-[750px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($psu == "") echo "selected"; ?> value="">Choose the PSU</option>
                 <?php
                     while($rowPSU = mysqli_fetch_array($queryPSU)){
@@ -199,14 +199,14 @@
         <div class="w-1/6">
             <input type="number" onchange="amount_ps(this)" name="qtyPsu" value="<?php if($psu == "") echo "0"; else echo $ps; ?>" min="<?php if($psu == "") echo "0"; else echo "1"; ?>" max="<?php if($psu == "") echo "0"; else echo $dataPsu["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
         </div>
-        <div class="flex w-1/6">
-            Rp: <input type="text" value="<?php if ($psu == "") echo "0"; else {echo $ps*$dataPsu["price"];$grandTotal += $ps*$dataPsu["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
+        <div class="flex w-20 sm:w-1/6">
+            Rp: <input type="text" value="<?php if ($psu == "") echo "0"; else {echo $ps*$dataPsu["price"];$grandTotal += $ps*$dataPsu["price"];}?>" class="border border-slate-400 rounded-lg w-full" disabled>
         </div>
     </div>
     <div class="my-4 flex gap-2">
         <div class="w-1/6">Casing</div>
         <div class="flex justify-end ml-20 w-3/6">
-            <select onchange="change_casing(this)" name="cbCasing" class="w-[900px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
+            <select onchange="change_casing(this)" name="cbCasing" class="w-36 sm:w-[750px] ml-auto border border-slate-400 rounded-lg focus:ring-2 focus:ring-purple-300 focus:outline-none">
                 <option <?php if ($casing == "") echo "selected"; ?> value="">Choose the Casing</option>
                 <?php
                     while($rowCasing = mysqli_fetch_array($queryCasing)){
@@ -220,8 +220,8 @@
         <div class="w-1/6">
             <input type="number" onchange="amount_ca(this)" name="qtyCasing" value="<?php if($casing == "") echo "0"; else echo $ca; ?>" min="<?php if($casing == "") echo "0"; else echo "1"; ?>" max="<?php if($casing == "") echo "0"; else echo $dataCasing["stok"]; ?>" class="w-full border border-slate-400 rounded-lg">
         </div>
-        <div class="flex w-1/6">
-            Rp: <input type="text" value="<?php if ($casing == "") echo "0"; else {echo $ca*$dataCasing["price"];$grandTotal += $ca*$dataCasing["price"];}?>" class="border border-slate-400 rounded-lg" disabled>
+        <div class="flex w-20 sm:w-1/6">
+            Rp: <input type="text" value="<?php if ($casing == "") echo "0"; else {echo $ca*$dataCasing["price"];$grandTotal += $ca*$dataCasing["price"];}?>" class="border border-slate-400 rounded-lg w-full" disabled>
         </div>
     </div>
     <div class="ml-auto flex">
