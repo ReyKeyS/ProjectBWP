@@ -104,7 +104,7 @@
             <input type="password" placeholder="Enter your password" name="pass" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             <span class="text-xl">Confirm Password</span>
             <input type="password" placeholder="Confirm your password" name="conf" class="my-2 px-3 py-2 border shadow rounded-lg w-full h-14 text-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
-            <div class="text-center text-xl my-3">Already have an account? &nbsp;<a href="login.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Login Now!</a></div>
+            <div class="text-center text-xl my-3 mx-6 sm:mx-0">Already have an account? &nbsp;<a href="login.php" class="font-semibold text-blue-400 duration-500 hover:text-purple-600 hover:duration-500">Login Now!</a></div>
             <div class="flex">
                 <button type="submit" name="home" formaction="index.php" class="my-5 text-lg font-bold mr-auto px-7 py-3 flex text-white rounded-full bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 active:bg-purple-600 focus:ring-4 focus:ring-purple-200">
                     <img src="assets/home.png" alt="" class="w-5 h-5 my-auto mr-5">
