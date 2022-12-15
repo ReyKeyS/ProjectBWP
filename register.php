@@ -87,7 +87,7 @@
 </head>
 <body class="bg-gradient-to-r from-purple-700 via-red-300 to-blue-600 animate-geserBg">
     <form action="" method="POST">
-        <div class="container bg-white box-border py-10 px-20 mx-auto my-20 flex-col top-52 left-52 border rounded-xl place-content-center hover:shadow-xl hover:shadow-cyan-300 duration-300 animate-tampil">
+        <div class="container bg-white box-border py-10 px-12 sm:px-20 mx-auto my-20 flex-col top-52 left-52 border rounded-xl place-content-center hover:shadow-xl hover:shadow-cyan-300 duration-300 animate-tampil">
             <h1 class="text-center font-bold text-6xl bg-gradient-to-br from-blue-500 to-red-700 bg-clip-text text-transparent animate-pulse">REGISTER</h1>
             <span class="text-xl">Name</span>
             <input type="text" placeholder="Enter your name" name="name" class="my-2 px-3 py-2 w-full h-14 text-xl border shadow rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
