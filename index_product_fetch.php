@@ -37,7 +37,7 @@
         for ($i=0; $i < $bnykPage; $i++) { 
     ?>
         <li class="">
-            <button class="border border-neutral-700 sm:py-1 sm:px-3 p-1 sm:text-base text-sm
+            <button class="border border-neutral-700 py-1 px-3 sm:py-1 sm:px-3 sm:text-base text-sm
             <?php 
                 if($_REQUEST["page"] == $i+1){
                     echo 'bg-neutral-700 text-white font-semibold';
@@ -84,7 +84,7 @@
         for ($i=0; $i < $bnykPage; $i++) { 
     ?>
         <li class="">
-            <button class="border border-neutral-700 sm:py-1 sm:px-3 p-1 sm:text-base text-sm 
+            <button class="border border-neutral-700 py-1 px-3 sm:py-1 sm:px-3 sm:text-base text-sm 
             <?php 
                 if($_REQUEST["page"] == $i+1){
                     echo 'bg-neutral-700 text-white font-semibold';
