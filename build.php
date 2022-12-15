@@ -110,10 +110,10 @@
 <body onload="load_ajax()">
     <form action="" method="POST">
         <nav class="h-20 bg-gradient-to-r from-slate-700 via-slate-500 to-slate-300 flex fixed w-full z-10 animate-geserBg">
-            <a class="w-28 my-auto ml-3" href="index.php">
-                <img src="assets/Logo.jpg" alt="" class="w-12 h-12 mx-auto rounded-full">
+            <a class="w-24 ml-3 sm:w-28 my-auto sm:ml-3" href="index.php">
+                <img src="assets/Logo.jpg" alt="" class="w-8 h-8 sm:w-12 sm:h-12 mx-auto rounded-full">
             </a>
-            <a class="my-auto w-64 text-white font-bold text-2xl" href="index.php">
+            <a class="my-auto sm:w-64 text-white font-bold text-xs sm:text-2xl" href="index.php">
             <?php
                     // if(isset($_SESSION['data'])){
                     //     echo $_SESSION['data']['nama'];
@@ -124,46 +124,48 @@
                 ?> 
                 Glorindo Komputer
             </a>
-            <div class="my-auto w-1/2 flex">
+            <div class="my-auto w-1/2 flex sm:mr-4 <?php if($logged) echo 'hidden sm:flex'; ?>">
                 <input type="text" name="search" placeholder="Cari Disini" class="px-5 py-2 rounded-l-xl w-full focus:ring-4 focus:ring-purple-400 focus:outline-none cursor-not-allowed" disabled>
                 <button name="btnsearch" class="border-l-2 bg-white rounded-r-xl w-12 pl-1 hover:bg-slate-400 disabled:opacity-25 cursor-not-allowed disabled:hover:bg-white" disabled>
                     <img src="assets/search.png" alt="" class="w-8 h-8 p-1">
                 </button>
             </div>
-            <div class="w-24 my-auto">
-                <button type="submit" name="build" class="px-5 py-2 flex mx-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Build</button>
+            <div class="w-20 sm:w-24 my-auto <?php if(!$logged) echo 'hidden sm:block'; ?>">
+                <button type="submit" name="build" class="sm:px-5 sm:py-2 px-3 py-2 sm:text-base text-xs flex mx-auto bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Build</button>
             </div>
-            <div class="w-32 my-auto">
-                <button type="submit" name="cart" class="flex w-24 px-2 m-auto rounded-2xl bg-slate-600 font-semibold text-white hover:bg-slate-900">
-                    <img src="assets/shopping-cart.png" alt="" class="w-10 h-10 p-1">
-                    <span class="my-auto p-1">Cart</span>
+            <div class="w-16 sm:w-32 my-auto <?php if(!$logged) echo 'hidden sm:block'; ?>">
+                <button type="submit" name="cart" class="flex w-16 ml-[6px] sm:ml-0 sm:w-24 sm:px-2 px-px m-auto rounded-2xl bg-slate-600 font-semibold text-white hover:bg-slate-900">
+                    <img src="assets/shopping-cart.png" alt="" class="w-8 h-8 -mr-4 sm:mr-0 sm:w-10 sm:h-10 p-1">
+                    <span class="my-auto px-3 py-2 sm:p-1 text-xs sm:text-base">Cart</span>
                 </button>
             </div>
             <?php
             if($logged){
             ?>
-                <div class="w-32 my-auto flex flex-col">
-                    <a class="my-auto text-center font-bold text-lg">
-                        <img src="assets/customer.png" alt="" class="w-7 h-7 mx-auto rounded-full">
-                        <div>
-                            <?= $_SESSION['data']['nama']?>
-                        </div>
-                    </a>
+                <div class="w-14 sm:w-28 my-auto ml-4 sm:-ml-5">
+                    <button type="submit" name="history" class="h-8 sm:h-10 sm:px-5 sm:py-2 px-2 py-1 sm:text-base text-xs bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">History</button> 
                 </div>
-                <div class="w-28 my-auto">
-                    <button type="submit" name="history" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">History</button> 
-                </div>
-                <div class="w-24 my-auto">  
-                    <button type="submit" name="logout" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Logout</button>
+                <div class="mt-4 block sm:flex sm:mt-0">
+                    <div class="w-16 sm:w-32 my-auto flex flex-col">
+                        <a class="my-auto text-center font-bold text-lg">
+                            <img src="assets/customer.png" alt="" class="w-3 h-3 sm:w-7 sm:h-7 mx-auto rounded-full">
+                            <div class="text-xs sm:text-base">
+                                <?= $_SESSION['data']['nama']?>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w-12 sm:w-24 my-auto">  
+                        <button type="submit" name="logout" class="sm:px-5 sm:py-2 px-2 py-1 ml-3 sm:ml-0 sm:text-base text-[8px] bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Logout</button>
+                    </div>
                 </div>
             <?php
                 }else{
             ?>
-                <div class="w-40 my-auto flex place-content-center">
-                    <button type="submit" formaction="login.php" class="px-5 py-2 mx-3 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Login</button>
+                <div class="w-20 sm:w-40 my-auto flex place-content-center">
+                    <button type="submit" formaction="login.php" class="sm:px-5 sm:py-2 px-3 py-2 sm:text-base text-xs mx-3 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Login</button>
                 </div>
-                <div class="w-40 my-auto flex mx-auto place-content-center">
-                    <button type="submit" formaction="register.php" class="px-5 py-2 bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
+                <div class="w-20 mr-5 sm:w-40 my-auto flex mx-auto place-content-center">
+                    <button type="submit" formaction="register.php" class="sm:px-5 sm:py-2 px-3 py-2 sm:text-base text-xs bg-gradient-to-r from-purple-700 to-blue-600 text-white font-semibold rounded-2xl hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Register</button>
                 </div>
             <?php
                 }
