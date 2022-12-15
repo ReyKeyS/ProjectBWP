@@ -135,18 +135,18 @@
                         $querySatuProduct = mysqli_query($conn, "SELECT p.nama, dt.qty, p.price, p.gmbr from dtrans dt JOIN products p ON p.id_products = dt.id_products where dt.id_htrans = '".$row["id_htrans"]."'");
                         $SatuProduct = mysqli_fetch_row($querySatuProduct);
             ?>
-                <div class="w-1/2 h-64 mx-auto my-3 p-2 flex border rounded-xl shadow-xl">
+                <div class="w-full sm:w-1/2 h-64 mx-auto my-3 p-2 flex border rounded-xl shadow-xl">
                     <div class="w-1/4 flex flex-col">
-                        <div class="text-slate-400"><?=$row["invoice"]?> | <?=$row["tanggal"]?></div>
-                        <img src="<?=$SatuProduct[3]?>" alt="Imaged" class="w-48 h-48 m-auto">
+                        <div class="text-sm sm:text-base text-slate-400"><?=$row["invoice"]?> | <?=$row["tanggal"]?></div>
+                        <img src="<?=$SatuProduct[3]?>" alt="Imaged" class="w-24 h-24 sm:w-48 sm:h-48 m-auto">
                     </div>
                     <div class="w-2/4 flex flex-col pt-20">
-                        <div class="text-3xl font-semibold"><?=$SatuProduct[0]?></div>
-                        <div class="text-base text-slate-600"><?=$SatuProduct[1]?> x Rp <?=number_format($SatuProduct[2])?></div>
+                        <div class="text-lg sm:text-3xl font-semibold"><?=$SatuProduct[0]?></div>
+                        <div class="text-sm sm:text-base text-slate-600"><?=$SatuProduct[1]?> x Rp <?=number_format($SatuProduct[2])?></div>
                         <?php
                             if ($querySatuProduct->num_rows > 1){
                                 $kurang = (int)$querySatuProduct->num_rows - 1;
-                                echo "<div class='text-slate-600'>+".$kurang." others</div>";
+                                echo "<div class='text-sm sm:text-base text-slate-600'>+".$kurang." others</div>";
                             }
                         ?>
                         
@@ -156,22 +156,22 @@
                             <?php
                                 if ($row["status"]=="1"){
                             ?>
-                                <a class="text-2xl text-yellow-500 font-semibold">Pending ⌛</a>
+                                <a class="text-sm sm:text-2xl text-yellow-500 font-semibold">Pending ⌛</a>
                             <?php
                                 }else if ($row["status"]=="0"){
                             ?>
-                                <a class="text-2xl text-green-400 font-semibold">Done ✔ </a>
+                                <a class="text-sm sm:text-2xl text-green-400 font-semibold">Done ✔ </a>
                             <?php
                                 }else if ($row["status"]=="2"){
                             ?>
-                                <a class="text-2xl text-red-400 font-bold">Failed❌</a>
+                                <a class="text-sm sm:text-2xl text-red-400 font-bold">Failed❌</a>
                             <?php
                                 }
                             ?>                            
                         </div>
-                        <div class="pt-16">Total</div>
-                        <div class="text-xl font-bold">Rp <?=number_format($row["total"])?></div>
-                        <a href="detail_transaksi.php?hID=<?=$row["id_htrans"]?>" class="text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">See Transaction Detail</a>
+                        <div class="pt-14 sm:pt-16">Total</div>
+                        <div class="text-base sm:text-xl font-bold">Rp <?=number_format($row["total"])?></div>
+                        <a href="detail_transaksi.php?hID=<?=$row["id_htrans"]?>" class="text-[9px] sm:text-lg font-semibold mt-auto bg-gradient-to-r from-purple-700 to-blue-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800 hover:bg-clip-text hover:text-transparent hover:cursor-pointer">See Transaction Detail</a>
                     </div>
                 </div>
             <?php
@@ -180,10 +180,10 @@
                 else{
                     ?>
                     <div class="w-1/2 pt-20 flex flex-col mx-auto font-mono mt-auto">
-                        <div class="mx-auto text-9xl font-semibold"><marquee scrollamount="20">ERROR 404</marquee></div>
-                        <div class="text-9xl text-center">☠</div>
-                        <div class="mx-auto text-6xl">Your history is empty</div>
-                        <div class="mx-auto text-3xl">Let's go shopping</div>
+                    <div class="mx-auto text-4xl sm:text-9xl font-semibold"><marquee scrollamount="20">ERROR 404</marquee></div>
+                    <div class="text-9xl text-center">☠</div>
+                    <div class="mx-auto text-center text-3xl sm:text-6xl">Your history is empty</div>
+                    <div class="mx-auto text-center mt-5 sm:mt-0 text-lg sm:text-3xl">Let's go shopping</div>
                         <div class="mx-auto mt-10">
                             <button type="submit" formaction="index.php" class="mb-5 px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
                         </div>
@@ -197,46 +197,46 @@
                 <img src="assets/up-arrow.png" alt="" class="w-7 h-7">
             </a>
         </div>
-        <nav class="h-96 bg-black mt-auto">
+        <nav class="h-96 bg-black">
             <div class="flex">
                 <div class="w-1/2 pt-5 flex flex-col border-r">
                     <div class="flex justify-center my-1">
-                        <div class="text-white mr-5 text-4xl font-semibold">Send Us Mail</div>
+                        <div class="text-white mr-5 sm:text-4xl text-xl font-semibold">Send Us Mail</div>
                         <img src="assets/email (1).png" alt="">
                     </div>
-                    <input type="text" name="email" placeholder="Email Address" class="px-3 py-1 my-1 w-96 mx-auto rounded-lg bg-transparent text-white placeholder-white border-b-2 focus:ring-2 focus:ring-purple-400 focus:outline-none focus:border-b-0">
+                    <input type="text" name="email" placeholder="Email Address" class="px-3 py-1 my-1 sm:w-96 w-40 mx-auto rounded-lg bg-transparent placeholder-white text-white border-b-2 focus:ring-2 focus:ring-purple-400 focus:outline-none focus:border-b-0">
                     <div class="mx-auto text-white my-3">
                         <div class="text-white">Mail</div>
-                        <textarea name="mail" id="" cols="50" rows="5" class="rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none"></textarea>
+                        <textarea name="mail" id="" class="sm:w-96 sm:h-28 w-48 h-16 rounded-xl text-black focus:ring-2 focus:ring-purple-400 focus:outline-none"></textarea>
                         <div class="flex">
                             <input type="checkbox" name="send">
-                            <div class="my-auto">Let us send you an email</div>
-                            <button type="submit" name="send" class="px-3 py-2 ml-auto rounded-xl font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Send</button>
+                            <div class="my-auto sm:text-base text-xs">Let us send you an email</div>
+                            <button type="submit" name="send" class="sm:px-3 sm:py-2 p-1 ml-auto rounded-xl font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Send</button>
                         </div>
                     </div>
                 </div>
                 <div class="w-1/2 flex flex-col pt-2">
-                    <div class="my-3 text-white text-4xl flex font-semibold justify-center">Follow Us</div>
+                    <div class="my-3 text-white sm:text-4xl text-xl flex font-semibold justify-center">Follow Us</div>
                     <div class="flex space-x-4 place-content-center">
                         <a href="https://tokopedia.link/JiqmfSeYrvb" target="_blank" class="hover:scale-125 duration-200">
-                            <img src="assets/tokopedia.png" alt="" class="w-10 h-10">
+                            <img src="assets/tokopedia.png" alt="" class="sm:w-10 sm:h-10 w-7 h-7">
                         </a>
                         <a href="https://www.instagram.com/ltj.shop/" target="_blank" class="hover:scale-125 duration-200">
-                            <img src="assets/instagram.png" alt="" class="w-10 h-10">
+                            <img src="assets/instagram.png" alt="" class="sm:w-10 sm:h-10 w-7 h-7">
                         </a>
                         <a href="https://www.facebook.com/" target="_blank" class="hover:scale-125 duration-200">
-                            <img src="assets/facebook.png" alt="" class="w-10 h-10">
+                            <img src="assets/facebook.png" alt="" class="sm:w-10 sm:h-10 w-7 h-7">
                         </a>
                         <a href="https://www.tiktok.com" target="_blank" class="hover:scale-125 duration-200">
-                            <img src="assets/tiktok.png" alt="" class="w-10 h-10">
+                            <img src="assets/tiktok.png" alt="" class="sm:w-10 sm:h-10 w-7 h-7">
                         </a>
                     </div>
-                    <div class="mt-7 mb-5 text-white text-4xl flex font-semibold justify-center">Contacts</div>
-                    <div class="text-white text-center mx-auto text-sm"><span class="text-lg font-bold"><i>Customer Care</i></span><br><b>Email:</b> Glorindo.Care@care.co.id</div>
-                    <div class="text-white text-center mx-auto text-sm"><span class="text-lg font-bold"><i>Contact Person</i></span><br><b>Email:</b> Glorindo.Komp@official.co.id<br><b>Phone:</b> 081234567890</div>
+                    <div class="mt-7 mb-5 text-white sm:text-4xl text-xl flex font-semibold justify-center">Contacts</div>
+                    <div class="text-white text-center mx-auto text-xs"><span class="text-lg font-bold"><i>Customer Care</i></span><br><b>Email:</b> Glorindo.Care@care.co.id</div>
+                    <div class="text-white text-center mx-auto text-xs"><span class="text-lg font-bold"><i>Contact Person</i></span><br><b>Email:</b> Glorindo.Komp@official.co.id<br><b>Phone:</b> 081234567890</div>
                 </div>
             </div>
-            <div class="text-white text-center mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
+            <div class="text-white text-center sm:text-base text-sm mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
         </nav>
         </div>
     </form>

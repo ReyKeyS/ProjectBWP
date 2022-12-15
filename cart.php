@@ -239,10 +239,10 @@
             else{
                 ?>
                 <div class="w-1/2 pt-20 flex flex-col mx-auto font-mono mt-auto">
-                    <div class="mx-auto text-9xl font-semibold"><marquee scrollamount="20">ERROR 404</marquee></div>
+                    <div class="mx-auto text-4xl sm:text-9xl font-semibold"><marquee scrollamount="20">ERROR 404</marquee></div>
                     <div class="text-9xl text-center">☠</div>
-                    <div class="mx-auto text-6xl">Your cart is empty</div>
-                    <div class="mx-auto text-3xl">Let's go shopping</div>
+                    <div class="mx-auto text-center text-3xl sm:text-6xl">Your cart is empty</div>
+                    <div class="mx-auto text-center mt-5 sm:mt-0 text-lg sm:text-3xl">Let's go shopping</div>
                     <div class="mx-auto mt-10">
                         <button type="submit" formaction="index.php" class="mb-5 px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Go Shopping</button>
                     </div>
@@ -257,42 +257,42 @@
             <div class="flex">
                 <div class="w-1/2 pt-5 flex flex-col border-r">
                     <div class="flex justify-center my-1">
-                        <div class="text-white mr-5 text-4xl font-semibold">Send Us Mail</div>
+                        <div class="text-white mr-5 sm:text-4xl text-xl font-semibold">Send Us Mail</div>
                         <img src="assets/email (1).png" alt="">
                     </div>
-                    <input type="text" name="email" placeholder="Email Address" class="px-3 py-1 my-1 w-96 mx-auto rounded-lg bg-transparent text-white placeholder-white border-b-2 focus:ring-2 focus:ring-purple-400 focus:outline-none focus:border-b-0">
+                    <input type="text" name="email" placeholder="Email Address" class="px-3 py-1 my-1 sm:w-96 w-40 mx-auto rounded-lg bg-transparent placeholder-white text-white border-b-2 focus:ring-2 focus:ring-purple-400 focus:outline-none focus:border-b-0">
                     <div class="mx-auto text-white my-3">
                         <div class="text-white">Mail</div>
-                        <textarea name="mail" id="" cols="50" rows="5" class="rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none"></textarea>
+                        <textarea name="mail" id="" class="sm:w-96 sm:h-28 w-48 h-16 rounded-xl text-black focus:ring-2 focus:ring-purple-400 focus:outline-none"></textarea>
                         <div class="flex">
                             <input type="checkbox" name="send">
-                            <div class="my-auto">Let us send you an email</div>
-                            <button type="submit" name="send" class="px-3 py-2 ml-auto rounded-xl font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Send</button>
+                            <div class="my-auto sm:text-base text-xs">Let us send you an email</div>
+                            <button type="submit" name="send" class="sm:px-3 sm:py-2 p-1 ml-auto rounded-xl font-semibold bg-gradient-to-r from-purple-700 to-blue-600 hover:bg-gradient-to-r hover:from-purple-900 hover:to-blue-800">Send</button>
                         </div>
                     </div>
                 </div>
                 <div class="w-1/2 flex flex-col pt-2">
-                    <div class="my-3 text-white text-4xl flex font-semibold justify-center">Follow Us</div>
+                    <div class="my-3 text-white sm:text-4xl text-xl flex font-semibold justify-center">Follow Us</div>
                     <div class="flex space-x-4 place-content-center">
                         <a href="https://tokopedia.link/JiqmfSeYrvb" target="_blank" class="hover:scale-125 duration-200">
-                            <img src="assets/tokopedia.png" alt="" class="w-10 h-10">
+                            <img src="assets/tokopedia.png" alt="" class="sm:w-10 sm:h-10 w-7 h-7">
                         </a>
                         <a href="https://www.instagram.com/ltj.shop/" target="_blank" class="hover:scale-125 duration-200">
-                            <img src="assets/instagram.png" alt="" class="w-10 h-10">
+                            <img src="assets/instagram.png" alt="" class="sm:w-10 sm:h-10 w-7 h-7">
                         </a>
                         <a href="https://www.facebook.com/" target="_blank" class="hover:scale-125 duration-200">
-                            <img src="assets/facebook.png" alt="" class="w-10 h-10">
+                            <img src="assets/facebook.png" alt="" class="sm:w-10 sm:h-10 w-7 h-7">
                         </a>
                         <a href="https://www.tiktok.com" target="_blank" class="hover:scale-125 duration-200">
-                            <img src="assets/tiktok.png" alt="" class="w-10 h-10">
+                            <img src="assets/tiktok.png" alt="" class="sm:w-10 sm:h-10 w-7 h-7">
                         </a>
                     </div>
-                    <div class="mt-7 mb-5 text-white text-4xl flex font-semibold justify-center">Contacts</div>
-                    <div class="text-white text-center mx-auto text-sm"><span class="text-lg font-bold"><i>Customer Care</i></span><br><b>Email:</b> Glorindo.Care@care.co.id</div>
-                    <div class="text-white text-center mx-auto text-sm"><span class="text-lg font-bold"><i>Contact Person</i></span><br><b>Email:</b> Glorindo.Komp@official.co.id<br><b>Phone:</b> 081234567890</div>
+                    <div class="mt-7 mb-5 text-white sm:text-4xl text-xl flex font-semibold justify-center">Contacts</div>
+                    <div class="text-white text-center mx-auto text-xs"><span class="text-lg font-bold"><i>Customer Care</i></span><br><b>Email:</b> Glorindo.Care@care.co.id</div>
+                    <div class="text-white text-center mx-auto text-xs"><span class="text-lg font-bold"><i>Contact Person</i></span><br><b>Email:</b> Glorindo.Komp@official.co.id<br><b>Phone:</b> 081234567890</div>
                 </div>
             </div>
-            <div class="text-white text-center mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
+            <div class="text-white text-center sm:text-base text-sm mt-5">&copy; Glorindo Komputer Inc. 2022 All Rights Reserved</div>
         </nav>
         <?php
             if(isset($_POST['buy'])){
