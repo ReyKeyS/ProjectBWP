@@ -166,8 +166,7 @@
                     <div class="pt-1 pl-7 ml-44 block text-center text-white">
                         <div class="text-xl my-auto font-bold">Admin Glorindo Komputer</div>
                         <div class="text-3xl my-auto font-bold">Welcome Back Admin! Let's Build a Future Together</div>
-                    </div>
-                </div>
+                    </div>               </div>
                 <div class="overflow-y-auto h-screen -mt-5">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="mt-6 max-w-5xl border border-slate-200 rounded-xl mx-auto shadow-md p-5 bg-white">
@@ -180,9 +179,9 @@
                                     <textarea rows="4" cols="95" name="desc" class="mb-3 mt-2 px-3 py-2 border rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Description"></textarea><br>
                                 </div>
                                 <span class="my-auto mr-3 text-lg">Price : </span>
-                                <input type="text" name="price" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Price"><br>
+                                <input type="number" name="price" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Price"><br>
                                 <span class="my-auto mr-3 text-lg">Stock : </span>
-                                <input type="text" name="stok" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Stock"><br>
+                                <input type="number" name="stok" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Stock"><br>
                                 <span class="my-auto mr-3 text-lg">Brand : </span>
                                 <input type="text" name="brand" class="mb-3 px-3 py-2 border w-5/6 rounded-lg focus:ring-4 focus:ring-purple-500 focus:outline-none" placeholder="Brand"><br>
                                 <span class="my-auto mr-3 text-lg">Category : </span>
@@ -222,7 +221,7 @@
             fetch_product();
         }
         refreshProduct = setInterval(fetch_product, 500);
-
+        
         function fetch_product(){
             r = new XMLHttpRequest();
             r.onreadystatechange = function(){

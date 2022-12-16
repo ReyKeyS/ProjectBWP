@@ -216,7 +216,7 @@
     </form>
         <div class="flex flex-col pt-20">
             <div class="w-full sm:h-[650px] h-64 bg-black">
-                <div class="flex flex-row w-full h-full sm:bg-[center_bottom_-17rem] sm:bg-auto bg-cover bg-center animate-tampilgambar" style="background-image: url('assets/setup.jpg');">
+                <div class="flex flex-row w-full h-full sm:bg-[center_bottom_-17rem] sm:bg-auto bg-cover bg-center animate-tampilgambar" style="background-image: url('assets/setup.jpg');" id="gambar">
                     <div class="w-1/3 m-auto text-center text-white font-bold sm:text-3xl text-sm animate-tampil">
                         Welcome To Our Shop
                         <br>
@@ -343,7 +343,28 @@
             fetch_product();
         }
         // refreshProduct = setInterval(fetch_product, 500);
+        setTimeout(myFunction, 3000);
 
+        var konter=0;
+        const gmbr=["url('assets/setup.jpg')","url('assets/setup2.jpg')","url('assets/setup3.jpg')"]
+        function myFunction() {
+            if(konter==0){
+                document.getElementById("gambar").style.backgroundImage = gmbr[0];
+                konter++;
+                setTimeout(myFunction, 3000)
+            }
+            else if(konter==1){
+                document.getElementById("gambar").style.backgroundImage = gmbr[1];
+                konter++;
+                setTimeout(myFunction, 3000)
+            }
+            else{
+                document.getElementById("gambar").style.backgroundImage = gmbr[2];
+                konter=0;
+                setTimeout(myFunction, 3000)
+            }
+            // document.getElementById("gambar").style.backgroundImage = "url('assets/setup2.jpg')";
+        }
         function fetch_product(){
             r = new XMLHttpRequest();
             r.onreadystatechange = function(){

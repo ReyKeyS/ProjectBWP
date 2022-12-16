@@ -1,7 +1,7 @@
 <?php
 	require("connection.php");
 
-	$queryProducts = mysqli_query($conn, "SELECT p.id_products, p.nama, p.price, c.nama, p.stok from products p JOIN categories c ON c.id_cate = p.id_cate where status = 1 ORDER BY p.id_products");
+	$queryProducts = mysqli_query($conn, "SELECT p.id_products, p.nama, p.price, c.nama, p.stok from products p JOIN categories c ON c.id_cate = p.id_cate where status = 1 ORDER BY p.id_products desc");
 	
 ?>
 <table>

@@ -9,7 +9,7 @@
         while($row=mysqli_fetch_array($result)){
             if($nama==$row['email'] || $nama==$row['nama']){
                 $ketemu2=true;
-                if($pass==$row['password']){
+                if(md5($pass)==$row['password']){
                     $ketemu=true;
                     $nama=$row['nama'];
                     $email=$row['email'];

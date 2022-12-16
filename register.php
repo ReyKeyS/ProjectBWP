@@ -25,7 +25,7 @@
                     $max = mysqli_query($conn, "SELECT max(substr(id_users,3)) from users");
                     $maxUrut = mysqli_fetch_row($max)[0] + 1;
                     $newID .= str_pad($maxUrut, 4, "0", STR_PAD_LEFT);
-                    
+                    $pass= md5($pass);
                     mysqli_query($conn,"INSERT into users values('$newID', '$name', '$email', '$telp', '$alamat', '$pass', '1')");
                     header("Location: login.php");
                 }

@@ -100,7 +100,6 @@
                             <th class="col">ID</th>
                             <th class="col">Name</th>
                             <th class="col">Email</th>
-                            <th class="col">Password</th>
                             <th class="col">Address</th>
                             <th class="col">Phone Number</th>
                             <th class="col">Action</th>
@@ -124,7 +123,7 @@
                                 <td class="col"><?= $row[0]?></td>
                                 <td class="col"><?=$row[1]?></td>
                                 <td class="col"><?=$row[2]?></td>
-                                <td class="col text-center"><?=$row[5]?></td>
+                                <!-- <td class="col text-center"><?=$row[5]?></td> -->
                                 <td class="col text-center"><?=$row[4]?></td>
                                 <td class="col text-center"><?=$row[3]?></td>
                                 <td class="col">
